@@ -1,0 +1,19 @@
+.inner { width: 90%; margin: 0 auto; }
+
+.sec2 .group { flex-direction: column; width: 100%; }
+
+.group .box { display: flex; padding: 0; margin: 0; width: 100% !important; }
+
+.box img { width: min-content !important; }
+
+.box { margin: 12px 0 !important; }
+
+.box .tbox { width: 100%; }
+
+.sec2 .box.snd { flex-direction: row-reverse; }
+
+@media all and (max-width: 668px) {
+    .box { flex-direction: column; }
+    .box img { width: 100% !important; }
+    .sec2 .box.snd { flex-direction: column; }
+}

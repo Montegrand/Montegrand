@@ -1,0 +1,64 @@
+@charset "utf-8";@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100; 300; 400; 500; 700; 900&display=swap');
+* { font-family: 'Noto Sans KR', sans-serif; 
+    position: relative; 
+    box-sizing: border-box;
+    /* outline: 1px solid red;  */
+} 
+
+h3 { font-size: 3rem; } 
+
+h4 { font-size: 1.5rem; } 
+
+.sec.fst { background: url(/images/HD_LC/pattern_01.png) repeat, url(/images/HD_LC/sec1_bg.jpg) 50% 0px no-repeat; background-size: 3px 3px, cover; } 
+
+.sec.fst h1 { font-size: 5rem; color: white; text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); margin-top: 60px; } 
+
+.sec.fst h2 { color: #009882; font-weight: 600; margin: 60px 0 24px 0; } 
+
+.sec.fst p { width: 1200px; color: white; text-align: center; padding: 0 200px; margin: 0 0 90px 0; } 
+
+.inner.one { display: flex; flex-direction: column; align-items: center; } 
+
+.inner.one button { width: 200px; height: 45px; background: #009882; margin: 20px 0px; color: white; } 
+
+.sec.snd { display: flex; flex-direction: row; height: 830px; font-size: 1.5rem; } 
+
+.sec.snd > div { width: 50%; } 
+
+.sec.snd .left div { background: url(/images/HD_LC/sec2_left_bg.png) 50% 0px no-repeat; width: 690px; height: 360px; position: absolute; z-index: 1; right: -80px; top: 200px; } 
+
+.sec.snd .left div h3 { position: absolute; top: -150px; }
+
+.sec.snd .right { background-color: #009882; color: white; display: flex; flex-direction: column; } 
+
+.sec.snd .right div { width: 500px; text-align:justify; position: absolute; top: 150px; left: 150px; padding: 0 60px 0 0; } 
+
+.sec.trd { display: flex; flex: 1 1 0; height: 830px; } 
+
+.sec.trd > div {width: 50%; }
+
+.sec.trd .left {background: #F4F4F4; display: flex; justify-content:flex-end; align-items:center; }
+
+.sec.trd .left .TI { background: url(/images/HD_LC/sec3_left_bg.jpg) 50% 0px no-repeat; background-size: 100%; width: 600px; height: 470px; margin: 0 0 100px 0; color: white; text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); }
+
+.sec.trd .left .TI h4 {margin: 40px 0 0 40px;}
+
+.sec.trd .left button { position:absolute; bottom: 10px; right: 10px; width: 200px; height: 45px; color: white; font-weight: 700; border: 1px solid white; background-color: transparent; }
+
+.sec.trd .left button span:first-child  { color:#009882; }
+
+.sec.trd .right h3 { margin: 30px 0 60px 0 ;}
+
+.sec.trd .right > div { background: url(/images/HD_LC/sec3_right_bg.jpg) 50% 0px no-repeat; background-size: 100%; width: 600px; height: 470px; position: absolute; top: 200px; }
+
+.sec.trd .right > div h4 {color: white; text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); margin: 40px 0 0 40px; }
+
+.sec.trd .right button {position:absolute; bottom: 10px; right: 10px; width: 200px; height: 45px; background: #009882;  color: white; }
+
+.sec.fth {background: url(/images/HD_LC/sec4_bg.jpg) 50% 0px no-repeat; background-size: cover; height: 550px; display: flex; flex-direction: column; align-items: center; }
+
+.sec.fth h2 {color: white; text-align: center; font-size: 3rem; margin-top: 100px; text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);}
+
+.sec.fth p {color: white; text-align:center; font-size: 1rem; }
+
+.sec.fth button { width: 160px; height: 80px; background: #009882;  color: white; position:absolute; bottom: 0px; }

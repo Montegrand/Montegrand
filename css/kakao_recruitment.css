@@ -1,0 +1,106 @@
+@charset "utf-8"; 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* Noto sans KR font */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+	/* font-awsome v6.1.1 */
+
+* { 
+    font-family: 'Noto Sans KR', sans-serif; 
+    text-decoration: none;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0; margin: 0;
+    /* outline: 1px solid #000; */
+}
+
+body { margin: none; padding: none;}
+
+.sec .inner { width: 1200px; height: 100%; margin: 0 auto; display: flex; }
+
+h2 { font-size: 2.4rem; }
+
+header { height: 42px; display: flex; justify-content: space-between; align-items: center; background: #666; padding: 0 24px; }
+
+header a { color: #fff; }
+
+header a span { font-size: 1.2rem; font-weight: 900; }
+
+header > div:nth-child(2) a { margin: 0 12px; }
+
+header > div:last-child a { color: #aaa; font-weight: 500; }
+
+.n1 { height: 540px; background: url(/images/kakao_cruitment/n1_bg.png) 50% 0px no-repeat; background-size: cover; }
+
+.n1 .inner { align-items: center; }
+
+.n1 .inner p { font-size:3rem; font-weight: 700; color: #ddd; margin-left: 240px; align-items: center; }
+
+.n2 { height: 660px; background: url(/images/kakao_cruitment/n2_bg.png) 50% 0px no-repeat; background-size: cover; }
+
+.n2 .inner { flex-direction: column; padding: 12px 0; height: 100%; justify-content: center; }
+
+.n2 h2 { margin-left: 60px; }
+
+.n2 .inner > div { display: flex; flex: 0 1 0; flex-wrap: wrap;  }
+
+.n2 .inner > div > div { width: 33.33%; display: flex; flex-direction: column; justify-content: center; margin-top: 24px; padding: 0 60px; }
+
+.n2 .inner > div > div h4 { color: #666; }
+
+.n2 .inner > div > div p:nth-child(2) { margin: 6px 0 42px 0; border-top: 1px solid #666; }
+
+.n2 .inner > div > div p:nth-child(3) { margin-bottom: 12px; }
+
+.n3 .inner { flex-direction: column; margin: 120px auto; }
+
+.n3 h2 { padding-left: 60px; }
+
+.n3 .inner > div { display: flex; flex: 0 1 0; padding: 0 60px; }
+
+.n3 .inner > div:nth-child(n) { border-bottom: 1px solid #ddd; margin: 24px 0; }
+
+.n3 .inner > div:last-child { border-bottom: none; }
+
+.n3 .inner > div .header { font-size: 2rem; width: 30%; }
+
+.n3 .inner > div > div { width: 70%; }
+
+.n3 .inner > div > div h4 { font-size: 1.5rem; }
+
+.n3 .inner > div > div p { margin: 12px 0; }
+
+.n4 { height: 660px; background: url(/images/kakao_cruitment/n4_bg.png) 50% 0px no-repeat; background-size: cover; }
+
+.n5 { background: #fff; }
+
+.n5 h2 { margin: 30px 60px; }
+
+.n5 p { font-size: 1rem; line-height: 2rem; }
+
+.n5 .inner { flex-direction: column; }
+
+.n5 .inner > div { display: flex; justify-content: center; }
+
+.n5 .inner > div a { width: 420px; height: 540px; padding: 350px 30px 0; color: #333; margin: 12px 60px; }
+
+.n5 .inner > div a > div { margin-top: 12px; }
+
+.n5 .inner > div a > div h5 { margin: 6px 0; width: 60px; }
+
+.n5 .inner > div a > div > div { display: flex; }
+
+.n5 .inner .map1 { background: url(/images/kakao_cruitment/m_office_map.png) 50% 0 no-repeat; background-size: contain; }
+
+.n5 .inner .map2 { background: url(/images/kakao_cruitment/p_office_map.png) 50% 0 no-repeat; background-size: contain; }
+
+footer { display: flex; justify-content: space-between; width: 100%; height: 80px; background: #ddd 50% 0; background-size: 100% 120%; padding: 12px 24px; }
+
+footer a { color: #333; }
+
+footer > div:first-child > div { display: flex; align-items: center; }
+
+footer > div:first-child > div a:first-child { font-weight: 700; }
+
+footer > div:first-child > div a:first-child::after { content: ""; display: inline-block; width: 1px; height: 12px; background: #222; margin: 0 12px; }
+
+footer > div:last-child a { margin: 0 12px; }

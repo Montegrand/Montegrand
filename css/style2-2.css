@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+p {
+    color: rgb(57, 240, 240);
+}
+
+#ctxt {
+    color: rgb(6, 6, 153);
+}
+
+.txt {
+    color: rgb(67, 216, 87);
+}
+
+.btxt {
+    color: rgb(145, 80, 1);
+}
+
+.atxt {
+    color: rgb(83, 8, 153);
+}
+
+.etxt {
+    color: rgb(223, 223, 33);
+}
+
+.ftxt {
+    font-weight: bold;
+}
+
+.atxt.ztxt {
+    color: cornflowerblue;
+    font-weight: bold;
+}
+
+* {
+    color: black;
+}

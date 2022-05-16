@@ -1,0 +1,29 @@
+header { display: none; }
+
+.sec .inner { width: 90%; }
+
+.n1 { padding: 12px; }
+
+.n1 .bt_bd .bt_nav1 { display: none; }
+
+.n2 .inner { flex-direction: column; width: 80%; height: auto; }
+
+.n3 .inner { overflow: hidden; }
+
+.n3 .inner .contents { width: auto; }
+
+.n3 .contents a { width: 660px; height: 330px; margin: 80px 42px; }
+
+.n3 .contents a > div { display: inline-block; }
+
+.n3 .contents a:nth-child(1), .n3 .contents a:nth-child(2), .n3 .contents a:nth-child(3) { background-size: contain; background-position: -50% 50%; }
+
+.n3 .contents a { display: flex; align-items: center; }
+
+.n3 .contents a div { top: 0; width: 240px; left: 420px; }
+
+.n3 .contents a:nth-child(n)::before, .n3 .contents a:nth-child(n)::after { left: 386px; top: 30%; }
+
+.n4 .inner { flex-direction: column; }
+
+.n4 .contents a { width: 80%; }

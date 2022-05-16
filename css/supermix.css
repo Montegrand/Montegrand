@@ -1,0 +1,89 @@
+@charset "utf-8"; 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* Noto sans KR font */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+/* font-awsome v6.1.1 */
+
+/* ----홍기현---- */
+* { 
+    font-family: 'Noto Sans KR', sans-serif; 
+    margin: 0; padding: 0; 
+    box-sizing: border-box;
+    position: relative;
+    list-style-type: none;
+    text-decoration: none;
+    color: #333;
+    outline: 1px solid red;
+}
+
+body { overflow-x: hidden; }
+
+section { height: calc(100vh - 120px); display: flex; flex-direction: column; justify-content: center; }
+
+.inner { width: 1200px; margin: 0 auto; }
+
+/* 헤더 */
+header { display: flex; background: #000; justify-content: space-between; padding: 12px 60px; position: sticky; top:0; z-index: 10; height: 120px; }
+
+header .logo { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+header .logo span:first-child { font-size: 2.5rem; color: #eee; font-weight: 900; }
+
+header .logo span:last-child { font-size: 0.8rem; color: #eee; }
+
+header > ul { display: flex; align-self: center; }
+
+header .top.nav { display: flex; }
+
+header .menu { display: none; text-indent: -500px; background: url(/images/supermix/menu.svg) 50% 50% no-repeat; overflow: hidden; width: 60px; height: 60px; background-size: cover; }
+
+header .top.nav a { font-size: 1.3rem; color: #eee; padding: 6px 12px; margin: 0 6px; display: inline-block; margin: 0 12px; }
+
+header .top.nav li:hover a { color: #abd; border-color: #abd; }
+/* 헤더 */
+
+/* 섹션 1 */
+
+.img { background: url(/images/supermix/KakaoTalk_20220502_161226003.jpg) 50% 50% no-repeat; background-size: cover; }
+
+/* 섹션 1 */
+
+/* 섹션 3 */
+
+.port { background: #333; }
+
+.port h2 { color: #eee; font-size: 3rem; margin-bottom: 24px; }
+
+.port h3 { color: #eee; font-size: 2rem; }
+
+.port .container { display: flex; }
+
+.port .bt a:first-child::after { content: ""; margin: 0 12px; display: inline-block; width: 1px; height: 2rem; background: #eee; align-self: center; }
+
+.port .bt > a:last-child { margin: 0; }
+
+.port .contents { overflow: hidden; }
+
+.port .contents > li { height: 100%; width: 1200px; }
+
+.port .contents .box li a { width: 100%; height: 100%; display: block; }
+
+.port .box { width: 1200px; height: 50vh; display: flex; flex-wrap: wrap; }
+
+/* .port .Album { gap: 12% 4%; } */
+
+.port .Album li { width: 100%; height: 100%; }
+
+/* .port .YW { gap: 12% 5%; } */
+
+.port .YW li { width: 100%; height: 100%; }
+
+/* 섹션 3 */
+
+/* 푸터 */
+
+footer { background: #000; height: 180px; display: flex; align-items: center; padding-left: 30px; }
+
+footer p { color: #eee; }
+
+/* 푸터 */

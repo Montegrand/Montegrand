@@ -1,0 +1,181 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+/* Noto sans KR font */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+/* font-awsome v6.1.1 */
+
+* { 
+    font-family: 'Noto Sans KR', sans-serif; 
+    text-decoration: none;
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+    color: #333;
+    position: relative;
+    /* outline: 1px solid #000; */
+}
+
+section { padding: 42px 0; }
+
+h1 { padding: 12px; margin-top: 36px; }
+
+h2 { margin: 36px; }
+
+.inner { margin: 0 auto; width: 1200px; display: flex; flex-direction: column; }
+
+a { display: block; }
+
+header { display: flex; position: sticky; top: 0; z-index: 10; justify-content: space-between; padding: 0 24px; height: 48px; background: #fff; }
+
+header > div { display: flex; }
+
+header a { padding: 4px 12px; line-height: 250%; }
+
+header a span { font-weight: 700; font-size: 1.2rem; }
+
+header div:nth-child(2) a { font-size: 1.3rem; font-weight: 700; }
+
+header div:nth-child(2):hover a { color: #aaa; }
+
+header div:nth-child(2) a:hover { color: #333;}
+
+.n1 { overflow: hidden; }
+
+.n1 div { display: flex; white-space: nowrap; }
+
+.n1 h5 { font-weight: 700; color: #aaa; }
+
+.n1 h6 { font-size: 3rem; }
+
+.n1 .inner { justify-content: top; }
+
+.n1 .banner { padding-left: 42px; }
+
+.n1 .contents { width: 1100px; justify-content: center; align-items: center; border-radius: 12px; box-shadow: 0 6px 12px 1px rgba(100, 100, 100, 0.5); margin: 42px; }
+
+.n1 .txtbox { flex-direction: column; width: 50%; padding: 36px; }
+
+.n1 .txtbox h6 { margin: 24px 0 42px; }
+
+.n1 .txtbox p { margin-bottom: 60px; }
+
+.n1 .contents aside { display: flex; }
+
+.n1 video { display: block; border-radius: 0 12px 12px 0; }
+
+.n1 .bt { width: 120px; height: 30px; background: #aaa; }
+
+.n2 div { display: flex; }
+
+.n2 .bt_bd { display: flex; padding: 0 42px; }
+
+.n2 .bt { padding: 8px 16px; margin: 0 6px; border-radius: 20px; background: #ddd; color: #000; font-weight: 700; }
+
+.n2 .bt:hover { background: #aaa; color: #eee; }
+
+.n2 .bt.b1 { background: #333; color: #eee; }
+
+.n2 .contents.c2, .n2 .contents.c3, .n2 .contents.c4 { display: none; }
+
+.n2 i { width: 60px; height: 60px; margin-bottom: 12px; background: url(/images/kakao_life/ico_benefit\ 1.png) no-repeat; background-size: 620px; overflow: hidden; }
+
+.n2 .contents.c1 > .cbox:nth-child(1) i { background-position: 6px 6px; }
+
+.n2 .contents.c1 > .cbox:nth-child(2) i { background-position: -53px 6px; }
+
+.n2 .contents.c1 > .cbox:nth-child(3) i { background-position: -110px 6px; }
+
+.n2 .contents.c1 > .cbox:nth-child(4) i { background-position: -166px 6px; }
+
+.n2 .contents.c1 > .cbox:nth-child(5) i { background-position: -223px 6px; }
+
+.n2 .contents.c1 > .cbox:nth-child(6) i { background-position: -280px 6px; }
+
+.n2 .contents.c1 > .cbox:nth-child(7) i { background-position: -336px 6px; }
+
+.n2 .contents.c1 > .cbox:nth-child(8) i { background-position: -394px 6px; }
+
+.n2 .contents.c2 > .cbox:nth-child(1) i { background-position: -449px 6px; }
+
+.n2 .contents.c2 > .cbox:nth-child(2) i { background-position: -509px 6px; }
+
+.n2 .contents.c2 > .cbox:nth-child(3) i { background-position: -564px 6px; }
+
+.n2 .contents.c2 > .cbox:nth-child(4) i { background-position: 8px -50px; }
+
+.n2 .contents.c2 > .cbox:nth-child(5) i { background-position: -53px -50px; }
+
+.n2 .contents.c3 > .cbox:nth-child(1) i { background-position: -110px -50px; }
+
+.n2 .contents.c3 > .cbox:nth-child(2) i { background-position: -166px -50px; }
+
+.n2 .contents.c3 > .cbox:nth-child(3) i { background-position: -223px -50px; }
+
+.n2 .contents.c3 > .cbox:nth-child(4) i { background-position: -280px -50px; }
+
+.n2 .contents.c4 > .cbox:nth-child(1) i { background-position: -336px -50px; }
+
+.n2 .contents.c4 > .cbox:nth-child(2) i { background-position: -394px -50px; }
+
+.n2 .contents.c4 > .cbox:nth-child(3) i { background-position: -449px -50px; }
+
+.n2 .contents.c4 > .cbox:nth-child(4) i { background-position: -509px -50px; }
+
+.n2 .contents.c4 > .cbox:nth-child(5) i { background-position: -564px -50px; }
+
+.n2 .contents { flex-wrap: wrap; }
+
+.n2 .cbox { width: 600px; height: 300px; flex-direction: column; align-items: baseline; padding-left: 42px; justify-content: center; }
+
+.n2 .cbox div { flex-direction: column; margin-bottom: 36px; }
+
+.n3 .container { display: flex; justify-content: center; }
+
+.n3 .map { width: 300px; height: 340px; display: flex; flex-direction: column; padding: 242px 24px 0; margin: 24px; border-radius: 12px; box-shadow: 0px 10px 50px 1px rgba(100, 100, 100, 0.2); }
+
+h4 { font-size: 1.3rem; }
+
+.n3 .m1 { background: url(/images/kakao_life/kakao_main.jpg) 50% 0px no-repeat; background-size: auto 70%; }
+
+.n3 .m2 { background: url(/images/kakao_life/kakao_pangyo.jpg) 50% 0px no-repeat; background-size: auto 70%; }
+
+.n3 .m3 { background: url(/images/kakao_life/kakao_samsung.jpg) 50% 0px no-repeat; background-size: auto 70%; }
+
+.n3 .map:hover { transform: translateY(-1%); transition: 0.3s; box-shadow: 0px 10px 30px 1px rgba(100, 100, 100, 0.5); }
+
+footer .sns { display: flex; flex-direction: column; align-items: center; }
+
+footer .sns .container { display: flex; }
+
+footer .sns a { width: 50px; height: 50px; text-indent: -200px; overflow: hidden; background: url(/images/sns.svg) no-repeat; border-radius: 50%; margin: 12px; }
+
+footer .sns a:hover { background-color: rgba(200, 200, 200, 0.7); background-blend-mode: color; }
+
+footer .sns .kakao { background-position: 1px -479px; }
+
+footer .sns .insta { background-position: -479px -383px; }
+
+footer .sns .youtube { background-position: -287px -1152px; }
+
+footer .sns .linked { background-position: -191px -479px; }
+
+footer .sns .facebook { background-position: -95px -287px; }
+
+footer .bott { display: flex; justify-content: space-between; padding: 12px 36px; }
+
+footer .left div { display: flex; }
+
+footer .left a { font-weight: 300; }
+
+footer .left a:first-child { font-weight: 700; }
+
+footer .bott a, footer .bott h5 { margin: 12px; padding: 0 12px; line-height: normal; }
+
+footer .bott .right > a { width: 210px; margin: 0; padding: 6px 18px; border-radius: 20px; display: flex; justify-content: space-between; background: #ddd; color: #999; }
+
+footer .bott .right a span { font-weight: 700; font-size: 1.2rem; }
+
+footer .bott .right a:hover { color: #333; }
+
+footer .right  div { width: 100%; position: absolute; transform: translateY(-140%); background: #ddd; border-radius: 20px; }
+
+footer .right a:active div { display: block; }

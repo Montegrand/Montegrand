@@ -1,0 +1,45 @@
+section { width: 100% !important; }
+
+.inner { width: 90% !important; margin: 0 auto; }
+
+.fst h1 { font-size: 2rem !important; }
+
+.fst h2 { font-size: 1.5rem; }
+
+h3 { font-size: 2rem; }
+
+p { font-size: 0.8rem; width: 90% !important; padding: 0 !important; }
+
+.snd { flex-direction: column !important; height: auto !important; }
+
+.snd > div { width: 90% !important; margin: 0 auto; }
+
+.snd .left div, .snd .right div { position: relative !important; margin: 120px auto;  right: 0 !important; top: 0 !important; width: 90%; background-size: cover !important; background-position: 50% 100% !important; white-space: nowrap; width: 420px !important; }
+
+.snd .left > div { width: 80% !important; }
+
+.snd .left div h3 { position: relative !important; top: -60px !important; }
+
+.snd .right div { left: 0 !important; padding: 0 !important; }
+
+.snd .right div * { display: block !important; white-space: normal; }
+
+.trd { flex-direction: column; padding: 42px; height: auto !important; }
+
+.trd > div { width: 80% !important; height: 100% !important; margin: 0 auto; padding: 0; }
+
+.trd div .TI { margin: 0 !important; height: 400px !important; width: 100% !important; }
+
+.trd h3 { margin: 30px 0; }
+
+.trd .right { height: auto !important; }
+
+.trd .right div { width: 100% !important; height: 400px !important; position: relative !important; top: 0 !important; }
+
+.fth { height: 300px !important; }
+
+.fth h2 { font-size: 2rem !important; margin: 30px auto !important; }
+
+.fth p { margin: 0 auto; }
+
+.fth button { height: 40px !important; }
