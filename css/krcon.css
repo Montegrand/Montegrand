@@ -72,7 +72,10 @@ header a {
 }
 
 .bot_nav.wrap i {
-    width: 12px; height: 12px;
+    width: 24px; height: 24px;
+    background: url(/images/krcon/plus.svg) 50% 50% no-repeat;
+    background-size: contain;
+    fill: #0972CD;
 }
 
 .bot_nav.wrap * {
