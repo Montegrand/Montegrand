@@ -67,15 +67,19 @@ header a {
     justify-content: flex-start;
     display: none; height: 0;
     background: #999;
-    opacity: 0.5;
+    opacity: 0.8;
     padding: 30px 0;
 }
 
-.bot_nav.wrap i {
+.bot_nav.wrap .i {
     width: 24px; height: 24px;
     background: url(/images/krcon/plus.svg) 50% 50% no-repeat;
     background-size: contain;
-    fill: #0972CD;
+}
+
+.bot_nav.wrap .i.on {
+    background: url(/images/krcon/minus.svg);
+    background-size: contain;
 }
 
 .bot_nav.wrap * {
