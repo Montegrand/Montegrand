@@ -69,36 +69,40 @@ header a {
     background: #999;
     opacity: 0.8;
     padding: 30px 0;
-}
+}    
 
-.bot_nav.wrap .i {
+.bot_nav.wrap i {
     width: 24px; height: 24px;
     background: url(/images/krcon/plus.svg) 50% 50% no-repeat;
     background-size: contain;
-}
+}    
 
-.bot_nav.wrap .i.on {
+.depth > li:hover i {
     background: url(/images/krcon/minus.svg);
     background-size: contain;
 }
 
+.depth > li:hover > a * {
+    color: #0972CD;
+}
+
 .bot_nav.wrap * {
     color: #eee;
-}
+}    
 
 .top_nav.wrap > li > a {
     font-weight: 400;
     justify-content: center;
-}
+}    
 
 .top_nav.wrap > li:hover .bot_nav.wrap {
     display: flex;
     height: 400px; 
 }
 
-.top_nav.wrap a:hover, .top_nav.wrap a:hover * {
+.top_nav.wrap a:hover {
     color: #0972CD;
-}
+}    
 
 .depth::after {
     content: "";
@@ -112,7 +116,7 @@ header a {
 .depth.fst {
     position: relative;
     top: 0; left: 0;
-    width: 420px; height: 400px;
+    width: 480px; height: 400px;
 }
 
 .depth.fst > p {
