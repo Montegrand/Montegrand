@@ -31,6 +31,7 @@ header {
     justify-content: space-between;
     background-color: #fff;
     transition-duration: 0.4s;
+    z-index: 5;
 }
 
 header:hover {
@@ -52,7 +53,7 @@ header .logo {
     width: 180px;
     text-indent: -1000px;
     overflow: hidden;
-    background: url(/images/krcon/logo_01.jpg) 50% 50% no-repeat;
+    background: url(/images/krcon/krcon/logo_01.jpg) 50% 50% no-repeat;
     background-size: contain;
 }
 
@@ -69,17 +70,17 @@ header a {
     justify-content: flex-start;
     display: none; height: 0;
     padding: 30px 0;
-    background: rgba(0, 0, 0, 0.3)
+    background: rgba(250, 250, 250, 0.7);
 }    
 
 .bot_nav.wrap i {
     width: 20px; height: 20px;
-    background: url(/images/krcon/plus.svg) 50% 50% no-repeat;
+    background: url(/images/krcon/krcon/SVG/plus.svg) 50% 50% no-repeat;
     background-size: contain;
 }    
 
 .depth > li:hover i {
-    background: url(/images/krcon/minus.svg);
+    background: url(/images/krcon/krcon/SVG/minus.svg);
     background-size: contain;
 }
 
@@ -88,7 +89,7 @@ header a {
 }
 
 .bot_nav.wrap * {
-    color: #eee;
+    color: #333;
 }    
 
 .top_nav.wrap > li > a {
@@ -177,11 +178,76 @@ header a {
 
 /* -----------------헤더 끝-------------------- */
 
-
-.sec.fst { 
-    height: 600px; 
-    background: url(/images/krcon/)
+/* ===================sec1==================== */
+.sec.fst .sldwrap {
+    width: 100%; height: 600px;
 }
+
+.sec.fst .slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.sec.fst .slider > .inner {
+    height: 60%;
+}
+
+.sec.fst .slider > .inner > :nth-child(n) {
+    color: #eee;
+}
+
+.sec.fst .slider > .inner > :nth-child(1) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.sec.fst .slider > .inner > :nth-child(2) {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 48px;
+}
+
+.sec.fst .slider > .inner > :nth-child(3) {
+    font-weight: 100;
+}
+
+.sec.fst .slider.fst {
+    background: url(/images/krcon/krcon/SVG/Frame.svg), 
+                url(/images/krcon/krcon/main/slide_1.jpg);
+    background-position: 0 0, 50% 50%;
+    background-size: 3px 3px, cover;
+    background-repeat: repeat, no-repeat;
+}
+
+.sec.fst .slider.snd {
+    background: url(/images/krcon/krcon/SVG/Frame.svg), 
+                url(/images/krcon/krcon/main/slide_2.jpg);
+    background-position: 0 0, 50% 50%;
+    background-size: 3px 3px, cover;
+    background-repeat: repeat, no-repeat;
+}
+
+.sec.fst .slider.trd {
+    background: url(/images/krcon/krcon/SVG/Frame.svg), 
+    url(/images/krcon/krcon/main/slide_3.jpg);
+    background-position: 0 0, 50% 50%;
+    background-size: 3px 3px, cover;
+    background-repeat: repeat, no-repeat;
+}
+/* ==================sec1==================== */
+
+/* sec2---------------------------------------------------- */
+
+.sec.snd {
+    height: 700px;
+}
+
+
+
+/* sec2---------------------------------------------------- */
 
 /* ----------------풋터----------------------- */
 
