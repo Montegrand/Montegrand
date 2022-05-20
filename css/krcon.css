@@ -62,8 +62,6 @@ header a {
     padding: 0 10px;
 }
 
-
-
 .bot_nav.wrap {
     position: absolute;
     top: 80px; left: 0;
@@ -181,8 +179,8 @@ header a {
 
 
 .sec.fst { 
-    height: 1000px; 
-    /* background-color: red; */
+    height: 600px; 
+    background: url(/images/krcon/)
 }
 
 /* ----------------풋터----------------------- */
