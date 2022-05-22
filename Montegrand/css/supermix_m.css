@@ -1,0 +1,17 @@
+header .logo span:first-child { font-size: 2rem; color: #eee; font-weight: 900; }
+
+header .logo span:last-child { font-size: 0.6rem; color: #eee; }
+
+header { padding: 0 6px; height: 80px }
+
+header .top.nav a { font-size: 2rem; }
+
+section { height: calc(100vh - 80px); }
+
+.port h3 { font-size: 1.2rem; }
+
+footer { padding: 0; }
+
+footer p { font-size: 0.8rem; margin: 0 auto; }
+
+.port .bt a:first-child::after { height: 1.2rem; }
