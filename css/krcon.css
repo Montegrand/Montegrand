@@ -104,7 +104,6 @@ header .depth > li:hover > a * {
     display: flex;
     height: 400px; 
     transform: translateY(0%);
-    transform: ;
     transition-delay: 200;
     transition-duration: 2000;
 }
