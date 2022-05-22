@@ -267,13 +267,7 @@ header .depth.trd > li > ul > li {
 
 .sec.snd .wrap {
     height: 100%;
-}
-
-.sec.snd .depth.fst {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 300px;
+    position: relative;
 }
 
 .sec.snd .depth h3 {
@@ -285,6 +279,22 @@ header .depth.trd > li > ul > li {
     font-size: 1rem;
     letter-spacing: 0.2rem;
     margin-left: 12px; margin-bottom: 12px;
+}
+
+.sec.snd .depth.fst {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.sec.snd .depth.fst:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 100%;
+    width: 3px; height: 100%;
+    background: #0972CD;
 }
 
 .sec.snd .depth.snd {
