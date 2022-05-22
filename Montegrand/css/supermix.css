@@ -52,7 +52,7 @@ header .top.nav li:hover a { color: #abd; border-color: #abd; }
 
 /* 섹션 1 */
 
-.img {background: url(/Montegrand/supermix/controlroom/control_4\(phone_filter\).jpg) 50% 50% no-repeat; background-size: cover; }
+.img {background: url(/Montegrand/images/supermix/controlroom/sec1_main_img.jpg) 50% 50% no-repeat; background-size: cover; }
 
 /* height값 부여 하고 861px 에서 900px 로 변경 */
 
