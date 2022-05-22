@@ -228,27 +228,21 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.fst .slider.fst {
-    background: url(../images/krcon/SVG/Frame.svg), 
-                url(../images/krcon/main/slide_1.jpg);
-    background-position: 0 0, 50% 50%;
-    background-size: 3px 3px, cover;
-    background-repeat: repeat, no-repeat;
+    background: rgba(0, 0, 0, 0.6) url(../images/krcon/main/slide_1.jpg) 50% 50% no-repeat;
+    background-blend-mode: darken;
+    background-size: cover;
 }
 
 .sec.fst .slider.snd {
-    background: url(../images/krcon/SVG/Frame.svg), 
-                url(../images/krcon/main/slide_2.jpg);
-    background-position: 0 0, 50% 50%;
-    background-size: 3px 3px, cover;
-    background-repeat: repeat, no-repeat;
+    background: rgba(0, 0, 0, 0.6) url(../images/krcon/main/slide_2.jpg) 50% 50% no-repeat;
+    background-blend-mode: darken;
+    background-size: cover;
 }
 
 .sec.fst .slider.trd {
-    background: url(../images/krcon/SVG/Frame.svg), 
-    url(../images/krcon/main/slide_3.jpg);
-    background-position: 0 0, 50% 50%;
-    background-size: 3px 3px, cover;
-    background-repeat: repeat, no-repeat;
+    background: rgba(0, 0, 0, 0.6) url(../images/krcon/main/slide_3.jpg) 50% 50% no-repeat;
+    background-blend-mode: darken;
+    background-size: cover;
 }
 /* ==================sec1==================== */
 
