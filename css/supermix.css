@@ -81,7 +81,7 @@ header .top.nav li:hover a { color: #abd; border-color: #abd; }
 .profile_img {
     width: 420px;
     height: 360px;
-    background: url(../supermix/khj.png) no-repeat;
+    background: url(../images/supermix/khj.png) no-repeat;
 }
 
 .right_n1 {
@@ -237,7 +237,7 @@ header .top.nav li:hover a { color: #abd; border-color: #abd; }
 .control_page1 .img_1 {
     width: 400px;
     height: 300px;
-    background: url(../supermix/controlroom/1-1.jpg) no-repeat;
+    background: url(../images/supermix/controlroom/1-1.jpg) no-repeat;
     background-size: cover;
 }
 

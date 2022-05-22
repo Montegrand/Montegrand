@@ -1,9 +1,11 @@
 window.onload = function () {
     var swiper = new Swiper(".sldwrap", {
+        slidesPerView: 1,
         spaceBetween: 30,
+        loop: true,
         centeredSlides: true,
         autoplay: {
-            delay: 10000,
+            delay: 5000,
             disableOnInteraction: false,
         },
         pagination: {
