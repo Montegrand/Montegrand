@@ -299,29 +299,11 @@ header .depth.trd > li > ul > li {
     width: 300px;
 }
 
-.sec.snd .depth.fst:after {
-    content: "";
-    display: flex;
-    position: absolute;
-    left: 26.5%; top: 0;
-    width: 3px; height: 100%;
-    background: #0972CD;
-}
-
 .sec.snd .depth.snd {
     flex-direction: column;
     justify-content: space-between;
     width: 360px;
     background: #ccc;
-}
-
-.sec.snd .depth.snd:after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    left: 56.5%; top: 0;
-    width: 3px; height: 100%;
-    background: #0972CD;
 }
 
 .sec.snd .depth.snd > div {
