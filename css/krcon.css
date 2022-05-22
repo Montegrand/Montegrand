@@ -53,7 +53,7 @@ header .logo {
     width: 180px;
     text-indent: -1000px;
     overflow: hidden;
-    background: url(./images/krcon/logo_01.jpg) 50% 50% no-repeat;
+    background: url(../images/krcon/logo_01.jpg) 50% 50% no-repeat;
     background-size: contain;
 }
 
@@ -77,12 +77,12 @@ header a {
 
 .bot_nav.wrap i {
     width: 20px; height: 20px;
-    background: url(./images/krcon/SVG/plus.svg) 50% 50% no-repeat;
+    background: url(../images/krcon/SVG/plus.svg) 50% 50% no-repeat;
     background-size: contain;
 }    
 
 header .depth > li:hover i {
-    background: url(./images/krcon/SVG/minus.svg);
+    background: url(../images/krcon/SVG/minus.svg);
     background-size: contain;
 }
 
@@ -220,24 +220,24 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.fst .slider.fst {
-    background: url(./images/krcon/SVG/Frame.svg), 
-                url(./images/krcon/main/slide_1.jpg);
+    background: url(../images/krcon/SVG/Frame.svg), 
+                url(../images/krcon/main/slide_1.jpg);
     background-position: 0 0, 50% 50%;
     background-size: 3px 3px, cover;
     background-repeat: repeat, no-repeat;
 }
 
 .sec.fst .slider.snd {
-    background: url(./images/krcon/SVG/Frame.svg), 
-                url(./images/krcon/main/slide_2.jpg);
+    background: url(../images/krcon/SVG/Frame.svg), 
+                url(../images/krcon/main/slide_2.jpg);
     background-position: 0 0, 50% 50%;
     background-size: 3px 3px, cover;
     background-repeat: repeat, no-repeat;
 }
 
 .sec.fst .slider.trd {
-    background: url(./images/krcon/SVG/Frame.svg), 
-    url(./images/krcon/main/slide_3.jpg);
+    background: url(../images/krcon/SVG/Frame.svg), 
+    url(../images/krcon/main/slide_3.jpg);
     background-position: 0 0, 50% 50%;
     background-size: 3px 3px, cover;
     background-repeat: repeat, no-repeat;
@@ -356,7 +356,7 @@ footer .ftlogo {
     overflow: hidden;
     width: 120px; height: 40px;
     padding: 10px;
-    background: url(./images/krcon/footer-logos.png) 50% 50% no-repeat;
+    background: url(../images/krcon/footer-logos.png) 50% 50% no-repeat;
     background-size: contain;
 }
 
