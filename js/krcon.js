@@ -17,4 +17,11 @@ window.onload = function () {
             prevEl: ".swiper-button-prev",
         },
     });
+
+    const bt = document.querySelectorAll('.bt > a');
+    function handle() {
+        bt.classList.add("on");
+    }
+    bt.addEventListener
+    console.log(bt);
 }
