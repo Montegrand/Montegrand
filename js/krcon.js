@@ -67,8 +67,10 @@ window.onload = function () {
 
     // console.log(box);
 
+
+
     let boxT = [
-        // 참고 책 375~390p url 규칙
+        
         {
             "name": "건축",
             "header": "당신께 감동으로 기억되는 건축명작을 창조해 갑니다.",
@@ -129,16 +131,6 @@ window.onload = function () {
 
     
     
-    
-    // class boxT1 {
-    //     constructor() {
-
-    //     };
-    //     constructor() {
-
-    //     };
-    // };
-
     // ==========================================
 
     // ================================================
