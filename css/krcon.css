@@ -326,40 +326,26 @@ header .depth.trd > li > ul > li {
 
 .sec.snd .depth.trd {
     flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
     width: 500px;
 }
 
 .sec.snd .depth.trd > div:first-child {
-    justify-content: space-around;
-    align-items: center;
-    width: 100%; height: 100%;
-}
-
-.sec.snd .depth.trd > div:first-child * {
-    font-size: 1rem;
-}
-
-.sec.snd .depth.trd > div:first-child > div {
-    width: 45%; height: 95%;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%; height: 100%;
+    padding: 60px 24px;
 }
 
-.sec.snd .depth.trd > div:first-child > div:first-child {
-    background: url(../images/krcon/bild_1.png) 50% 0 no-repeat;
-    background-size: contain;
-}
+.sec.snd .depth.trd > div:first-child h4 {
+    font-size: 1.5rem;
+    font-weight: 100;
+    text-shadow: 2px 2px 4px #333;
+    color: #eee;
 
-.sec.snd .depth.trd > div:first-child > div:last-child {
-    background: url(../images/krcon/bild_2.png) 50% 0 no-repeat;
-    background-size: contain;
 }
-
-.sec.snd .depth.trd > div:first-child > div > div {
-    flex-direction: column;
-    height: 50%;
-}
-
 
 .sec.snd .depth.trd .bt{
     height: 120px;
