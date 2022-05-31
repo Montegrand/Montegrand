@@ -281,80 +281,48 @@ console.log(datat.datat[0]);
     kWord.forEach(function (v, n, Node) {
 
         let sec3 = document.querySelector('.sec.trd');
+        let sec3C = document.querySelector('.sec.trd').className;
         let top = document.querySelector('.sec.trd .top');
+        let topC = document.querySelector('.sec.trd .top').className;
         let topH3 = document.querySelector('.sec.trd .top h3');
         let topP = document.querySelector('.sec.trd .top p');
         let icon = document.querySelectorAll('.sec.trd > .inner > .wrap i');
         let h4 = document.querySelectorAll('.sec.trd > .inner > .wrap h4');
         let bt = document.querySelector('.sec.trd .bt')
-
+        let thisC = this.classList
+        console.log(sec3C);
         v.addEventListener('mouseover', hover);
 
         function hover() {
-            topH3.style.fontSize = `2.5rem`;
-            topH3.style.transition = `300ms`;
-            topP.style.fontSize = `1.5rem`;
-            topP.style.transition = `300ms`;
-            top.style.background = `none`;
-            this.querySelector('i').style.display = `none`;
-            this.querySelector('h4').style.display = `none`;
-            this.querySelector('p').style.display = `flex`;
-            this.querySelector('p').style.transition = `500ms`;
-            icon[0].style.width = `240px`;
-            icon[1].style.width = `240px`;
-            icon[2].style.width = `240px`;
-            icon[0].style.height = `240px`;
-            icon[1].style.height = `240px`;
-            icon[2].style.height = `240px`;
-            icon[0].style.background = `url(../images/krcon/unity1.png) 50% 50% / contain no-repeat`;
-            icon[1].style.background = `url(../images/krcon/creation1.png) 50% 50% / contain no-repeat`;
-            icon[2].style.background = `url(../images/krcon/responsibility1.png) 50% 50% / contain no-repeat`;
-            h4[0].style.color = `#fff`;
-            h4[1].style.color = `#fff`;
-            h4[2].style.color = `#fff`;
-            bt.style.color = `#eee`;
-            bt.style.fontWeight = `500`;
+            this.className = `${thisC} on`;
+            top.className = `${topC} on`;
+            sec3.className = `${sec3C} img${n+1} on`;
         }
 
         v.addEventListener('mouseleave', leave)
 
         function leave() {
-            topH3.style.fontSize = `2rem`;
-            topH3.style.transition = `300ms`;
-            topP.style.fontSize = `1.2rem`;
-            topP.style.transition = `300ms`;
-            top.style.background = `url(../images/krcon/top5.jpg) 50% 50% / cover no-repeat`;
-            this.querySelector('i').style.display = `flex`;
-            this.querySelector('h4').style.display = `flex`;
-            this.querySelector('p').style.display = `none`;
-            icon[0].style.width = `72px`;
-            icon[1].style.width = `72px`;
-            icon[2].style.width = `72px`;
-            icon[0].style.height = `72px`;
-            icon[1].style.height = `72px`;
-            icon[2].style.height = `72px`;
-            icon[0].style.background = `url(../images/krcon/unity.png) 50% 50% / contain no-repeat`;
-            icon[1].style.background = `url(../images/krcon/creation.png) 50% 50% / contain no-repeat`;
-            icon[2].style.background = `url(../images/krcon/responsibility.png) 50% 50% / contain no-repeat`;
-            h4[0].style.color = `#333`;
-            h4[1].style.color = `#333`;
-            h4[2].style.color = `#333`;
-            bt.style.color = `#333`;
-            bt.style.fontWeight = `100`;
+            this.className = thisC;
+            top.className = topC;
+            sec3.className = sec3C;
         }
 
         Node[n].addEventListener('mouseover', hover0);
 
         function hover0() {
-            sec3.style.background = `url(../images/krcon/recruit_0${n + 1}.jpg) 50% 50% / cover no-repeat`;
+            // sec3A.style.background = `url(../images/krcon/recruit_0${n + 1}.jpg) 50% 50% / cover no-repeat`;
         }
 
         Node[n].addEventListener('mouseleave', leave0);
 
         function leave0() {
-            sec3.style.background = `none`;
+            // sec3A.style.background = `none`;
         }
 
+    })
+
+    $(function() {
+        let 
     })
 
 

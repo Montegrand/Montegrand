@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>계룡건설산업</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../css/krcon.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" media="all and (max-width: 1240px)" href="/css/krcon_t.css" />
+    <link rel="stylesheet" media="all and (max-width: 680px)" href="/css/krcon_m.css"> -->
+    <style>
+        span {
+            display: inline-block;
+        }
+        </style>
+</head>
+
+<body>
+    <!-- <div class="page_number">
+        <span class="pgnum"><a href="#">1</a></span>
+        <span class="pgnum"><a href="#">2</a></span>
+        <span class="pgnum"><a href="#">3</a></span>
+        <span class="pgnum"><a href="#">4</a></span>
+        <span class="pgnum"><a href="#">5</a></span>
+        <span class="pgnum"><a href="#">6</a></span>
+        <span class="pgnum"><a href="#">7</a></span>
+        <span class="pgnum"><a href="#">8</a></span>
+        <span class="pgnum"><a href="#">9</a></span>
+        <span class="pgnum"><a href="#">10</a></span>
+    </div> -->
+    
+    <ul class="pgnum">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">8</a></li>
+        <li><a href="#">9</a></li>
+        <li><a href="#">10</a></li>
+    </ul>
+    
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        
+        $(function() {
+            $('.pgnum > li').click(function() {
+                
+                $(this).addClass('on')
+                // .find('.pgnum').children('li').removeClass('on');
+                    .siblings().removeClass('on');
+                console.log($(this).siblings());
+                // console.log(this);
+            })
+        })
+        
+        </script>
+</body>
