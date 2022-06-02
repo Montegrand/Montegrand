@@ -53,11 +53,6 @@ header {
     z-index: 100;
 }
 
-header:hover {
-    height: 80px;
-    transition-duration: 0.2s;
-}
-
 header * {
     display: flex;
     justify-content: center;
@@ -66,6 +61,10 @@ header * {
 
 header .top_nav.wrap > li {
     width: 150px; height: 100%;
+}
+
+header .bt {
+    display: none;
 }
 
 header .logo {
@@ -92,7 +91,7 @@ header a {
     z-index: 0;
     transition: height 500ms;
     background: rgba(250, 250, 250, 1);
-}    
+}
 
 .bot_nav.wrap i {
     width: 20px; height: 20px;
@@ -126,7 +125,7 @@ header .depth > li:hover > a * {
 
 .top_nav.wrap a:hover {
     color: #0972CD;
-}    
+}
 
 header .depth::after {
     content: "";

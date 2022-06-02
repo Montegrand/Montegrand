@@ -17,7 +17,7 @@ window.onload = function () {
             prevEl: ".swiper-button-prev",
         }
     });
-    
+
     var swiper = new Swiper(".sec4sld", {
         slidesPerView: 1,
         spaceBetween: 30,
@@ -322,12 +322,20 @@ console.log(datat.datat[0]);
 
     })
 
-    $(function() {
-        let 
-    })
+    
+    let menu = document.querySelector("header .bt");
+    let nav = document.querySelector("header .top_nav.wrap");
+    console.log(nav);
+    console.log(menu);
+    menu.addEventListener('click', tap);
+    
+    function tap () {
+        let menu = true;
+        nav.className = `top_nav wrap on`;
+        menu.className = `bt on`;
+        console.log(menu);
+    }
 
-
-    // console.log(bt);
 }
 // $(document).ready(function() {
 
