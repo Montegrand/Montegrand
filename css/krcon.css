@@ -71,7 +71,7 @@ header .logo {
     width: 180px;
     text-indent: -1000px;
     overflow: hidden;
-    background: url(images/krcon/logo_01.jpg) 50% 50% no-repeat;
+    background: url(../images/krcon/logo_01.jpg) 50% 50% no-repeat;
     background-size: contain;
 }
 
@@ -95,12 +95,12 @@ header a {
 
 .bot_nav.wrap i {
     width: 20px; height: 20px;
-    background: url(images/krcon/SVG/plus.svg) 50% 50% no-repeat;
+    background: url(../images/krcon/SVG/plus.svg) 50% 50% no-repeat;
     background-size: contain;
 }    
 
 header .depth > li:hover i {
-    background: url(images/krcon/SVG/minus.svg);
+    background: url(../images/krcon/SVG/minus.svg);
     background-size: contain;
 }
 
@@ -241,19 +241,19 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.fst .slider.fst {
-    background: rgba(0, 0, 0, 0.6) url(images/krcon/main/slide_1.jpg) 50% 50% no-repeat;
+    background: rgba(0, 0, 0, 0.6) url(../images/krcon/main/slide_1.jpg) 50% 50% no-repeat;
     background-blend-mode: darken;
     background-size: cover;
 }
 
 .sec.fst .slider.snd {
-    background: rgba(0, 0, 0, 0.6) url(images/krcon/main/slide_2.jpg) 50% 50% no-repeat;
+    background: rgba(0, 0, 0, 0.6) url(../images/krcon/main/slide_2.jpg) 50% 50% no-repeat;
     background-blend-mode: darken;
     background-size: cover;
 }
 
 .sec.fst .slider.trd {
-    background: rgba(0, 0, 0, 0.6) url(images/krcon/main/slide_3.jpg) 50% 50% no-repeat;
+    background: rgba(0, 0, 0, 0.6) url(../images/krcon/main/slide_3.jpg) 50% 50% no-repeat;
     background-blend-mode: darken;
     background-size: cover;
 }
@@ -350,7 +350,7 @@ header .depth.trd > li > ul > li {
 .sec.snd .depth.snd > :last-child > a > i {
     width: 48px; height: 18px;
     margin: 10px;
-    background: url(images/krcon/arrow.svg) 50% 50% / contain no-repeat;
+    background: url(../images/krcon/arrow.svg) 50% 50% / contain no-repeat;
 }
 
 .sec.snd .depth.trd {
@@ -395,7 +395,7 @@ header .depth.trd > li > ul > li {
 .sec.snd .depth.trd .bt > a:nth-child(1) i {
     display: inline-block;
     width: 80%; height: 60%;
-    background: url(images/krcon/construction.png) 50% 50% no-repeat;
+    background: url(../images/krcon/construction.png) 50% 50% no-repeat;
     background-size: contain;
 
 }
@@ -403,7 +403,7 @@ header .depth.trd > li > ul > li {
 .sec.snd .depth.trd .bt > a:nth-child(2) i {
     display: inline-block;
     width: 80%; height: 60%;
-    background: url(/images/krcon/house.png) 50% 50% no-repeat;
+    background: url(../images/krcon/house.png) 50% 50% no-repeat;
     background-size: contain;
 
 }
@@ -411,7 +411,7 @@ header .depth.trd > li > ul > li {
 .sec.snd .depth.trd .bt > a:nth-child(3) i {
     display: inline-block;
     width: 80%; height: 60%;
-    background: url(images/krcon/civilE.png) 50% 50% no-repeat;
+    background: url(../images/krcon/civilE.png) 50% 50% no-repeat;
     background-size: contain;
 
 }
@@ -419,7 +419,7 @@ header .depth.trd > li > ul > li {
 .sec.snd .depth.trd .bt > a:nth-child(4) i {
     display: inline-block;
     width: 80%; height: 60%;
-    background: url(images/krcon/global.png) 50% 50% no-repeat;
+    background: url(../images/krcon/global.png) 50% 50% no-repeat;
     background-size: contain;
 
 }
@@ -427,7 +427,7 @@ header .depth.trd > li > ul > li {
 .sec.snd .depth.trd .bt > a:nth-child(5) i {
     display: inline-block;
     width: 80%; height: 60%;
-    background: url(images/krcon/plant.png) 50% 50% no-repeat;
+    background: url(../images/krcon/plant.png) 50% 50% no-repeat;
     background-size: contain;
 
 }
@@ -435,7 +435,7 @@ header .depth.trd > li > ul > li {
 .sec.snd .depth.trd .bt > a:nth-child(6) i {
     display: inline-block;
     width: 80%; height: 60%;
-    background: url(images/krcon/indC.png) 50% 50% no-repeat;
+    background: url(../images/krcon/indC.png) 50% 50% no-repeat;
     background-size: contain;
 
 }
@@ -443,7 +443,7 @@ header .depth.trd > li > ul > li {
 .sec.snd .depth.trd .bt > a:nth-child(7) i {
     display: inline-block;
     width: 80%; height: 60%;
-    background: url(images/krcon/leiL.png) 50% 50% no-repeat;
+    background: url(../images/krcon/leiL.png) 50% 50% no-repeat;
     background-size: contain;
 
 }
@@ -469,19 +469,19 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.trd.img1::after {
-    background: url(images/krcon/recruit_01.jpg) 50% 50% / cover no-repeat;
+    background: url(../images/krcon/recruit_01.jpg) 50% 50% / cover no-repeat;
     animation: fadein 1s;
     opacity: 1;
 }
 
 .sec.trd.img2::after {
-    background: url(images/krcon/recruit_02.jpg) 50% 50% / cover no-repeat;
+    background: url(../images/krcon/recruit_02.jpg) 50% 50% / cover no-repeat;
     animation: fadein 1s;
     opacity: 1;
 }
 
 .sec.trd.img3::after {
-    background: url(images/krcon/recruit_03.jpg) 50% 50% / cover no-repeat;
+    background: url(../images/krcon/recruit_03.jpg) 50% 50% / cover no-repeat;
     animation: fadein 1s;
     opacity: 1;
 }
@@ -496,7 +496,7 @@ header .depth.trd > li > ul > li {
 
 .sec.trd .top::before {
     content: "";
-    background: url(images/krcon/top5.jpg) 50% 50% / cover no-repeat;
+    background: url(../images/krcon/top5.jpg) 50% 50% / cover no-repeat;
     width: 100%; height: 100%;
     position: absolute;
     animation: fadein 1s;
@@ -559,12 +559,12 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.trd > .inner > .bt i {
-    background: url(images/krcon/arrow.svg) 50% 50% / contain no-repeat;
+    background: url(../images/krcon/arrow.svg) 50% 50% / contain no-repeat;
     width: 30%; height: 50%;
 }
 
 .sec.trd.on > .inner > .bt i {
-    background: url(images/krcon/arrow1.svg) 50% 50% / contain no-repeat;
+    background: url(../images/krcon/arrow1.svg) 50% 50% / contain no-repeat;
 }
 
 .sec.trd.on > .inner > .bt {
@@ -602,29 +602,29 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.trd .wrap > div:nth-child(1) i {
-    background: url(images/krcon/unity.png) 50% 50% / contain no-repeat;
+    background: url(../images/krcon/unity.png) 50% 50% / contain no-repeat;
 }
 
 .sec.trd .wrap > div:nth-child(2) i {
-    background: url(images/krcon/creation.png) 50% 50% / contain no-repeat;
+    background: url(../images/krcon/creation.png) 50% 50% / contain no-repeat;
 
 }
 
 .sec.trd .wrap > div:nth-child(3) i {
-    background: url(images/krcon/responsibility.png) 50% 50% / contain no-repeat;
+    background: url(../images/krcon/responsibility.png) 50% 50% / contain no-repeat;
 }
 
 .sec.trd.on .wrap > div:nth-child(1) i {
-    background: url(images/krcon/unity1.png) 50% 50% / contain no-repeat;
+    background: url(../images/krcon/unity1.png) 50% 50% / contain no-repeat;
 }
 
 .sec.trd.on .wrap > div:nth-child(2) i {
-    background: url(images/krcon/creation1.png) 50% 50% / contain no-repeat;
+    background: url(../images/krcon/creation1.png) 50% 50% / contain no-repeat;
 
 }
 
 .sec.trd.on .wrap > div:nth-child(3) i {
-    background: url(images/krcon/responsibility1.png) 50% 50% / contain no-repeat;
+    background: url(../images/krcon/responsibility1.png) 50% 50% / contain no-repeat;
 }
 
 .sec.trd .wrap > div > p {
@@ -771,7 +771,7 @@ footer .ftlogo {
     overflow: hidden;
     width: 120px; height: 40px;
     padding: 10px;
-    background: url(images/krcon/footer-logos.png) 50% 50% no-repeat;
+    background: url(../images/krcon/footer-logos.png) 50% 50% no-repeat;
     background-size: contain;
 }
 

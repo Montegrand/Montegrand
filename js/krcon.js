@@ -148,7 +148,7 @@ window.onload = function () {
             this.header = header;
             this.tbox = tbox;
             this.category = category;
-            this.imgUrl1 = [`images/krcon/${category}/01.png`];
+            this.imgUrl1 = [`../images/krcon/${category}/01.png`];
             this.imgAlt1 = imgName1;
         }
     }
