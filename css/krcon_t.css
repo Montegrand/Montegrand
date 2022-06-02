@@ -47,11 +47,11 @@ header .bt {
     top: 10px; right: 10px;
     overflow: hidden;
     text-indent: -1000px;
-    background: url(/images/krcon/menu.svg) 50% 50% / contain no-repeat;
+    background: url(images/krcon/menu.svg) 50% 50% / contain no-repeat;
 }
 
 header .bt.on {
-    background: url(/images/krcon/close.svg) 50% 50% /contain no-repeat;
+    background: url(images/krcon/close.svg) 50% 50% /contain no-repeat;
 }
 
 header .top_nav.wrap > li > a {

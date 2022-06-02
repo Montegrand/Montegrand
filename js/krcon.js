@@ -83,10 +83,6 @@ window.onload = function () {
         ]
     ];
 
-    // console.log(box);
-
-
-
     let boxT = [
 
         {
@@ -146,9 +142,6 @@ window.onload = function () {
         }
 
     ];
-
-    console.log(boxT);
-
     class DataInfo {
         constructor( name, header, tbox, category, imgName1) {
             this.name = name;
@@ -228,8 +221,6 @@ window.onload = function () {
         "ROUTE 52 골프장"
     );
 
-console.log(datat.datat[0]);
-
     // ==========================================
 
     // ================================================
@@ -246,7 +237,6 @@ console.log(datat.datat[0]);
 
     tbox.textContent = datat.datat[0].tbox; //depth2 p
 
-    console.log(datat.datat[0].imgUrl1)
     d3.style.background = `url(${datat.datat[0].imgUrl1}) 50% 0 / contain no-repeat`;
     d3h.textContent = datat.datat[0].imgAlt1;
     //depth3 
@@ -278,7 +268,6 @@ console.log(datat.datat[0]);
     });
 
     var kWord = document.querySelectorAll('.sec.trd > .inner .wrap > div')
-    console.log(kWord)
     kWord.forEach(function (v, n, Node) {
 
         let sec3 = document.querySelector('.sec.trd');
@@ -291,7 +280,6 @@ console.log(datat.datat[0]);
         let h4 = document.querySelectorAll('.sec.trd > .inner > .wrap h4');
         let bt = document.querySelector('.sec.trd .bt')
         let thisC = this.classList
-        console.log(sec3C);
         v.addEventListener('mouseover', hover);
 
         function hover() {
@@ -336,10 +324,7 @@ console.log(datat.datat[0]);
             nav.className = `top_nav wrap`
             menu.className = `bt`;
             menu = true;
-            console.log(menu);
         }
-        // console.log(menu);
-        
     }
 
 }
