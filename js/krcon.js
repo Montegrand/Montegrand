@@ -262,7 +262,6 @@ window.onload = function () {
 
             d3.style.background = `url(${datat.datat[n].imgUrl1}) 50% 0 / contain no-repeat`;
             d3h.textContent = datat.datat[n].imgAlt1;
-            console.log(datat.datat[n].imgUrl1);
             //depth3 
         };
 
@@ -314,20 +313,16 @@ window.onload = function () {
     
     let menu = document.querySelector("header .bt");
     let nav = document.querySelector("header .top_nav.wrap");
-    var header = document.querySelector("header");
-    console.log(header);
     menu.addEventListener('click', tap);
     var tog = true;
     function tap () {
         if ( tog === true ) {
             nav.className = `top_nav wrap on`;
             menu.className = `bt on`;
-            header.className = `header on`;
             tog = false;
         } else {
             nav.className = `top_nav wrap`;
             menu.className = `bt`;
-            header.className = `header`;
             tog = true;
         }
     }
