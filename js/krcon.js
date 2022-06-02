@@ -148,7 +148,7 @@ window.onload = function () {
             this.header = header;
             this.tbox = tbox;
             this.category = category;
-            this.imgUrl1 = [`../images/krcon/${category}/01.png`];
+            this.imgUrl1 = [`images/krcon/${category}/01.png`];
             this.imgAlt1 = imgName1;
         }
     }
@@ -237,7 +237,7 @@ window.onload = function () {
 
     tbox.textContent = datat.datat[0].tbox; //depth2 p
 
-    d3.style.background = `url(${datat.datat[0].imgUrl1}) 50% 0 / contain no-repeat`;
+    d3.style.background = `${datat.datat[0].imgUrl1}) 50% 0 / contain no-repeat`;
     d3h.textContent = datat.datat[0].imgAlt1;
     //depth3 
 

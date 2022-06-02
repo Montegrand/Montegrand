@@ -403,7 +403,7 @@ header .depth.trd > li > ul > li {
 .sec.snd .depth.trd .bt > a:nth-child(2) i {
     display: inline-block;
     width: 80%; height: 60%;
-    background: url(images/krcon/house.png) 50% 50% no-repeat;
+    background: url(/images/krcon/house.png) 50% 50% no-repeat;
     background-size: contain;
 
 }
