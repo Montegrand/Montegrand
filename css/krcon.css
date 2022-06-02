@@ -697,7 +697,7 @@ header .depth.trd > li > ul > li {
     font-size: 2.5rem; font-weight: 200;
     writing-mode: vertical-rl;
     text-orientation: upright;
-    letter-spacing: 2rem;
+    letter-spacing: 1rem;
 }
 
 .sec.fourth .box.snd {
@@ -719,6 +719,40 @@ header .depth.trd > li > ul > li {
 .sec.fourth .box.snd ul a {
     font-size: 1.5rem; font-weight: 100;
     display: flex;
+}
+
+/* section5 */
+
+.sec.fifth {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sec.fifth .inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec.fifth h3 {
+    font-size: 2.5rem; 
+}
+
+.sec.fifth h4 {
+    font-size: 1.2rem; font-weight: 100;
+    margin-top: 30px;
+}
+
+.sec.fifth .imgWrap {
+    display: flex;
+    margin-top: 60px;
+}
+
+.sec.fifth img {
+    width: 200px;
 }
 
 /* ----------------footer----------------------- */
