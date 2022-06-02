@@ -323,17 +323,23 @@ console.log(datat.datat[0]);
     })
 
     
-    let menu = document.querySelector("header .bt");
+    var menu = document.querySelector("header .bt");
     let nav = document.querySelector("header .top_nav.wrap");
-    console.log(nav);
-    console.log(menu);
     menu.addEventListener('click', tap);
-    
+    var menu = true;
     function tap () {
-        let menu = true;
-        nav.className = `top_nav wrap on`;
-        menu.className = `bt on`;
-        console.log(menu);
+        if ( menu === true ) {
+            nav.className = `top_nav wrap on`;
+            menu.className = `bt on`;
+            menu = false;
+        } else {
+            nav.className = `top_nav wrap`
+            menu.className = `bt`;
+            menu = true;
+            console.log(menu);
+        }
+        // console.log(menu);
+        
     }
 
 }
