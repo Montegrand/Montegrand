@@ -312,18 +312,22 @@ window.onload = function () {
     })
 
     
-    var menu = document.querySelector("header .bt");
+    let menu = document.querySelector("header .bt");
     let nav = document.querySelector("header .top_nav.wrap");
+    var header = document.querySelector("header");
+    console.log(header);
     menu.addEventListener('click', tap);
     var tog = true;
     function tap () {
         if ( tog === true ) {
             nav.className = `top_nav wrap on`;
             menu.className = `bt on`;
+            header.className = `header on`;
             tog = false;
         } else {
-            nav.className = `top_nav wrap`
+            nav.className = `top_nav wrap`;
             menu.className = `bt`;
+            header.className = `header`;
             tog = true;
         }
     }
