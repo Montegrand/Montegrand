@@ -379,7 +379,7 @@ header .depth.trd > li > ul > li {
 
 }
 
-.sec.snd .depth.trd .bt{
+.sec.snd .depth.trd .bt {
     height: 120px;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -702,6 +702,11 @@ header .depth.trd > li > ul > li {
 
 .sec.fourth .box.snd {
     width: 100%;
+    display: flex;
+}
+
+.sec.fourth .box.snd .tBox {
+    width: 100%;
 }
 
 .sec.fourth .box.snd ul {
@@ -717,7 +722,7 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.fourth .box.snd ul a {
-    font-size: 1.5rem; font-weight: 100;
+    font-size: 1.3rem; font-weight: 100;
     display: flex;
 }
 
@@ -749,6 +754,11 @@ header .depth.trd > li > ul > li {
 .sec.fifth .imgWrap {
     display: flex;
     margin-top: 60px;
+}
+
+.sec.fifth .imgWrap a {
+    display: flex;
+    align-items: center;
 }
 
 .sec.fifth img {

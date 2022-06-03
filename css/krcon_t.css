@@ -204,15 +204,87 @@ header .top_nav.wrap > li, header .depth.snd > li, header .depth.trd > li > ul >
 }
 
 
-/* section3 */
+/* section3 ===============================*/
 
-.sec.trd .wrap > div h4 {
+.sec.trd .top h3 {
+    font-size: 1.8rem;
+}
+
+.sec.trd .top.on h3 {
+    font-size: 2.2rem;
+}
+
+.sec.trd .top p {
     font-size: 1rem;
 }
+
+.sec.trd .top.on p {
+    font-size: 1.2rem;
+}
+
+.sec.trd > .inner {
+    height: auto;
+}
+
+.sec.trd > .inner .wrap {
+    flex-direction: column;
+}
+
+.sec.trd .wrap > div {
+    width: 100%;
+    height: 300px;
+    margin: 12px auto;
+}
+
+.sec.trd .wrap > div h4 {
+    font-size: 1.5rem;
+}
+
+.sec.trd .wrap > div p {
+    padding: 60px;
+}
+
+.sec.trd > .inner > .bt {
+    width: 50%;
+}
+
+/* ==================================== */
+/* section4======================= */
+
+.sec.fourth {
+    height: auto;
+    padding: 0;
+}
+
+.sec.fourth > .inner {
+    flex-direction: column;
+}
+
+.sec.fourth .box {
+    margin: 24px 0;
+}
+
+.sec.fourth .box.fst {
+    width: 100%;
+}
+
+.sec.fourth .bar {
+    margin: 0;
+    padding: 24px 0;
+}
+
+.sec.fourth .bar h3 {
+    font-size: 1.2rem;
+}
+
+.sec.fourth .box.snd ul a {
+    font-size: 1rem;
+}
+
 
 /* section5============================ */
 
 .sec.fifth img {
-    width: 12vw;
+    width: 13vw;
 }
 

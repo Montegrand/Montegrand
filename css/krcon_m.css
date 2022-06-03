@@ -1,0 +1,120 @@
+/* header==================== */
+
+header .bt {
+    width: 40px; height: 40px;
+    top: 20px; right: 20px;
+}
+
+.top_nav.wrap > li > a {
+    font-size: 1rem;
+}
+
+.top_nav.wrap > li > a {
+    font-size: 0.8rem;
+}
+
+header .depth.snd * {
+    font-size: 0.6rem;
+}
+
+/* section2====================== */
+
+.sec.snd .depth.trd .bt {
+    height: 80px;
+}
+
+header .top_nav.wrap {
+    width: 100%;
+}
+
+.sec.snd .depth.trd .bt > a {
+    font-size: 0.7rem;
+}
+
+/* section3======================== */
+
+.sec.trd .top h3 {
+    font-size: 1.2rem;
+}
+
+.sec.trd .top.on h3 {
+    font-size: 1.5rem;
+}
+
+.sec.trd .top p {
+    font-size: 0.5rem;
+}
+
+.sec.trd .top.on p {
+    font-size: 0.7rem;
+}
+
+.sec.trd .top .inner {
+    justify-content: space-around;
+}
+
+.sec.trd .wrap > div h4 {
+    font-size: 1.2rem;
+}
+
+.sec.trd .wrap > div p {
+    padding: 30px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.sec.trd > .inner > .bt {
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* section4============================== */
+
+.sec.fourth .box.snd {
+    flex-direction: column;
+}
+
+.sec.fourth .bar {
+    width: 100%; height: 30px;
+}
+
+.sec.fourth .bar h3 {
+    font-size: 1.5rem; font-weight: 200;
+    writing-mode: horizontal-tb;
+    text-orientation: sideways;
+    letter-spacing: 1rem;
+}
+
+.sec.fourth .box.snd ul {
+    padding: 20px;
+}
+
+/* section5============================== */
+
+.sec.fifth {
+    height: auto;
+    margin: 30px 0;
+}
+
+.sec.fifth h3 {
+    font-size: 2rem; 
+}
+
+.sec.fifth h4 {
+    font-size: 0.8rem; font-weight: 100;
+    margin-top: 30px;
+}
+
+.sec.fifth .imgWrap {
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.sec.fifth .imgWrap a {
+    width: 50%;
+    flex-shrink: 0;
+}
+
+.sec.fifth img {
+    width: 100%;
+}

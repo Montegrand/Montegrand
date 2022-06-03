@@ -326,7 +326,6 @@ window.onload = function () {
             tog = true;
         }
     }
-
 }
 // $(document).ready(function() {
 
