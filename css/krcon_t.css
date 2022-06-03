@@ -41,11 +41,11 @@ header .top_nav.wrap > li:hover .bot_nav.wrap {
 }
 
 header .bt {
-    width: 60px; height: 60px;
+    width: 40px; height: 40px;
     padding: 0;
     display: flex;
     position: absolute;
-    top: 10px; right: 10px;
+    top: 20px; right: 20px;
     overflow: hidden;
     text-indent: -1000px;
     background: url(../images/krcon/menu.svg) 50% 50% / contain no-repeat;
