@@ -33,6 +33,10 @@ header .top_nav.wrap {
 
 /* section3======================== */
 
+.sec.trd .top {
+    height: 240px;
+}
+
 .sec.trd .top h3 {
     font-size: 1.2rem;
 }
@@ -42,11 +46,11 @@ header .top_nav.wrap {
 }
 
 .sec.trd .top p {
-    font-size: 0.5rem;
+    font-size: 0.7rem;
 }
 
 .sec.trd .top.on p {
-    font-size: 0.7rem;
+    font-size: 1rem;
 }
 
 .sec.trd .top .inner {
