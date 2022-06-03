@@ -296,113 +296,42 @@ window.onload = function () {
             sec3.className = sec3C;
         }
 
-        Node[n].addEventListener('mouseover', hover0);
-
-        function hover0() {
-            // sec3A.style.background = `url(../images/krcon/recruit_0${n + 1}.jpg) 50% 50% / cover no-repeat`;
-        }
-
-        Node[n].addEventListener('mouseleave', leave0);
-
-        function leave0() {
-            // sec3A.style.background = `none`;
-        }
-
     })
+
 
 
     let menu = document.querySelector("header .bt");
     let nav = document.querySelector("header .top_nav.wrap");
     let navAll = document.querySelectorAll("header .top_nav.wrap, header .top_nav.wrap *");
-    let win = document.querySelectorAll("*:not(header .bt)");
-    console.log(win);
-    var tog = false;
+    let trigger = false;
 
-// ==========================
-    // Array.from(win).forEach(function (v, n, node) {
-    //     win[n].addEventListener('click', function (e) {
-    //         if ( tog = true ) {
-    //             if ( e.target != navAll ) {
-    //                 console.log(nav.classList);
-    //                 nav.className = `top_nav wrap`;
-    //                 menu.className = `bt`;
-    //                 tog = false;
-    //             }
-    //         }
-    //      })
-    // })
-// ==========================
-    // Array.from(win).forEach(function (v, n, node) {
-        // document.addEventListener('click', function (e) {
-        //     if (tog = true) {
-        //         // if (e.target = navAll) {
-        //         //     return nav.className = `top_nav wrap on`,
-        //         //         menu.className = `bt on`,
-        //         //         tog = true;
-        //         // }
-        //         console.log(nav);
-        //         if (e.target != navAll) {
-        //             nav.className = `top_nav wrap`;
-        //             menu.className = `bt`;
-        //             tog = false;
-        //         }
-        //     }
-        //     return;
-        // })
-    // })
-// =============================================================================================
-    document.querySelector("header .bt")?.addEventListener("click", function () {
 
-    });
-
-    // ================================================================================================
-    // document.addEventListener('click', function (e) {
-    //     if (tog === true) {
-    //         if (e.target != menu) {
-    //             nav.className = `top_nav wrap`;
-    //             menu.className = `bt`;
-    //             tog = false;
-    //             console.log(nav.classList);
-    //         }
-    //         return false;
-    //     }
-    // })
-
-    menu.addEventListener('click', tap);
-    function tap() {
-        if (tog === false) {
+    menu.addEventListener('click', function() {
+        if ( trigger === false ) {
             nav.className = `top_nav wrap on`;
             menu.className = `bt on`;
-            tog = true;
-        } else {
-            nav.className = `top_nav wrap`;
-            menu.className = `bt`;
-            tog = false;
-        }
-    }
-// ================================================================
-    document.addEventListener('click', function (e) {
-        if (tog = true) {
-            // if (e.target = navAll) {
-            //     return nav.className = `top_nav wrap on`,
-            //         menu.className = `bt on`,
-            //         tog = true;
-            // }
-            console.log(nav);
-            if (e.target != navAll) {
-                nav.className = `top_nav wrap`;
-                menu.className = `bt`;
-                tog = false;
+            trigger = true;
+            return function () {
+                
             }
         }
-        return;
+        
     })
-// ==================================================================================================
+
+    
+
+    // =============================================================================================
+    // document.querySelector("header .bt")?.addEventListener("click", function () {
+
+    // });
+
+    // ================================================================================================
+
+
+    // $(document).ready(function() {
+
+    //     $('.bt > a').click(function() {
+    //         $(this).parents('.wrap').children(".depth.snd").find('p').text($(this).index);
+    //     })
+
 }
-// $(document).ready(function() {
-
-//     $('.bt > a').click(function() {
-//         $(this).parents('.wrap').children(".depth.snd").find('p').text($(this).index);
-//     })
-
-// })
