@@ -366,6 +366,7 @@ header .depth.trd > li > ul > li {
     align-items: flex-start;
     width: 100%; height: 100%;
     padding: 60px 24px;
+    transition: 500ms;
 }
 
 .sec.snd .depth.trd > div:first-child h4 {
