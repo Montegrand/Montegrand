@@ -143,7 +143,7 @@ window.onload = function () {
 
     ];
     class DataInfo {
-        constructor( name, header, tbox, category, imgName1) {
+        constructor(name, header, tbox, category, imgName1) {
             this.name = name;
             this.header = header;
             this.tbox = tbox;
@@ -157,8 +157,8 @@ window.onload = function () {
         constructor() {
             this.datat = [];
         };
-        newData( name, header, tbox, category, imgName1) {
-            let arrChild = new DataInfo( name, header, tbox, category, imgName1);
+        newData(name, header, tbox, category, imgName1) {
+            let arrChild = new DataInfo(name, header, tbox, category, imgName1);
             this.datat.push(arrChild);
             return arrChild;
         };
@@ -310,22 +310,94 @@ window.onload = function () {
 
     })
 
-    
+
     let menu = document.querySelector("header .bt");
     let nav = document.querySelector("header .top_nav.wrap");
+    let navAll = document.querySelectorAll("header .top_nav.wrap, header .top_nav.wrap *");
+    let win = document.querySelectorAll("*:not(header .bt)");
+    console.log(win);
+    var tog = false;
+
+// ==========================
+    // Array.from(win).forEach(function (v, n, node) {
+    //     win[n].addEventListener('click', function (e) {
+    //         if ( tog = true ) {
+    //             if ( e.target != navAll ) {
+    //                 console.log(nav.classList);
+    //                 nav.className = `top_nav wrap`;
+    //                 menu.className = `bt`;
+    //                 tog = false;
+    //             }
+    //         }
+    //      })
+    // })
+// ==========================
+    // Array.from(win).forEach(function (v, n, node) {
+        // document.addEventListener('click', function (e) {
+        //     if (tog = true) {
+        //         // if (e.target = navAll) {
+        //         //     return nav.className = `top_nav wrap on`,
+        //         //         menu.className = `bt on`,
+        //         //         tog = true;
+        //         // }
+        //         console.log(nav);
+        //         if (e.target != navAll) {
+        //             nav.className = `top_nav wrap`;
+        //             menu.className = `bt`;
+        //             tog = false;
+        //         }
+        //     }
+        //     return;
+        // })
+    // })
+// =============================================================================================
+    document.querySelector("header .bt")?.addEventListener("click", function () {
+
+    });
+
+    // ================================================================================================
+    // document.addEventListener('click', function (e) {
+    //     if (tog === true) {
+    //         if (e.target != menu) {
+    //             nav.className = `top_nav wrap`;
+    //             menu.className = `bt`;
+    //             tog = false;
+    //             console.log(nav.classList);
+    //         }
+    //         return false;
+    //     }
+    // })
+
     menu.addEventListener('click', tap);
-    var tog = true;
-    function tap () {
-        if ( tog === true ) {
+    function tap() {
+        if (tog === false) {
             nav.className = `top_nav wrap on`;
             menu.className = `bt on`;
-            tog = false;
+            tog = true;
         } else {
             nav.className = `top_nav wrap`;
             menu.className = `bt`;
-            tog = true;
+            tog = false;
         }
     }
+// ================================================================
+    document.addEventListener('click', function (e) {
+        if (tog = true) {
+            // if (e.target = navAll) {
+            //     return nav.className = `top_nav wrap on`,
+            //         menu.className = `bt on`,
+            //         tog = true;
+            // }
+            console.log(nav);
+            if (e.target != navAll) {
+                nav.className = `top_nav wrap`;
+                menu.className = `bt`;
+                tog = false;
+            }
+        }
+        return;
+    })
+// ==================================================================================================
 }
 // $(document).ready(function() {
 
