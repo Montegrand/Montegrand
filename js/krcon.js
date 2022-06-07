@@ -299,26 +299,54 @@ window.onload = function () {
     })
 
 
-
     let menu = document.querySelector("header .bt");
     let nav = document.querySelector("header .top_nav.wrap");
     let navAll = document.querySelectorAll("header .top_nav.wrap, header .top_nav.wrap *");
+    let back = document.querySelector("header .back")
     let trigger = false;
+    console.log(menu.append);
+
+    // menu.addEventListener('click', function() {
 
 
-    menu.addEventListener('click', function() {
-        if ( trigger === false ) {
-            nav.className = `top_nav wrap on`;
-            menu.className = `bt on`;
-            trigger = true;
-            return function () {
-                
+    //     if (function() {
+    //         document.addEventListener('click', function(e) {
+    //             if(trigger===true){
+    //                 if(e.target !== navAll) {
+    //                     return false;
+    //                 }
+    //             } else {
+    //                 return true;
+    //             }
+    //         })
+    //     }===true) {
+    //     }
+    // })
+
+
+
+    document.addEventListener('click', function (e) {
+        if (e.target === menu) {
+            if (trigger === false) {
+                nav.className = `top_nav wrap on`;
+                menu.className = `bt on`;
+                back.className = `back on`;
+                trigger = true;
+                back.addEventListener('click', function () {
+                    nav.className = `top_nav wrap`;
+                    menu.className = `bt`;
+                    back.className = `back`;
+                    trigger = false;
+                })
+            } else {
+                nav.className = `top_nav wrap`;
+                menu.className = `bt`;
+                back.className = `back`;
+                trigger = false;
             }
         }
-        
     })
 
-    
 
     // =============================================================================================
     // document.querySelector("header .bt")?.addEventListener("click", function () {

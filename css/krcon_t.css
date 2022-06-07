@@ -21,6 +21,21 @@ header .top_nav.wrap  {
     overflow: hidden;
 }
 
+header .back {
+    content: "";
+    width: 100vw; height: 100vh;
+    position: absolute;
+    display: none;
+    background: #000;
+    opacity: 0.3;
+    top: 0; left: 0;
+    z-index: 0;
+}
+
+header .back.on {
+    display: flex;
+}
+
 header .top_nav.wrap.on {
     transform: translateX(0);
     transition: 500ms;
