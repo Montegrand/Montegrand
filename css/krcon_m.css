@@ -23,10 +23,6 @@ header .depth.snd * {
     height: 80px;
 }
 
-header .top_nav.wrap {
-    width: 100%;
-}
-
 .sec.snd .depth.trd .bt > a {
     font-size: 0.7rem;
 }

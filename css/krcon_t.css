@@ -43,6 +43,7 @@ header .top_nav.wrap.on {
 
 header .top_nav.wrap > li {
     width: 30%; height: 12%;
+    background-color: #0972CD;
     position: relative;
 }
 
@@ -83,6 +84,17 @@ header .top_nav.wrap > li:hover > a {
 
 header .top_nav.wrap > li:hover {
     border-right: none;
+    background: none;
+}
+
+header .top_nav.wrap > li:first-child {
+    position: fixed;
+    width: 100%; height: 80%;
+    top: 25%;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 0;
+    border: none;
 }
 
 .bot_nav.wrap {
