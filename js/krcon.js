@@ -1,4 +1,14 @@
 window.onload = function () {
+
+    var allA = document.querySelectorAll(`a`);
+
+    allA.forEach(function(v,n){
+        if (v.href.search(`#`) > 0) {
+            v.onclick = function() {return false;}
+        }
+    })
+
+    
     var swiper = new Swiper(".sldwrap", {
         slidesPerView: 1,
         spaceBetween: 30,
@@ -326,6 +336,7 @@ window.onload = function () {
             }
         }
     })
+
 
     // =============================================================================================
     // document.querySelector("header .bt")?.addEventListener("click", function () {
