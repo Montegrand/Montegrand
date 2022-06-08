@@ -9,8 +9,7 @@ body {
 }
 
 header .top_nav.wrap  {
-    width: 90vw; height: 100vh;
-    padding-left: 10px;
+    width: 70vw; height: 100vh;
     background: #0972CD;
     position: absolute;
     flex-direction: column;
@@ -19,9 +18,10 @@ header .top_nav.wrap  {
     transform: translateX(100%);
     transition: 500ms;
     overflow: hidden;
+    justify-content: flex-end;
 }
 
-header .back {
+header .overay {
     content: "";
     width: 100vw; height: 100vh;
     position: absolute;
@@ -32,7 +32,7 @@ header .back {
     z-index: 0;
 }
 
-header .back.on {
+header .overay.on {
     display: flex;
 }
 
@@ -43,7 +43,6 @@ header .top_nav.wrap.on {
 
 header .top_nav.wrap > li {
     width: 30%; height: 12%;
-    margin: 6px;
     position: relative;
 }
 
@@ -70,8 +69,20 @@ header .bt.on {
     background: url(../images/krcon/close.svg) 50% 50% /contain no-repeat;
 }
 
+header .top_nav.wrap > li, header .depth.snd > li, header .depth.trd > li > ul > li {
+    border: 1px solid #eee;
+}
+
 header .top_nav.wrap > li > a {
+    color: #999;
+}
+
+header .top_nav.wrap > li:hover > a {
     color: #eee;
+}
+
+header .top_nav.wrap > li:hover {
+    border-right: none;
 }
 
 .bot_nav.wrap {
@@ -95,9 +106,9 @@ header .depth.fst > p {
 }
 
 header .depth.snd {
-    position: absolute;
-    top: 0; left: 5%;
-    width: 100%; height: auto;
+    position: fixed;
+    top: 28%; left: 31%;
+    width: 30%; height: auto;
     flex-direction: column;
 }
 
@@ -112,6 +123,13 @@ header .depth.snd > li {
 
 header .depth.snd > li > a {
     color: #eee;
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+}
+
+header .depth.snd > li > p {
+    width: 100%;
 }
 
 header .depth.snd > li > a * {
@@ -122,17 +140,14 @@ header .depth.snd > li > a * {
     display: none;
 }
 
-header .depth > li:hover > a * {
-    color: #eee;
-}
-
 .top_nav.wrap a:hover {
     color: #eee;
+
 }
 
 header .depth.trd {
     position: absolute;
-    top: 0; left: 105%;
+    top: 0; left: 103%;
     width: 100%; height: auto;
 }
 
@@ -148,10 +163,6 @@ header .depth.trd > li > ul > li {
 
 header .depth.trd > li > ul > li * {
     color: #eee;
-}
-
-header .top_nav.wrap > li, header .depth.snd > li, header .depth.trd > li > ul > li {
-    outline: 1px solid #eee;
 }
 
 /* ================================================== */

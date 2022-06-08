@@ -301,28 +301,8 @@ window.onload = function () {
 
     let menu = document.querySelector("header .bt");
     let nav = document.querySelector("header .top_nav.wrap");
-    let navAll = document.querySelectorAll("header .top_nav.wrap, header .top_nav.wrap *");
-    let back = document.querySelector("header .back")
+    let overay = document.querySelector("header .overay")
     let trigger = false;
-    console.log(menu.append);
-
-    // menu.addEventListener('click', function() {
-
-
-    //     if (function() {
-    //         document.addEventListener('click', function(e) {
-    //             if(trigger===true){
-    //                 if(e.target !== navAll) {
-    //                     return false;
-    //                 }
-    //             } else {
-    //                 return true;
-    //             }
-    //         })
-    //     }===true) {
-    //     }
-    // })
-
 
 
     document.addEventListener('click', function (e) {
@@ -330,23 +310,22 @@ window.onload = function () {
             if (trigger === false) {
                 nav.className = `top_nav wrap on`;
                 menu.className = `bt on`;
-                back.className = `back on`;
+                overay.className = `overay on`;
                 trigger = true;
-                back.addEventListener('click', function () {
+                overay.addEventListener('click', function () {
                     nav.className = `top_nav wrap`;
                     menu.className = `bt`;
-                    back.className = `back`;
+                    overay.className = `overay`;
                     trigger = false;
                 })
             } else {
                 nav.className = `top_nav wrap`;
                 menu.className = `bt`;
-                back.className = `back`;
+                overay.className = `overay`;
                 trigger = false;
             }
         }
     })
-
 
     // =============================================================================================
     // document.querySelector("header .bt")?.addEventListener("click", function () {
