@@ -240,39 +240,48 @@ window.onload = function () {
     var tbox = document.querySelector('.sec.snd .depth.snd p');
     var d3 = document.querySelector('.sec.snd .depth.trd > div:first-child');
     var d3h = document.querySelector('.sec.snd .depth.trd > div:first-child > h4');
-
+    
     header.textContent = datat.datat[0].header; //depth2 h3
-
+    
     name.textContent = datat.datat[0].name; //depth2 span
-
+    
     tbox.textContent = datat.datat[0].tbox; //depth2 p
-
+    
     d3.style.background = `url(${datat.datat[0].imgUrl1}) 50% 0 / contain no-repeat`;
     d3h.textContent = datat.datat[0].imgAlt1;
     //depth3 
-
+    
     var bt = document.querySelectorAll('.bt > a')
-
+    let btParent = document.querySelector(`bt`);
     bt.forEach(function (v, n, Node) {
-
+        
         v.addEventListener('click', tap);
-
+        
         function tap() {
+            
+            
             var header = document.querySelector('.sec.snd .depth.snd h3');
             var name = document.querySelector('.sec.snd .depth.snd span');
             var tbox = document.querySelector('.sec.snd .depth.snd p');
             var d3 = document.querySelector('.sec.snd .depth.trd > div:first-child');
             var d3h = document.querySelector('.sec.snd .depth.trd > div:first-child > h4');
-
+            
             header.textContent = datat.datat[n].header; //depth2 h3
-
+            
             name.textContent = datat.datat[n].name; //depth2 span
-
+            
             tbox.textContent = datat.datat[n].tbox; //depth2 p
-
+            
             d3.style.background = `url(${datat.datat[n].imgUrl1}) 50% 0 / contain no-repeat`;
             d3h.textContent = datat.datat[n].imgAlt1;
             //depth3 
+            // btParent.children
+            console.log(Node[n])
+            
+            v.className = `on`;
+            
+            // bt[!n].className = ``;
+            
         };
 
     });

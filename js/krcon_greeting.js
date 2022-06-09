@@ -37,12 +37,10 @@ window.onload = function() {
     })
 
     let wid = screen.width;
-    let df = document.querySelector('.sec.fst .box.snd .text.container h5')
-    console.log(wid);
-    console.log(df);
+    let greT = document.querySelector('.sec.fst .box.snd .text.container h5')
 
     if ( wid <= 680 ) {
-        df.innerHTML = `계룡건설을 아끼고<br> 사랑해주시는 고객 여러분!<br> 안녕하십니까.`
+        greT.innerHTML = `계룡건설을 아끼고<br> 사랑해주시는 고객 여러분!<br> 안녕하십니까.`
     }
 
 }

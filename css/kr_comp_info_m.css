@@ -1,0 +1,22 @@
+.inner {
+    width: 100%;
+}
+
+/* header==================== */
+
+header .bt {
+    width: 30px; height: 30px;
+    top: 25px; right: 25px;
+}
+
+.top_nav.wrap > li > a {
+    font-size: 1rem;
+}
+
+.top_nav.wrap > li > a {
+    font-size: 0.8rem;
+}
+
+header .depth.snd * {
+    font-size: 0.6rem;
+}
