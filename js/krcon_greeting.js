@@ -1,4 +1,12 @@
 window.onload = function() {
+
+    var allA = document.querySelectorAll(`a`);
+
+    allA.forEach(function(v,n){
+        if (v.href.search(`#`) > 0) {
+            v.onclick = function() {return false;}
+        }
+    })
     
     let menu = document.querySelector("header .bt");
     let nav = document.querySelector("header .top_nav.wrap");
@@ -27,5 +35,14 @@ window.onload = function() {
             }
         }
     })
+
+    let wid = screen.width;
+    let df = document.querySelector('.sec.fst .box.snd .text.container h5')
+    console.log(wid);
+    console.log(df);
+
+    if ( wid <= 680 ) {
+        df.innerHTML = `계룡건설을 아끼고<br> 사랑해주시는 고객 여러분!<br> 안녕하십니까.`
+    }
 
 }

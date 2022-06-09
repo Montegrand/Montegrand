@@ -1,3 +1,7 @@
+.inner {
+    width: 100%;
+}
+
 /* header==================== */
 
 header .bt {
@@ -15,4 +19,55 @@ header .bt {
 
 header .depth.snd * {
     font-size: 0.6rem;
+}
+
+/* sec1==================================================== */
+
+.sec.fst > .inner {
+    height: auto;
+    padding: 24px 0;
+}
+
+.sec.fst .top {
+    height: 120px;
+    padding: 0 30px;
+}
+
+.sec.fst .top h2 {
+    font-size: 1.5rem;
+}
+
+.sec.fst .page_depth li a {
+    font-size: 1rem; font-weight: 100;
+}
+
+.sec.fst > .inner p {
+    font-size: 1rem;
+    padding: 0 30px;
+}
+
+.sec.fst .box .img {
+    height: 50vh;
+}
+
+.sec.fst .box .img p {
+    font-size: 0.8rem;
+}
+
+.sec.fst .box .img span {
+    font-size: 1rem; font-weight: 700;
+}
+
+.sec.fst .box.fst .img {
+    background-size: 50%;
+    background-position: 50% 25%;
+}
+
+.sec.fst .box.snd .img {
+    background-size: 50%;
+    background-position: 50% 25%;
+}
+
+.sec.fst .box .text.container h5 {
+    font-size: 1.5rem;
 }

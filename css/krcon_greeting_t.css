@@ -79,25 +79,6 @@ header .top_nav.wrap > li:hover {
     background: none;
 }
 
-/* header .top_nav.wrap > .bg {
-    position: fixed;
-    width: 100%; height: 80%;
-    top: 27.5%;
-    background-color: #000;
-    opacity: 0.5;
-    z-index: 0;
-    border: none;
-} */
-
-/* header .top_nav.wrap::after {
-    content: "";
-    width: 180px; height: 15%;
-    background: #fff url(../images/krcon/logo_01.jpg) 50% 50% / contain no-repeat;
-    position: fixed;
-    top: 3%; left: 3%;
-    opacity: 0.5;
-} */
-
 header .depth::after {
     display: none;
 }
@@ -180,4 +161,50 @@ header .depth.trd > li > ul > li * {
     justify-content: center;
 }
 
-/* ================================================== */
+/* sec1================================================== */
+
+.sec.fst > .inner {
+    height: 15vh;
+}
+
+.sec.fst .top {
+    height: 12vh;
+}
+
+.sec.fst .top h2 {
+    font-size: 1.8rem;
+}
+
+.sec.fst .page_depth {
+    margin-top: 24px;
+}
+
+.sec.fst .box .inner {
+    flex-direction: column;
+}
+
+.sec.fst .bar h4 {
+    font-size: 2rem; font-weight: 200;
+    writing-mode:horizontal-tb;
+    text-orientation: upright;
+    letter-spacing: 1rem;
+    margin: 6px 0;
+}
+
+.sec.fst .box .img {
+    height: 60vh;
+}
+
+.sec.fst .box.fst .img {
+    background-size: 70%;
+    background-position: 50% 35%;
+}
+
+.sec.fst .box.snd .img {
+    background-size: 70%;
+    background-position: 50% 35%;
+}
+
+.sec.fst .box .text.container p {
+    width: auto;
+}
