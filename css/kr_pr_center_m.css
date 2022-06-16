@@ -21,3 +21,21 @@ header .bt {
 header .depth.snd * {
     font-size: 0.6rem;
 }
+
+/* sec===================================================================== */
+
+section > div.inner > div:first-child p {
+    font-size: 0.8rem;
+}
+
+section .tap a {
+    font-size: 0.8rem;
+}
+
+section .brochure > a {
+    font-size: 1rem;
+}
+
+section .brochure > a:hover {
+    font-size: 1rem;
+}

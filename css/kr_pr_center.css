@@ -30,7 +30,7 @@
     text-decoration: none;
     list-style-type: none;
     color: #333;
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
 }
 
 .inner {
@@ -221,6 +221,9 @@ header .depth.trd > li > ul > li {
 
 /* sec======================================================================== */
 
+section {
+    margin: 30px 0;
+}
 
 section .top {
     width: 100%; height: 240px;
@@ -303,6 +306,10 @@ section .tap > a {
     align-items: center;
     background: rgba(0, 0, 0, 0.3);
     border: 2px solid #eee;
+}
+
+section .tap > a:hover {
+    background: rgba(0, 0, 0, 0.1);
 }
 
 section .tap > a.on {

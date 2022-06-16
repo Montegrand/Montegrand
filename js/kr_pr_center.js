@@ -35,28 +35,36 @@ window.onload = function() {
             }
         }
     })
-
+    
+    let wid = screen.width;
+    let hei = screen.height;
     let tap = document.querySelectorAll(`section .tap a`);
-    let brochure = document.querySelectorAll(`section .contents > div`);
+    let contents = document.querySelectorAll(`section .contents > div`);
+    let brochure = document.querySelectorAll(`section .brochure > a`)
     tap.forEach(function(v, n) {
         v.addEventListener('click', function(e) {
             for ( i = 0; i <= tap.length-1; i++ ) {
                 if ( tap[i] === e.target ) {
                     tap[i].classList.add(`on`);
-                    brochure[i].classList.add(`on`);
+                    contents[i].classList.add(`on`);
                 } else {
                     tap[i].classList.remove(`on`);
-                    brochure[i].classList.remove(`on`);
+                    contents[i].classList.remove(`on`);
                 }
-            }
+            };
         })
+        // console.log(v.style)
+    })
+    brochure.forEach(function(v,n) {
+        if ( wid > hei ) {
+            v.style.width = `1500`;
+        }
     })
 
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    let wid = screen.width;
 
     console.log(wid);
 

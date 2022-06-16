@@ -172,11 +172,19 @@ section .contents > div {
     height: 100%;
 }
 
+section .tap a {
+    font-size: 1.2rem;
+}
+
+section .brochure > a {
+    font-size: 1.5rem;
+}
+
 section .brochure {
     flex-direction: column;
 }
 
 section .brochure > a {
-    width: 75%;
+    width: 65%;
     margin: 30px;
 }
