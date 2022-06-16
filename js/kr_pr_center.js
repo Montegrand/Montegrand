@@ -40,7 +40,15 @@ window.onload = function() {
     let brochure = document.querySelectorAll(`section .contents div`);
     tap.forEach(function(v, n) {
         v.addEventListener('click', function(e) {
-            
+            for ( i = 0; i <= tap.length-1; i++ ) {
+                if ( tap[i] === e.target ) {
+                    tap[i].classList.add(`on`);
+                    brochure[i].classList.add(`on`);
+                } else {
+                    tap[i].classList.remove(`on`);
+                    brochure[i].classList.remove(`on`);
+                }
+            }
         })
     })
 
