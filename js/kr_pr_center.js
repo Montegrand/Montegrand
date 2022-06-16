@@ -40,11 +40,11 @@ window.onload = function() {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    let money = document.querySelectorAll(`.money`)
+    // let money = document.querySelectorAll(`.money`)
 
-    money.forEach(function(v,n) {
-        // console.log(v.innerHTML);
-        v.innerHTML = numberWithCommas(v.innerHTML);
-    })
+    // money.forEach(function(v,n) {
+    //     // console.log(v.innerHTML);
+    //     v.innerHTML = numberWithCommas(v.innerHTML);
+    // })
     
 }
