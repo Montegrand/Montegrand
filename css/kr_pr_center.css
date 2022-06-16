@@ -30,7 +30,7 @@
     text-decoration: none;
     list-style-type: none;
     color: #333;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 .inner {
@@ -315,7 +315,7 @@ section .tap > a.on {
 section .contents > div {
     display: none;
     width: 100%; height: 800px;
-    background: #0972cd33;
+    background: #0972CD33
 }
 
 section .contents > div.on {
@@ -328,19 +328,51 @@ section .brochure {
 }
 
 section .brochure > a {
-    flex: 0 1 30%;
-    height: 60%;
+    width: 28%; height: 60%;
     display: flex;
     align-items: flex-end;
     padding: 30px;
+
 }
 
 section .ko {
-    background: url(../images/krcon/brochure_ko.jpg) 50% 50% / contain no-repeat;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
 }
 
-section .ko:hover {
-    background-size: cover;
+section .ko::before {
+    content: "";
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    background: url(../images/krcon/brochure_ko.jpg) 50% 50% / cover no-repeat;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+section .ko:hover::before {
+    transform: scale(120%);
+}
+
+section .en {
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+section .en::before {
+    content: "";
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    background: url(../images/krcon/brochure_en.jpg) 50% 50% / cover no-repeat;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+section .en:hover::before {
+    transform: scale(120%);
 }
 
 /* ----------------footer----------------------- */

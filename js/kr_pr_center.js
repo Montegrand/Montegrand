@@ -36,6 +36,14 @@ window.onload = function() {
         }
     })
 
+    let tap = document.querySelectorAll(`section .tap a`);
+    let brochure = document.querySelectorAll(`section .contents div`);
+    tap.forEach(function(v, n) {
+        v.addEventListener('click', function(e) {
+            
+        })
+    })
+
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
