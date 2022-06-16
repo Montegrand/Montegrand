@@ -160,3 +160,23 @@ header .depth.trd > li > ul > li * {
     padding: 0;
     justify-content: center;
 }
+
+/* sec================================================================================= */
+
+
+section .contents {
+    height: 120vh;
+}
+
+section .contents > div {
+    height: 100%;
+}
+
+section .brochure {
+    flex-direction: column;
+}
+
+section .brochure > a {
+    width: 75%;
+    margin: 30px;
+}

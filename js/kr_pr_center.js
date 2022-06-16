@@ -37,7 +37,7 @@ window.onload = function() {
     })
 
     let tap = document.querySelectorAll(`section .tap a`);
-    let brochure = document.querySelectorAll(`section .contents div`);
+    let brochure = document.querySelectorAll(`section .contents > div`);
     tap.forEach(function(v, n) {
         v.addEventListener('click', function(e) {
             for ( i = 0; i <= tap.length-1; i++ ) {
@@ -56,6 +56,17 @@ window.onload = function() {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    let wid = screen.width;
+
+    console.log(wid);
+
+    let navLi = document.querySelectorAll(`header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a`);
+    console.log(navLi);
+    navLi.forEach(function(v,n) {
+        if ( wid <= 1240 ) {
+            v.href = `#`;
+        }
+    })
     // let money = document.querySelectorAll(`.money`)
 
     // money.forEach(function(v,n) {

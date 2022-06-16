@@ -332,7 +332,11 @@ section .brochure > a {
     display: flex;
     align-items: flex-end;
     padding: 30px;
+    transition: 0.5s;
+}
 
+section .brochure > a:hover {
+    font-size: 1.5rem;
 }
 
 section .ko {
@@ -373,6 +377,20 @@ section .en::before {
 
 section .en:hover::before {
     transform: scale(120%);
+}
+
+section .CI {
+    justify-content: center;
+    align-items: center;
+}
+
+section .BI {
+    justify-content: center;
+    align-items: center;
+}
+
+section p {
+    font-size: 1.5rem;
 }
 
 /* ----------------footer----------------------- */
