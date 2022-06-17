@@ -184,6 +184,15 @@ section .brochure {
     flex-direction: column;
 }
 
+section .brochure.width {
+    flex-direction: row;
+    height: 90vh;
+}
+
+section .brochure.width > a {
+    height: 80%;
+}
+
 section .brochure > a {
     width: 65%;
     margin: 30px;
