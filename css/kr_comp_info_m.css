@@ -21,3 +21,51 @@ header .bt {
 header .depth.snd * {
     font-size: 0.6rem;
 }
+
+/* sec================================================================================= */
+
+section .top {
+    height: 120px;
+    padding: 0 30px;
+}
+
+section .top h2 {
+    font-size: 1.5rem;
+}
+
+section .page_depth li a {
+    font-size: 1rem; font-weight: 100;
+}
+
+section > .inner {
+    height: auto;
+}
+
+section.width .box .inner {
+    flex-direction: column;
+}
+
+section.width .bar h4 {
+    font-size: 2rem; font-weight: 200;
+    writing-mode:horizontal-tb;
+    text-orientation: upright;
+    letter-spacing: 1rem;
+    margin: 6px 0;
+}
+
+section .box .text.container table tr {
+    height: 3rem;
+}
+
+section .box .text.container table td:first-child {
+    padding: 0 12px;
+    white-space: nowrap;
+}
+
+section > div:last-child > .inner a {
+    width: 70%;
+}
+
+section.width > div:last-child > .inner a {
+    width: 50%;
+}

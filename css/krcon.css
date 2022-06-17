@@ -204,10 +204,6 @@ header .depth.trd > li > ul > li {
     width: 100%; height: 30px;
 }
 
-.swiper-button-next, .swiper-button-prev {
-    
-}
-
 /* ===================sec1==================== */
 .sec.fst .sldwrap {
     width: 100%; height: 600px;
@@ -260,6 +256,30 @@ header .depth.trd > li > ul > li {
     background: rgba(0, 0, 0, 0.6) url(../images/krcon/main/slide_3.jpg) 50% 50% no-repeat;
     background-blend-mode: darken;
     background-size: cover;
+}
+
+.sec.fst .slider.fth {
+    background: url(../images/krcon/elif_bg.jpg) 50% 50% / cover no-repeat;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 120px;
+}
+
+.sec.fst .slider.fth > div span {
+    font-size: 2rem; font-weight: 300;
+    color: #fff;
+}
+
+.sec.fst .slider.fth > div h2 {
+    font-size: 3rem; font-weight: 400;
+    color: #fff;
+    margin-bottom: 60px;
+}
+
+.sec.fst .slider.fth > div p {
+    font-size: 1.2rem; font-weight: 200;
+    color: #fff;
 }
 
 /* sec2---------------------------------------------------- */
@@ -395,6 +415,10 @@ header .depth.trd > li > ul > li {
     justify-content: space-around;
     align-items: center;
     flex: 1 0 0;
+}
+
+.sec.snd .depth.trd .bt > a.on {
+    background: #0972CD22;
 }
 
 .sec.snd .depth.trd .bt > a:nth-child(1) i {

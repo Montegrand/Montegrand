@@ -1,5 +1,22 @@
 window.onload = function() {
 
+    let wid = window.innerWidth;
+    let hei = window.innerHeight;
+
+    let navLi = document.querySelectorAll(`header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a`);
+
+    console.log(navLi)
+
+    navLi.forEach(function (v, n) {
+        if (wid <= 1240) {
+            for ( i = 0; i < navLi.length; i++ ) {
+                if ( i !== 7 ) {
+                    navLi[i].href = `#`;
+                }
+            }
+        }
+    })
+
     var allA = document.querySelectorAll(`a`);
 
     allA.forEach(function(v,n){
@@ -10,7 +27,7 @@ window.onload = function() {
     
     let menu = document.querySelector("header .bt");
     let nav = document.querySelector("header .top_nav.wrap");
-    let overay = document.querySelector("header .overay")
+    let overay = document.querySelector("header .overay");
     let trigger = false;
 
 
@@ -36,7 +53,18 @@ window.onload = function() {
         }
     })
 
-    let wid = screen.width;
+    window.addEventListener('resize', function () {
+        if ( window.innerWidth > window.innerHeight ) {
+            return document.querySelectorAll(`.sec.fst .img`).forEach(function(v,n) {
+                v.classList.add(`width`);
+            });
+        } else {
+            return document.querySelectorAll(`.sec.fst .img`).forEach(function(v,n) {
+                v.classList.remove(`width`);
+            });
+        }
+    })
+
     let greT = document.querySelector('.sec.fst .box.snd .text.container h5')
 
     if ( wid <= 680 ) {

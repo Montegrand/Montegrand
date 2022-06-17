@@ -19,12 +19,10 @@
         opacity: 0;
     }
 }
-
 /* fade in out animation */
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     box-sizing: border-box;
     font-family: 'Noto Sans KR', 'sans-serif';
     text-decoration: none;
@@ -63,18 +61,6 @@ header * {
 
 header .top_nav.wrap > li {
     width: 150px; height: 100%;
-}
-
-header .top_nav.wrap > li:hover > a {
-    position: relative;
-}
-
-header .top_nav.wrap > li:hover > a::after {
-    content: "";
-    width: 100%; height: 3px;
-    background: #0972CD;
-    position: absolute;
-    top: 90%;
 }
 
 header .bt {
@@ -218,189 +204,7 @@ header .depth.trd > li > ul > li {
     width: 100%; height: 30px;
 }
 
-
-/* sec======================================================================== */
-
-section {
-    margin-bottom: 30px;
-}
-
-section .top {
-    width: 100%; height: 240px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: url(../images/krcon/top6.jpg) 50% 50% / cover no-repeat;
-}
-
-section .top h2 {
-    display: inline-block;
-    font-size: 2.4rem; font-weight: 400;
-    text-shadow: 4px 4px 4px #333;
-    color: #eee;
-}
-
-section .page_depth {
-    display: flex;
-    margin-top: 42px;
-}
-
-section .page_depth li {
-    margin-right: 12px;
-}
-
-section .page_depth li a {
-    color: #eee;
-    font-size: 1.2rem; font-weight: 100;
-    
-}
-
-section .page_depth li a::before {
-    content: "-";
-    margin-right: 12px;
-}
-
-section .page_depth li:first-child a::before {
-    content: "";
-}
-
-section > div.inner > div:first-child {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-}
-
-section > div.inner > div:first-child h3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    font-weight: 500;
-}
-
-section > div.inner > div:first-child h3::after {
-    content: "";
-    display: flex;
-    width: 50%; height: 6px;
-    background-color: #0972CD;
-    margin: 12px 0 24px;
-}
-
-section > div.inner > div:first-child p {
-    display: flex;
-    justify-content: center;
-    font-size: 1.2rem; font-weight: 300;
-    text-align: center;
-}
-
-section .tap {
-    display: flex;
-}
-
-section .tap > a {
-    flex: 1 0 10%;
-    padding: 6px 12px;
-    font-size: 1.8rem; font-weight: 200;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.3);
-    border: 6px solid #eee;
-}
-
-section .tap > a:hover {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-section .tap > a.on {
-    font-weight: 400;
-    background: #0972CD;
-    color: #eee;
-    border-bottom: none;
-}
-
-section .contents > div {
-    display: none;
-    width: 100%; height: 800px;
-    background: #0972CD33
-}
-
-section .contents > div.on {
-    display: flex;
-}
-
-section .brochure {
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-section .brochure > a {
-    width: 28%; height: 60%;
-    display: flex;
-    align-items: flex-end;
-    padding: 30px;
-    transition: 0.5s;
-}
-
-section .brochure > a:hover {
-    font-size: 1.5rem;
-}
-
-section .ko {
-    position: relative;
-    z-index: 5;
-    overflow: hidden;
-}
-
-section .ko::before {
-    content: "";
-    width: 100%; height: 100%;
-    position: absolute;
-    top: 0; left: 0;
-    background: url(../images/krcon/brochure_ko.jpg) 50% 50% / cover no-repeat;
-    z-index: -1;
-    transition: 0.5s;
-}
-
-section .ko:hover::before {
-    transform: scale(120%);
-}
-
-section .en {
-    position: relative;
-    overflow: hidden;
-    z-index: 10;
-}
-
-section .en::before {
-    content: "";
-    width: 100%; height: 100%;
-    position: absolute;
-    top: 0; left: 0;
-    background: url(../images/krcon/brochure_en.jpg) 50% 50% / cover no-repeat;
-    z-index: -1;
-    transition: 0.5s;
-}
-
-section .en:hover::before {
-    transform: scale(120%);
-}
-
-section .CI {
-    justify-content: center;
-    align-items: center;
-}
-
-section .BI {
-    justify-content: center;
-    align-items: center;
-}
-
-section p {
-    font-size: 1.5rem;
-}
-
-/* ----------------footer----------------------- */
+/* footer=============================================================================================== */
 
 footer {
     padding: 30px;

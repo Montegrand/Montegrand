@@ -47,6 +47,10 @@ header .depth.snd * {
 }
 
 .sec.fst .box .img {
+    height: 60vh;
+}
+
+.sec.fst .box .img.width {
     height: 80vh;
 }
 

@@ -24,12 +24,26 @@ header .depth.snd * {
 
 /* sec===================================================================== */
 
+section .top {
+    height: 120px;
+    padding: 30px;
+}
+
+
+section .top h2 {
+    font-size: 1.5rem;
+}
+
+section .page_depth li a {
+    font-size: 1rem;
+}
+
 section > div.inner > div:first-child p {
     font-size: 0.8rem;
 }
 
 section .tap a {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 section .brochure > a {

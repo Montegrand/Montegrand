@@ -1,5 +1,20 @@
 window.onload = function () {
 
+    let wid = window.innerWidth;
+    let hei = window.innerHeight;
+
+    let navLi = document.querySelectorAll(`header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a`);
+
+    navLi.forEach(function (v, n) {
+        if (wid <= 1240) {
+            for ( i = 0; i < navLi.length; i++ ) {
+                if ( i !== 7 ) {
+                    navLi[i].href = `#`;
+                }
+            }
+        }
+    })
+
     var allA = document.querySelectorAll(`a`);
 
     allA.forEach(function(v,n){
@@ -275,10 +290,16 @@ window.onload = function () {
             d3.style.background = `url(${datat.datat[n].imgUrl1}) 50% 0 / contain no-repeat`;
             d3h.textContent = datat.datat[n].imgAlt1;
             //depth3 
-            // btParent.children
-            console.log(Node[n])
-            
-            v.className = `on`;
+
+
+            for ( i = 0; i < bt.length; i++ ) {
+                if ( i === n ) {
+                    bt[i].classList.add(`on`);
+                } else {
+                    bt[i].classList.remove(`on`);
+                }
+            }
+            // v.className = `on`;
             
             // bt[!n].className = ``;
             
@@ -302,17 +323,17 @@ window.onload = function () {
         v.addEventListener('mouseover', hover);
 
         function hover() {
-            this.className = `${thisC} on`;
-            top.className = `${topC} on`;
-            sec3.className = `${sec3C} img${n+1} on`;
+            this.classList.add(`on`)
+            top.classList.add(`on`)
+            sec3.classList.add(`on`,`img${n+1}`);
         }
 
         v.addEventListener('mouseleave', leave)
 
         function leave() {
-            this.className = thisC;
-            top.className = topC;
-            sec3.className = sec3C;
+            this.classList.remove(`on`)
+            top.classList.remove(`on`)
+            sec3.classList.remove(`on`,`img${n+1}`);
         }
 
     })

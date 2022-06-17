@@ -4,16 +4,22 @@ window.onload = function () {
     let hei = window.innerHeight;
 
     let navLi = document.querySelectorAll(`header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a`);
-    console.log(navLi);
+
+    console.log(navLi)
+
     navLi.forEach(function (v, n) {
         if (wid <= 1240) {
-            v.href = `#`;
+            for ( i = 0; i < navLi.length; i++ ) {
+                if ( i !== 7 ) {
+                    navLi[i].href = `#`;
+                }
+            }
         }
     })
 
+    
     var allA = document.querySelectorAll(`a`);
-
-
+    
     allA.forEach(function (v, n) {
         if (v.href.search(`#`) > 0) {
             v.onclick = function () {
@@ -80,7 +86,7 @@ window.onload = function () {
     //         return document.querySelector(`section .brochure`).classList.remove(`width`);
     //     } else {
     //         return document.querySelector(`section .brochure`).classList.add(`width`);
-    //     }
+    //     } 
     // });
 
 

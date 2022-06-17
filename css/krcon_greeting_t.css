@@ -168,7 +168,7 @@ header .depth.trd > li > ul > li * {
 }
 
 .sec.fst .top {
-    height: 12vh;
+    height: 240px;
 }
 
 .sec.fst .top h2 {
@@ -193,16 +193,22 @@ header .depth.trd > li > ul > li * {
 
 .sec.fst .box .img {
     height: 60vh;
+    background-size: 60% !important;
+    background-position: 50% 35% !important;
 }
 
-.sec.fst .box.fst .img {
-    background-size: 60%;
-    background-position: 50% 35%;
+.sec.fst .box .img.width {
+    height: 50vh;
+    background-size: 30% !important;
+    background-position: 20% 35% !important;
+    justify-content: center;
+    align-items: center;
 }
 
-.sec.fst .box.snd .img {
-    background-size: 60%;
-    background-position: 50% 35%;
+.sec.fst .box .img.width p {
+    width: 40%;
+    margin-left: 50%;
+    text-align: justify;
 }
 
 .sec.fst .box .text.container p {

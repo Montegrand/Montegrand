@@ -168,7 +168,7 @@ section > .inner {
 }
 
 section .top {
-    height: 12vh;
+    height: 240px;
 }
 
 section .top h2 {
@@ -183,6 +183,10 @@ section .box .inner {
     flex-direction: column;
 }
 
+section.width .box .inner {
+    flex-direction: row;
+}
+
 section .box .img {
     margin: 0;
 }
@@ -195,11 +199,29 @@ section .bar h4 {
     margin: 6px 0;
 }
 
+section.width .bar h4 {
+    color: #eee;
+    font-size: 2.5rem; font-weight: 200;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 1rem;
+    margin: 0 6px;
+}
+
 section .box .img {
     height: 60vh;
 }
 
 section .box .text.container {
     padding: 0;
-    height: 20vh;
+    height: auto;
+}
+
+section.width .box .text.container table td:first-child {
+    padding: 0 12px;
+    white-space: nowrap;
+}
+
+section > div:last-child a {
+    font-size: 1.2rem;
 }
