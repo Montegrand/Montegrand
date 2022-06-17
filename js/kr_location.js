@@ -52,27 +52,53 @@ window.onload = function () {
         }
     })
 
-    // const mapContainer = document.querySelector('section .map'),
-    //     mapOption = {
-    //         center: new kakao.maps.LatLng(36.5, 127.5), // 지도의 중심 좌표(임의 설정)
-    //         level: 13 // 지도의 확대 레벨(임의 설정)
-    //     };
+    // (36.3446724536476, 127.38407076936737)
 
-    // //설정한 지도 생성
-    // const map = new kakao.maps.Map(mapContainer, mapOption);
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = {
+            center: new kakao.maps.LatLng(36.3446724536476, 127.38407076936737), // 지도의 중심좌표
+            draggable: false, // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
+            level: 2 // 지도의 확대 레벨
+        };
 
-    // //마커 초기화(초기화 시 지도에 미리 지정 가능 : 카카오맵 API 문서 참조)
-    // const marker = new kakao.maps.Marker();
+    // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+    var map = new kakao.maps.Map(mapContainer, mapOption);
 
-    // //카카오맵 클릭 이벤트 추가
-    // kakao.maps.event.addListener(map, 'click', (mouseEvent) => {
-    //     //클릭한 위도, 경도 정보 불러오기
-    //     const latlng = mouseEvent.latLng;
-    //     //마커 위치를 클릭한 위치로 이동
-    //     marker.setPosition(latlng);
-    //     marker.setMap(map);
+    // 마커가 표시될 위치입니다 
+    var markerPosition = new kakao.maps.LatLng(36.3446724536476, 127.38407076936737);
 
-    //     alert(`위도 : ${latlng.getLat()}, 경도 : ${latlng.getLng()}`);
-    // });
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition,
+        clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+
+    // 버튼 클릭에 따라 지도 확대, 축소 기능을 막거나 풀고 싶은 경우에는 map.setZoomable 함수를 사용합니다
+    function setZoomable(zoomable) {
+        // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
+        map.setZoomable(zoomable);
+    }
+
+    // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+    var iwContent = '<div style="padding:5px;"></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+    // 인포윈도우를 생성합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content: iwContent,
+        removable: iwRemoveable
+    });
+
+    // 마커에 클릭이벤트를 등록합니다
+    kakao.maps.event.addListener(marker, 'click', function () {
+        // 마커 위에 인포윈도우를 표시합니다
+        infowindow.open(map, marker);
+    });
+
+    // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+    // marker.setMap(null);
 
 }
