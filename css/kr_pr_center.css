@@ -260,10 +260,6 @@ section .page_depth li a::before {
     margin-right: 12px;
 }
 
-section .page_depth li:first-child a::before {
-    content: "";
-}
-
 section > div.inner > div:first-child {
     display: flex;
     flex-direction: column;
