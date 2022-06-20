@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+.is-ie header {
+    position: relative;
+    z-index: 10;
+}
+
+.is-ie .slide {
+    height: 600px;
+    z-index: 5;
+}
+
+.is-ie .slick-list {
+    height: 100%;
+}
+
+.is-ie .slick-track {
+    height: 100%;
+}
+
+.is-ie .slick-track > div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.is-ie .slick-track > div > .inner {
+    width: 1200px;
+}
+
+
+.is-ie .slick-track > div > .inner > :nth-child(n) {
+    color: #eee;
+}
+
+.is-ie .slick-track > div > .inner > :nth-child(1) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.is-ie .slick-track > div > .inner > :nth-child(2) {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 48px;
+}
+
+.is-ie .slick-track > .fst {
+    background: url(../images/krcon/slide_1.jpg)50% 50% / 120% no-repeat;
+}
+
+.is-ie .slick-track > .snd {
+    background: url(../images/krcon/slide_2.jpg)50% 50% / 120% no-repeat;
+}
+
+.is-ie .slick-track > .trd {
+    background: url(../images/krcon/slide_3.jpg)50% 50% / 120% no-repeat;
+}
+
+.is-ie .slick-track > .fth {
+    background: url(../images/krcon/elif_bg.jpg)50% 50% / 120% no-repeat;
+}
+
+/* sec1================================================== */
+
+.is-ie .sec.snd .depth p {
+    width: 100%;
+}
+
+.is-ie .sec.snd .depth.trd .bt > a {
+    width: 60px;
+}

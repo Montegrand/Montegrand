@@ -1,5 +1,7 @@
 window.onload = function () {
 
+    console.log(html[0].className)
+
     let wid = window.innerWidth;
     let hei = window.innerHeight;
 

@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+.is-ie h1 {
+    color: red;
+}
+
+.ie11 h1 {
+    color: aqua
+}
+
+.ie10 h1 {
+    color: blanchedalmond;
+}
+
+.ie9 h1 {
+    color: yellow;
+}
