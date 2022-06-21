@@ -29,7 +29,7 @@
     text-decoration: none;
     list-style-type: none;
     color: #333;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 .inner {

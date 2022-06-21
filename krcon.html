@@ -11,8 +11,10 @@
     <link rel="stylesheet" media="all and (max-width: 1240px)" href="css/krcon_t.css" />
     <link rel="stylesheet" media="all and (max-width: 680px)" href="css/krcon_m.css">
     <script src="js/jquery-3.6.0.min.js"></script>
-    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> 스와이퍼 -->
-    <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>슬릭 -->
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+    <!-- swiper sdn js -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- 슬릭 -->
 </head>
 
 <body>
@@ -147,7 +149,7 @@
     </header>
     <section class="sec fst">
         <div class="swiper sldwrap">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper slide">
                 <div class="swiper-slide slider fst">
                     <div class="inner">
                         <h4>한국은행 통합별관</h4>
@@ -276,18 +278,18 @@
         <div class="inner">
             <div class="box fst">
                 <div class="swiper sec4sld">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper slide">
                         <div class="swiper-slide slider fst">
-                            <img src="images/krcon/main_social_01.jpg" alt="">
+                            <img src="images/krcon/main_social_01.jpg" alt="social01">
                         </div>
                         <div class="swiper-slide slider snd">
-                            <img src="images/krcon/main_social_02.jpg" alt="">
+                            <img src="images/krcon/main_social_02.jpg" alt="social02">
                         </div>
                         <div class="swiper-slide slider trd">
-                            <img src="images/krcon/main_social_03.jpg" alt="">
+                            <img src="images/krcon/main_social_03.jpg" alt="social03">
                         </div>
                         <div class="swiper-slide slider fth">
-                            <img src="images/krcon/main_social_04.jpg" alt="">
+                            <img src="images/krcon/main_social_04.jpg" alt="social04">
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -355,14 +357,13 @@
         s.type = "text/javascript";
         if (html[0].className.search('is-ie') === 1) {
             s.src = 'js/krconIe.js';
-            slide.src = "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+            // slide.src = "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
             document.getElementsByClassName('swiper-wrapper')[0].classList.add('slide');
         } else {
             s.src = 'js/krcon.js';
-            // src="https://unpkg.com/swiper/swiper-bundle.min.js"
             slide.src = 'https://unpkg.com/swiper/swiper-bundle.min.js'
+            document.head.appendChild(slide);
         }
-        document.head.appendChild(slide);
         document.head.appendChild(s);
     </script>
 </body>

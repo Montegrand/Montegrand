@@ -1,12 +1,21 @@
 @charset "utf-8";
 
+
+/* header */
+
 .is-ie header {
     position: relative;
-    z-index: 10;
+    z-index: 50;
 }
 
-.is-ie .slide {
-    height: 600px;
+.is-ie header .bt.on {
+    position: fixed;
+}
+
+/* sec1 */
+
+.is-ie .sec.fst .slide {
+    height: 480px;
     z-index: 5;
 }
 
@@ -46,22 +55,48 @@
 }
 
 .is-ie .slick-track > .fst {
-    background: url(../images/krcon/slide_1.jpg)50% 50% / 120% no-repeat;
+    background: url(../images/krcon/slide_1.jpg)50% 50% / cover no-repeat;
 }
 
 .is-ie .slick-track > .snd {
-    background: url(../images/krcon/slide_2.jpg)50% 50% / 120% no-repeat;
+    background: url(../images/krcon/slide_2.jpg)50% 50% / cover no-repeat;
 }
 
 .is-ie .slick-track > .trd {
-    background: url(../images/krcon/slide_3.jpg)50% 50% / 120% no-repeat;
+    background: url(../images/krcon/slide_3.jpg)50% 50% / cover no-repeat;
 }
 
 .is-ie .slick-track > .fth {
-    background: url(../images/krcon/elif_bg.jpg)50% 50% / 120% no-repeat;
+    background: url(../images/krcon/elif_bg.jpg)50% 50% / cover no-repeat;
+    display: flex;
+    justify-content: space-between;
 }
 
-/* sec1================================================== */
+.is-ie .slick-track > .fth > div {
+    padding-left: 30px;
+}
+
+.is-ie .slick-track > .fth > img {
+    padding-right: 30px;
+}
+
+.is-ie .slick-track > .fth span {
+    color: #eee;
+    font-size: 1.5rem;
+}
+
+.is-ie .slick-track > .fth h2 {
+    color: #eee;
+    font-size: 3.5rem;
+    margin: 12px 0 24px 0;
+}
+
+.is-ie .slick-track > .fth p {
+    color: #eee;
+    font-size: 1.2rem;
+}
+
+/* sec2================================================== */
 
 .is-ie .sec.snd .depth p {
     width: 100%;
@@ -69,4 +104,159 @@
 
 .is-ie .sec.snd .depth.trd .bt > a {
     width: 60px;
+}
+
+.is-ie .sec.snd .depth.trd .bt > a.on {
+    background: rgba(0, 51, 139, 0.181)
+}
+
+/* sec3================================================================================================ */
+
+.is-ie .sec.trd .top::before {
+    top:0;
+}
+
+.is-ie .sec.trd .wrap > div:hover i {
+    display: none;
+}
+
+.is-ie .sec.trd .wrap > div:hover h4 {
+    display: none;
+}
+
+.is-ie .sec.trd .wrap > div:hover p {
+    display: flex;
+}
+
+/* sec4================================================================================================ */
+
+.is-ie .sec.fourth .slide {
+    height: auto;
+}
+
+.is-ie .sec.fourth .box.fst {
+    width: 60%; height: 100%;
+}
+
+.is-ie .sec.fourth .slick-track > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.is-ie .sec.fourth .slick-track > div img {
+    width: 100%; height: 100%;
+}
+
+.is-ie .sec.fourth .slick-track > .fth {
+    background: none;
+}
+
+.is-ie .sec.fourth .box.snd .bar h3 {
+    writing-mode: tb-lr;
+    
+}
+
+.is-ie .sec.fourth .box.snd ul li {
+    list-style-type: none;
+}
+
+@media (max-width: 1240px) {
+
+    .is-ie .sec.fst .slide {
+        height: 600px;
+    }
+
+    .is-ie .sec.snd .depth.trd .bt > a {
+        width: 100px;
+    }
+
+    .is-ie header .overay {
+        position: fixed;
+    }
+
+    .is-ie header .top_nav.wrap.on {
+        position: fixed;
+    }
+
+    .is-ie header .depth.snd {
+        top: 28%;
+        left: 50%;
+        width: 22%;
+        padding-left: 24px;
+    }
+
+    .is-ie header .depth.trd {
+        left: 100%;
+        padding-left: 24px;
+    }
+
+    .is-ie .sec.fourth .box.fst {
+        width: 100%;
+    }
+
+    .is-ie .sec.fourth .box.snd {
+        flex-direction: column;
+    }
+
+    .is-ie .sec.fourth .bar {
+        width: auto;
+    }
+
+    .is-ie .sec.fourth .box.snd .bar h3 {
+        writing-mode: lr-bt;
+    }
+    
+    .is-ie .slick-track > .fth {
+        position: relative;
+    }
+    
+    .is-ie .slick-track > .fth > img {
+        position: absolute;
+        top: 30px; right: 10px;
+        height: 60px;
+        padding: 0;
+        height: 120px;
+    }
+
+}
+
+@media all and ( max-width: 680px ) {
+
+    html {
+        font-size: 10px;
+    }
+
+    .is-ie header .depth.snd {
+        left: 48.5%;
+    }
+
+    .is-ie header .depth.trd {
+        left: 99%;
+    }
+
+    .is-ie .slick-track > .fth > img {
+        height: 40px;
+    }
+
+    .is-ie .sec.fst .slide {
+        height: 300px;
+    }
+
+    .is-ie .sec.snd .depth.trd .bt > a {
+        font-size: 1.3rem;
+    }
+
+    .is-ie .sec.trd .top h3 {
+        font-size: 2rem;
+    }
+
+    .is-ie .sec.trd .top p {
+        font-size: 1rem;
+    }
+
+    .is-ie .sec.trd .wrap > div:hover p {
+        font-size: 1.5rem;
+        line-height: 3rem;
+    }
 }

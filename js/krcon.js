@@ -350,20 +350,20 @@ window.onload = function () {
     document.addEventListener('click', function (e) {
         if (e.target === menu) {
             if (trigger === false) {
-                nav.className = `top_nav wrap on`;
-                menu.className = `bt on`;
-                overay.className = `overay on`;
+                nav.classList.add(`on`);
+                menu.classList.add(`on`);
+                overay.classList.add(`on`);
                 trigger = true;
                 overay.addEventListener('click', function () {
-                    nav.className = `top_nav wrap`;
-                    menu.className = `bt`;
-                    overay.className = `overay`;
+                    nav.classList.remove(`on`);
+                    menu.classList.remove(`on`);
+                    overay.classList.remove(`on`);
                     trigger = false;
                 })
             } else {
-                nav.className = `top_nav wrap`;
-                menu.className = `bt`;
-                overay.className = `overay`;
+                nav.classList.remove(`on`);
+                menu.classList.remove(`on`);
+                overay.classList.remove(`on`);
                 trigger = false;
             }
         }

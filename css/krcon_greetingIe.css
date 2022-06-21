@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+.is-ie .sec.fst > .inner h3::after {
+    width: 3rem; height: 0.5rem;
+}
+
+.is-ie .sec.fst .box .img {
+    width: 1920px;
+}
+
+@media all and ( max-width: 1280px ) {
+
+    .is-ie header .overay {
+        position: fixed;
+    }
+
+    .is-ie header .top_nav.wrap.on {
+        position: fixed;
+    }
+
+    .is-ie header .depth.snd {
+        top: 28%;
+        left: 49%;
+        width: 22%;
+        padding-left: 24px;
+    }
+
+    .is-ie header .depth.trd {
+        left: 100%;
+        padding: 0 24px;
+    }
+
+
+    .is-ie .sec.fst .box .img {
+        width: auto;
+        background-size: 35% !important;
+        background-position: 50% 30% !important;
+    }
+
+}
+
+@media all and ( max-width: 680px ) {
+    .is-ie .sec.fst .box .img {
+        background-size: 60% !important;
+    }
+}

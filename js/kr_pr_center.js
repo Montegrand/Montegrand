@@ -58,7 +58,6 @@ window.onload = function () {
 
     let tap = document.querySelectorAll(`section .tap a`);
     let contents = document.querySelectorAll(`section .contents > div`);
-    let brochure = document.querySelectorAll(`section .brochure > a`)
     tap.forEach(function (v, n) {
         v.addEventListener('click', function (e) {
             for (i = 0; i <= tap.length - 1; i++) {

@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+.is-ie header .top_nav.wrap > li:hover > a::after {
+    display: none;
+}
+
+.is-ie section > .inner h3::after {
+    width: 3rem; height: 0.5rem;
+}
+
+.is-ie section .bar {
+    width: 10%;
+}
+
+@media all and ( max-width: 1280px ) {
+
+    .is-ie header .overay {
+        position: fixed;
+    }
+
+    .is-ie header .top_nav.wrap.on {
+        position: fixed;
+    }
+
+    .is-ie header .depth.snd {
+        top: 28%;
+        left: 49%;
+        width: 22%;
+        padding-left: 24px;
+    }
+
+    .is-ie header .depth.trd {
+        left: 100%;
+        padding: 0 24px;
+    }
+
+    .is-ie section .bar {
+        width: 100%;
+    }
+
+    .is-ie section .box .text.container table {
+        width: 100%;
+    }
+}

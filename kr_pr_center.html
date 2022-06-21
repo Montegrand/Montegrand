@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <title>계룡건설산업</title>
     <link rel="stylesheet" type="text/css" href="css/kr_pr_center.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" media="all and (max-width: 1240px)" href="css/kr_pr_center_t.css" />
     <link rel="stylesheet" media="all and (max-width: 680px)" href="css/kr_pr_center_m.css">
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -201,7 +199,20 @@
             </div>
         </div>
     </footer>
-    <script src="js/kr_pr_center.js"></script>
+    <script src="lib/IE-Checker/ie-checker.js"></script>
+    <script>
+        var html = document.getElementsByTagName('html');
+        var s = document.createElement('script');
+        var slide = document.createElement('script');
+        s.type = "text/javascript";
+        if (html[0].className.search('is-ie') === 1) {
+            s.src = 'js/kr_pr_centerIe.js';
+        } else {
+            s.src = 'js/kr_pr_center.js';
+        }
+        document.head.appendChild(s);
+    </script>
+    <!-- <script src="js/kr_pr_center.js"></script> -->
 </body>
 
 </html>

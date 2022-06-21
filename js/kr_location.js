@@ -76,7 +76,7 @@ window.onload = function () {
     // 마커가 지도 위에 표시되도록 설정합니다
     marker.setMap(map);
 
-    var iwContent = '<div style="padding:5px; font-size: 1.5rem;">계룡건설산업 본사<br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue;  font-size: 1rem;" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue;  font-size: 1rem;" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    var iwContent = '<div>계룡건설산업 본사<br><a href="https://map.kakao.com/link/map/Hello World!,36.3446724536476, 127.38407076936737" style="color:blue;  font-size: 1rem;" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue;  font-size: 1rem;" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
         iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
 
     // 인포윈도우를 생성합니다
@@ -93,4 +93,6 @@ window.onload = function () {
         // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
         map.setZoomable(zoomable);
     }
+
+
 }

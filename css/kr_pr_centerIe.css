@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+.is-ie section .contents > div {
+    height: 800px;
+    background: rgba(9,114,205,0.33);
+}
+
+.is-ie section .brochure {
+    justify-content: center;
+    align-items: center;
+}
+
+.is-ie section .brochure > a {
+    margin: 30px;
+}
+
+.is-ie section > div.inner > div:first-child h3::after {
+    width: 3rem; height: 0.5rem;
+}
+
+header .top_nav.wrap > li:hover > a::after {
+    display: none;
+}
+
+@media (max-width: 1240px) {
+
+    .is-ie header {
+        z-index: 100;
+    }
+
+    .is-ie header .overay {
+        position: fixed;
+        z-index: 10;
+    }
+
+    .is-ie header .top_nav.wrap {
+        z-index: 100;
+    }
+
+    .is-ie header .top_nav.wrap.on {
+        position: fixed;
+    }
+
+    .is-ie header .depth.snd {
+        top: 28%;
+        left: 49%;
+        width: 22%;
+        padding-left: 24px;
+    }
+
+    .is-ie header .depth.trd {
+        left: 100%;
+        padding-left: 24px;
+    }
+
+    .is-ie section .contents {
+        height: 80vh;
+    }
+
+    .is-ie section .brochure {
+        flex-direction: row;
+    }
+}
+
+@media all and ( max-width: 680px ) {
+    .is-ie section .brochure {
+        flex-direction: column;
+        /* height: 1000px !important; */
+    }
+}
