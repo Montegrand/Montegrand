@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 /* Noto sans KR font */
-@import url('../css/krconIeStyle.css');
+@import url('krconIeStyle.css');
 
 @keyframes fadein {
     from {
@@ -815,3 +815,50 @@ footer .ftlogo {
     background-size: contain;
 }
 
+/* aside================================================== */
+
+aside {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    padding: 24px;
+    top: 50%; left: 0;
+    background: #33333333;
+    transition: 0.5s;
+    z-index: 100;
+}
+
+aside:hover {
+    background: #333;
+}
+
+aside h4 {
+    color: #eee;
+    font-size: 2rem;
+    margin-bottom: 24px;
+}
+
+aside a {
+    margin-left: 24px;
+    position: relative;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+}
+
+aside a::after {
+    content: "";
+    width: 6px; height: 6px;
+    background-color: #0972CD;
+    position: absolute;
+    left: -10%;
+}
+
+aside a:hover {
+    text-decoration: underline;
+}
+
+aside:hover a {
+    color: #aaa;
+    transition: 0.5;
+}

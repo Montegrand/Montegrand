@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 /* Noto sans KR font */
+@import url('kr_locationIe.css');
 
 @keyframes fadein {
     from {
@@ -254,7 +255,7 @@ section h3 {
     flex-direction: column;
     align-items: center;
     margin: 0 auto; padding: 24px 0;
-    font-weight: 500;
+    font-size: 2rem; font-weight: 500;
 }
 
 section h3::after {
@@ -273,6 +274,7 @@ section > .inner {
     height: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 section > .inner > div {
@@ -285,6 +287,7 @@ section .container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 30px;
 }
 
 section .container > div {
@@ -293,7 +296,82 @@ section .container > div {
 }
 
 section h4 {
-    font-size: 1rem;
+    font-size: 1.8rem;
+}
+
+section .tap {
+    display: flex;
+    width: 500px; height: 60px;
+    border: 2px solid #0972CD;
+    border-radius: 6px;
+    margin-bottom: 24px;
+}
+
+section .tap a {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #33333311;
+}
+
+section .tap a:first-child {
+    border-radius: 5px 0px 0px 5px;
+}
+
+section .tap a:last-child {
+    border-radius: 0px 5px 5px 0px;
+}
+
+section .tap a.on {
+    background: #0972CD44;
+}
+
+section .container > div > p {
+    font-size: 1.2rem;
+    margin-top: 42px;
+}
+
+section .container .address {
+    margin-top: 24px;
+}
+
+section .container .address i {
+    margin-right: 6px;
+    width: 1.2rem; height: 1.2rem;
+    display: inline-block;
+}
+
+section .container .address p {
+    height: 3rem;
+    border-bottom: 1px solid #333;
+    margin-bottom: 12px;
+}
+
+section .container .address p:nth-child(3).off {
+    display: none;
+}
+
+section .container .address p:nth-child(1) i {
+    background: url(../images/krcon/placeholder.png) 50% 50% / cover no-repeat;
+}
+
+section .container .address p:nth-child(2) i {
+    background: url(../images/krcon/phone-call.png) 50% 50% / cover no-repeat;
+}
+
+section .container .address p:nth-child(3) i {
+    background: url(../images/krcon/fax.png) 50% 50% / cover no-repeat;
+}
+
+/* https://www.flaticon.com/ 아이콘 */
+
+section .container .address > div a {
+    color: blue;
+}
+
+section .container .address > div a:hover {
+    color: plum;
 }
 
 /* footer=============================================================================================== */

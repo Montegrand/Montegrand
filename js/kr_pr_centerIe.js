@@ -2,13 +2,13 @@ window.onload = function () {
 
     var allA = document.querySelectorAll('a');
 
-    for (i = 0; i <= allA.length - 1; i++) {
-        if (allA[i].href.search('#') > 0) {
-            allA[i].onclick = function () {
+    Array.prototype.forEach.call(allA, function (v, n) {
+        if (v.href.search('#') > 0) {
+            v.onclick = function () {
                 return false;
             }
         }
-    }
+    })
 
     let menu = document.querySelector("header .bt");
     let nav = document.querySelector("header .top_nav.wrap");

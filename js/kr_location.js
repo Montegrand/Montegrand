@@ -52,85 +52,153 @@ window.onload = function () {
         }
     })
 
-    // (36.3446724536476, 127.38407076936737)
+    class DataInfo {
+        constructor(office, address, tel, fax) {
+            this.office = office;
+            this.header = [office + ' 위치안내'];
+            this.address = address;
+            this.tel = tel;
+            this.fax = fax;
+        }
+    }
+
+    class DataT {
+        constructor() {
+            this.datat = [];
+        };
+        newData(office, address, tel, fax) {
+            let arrChild = new DataInfo(office, address, tel, fax);
+            this.datat.push(arrChild);
+            return arrChild;
+        };
+        get allDataT() {
+            return this.datat;
+        };
+        get lengthOfDatat() {
+            return this.datat.length;
+        };
+    };
+
+    var datat = new DataT()
+
+    datat.newData(
+        "본사",
+        "<i></i>대전광역시 서구 문정로 48번길 48",
+        "<i></i>042-480-7114",
+        "<i></i>042-486-1615"
+    );
+
+    datat.newData(
+        "서울지사",
+        "<i></i>서울 특별시 서초구 바우뫼로 180 신송빌딩2층",
+        "<i></i>02-3463-2455",
+        ""
+    )
+
+    let tap = document.querySelectorAll(`.tap > a`);
+    let header = document.querySelector(`.container h4`);
+    let address = document.querySelector(`.container .address > p:nth-child(1)`);
+    let tel = document.querySelector(`.container .address > p:nth-child(2)`);
+    let fax = document.querySelector(`.container .address > p:nth-child(3)`);
+    let navi = document.querySelector(`.container .address > div`)
+
+    header.innerHTML = datat.datat[0].header;
+    address.innerHTML = datat.datat[0].address;
+    tel.innerHTML = datat.datat[0].tel;
+    fax.innerHTML = datat.datat[0].fax;
 
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         mapOption = {
-            center: new kakao.maps.LatLng(36.3446724536476, 127.38407076936737), // 지도의 중심좌표
-            draggable: false, // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
-            level: 2 // 지도의 확대 레벨
+            center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+            level: 3, // 지도의 확대 레벨
+            draggable: false,
+            zoomable: false
         };
 
-    // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+    // 지도를 생성합니다    
     var map = new kakao.maps.Map(mapContainer, mapOption);
 
-    // 마커가 표시될 위치입니다 
-    var markerPosition = new kakao.maps.LatLng(36.3446724536476, 127.38407076936737);
+    // 주소-좌표 변환 객체를 생성합니다
+    var geocoder = new kakao.maps.services.Geocoder();
 
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-        position: markerPosition,
-        clickable: false // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+    var iwContent = '<div style="padding:5px;">계룡건설산업(주)<br>' + datat.datat[0].office + '</div>' // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
+
+    // 주소로 좌표를 검색합니다
+    geocoder.addressSearch(address.textContent, function (result, status) {
+
+        // 정상적으로 검색이 완료됐으면 
+        if (status === kakao.maps.services.Status.OK) {
+
+            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+            // 결과값으로 받은 위치를 마커로 표시합니다
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: coords
+            });
+
+            // 인포윈도우로 장소에 대한 설명을 표시합니다
+            var infowindow = new kakao.maps.InfoWindow({
+                content: iwContent
+            });
+            infowindow.open(map, marker);
+
+            // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+            map.setCenter(coords);
+
+            navi.innerHTML = '<a href="https://map.kakao.com/link/map/계룡건설산업(주) ' + datat.datat[0].office + ',' + result[0].y + ',' + result[0].x + '" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/계룡건설산업(주) ' + datat.datat[0].office + ',' + result[0].y + ',' + result[0].x + '" target="_blank">길찾기</a>';
+
+        }
+
     });
 
-    // 마커가 지도 위에 표시되도록 설정합니다
-    marker.setMap(map);
+    tap.forEach(function (v, n) {
+        v.addEventListener('click', function (e) {
+            for (i = 0; i < tap.length; i++) {
+                if (tap[i] === v) {
+                    tap[i].classList.add(`on`);
+                } else {
+                    tap[i].classList.remove(`on`);
+                }
+            }
+            header.innerHTML = datat.datat[n].header;
+            address.innerHTML = datat.datat[n].address;
+            tel.innerHTML = datat.datat[n].tel;
+            fax.innerHTML = datat.datat[n].fax;
+            if (fax.innerHTML === "") {
+                fax.classList.add(`off`);
+            } else {
+                fax.classList.remove(`off`);
+            }
+            // 주소로 좌표를 검색합니다
+            geocoder.addressSearch(address.textContent, function (result, status) {
 
-    var iwContent = '<div>계룡건설산업 본사<br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue;  font-size: 1rem;" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue;  font-size: 1rem;" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+                // 정상적으로 검색이 완료됐으면 
+                if (status === kakao.maps.services.Status.OK) {
 
-    function getInfo() {
-        // 지도의 현재 중심좌표를 얻어옵니다 
-        var center = map.getCenter(); 
-        
-        // 지도의 현재 레벨을 얻어옵니다
-        var level = map.getLevel();
-        
-        // 지도타입을 얻어옵니다
-        var mapTypeId = map.getMapTypeId(); 
-        
-        // 지도의 현재 영역을 얻어옵니다 
-        var bounds = map.getBounds();
-        
-        // 영역의 남서쪽 좌표를 얻어옵니다 
-        var swLatLng = bounds.getSouthWest(); 
-        
-        // 영역의 북동쪽 좌표를 얻어옵니다 
-        var neLatLng = bounds.getNorthEast(); 
-        
-        // 영역정보를 문자열로 얻어옵니다. ((남,서), (북,동)) 형식입니다
-        var boundsStr = bounds.toString();
-        
-        
-        var message = '지도 중심좌표는 위도 ' + center.getLat() + ', <br>';
-        message += '경도 ' + center.getLng() + ' 이고 <br>';
-        message += '지도 레벨은 ' + level + ' 입니다 <br> <br>';
-        message += '지도 타입은 ' + mapTypeId + ' 이고 <br> ';
-        message += '지도의 남서쪽 좌표는 ' + swLatLng.getLat() + ', ' + swLatLng.getLng() + ' 이고 <br>';
-        message += '북동쪽 좌표는 ' + neLatLng.getLat() + ', ' + neLatLng.getLng() + ' 입니다';
-        
-        // 개발자도구를 통해 직접 message 내용을 확인해 보세요.
-        console.log(message);
-    }
-    getInfo();
+                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-    
+                    // 결과값으로 받은 위치를 마커로 표시합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map,
+                        position: coords
+                    });
 
-    // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
-    // searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+                    // 인포윈도우로 장소에 대한 설명을 표시합니다
+                    var infowindow = new kakao.maps.InfoWindow({
+                        content: '<div style="padding:5px;">계룡건설산업(주)<br>' + datat.datat[n].office + '</div>' // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+                    });
+                    infowindow.open(map, marker);
 
-    // 인포윈도우를 생성합니다
-    var infowindow = new kakao.maps.InfoWindow({
-        position: iwPosition,
-        content: iwContent
-    });
+                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                    map.setCenter(coords);
 
-    // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-    infowindow.open(map, marker);
+                    navi.innerHTML = '<a href="https://map.kakao.com/link/map/계룡건설산업(주) ' + datat.datat[n].office + ',' + result[0].y + ',' + result[0].x + '" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/계룡건설산업(주) ' + datat.datat[n].office + ',' + result[0].y + ',' + result[0].x + '" target="_blank">길찾기</a>';
+                }
 
-    // 버튼 클릭에 따라 지도 확대, 축소 기능을 막거나 풀고 싶은 경우에는 map.setZoomable 함수를 사용합니다
-    function setZoomable(zoomable) {
-        // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
-        map.setZoomable(zoomable);
-    }
+            });
+            
+        })
+    })
 }

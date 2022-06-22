@@ -329,3 +329,8 @@ header .depth.trd > li > ul > li * {
     width: 13vw;
 }
 
+/* aside====================================== */
+
+aside {
+    display: none;
+}

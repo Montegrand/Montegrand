@@ -1,0 +1,49 @@
+.inner {
+    width: 100%;
+    padding: 0 24px;
+}
+
+/* header==================== */
+
+header .bt {
+    width: 30px; height: 30px;
+    top: 25px; right: 25px;
+}
+
+.top_nav.wrap > li > a {
+    font-size: 1rem;
+}
+
+.top_nav.wrap > li > a {
+    font-size: 0.8rem;
+}
+
+header .depth.snd * {
+    font-size: 0.6rem;
+}
+
+/* sec===================================================================== */
+
+section .top {
+    height: 120px;
+}
+
+section .top h2 {
+    font-size: 1.5rem;
+}
+
+section .page_depth li a {
+    font-size: 1rem;
+}
+
+section .tap {
+    width: 80%;
+}
+
+section > .inner > div {
+    width: 100%;
+}
+
+section .container .address p {
+    font-size: 0.8rem;
+}

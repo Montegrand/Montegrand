@@ -1,13 +1,3 @@
-// window.onload = function () {
-//     let slide = document.getElementsByClassName('.slide');
-//     slide[0].autoplay({
-//         slidesToShow: 1,
-//         slidesToScroll: 1,
-//         autoplay: true,
-//         autoplaySpeed: 2000,
-//     })
-// }
-
 $(document).ready(function () {
     $('.swiper').removeClass();
     $('.slide').removeClass('swiper-wrapper')
