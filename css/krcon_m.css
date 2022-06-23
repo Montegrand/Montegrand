@@ -1,3 +1,7 @@
+html {
+    font-size: 12px;
+}
+
 /* header==================== */
 
 header .bt {
@@ -16,6 +20,20 @@ header .bt {
 header .depth.snd * {
     font-size: 0.6rem;
 }
+/* section1======================================== */
+
+.sec.fst .sldwrap .inner > p:last-child {
+    font-size: 1.2rem;
+}
+
+.sec.fst .sldwrap {
+    height: 300px;
+}
+
+.sec.fst .slider.fth > img {
+    height: 50px;
+}
+
 
 /* section2====================== */
 
@@ -33,22 +51,6 @@ header .depth.snd * {
     height: 240px;
 }
 
-.sec.trd .top h3 {
-    font-size: 1.2rem;
-}
-
-.sec.trd .top.on h3 {
-    font-size: 1.5rem;
-}
-
-.sec.trd .top p {
-    font-size: 0.7rem;
-}
-
-.sec.trd .top.on p {
-    font-size: 1rem;
-}
-
 .sec.trd .top .inner {
     justify-content: space-around;
 }
@@ -59,8 +61,8 @@ header .depth.snd * {
 
 .sec.trd .wrap > div p {
     padding: 30px;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 2.5rem;
 }
 
 .sec.trd > .inner > .bt {

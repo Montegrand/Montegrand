@@ -95,6 +95,16 @@ window.onload = function () {
         ""
     )
 
+    window.addEventListener('resize', function () {
+        if (wid <= 680) {
+            if ( window.innerWidth > window.innerHeight ) {
+                return document.querySelector(`section .map`).classList.add(`width`);
+            } else {
+                return document.querySelector(`section .map`).classList.remove(`width`);
+            }
+        }
+    })
+
     let tap = document.querySelectorAll(`.tap > a`);
     let header = document.querySelector(`.container h4`);
     let address = document.querySelector(`.container .address > p:nth-child(1)`);
@@ -111,8 +121,6 @@ window.onload = function () {
         mapOption = {
             center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
             level: 3, // 지도의 확대 레벨
-            draggable: false,
-            zoomable: false
         };
 
     // 지도를 생성합니다    
@@ -122,6 +130,8 @@ window.onload = function () {
     var geocoder = new kakao.maps.services.Geocoder();
 
     var iwContent = '<div style="padding:5px;">계룡건설산업(주)<br>' + datat.datat[0].office + '</div>' // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    var zoomControl = new kakao.maps.ZoomControl();
+    map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
 
     // 주소로 좌표를 검색합니다
@@ -198,7 +208,7 @@ window.onload = function () {
                 }
 
             });
-            
+
         })
     })
 }

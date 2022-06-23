@@ -218,7 +218,7 @@ header .depth.trd > li > ul > li {
 
 
 .sec.fst .slider > .inner {
-    height: 60%;
+    height: auto;
 }
 
 .sec.fst .slider > .inner > :nth-child(n) {
@@ -226,18 +226,19 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.fst .slider > .inner > :nth-child(1) {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 12px;
 }
 
 .sec.fst .slider > .inner > :nth-child(2) {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 400;
     margin-bottom: 48px;
 }
 
 .sec.fst .slider > .inner > :nth-child(3) {
+    font-size: 1.5rem;
     font-weight: 100;
 }
 
@@ -418,8 +419,21 @@ header .depth.trd > li > ul > li {
     flex: 1 0 0;
 }
 
+.sec.snd .depth.trd .bt > a:hover {
+    text-decoration: underline;
+}
+
 .sec.snd .depth.trd .bt > a.on {
     background: #0972CD22;
+    text-decoration: underline;
+}
+
+.sec.snd .depth.trd .bt > a i {
+    opacity: 0.5;
+}
+
+.sec.snd .depth.trd .bt > a.on i {
+    opacity: 1;
 }
 
 .sec.snd .depth.trd .bt > a:nth-child(1) i {
@@ -826,10 +840,12 @@ aside {
     background: #33333333;
     transition: 0.5s;
     z-index: 100;
+    opacity: 0.5;
 }
 
 aside:hover {
     background: #333;
+    opacity: 1;
 }
 
 aside h4 {

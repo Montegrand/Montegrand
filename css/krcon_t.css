@@ -180,7 +180,6 @@ header .depth.trd > li > ul > li * {
     justify-content: center;
 }
 
-/* ================================================== */
 /* section1=========================================== */
 
 .sec.fst .sldwrap {
@@ -201,6 +200,22 @@ header .depth.trd > li > ul > li * {
 
 .sec.fst .slider > .inner > :nth-child(3) {
     font-weight: 100;
+}
+
+.sec.fst .slider.fth {
+    position: relative;
+    padding: 12px;
+}
+
+.sec.fst .slider.fth > div h2 {
+    margin-bottom: 24px;
+}
+
+.sec.fst .slider.fth > img {
+    position: absolute;
+    top: 30px; right: 10px;
+    padding: 0;
+    height: 100px;
 }
 
 /* =========================================== */

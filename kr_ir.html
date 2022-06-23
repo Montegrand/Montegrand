@@ -5,10 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <title>계룡건설산업</title>
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c358194d30b59c4f006ec0f98a6e6e9&libraries=services"></script>
-    <link rel="stylesheet" type="text/css" href="css/kr_location.css">
-    <link rel="stylesheet" media="all and (max-width: 1240px)" href="css/kr_location_t.css" />
-    <link rel="stylesheet" media="all and (max-width: 680px)" href="css/kr_location_m.css">
+    <link rel="stylesheet" type="text/css" href="css/kr_ir.css">
+    <link rel="stylesheet" media="all and (max-width: 1240px)" href="css/kr_ir_t.css" />
+    <link rel="stylesheet" media="all and (max-width: 680px)" href="css/kr_ir_m.css">
     <script src="js/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -34,7 +33,7 @@
                                             <li><a href="krcon_greeting.html" target="_self">인사말</a></li>
                                             <li><a href="#">연혁</a></li>
                                             <li><a href="#">경영방침</a></li>
-                                            <li><a href="#">찾아오시는길</a></li>
+                                            <li><a href="kr_location.html">찾아오시는길</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -146,34 +145,43 @@
     <section>
         <div class="top">
             <div class="inner">
-                <h2>회사소개</h2>
+                <h2>투자 가치경영</h2>
                 <ul class="page_depth">
-                    <li><a href="#">계룡소개</a></li>
-                    <li><a href="#">찾아오시는길</a></li>
+                    <li><a href="#">가치경영</a></li>
+                    <li><a href="#">투자정보</a></li>
+                    <li><a href="#">주요 경영 실적 요약</a></li>
                 </ul>
             </div>
         </div>
-        <div class="inner">
-            <h3>찾아오시는길</h3>
-            <div class="tap">
-                <a href="#" class="on">본사</a>
-                <a href="#">서울지사</a>
-            </div>
-            <div>
-                <div id="map" class="map"></div>
-                <div class="container">
-                    <div>
-                        <h4>본사 위치안내</h4>
-                        <p>더 앞선 생활, 더 새로운 미래! 당신 곁에 계룡건설이 함께합니다.</p>
-                        <div class="address">
-                            <p><i></i><a href="#">대전광역시 서구 문정로 48번길 48 </a></p>
-                            <p><i></i><a href="#">042-480-7114</a></p>
-                            <p><i></i><a href="#">042-486-1615</a></p>
-                            <div></div>
-                        </div>
-                    </div>
+        <div class="container fst inner">
+            <div class="contents">
+                <div class="cospi">
+                    <div class="date"></div>
+                    <div class="company"></div>
+                    <div class="stock"></div>
                 </div>
+                <div class="report"></div>
             </div>
+            <table>
+                <tr>
+                    <th>종 가</th>
+                    <th>대 비</th>
+                    <th>등락률</th>
+                    <th>시 가</th>
+                    <th>고 가</th>
+                    <th>저 가</th>
+                    <th>거래량</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </table>
         </div>
     </section>
     <footer>
@@ -186,9 +194,6 @@
                 <p>© COPYRIGHT 2016. KYERYONG CONSTRUCTION INDUSTRIAL CO., LTD. ALL RIGHTS RESERVED.</p>
             </div>
         </div>
-        <!-- <div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d204915.03139674087!2d127.33489494579186!3d36.631263924875014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356536bd64b8a931%3A0x7fd7364552a5a54f!2z6rOE66Oh6rG07ISk7IKw7JeF!5e0!3m2!1sko!2skr!4v1653536620049!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div> -->
     </footer>
     <script src="lib/IE-Checker/ie-checker.js"></script>
     <script>
@@ -197,10 +202,9 @@
         var slide = document.createElement('script');
         s.type = "text/javascript";
         if (html[0].className.search('is-ie') === 1) {
-            s.src = 'js/kr_locationIE.js';
-            // slide.src = "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+            s.src = 'js/kr_irIe.js';
         } else {
-            s.src = 'js/kr_location.js';
+            s.src = 'js/kr_ir.js';
             slide.src = 'https://unpkg.com/swiper/swiper-bundle.min.js'
             document.head.appendChild(slide);
         }
