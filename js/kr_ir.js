@@ -1,6 +1,16 @@
-// curl -X GET "https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?basDt=20220622&itmsNm=%EA%B3%84%EB%A3%A1%EA%B1%B4%EC%84%A4&serviceKey=muIq64no7R2y0I1U%2FGhNc1RUj9YYKw5JamO3v%2BafJEOmgNxiPxHn32IVPEWtBqru7HJxuO0wB54iebeiATQ3kg%3D%3D" -H  "accept: application/json"
+// https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?basDt=20220622&isinCd=KR7013580006&serviceKey=muIq64no7R2y0I1U%2FGhNc1RUj9YYKw5JamO3v%2BafJEOmgNxiPxHn32IVPEWtBqru7HJxuO0wB54iebeiATQ3kg%3D%3D
 
-//   %EA%B3%84%EB%A3%A1%EA%B1%B4%EC%84%A4&   계룡건설
+// let url = `https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?`;
+function getToday(){
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+
+    return year + month + day;
+}
+
+console.log(getToday()-1);
 
 window.onload = function() {
     let wid = window.innerWidth;
