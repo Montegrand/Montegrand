@@ -64,13 +64,13 @@ window.onload = function () {
             // stock[1].innerHTML += item.vs;
             // stock[2].innerHTML += item.fltRt;
 
-            stock.forEach(function(v,n) {
+            stock.forEach(function (v, n) {
                 var max;
-                if ( n === 0 ) {
+                if (n === 0) {
                     max = Number(item.clpr);
-                } else if ( n === 1 ) {
+                } else if (n === 1) {
                     max = Number(item.vs);
-                } else if ( n === 2 ) {
+                } else if (n === 2) {
                     max = Number(item.fltRt);
                 }
 
@@ -80,34 +80,23 @@ window.onload = function () {
                 var now = max
                 const handle = setInterval(() => {
                     // v.innerHTML = Math.ceil(max - now);
-                    if ( Number.isInteger(max) ) {
+                    if (Number.isInteger(max)) {
                         v.innerHTML = Math.ceil(max - now);
                     } else {
                         v.innerHTML = (max - now).toFixed(2);
                     }
-                    
+
                     // 목표에 도달하면 정지
                     if (now < 0) {
-                      clearInterval(v);
+                        clearInterval(v);
                     }
-                    
+
                     // 적용될 수치, 점점 줄어듬
                     const step = now / 10;
-                  
-                    now -= step;
-                  }, 30);
-            })
 
-            // stock.forEach(function (v, n) {
-            //     if (v.textContent < 0) {
-            //         if (n !== 0) {
-            //             v.classList.add(`decline`);
-            //         } else {
-            //             v.classList.add(`rise`);
-            //         }
-            //     }
-            //     v.textContent = numberWithCommas(v.textContent)
-            // })
+                    now -= step;
+                }, 30);
+            })
 
             stock[2].innerHTML = `(${stock[2].innerHTML})`
             outPut[0].innerHTML += item.clpr;
@@ -185,6 +174,4 @@ window.onload = function () {
             }
         }
     })
-
-
 }
