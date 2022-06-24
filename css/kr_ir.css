@@ -247,13 +247,142 @@ section .page_depth li:first-child a::before {
     content: "";
 }
 
+.container {
+    margin: 30px auto;
+}
+
+.container .box {
+    width: 800px;
+    outline: 1px solid #333;
+    padding: 60px;
+}
+
+.container .box .date {
+    font-size: 2rem;
+}
+
+.container .box .companySt {
+    display: flex;
+    margin-top: 30px;
+}
+
+.container .box .companySt span {
+    font-size: 5.5rem;
+    position: relative;
+}
+
+.container .box .companySt span {
+    /* margin-right: 30px; */
+    display: flex;
+    align-items: center;
+}
+
+.container .box .companySt .company::after {
+    content: "";
+    display: inline-block;
+    width: 5px; height: 4rem;
+    background: #333;
+    margin: 0 24px;
+}
+
+.container .box .stock {
+    margin: 90px 0 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container .box .stock > div {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .box .stock > div span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.container .box .stock span {
+    font-size: 2rem;
+}
+
+.container .box .stock > span:first-child {
+    font-size: 4rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.container .box .stock > span:first-child::after {
+    content: "종가";
+    font-size: 1.5rem;
+    position: absolute;
+    top: -30px;
+}
+
+.container .box .stock > div span:first-child::after {
+    content: "대 비";
+    color: #333;
+    font-size: 1rem;
+    position: absolute;
+    top: -30px;
+}
+
+.container .box .stock > div span:last-child::after {
+    content: "등락률";
+    width: max-content;
+    color: #333;
+    font-size: 1rem;
+    position: absolute;
+    top: -30px;
+}
+
 .container > table {
     width: 100%;
+    margin: 24px 0;
+    border-spacing : 12px 0;
+}
+
+.container > table th {
+    height: 3rem;
+    border-radius: 8px 8px 0px 0px;
 }
 
 .container > table td {
     text-align: center;
-    outline: 1px solid #333;
+    height: 4rem;
+    border-radius: 0px 0px 8px 8px;
+    position: relative;
+    /* outline: 1px solid #333; */
+}
+
+.container > table td i {
+    display: flex;
+    width: 12px; height: 12px;
+    position: absolute;
+    top: 50%; left: 20%;
+}
+
+.container > table tr * {
+    background-color: #b8d0e4;
+}
+
+.decline {
+    color: blue;
+}
+
+.decline i {
+    background: url(../images/krcon/SVG/decline.svg) 50% 50% / contain no-repeat;
+}
+
+.rise {
+    color: red;
+}
+
+.rise i {
+    background: url(../images/krcon/SVG/rise.svg) 50% 50% / contain no-repeat;
 }
 
 /* ----------------footer----------------------- */
