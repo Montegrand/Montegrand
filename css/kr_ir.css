@@ -438,6 +438,12 @@ section.fst .container > table tr * {
     background: url(../images/krcon/SVG/rise.svg) 50% 50% / contain no-repeat;
 }
 
+/* sec2===================================================================== */
+
+section.snd .WChart {
+    width: 100%; height: 600px;
+}
+
 /* ----------------footer----------------------- */
 
 footer {
