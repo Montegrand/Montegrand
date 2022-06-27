@@ -9,6 +9,8 @@
     <link rel="stylesheet" media="all and (max-width: 1240px)" href="css/kr_ir_t.css" />
     <link rel="stylesheet" media="all and (max-width: 680px)" href="css/kr_ir_m.css">
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/WChart.js"></script>
 </head>
 
 <body>
@@ -210,8 +212,13 @@
         </div>
     </section>
     <section class="snd">
+        <h2>
+            실적 요약 그래프
+        </h2>
         <div class="inner">
-
+            <div>
+                <canvas id="WChart" class="WChart" width="1200" height="600" aria-label="Hello ARIA World" role="img"></canvas>
+            </div>
         </div>
     </section>
     <footer>
