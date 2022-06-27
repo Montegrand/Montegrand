@@ -31,9 +31,9 @@ window.onload = function () {
     let date = getToday();
 
     if (getTime() > 12) {
-        date -= 1;
+        date -= 6;
     } else {
-        date -= 2;
+        date -= 7;
     }
 
 
