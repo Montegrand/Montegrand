@@ -205,84 +205,84 @@ header .depth.trd > li > ul > li {
     width: 100%; height: 30px;
 }
 
-/* section----------------------------------------------- */
+/* sec1----------------------------------------------- */
 
 
-section .top {
+section.fst .top {
     width: 100%; height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: url(../images/krcon/top1.jpg) 50% 50% / cover no-repeat;
+    background: url(../images/krcon/top2.jpg) 50% 50% / cover no-repeat;
 }
 
-section .top h2 {
+section.fst .top h2 {
     display: inline-block;
     font-size: 2.4rem; font-weight: 400;
     text-shadow: 4px 4px 4px #333;
     color: #eee;
 }
 
-section .page_depth {
+section.fst .page_depth {
     display: flex;
     margin-top: 42px;
 }
 
-section .page_depth li {
+section.fst .page_depth li {
     margin-right: 12px;
 }
 
-section .page_depth li a {
+section.fst .page_depth li a {
     color: #eee;
     font-size: 1.2rem; font-weight: 100;
     
 }
 
-section .page_depth li a::before {
+section.fst .page_depth li a::before {
     content: "-";
     margin-right: 12px;
 }
 
-section .page_depth li:first-child a::before {
+section.fst .page_depth li:first-child a::before {
     content: "";
 }
 
-.container {
+section.fst .container {
     margin: 30px auto;
 }
 
-.container > div {
+section.fst .container > div {
     display: flex;
     justify-content: space-around;
 }
 
-.container .box {
+section.fst .container .box {
     width: 800px;
     outline: 1px solid #333;
     padding: 60px;
 }
 
-.container .box .date {
+section.fst .container .box .date {
     font-size: 2rem;
 }
 
-.container .box .companySt {
+section.fst .container .box .companySt {
     display: flex;
     margin-top: 30px;
 }
 
-.container .box .companySt span {
+section.fst .container .box .companySt span {
     font-size: 5.5rem;
     position: relative;
 }
 
-.container .box .companySt span {
+section.fst .container .box .companySt span {
     /* margin-right: 30px; */
     display: flex;
     align-items: center;
 }
 
-.container .box .companySt .company::after {
+section.fst .container .box .companySt .company::after {
     content: "";
     display: inline-block;
     width: 5px; height: 4rem;
@@ -290,44 +290,44 @@ section .page_depth li:first-child a::before {
     margin: 0 24px;
 }
 
-.container .box .stock {
+section.fst .container .box .stock {
     margin: 90px 0 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.container .box .stock > div {
+section.fst .container .box .stock > div {
     width: 30%;
     display: flex;
     justify-content: space-between;
 }
 
-.container .box .stock > div span {
+section.fst .container .box .stock > div span {
     position: relative;
     display: flex;
     justify-content: center;
 }
 
-.container .box .stock span {
+section.fst .container .box .stock span {
     font-size: 2rem;
 }
 
-.container .box .stock > span:first-child {
+section.fst .container .box .stock > span:first-child {
     font-size: 4rem;
     position: relative;
     display: flex;
     justify-content: center;
 }
 
-.container .box .stock > span:first-child::after {
+section.fst .container .box .stock > span:first-child::after {
     content: "종가";
     font-size: 1.5rem;
     position: absolute;
     top: -30px;
 }
 
-.container .box .stock > div span:first-child::after {
+section.fst .container .box .stock > div span:first-child::after {
     content: "대 비";
     color: #333;
     font-size: 1rem;
@@ -335,7 +335,7 @@ section .page_depth li:first-child a::before {
     top: -30px;
 }
 
-.container .box .stock > div span:last-child::after {
+section.fst .container .box .stock > div span:last-child::after {
     content: "등락률";
     width: max-content;
     color: #333;
@@ -344,32 +344,66 @@ section .page_depth li:first-child a::before {
     top: -30px;
 }
 
-section .container .report {
-    /* outline: 1px solid #333; */
+section.fst .container .report {
     width: 330px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-section .container .report a {
-    width: 100%; height: 60%;
+section.fst .container .report > div {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #999;
+    outline: 2px solid #333;
+}
+
+section.fst .container .report h4 {
+    font-size: 4rem;
+    font-weight: 300;
+    /* color: #eee; */
+}
+
+section.fst .container .report > div > div {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+section.fst .container .report > div > div a {
+    padding: 36px 12px;
+    width: 40%;
+    outline: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* color: #eee; */
+    transition: 0.2s;
+    font-size: 1.8rem;
+    font-weight: 200;
+}
+
+section.fst .container .report > div > div a:hover {
+    outline: none;
     background: #0972CD;
     color: #eee;
 }
 
-.container > table {
+section.fst .container > table {
     width: 100%;
     margin: 24px 0;
     border-spacing : 12px 0;
 }
 
-.container > table th {
+section.fst .container > table th {
     height: 3rem;
     border-radius: 8px 8px 0px 0px;
 }
 
-.container > table td {
+section.fst .container > table td {
     text-align: center;
     height: 4rem;
     border-radius: 0px 0px 8px 8px;
@@ -377,14 +411,14 @@ section .container .report a {
     /* outline: 1px solid #333; */
 }
 
-.container > table td i {
+section.fst .container > table td i {
     display: flex;
     width: 12px; height: 12px;
     position: absolute;
     top: 40%; left: 20%;
 }
 
-.container > table tr * {
+section.fst .container > table tr * {
     background-color: #b8d0e4;
 }
 
