@@ -15,42 +15,42 @@ window.onload = function () {
 
     function getToday() {
         var date = new Date();
+        if (date.getHours()<12) {
+            date = new Date(date.setDate(date.getDate()-1));
+        }
+        for (i=1; i>0; i++) {
+            date = new Date(date.setDate(date.getDate()-i));
+            if (date.getDay()%6!=0) {
+                break;
+            }
+        };
+        console.log(date.getDate())
         var year = date.getFullYear();
-        var month = ("0" + (1 + date.getMonth())).slice(-2);
-        var day = ("0" + date.getDate()).slice(-2);
-
+        var month = ( '0' + (date.getMonth()+1)).slice(-2);
+        // var day = ("0" + date.getDate()).slice(-2);
+        // day = day -3
+        var day = ( '0' + date.getDate()).slice(-2);
         return year + month + day;
     }
 
-    function getTime() {
-        var time = new Date();
-        var hours = time.getHours().toString();
-        return hours;
-    }
+
+    // 공공데이터포털 api 주말 x
 
     let date = getToday();
-
-    if (getTime() > 12) {
-        date -= 6;
-    } else {
-        date -= 7;
-    }
-
-
 
     let url = `https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?resultType=json&`;
     url += `basDt=${date}&`;
     url += `isinCd=KR7013580006&`;
     url += `serviceKey=${key}`;
+    console.log(date)
 
     let outPut = document.querySelectorAll(`section .container table tr:last-child td`);
     let stock = document.querySelectorAll(`section .container .box .stock span`);
     let dateOut = document.querySelector(`section .container .box .date`);
     let company = document.querySelector(`section .container .box .company`);
     let stockC = document.querySelector(`section .container .box .stockC`);
-    console.log(outPut)
 
-    dateOut.innerHTML = new Date().getFullYear().toString() + " / " + ('0' + (1 + new Date().getMonth())).slice(-2).toString() + " / " + ('0' + (new Date().getDate() - 1)).slice(-2).toString() + ' 일자 기준';
+    dateOut.innerHTML = `${date.slice(0,4)} / ${date.slice(4,6)} / ${date.slice(-2)} 일자 기준`;
 
     fetch(url)
         .then(res => res.json())
@@ -60,9 +60,6 @@ window.onload = function () {
 
             company.innerHTML += item.itmsNm;
             stockC.innerHTML += item.mrktCtg;
-            // stock[0].innerHTML += item.clpr;
-            // stock[1].innerHTML += item.vs;
-            // stock[2].innerHTML += item.fltRt;
 
             stock.forEach(function (v, n) {
                 var max;
@@ -74,9 +71,6 @@ window.onload = function () {
                     max = Number(item.fltRt);
                 }
 
-                console.log(Number.isInteger(max))
-
-                console.log(max)
                 var now = max
                 const handle = setInterval(() => {
                     // v.innerHTML = Math.ceil(max - now);
@@ -85,15 +79,22 @@ window.onload = function () {
                     } else {
                         v.innerHTML = (max - now).toFixed(2);
                     }
-
+                    if (n !== 2) {
+                        v.innerHTML = numberWithCommas(v.innerHTML);
+                    };
+                    if ( n!== 0 ) {
+                        if ( n > 0 ) {
+                            v.classList.add(`rise`);
+                        } else {
+                            v.classList.add(`decline`);
+                        }
+                    }
                     // 목표에 도달하면 정지
                     if (now < 0) {
                         clearInterval(v);
                     }
-
                     // 적용될 수치, 점점 줄어듬
                     const step = now / 10;
-
                     now -= step;
                 }, 30);
             })
@@ -101,7 +102,7 @@ window.onload = function () {
             stock[2].innerHTML = `(${stock[2].innerHTML})`
             outPut[0].innerHTML += item.clpr;
             outPut[1].innerHTML += item.vs;
-            outPut[2].innerHTML += item.fltRt;
+            outPut[2].innerHTML += item.fltRt + '%';
             outPut[3].innerHTML += item.mkp;
             outPut[4].innerHTML += item.hipr;
             outPut[5].innerHTML += item.lopr;
@@ -114,7 +115,6 @@ window.onload = function () {
             for (i = 1; i <= 2; i++) {
                 if (outPut[i].textContent < '0') {
                     outPut[i].classList.add(`decline`);
-                    console.log(outPut[i].textContent)
                     outPut[i].innerHTML = `<i></i>${outPut[i].innerHTML.slice(1)}`;
                 } else {
                     outPut[i].classList.add(`rise`);

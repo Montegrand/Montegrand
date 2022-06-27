@@ -251,6 +251,11 @@ section .page_depth li:first-child a::before {
     margin: 30px auto;
 }
 
+.container > div {
+    display: flex;
+    justify-content: space-around;
+}
+
 .container .box {
     width: 800px;
     outline: 1px solid #333;
@@ -339,6 +344,20 @@ section .page_depth li:first-child a::before {
     top: -30px;
 }
 
+section .container .report {
+    /* outline: 1px solid #333; */
+    width: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .container .report a {
+    width: 100%; height: 60%;
+    background: #0972CD;
+    color: #eee;
+}
+
 .container > table {
     width: 100%;
     margin: 24px 0;
@@ -362,7 +381,7 @@ section .page_depth li:first-child a::before {
     display: flex;
     width: 12px; height: 12px;
     position: absolute;
-    top: 50%; left: 20%;
+    top: 40%; left: 20%;
 }
 
 .container > table tr * {
