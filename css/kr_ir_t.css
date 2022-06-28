@@ -1,0 +1,224 @@
+.inner {
+    width: 80%;
+}
+
+html {
+    font-size: 10px;
+}
+
+/* header============================ */
+
+body {
+    overflow-x: hidden;
+}
+
+header .top_nav.wrap  {
+    width: 70vw; height: 100vh;
+    background: #0972CD;
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-start;
+    right: 0;
+    transform: translateX(100%);
+    transition: 500ms;
+    overflow: hidden;
+    justify-content: flex-end;
+}
+
+header .overay {
+    content: "";
+    width: 100vw; height: 100vh;
+    position: absolute;
+    display: none;
+    background: #000;
+    opacity: 0.3;
+    top: 0; left: 0;
+    z-index: 0;
+}
+
+header .overay.on {
+    display: flex;
+}
+
+header .top_nav.wrap.on {
+    transform: translateX(0);
+    transition: 500ms;
+}
+
+header .top_nav.wrap > li {
+    width: 30%; height: 12%;
+    background-color: #0972CD;
+    position: relative;
+}
+
+header .bt {
+    width: 40px; height: 40px;
+    padding: 0;
+    display: flex;
+    position: absolute;
+    top: 20px; right: 20px;
+    overflow: hidden;
+    text-indent: -1000px;
+    background: url(../images/krcon/menu.svg) 50% 50% / contain no-repeat;
+}
+
+header .bt.on {
+    background: url(../images/krcon/close.svg) 50% 50% /contain no-repeat;
+}
+
+header .top_nav.wrap > li, header .depth.snd > li, header .depth.trd > li > ul > li {
+    border: 1px solid #eee;
+}
+
+header .top_nav.wrap > li > a {
+    color: #999;
+}
+
+header .top_nav.wrap > li:hover > a {
+    color: #eee;
+}
+
+header .top_nav.wrap > li:hover {
+    border-right: none;
+    background: none;
+}
+
+header .depth::after {
+    display: none;
+}
+
+.bot_nav.wrap {
+    display: none;
+    top: 0px; left: 100%;
+    z-index: 0;
+}
+
+header .top_nav.wrap > li:hover .bot_nav.wrap {
+    display: flex;
+    position: fixed;
+}
+
+header .depth.fst {
+    position: absolute;
+    width: 100%; height: 100%;
+}
+
+header .depth.fst > p {
+    display: none;
+}
+
+header .depth.snd {
+    position: fixed;
+    top: 28%; left: 31%;
+    width: 30%; height: 72vh;
+    flex-direction: column;
+}
+
+header .depth.snd > li {
+    margin: 0;
+    margin-bottom: 24px;
+}
+
+header .depth.snd > li > a {
+    color: #eee;
+    width: 100%;
+    padding: 0;
+    justify-content: center;
+}
+
+header .depth.snd > li > p {
+    width: 100%;
+}
+
+header .depth.snd > li > a * {
+    color: #eee;
+}
+
+.bot_nav.wrap i {
+    display: none;
+}
+
+.top_nav.wrap a:hover {
+    color: #eee;
+
+}
+
+header .depth.trd {
+    position: absolute;
+    top: 0; left: 103%;
+    width: 100%; height: 72vh;
+    overflow: auto;
+}
+
+header .depth.trd > li > ul {
+    height: auto;
+}
+
+header .depth.trd > li > ul > li {
+    margin: 0;
+    margin-bottom: 24px;
+}
+
+header .depth.trd > li > ul > li * {
+    color: #eee;
+    padding: 0;
+    justify-content: center;
+}
+
+/* sec================================================================================= */
+
+section .page_depth {
+    margin-top: 24px;
+}
+
+section.fst .top h2 {
+    font-size: 4rem;
+}
+
+section.fst .page_depth li a {
+    font-size: 2rem;
+}
+
+section > .inner > div:last-child {
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+section.fst .container .box {
+    width: 80%;
+    padding: 24px;
+}
+
+section.fst .container .box .companySt {
+    flex-direction: column;
+    margin-top: 0;
+}
+
+section.fst .container .box .companySt .company::after {
+    display: none;
+}
+
+section.fst .container .box .stock {
+    margin: 30px 0 0;
+}
+
+section.fst .container .box .stock > div {
+    width: 35%;
+}
+
+section.fst .container .box .stock > span:first-child::before {
+    font-size: 2.5rem;
+    top: -30px;
+}
+
+section.fst .container .box .stock > div span:first-child::before {
+    font-size: 2rem;
+    width: max-content;
+    top: -30px;
+}
+
+section.fst .container .box .stock > div span:last-child::before {
+    font-size: 2rem;
+    width: max-content;
+    top: -30px;
+}

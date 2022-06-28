@@ -455,11 +455,63 @@ section.snd > h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px;
     font-size: 3rem;
 }
 
+section.snd h3 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 24px;
+}
 
+section.snd .inner > div:nth-child(2) > h3::after {
+    content: "단위 (원)";
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+section.snd .inner > div {
+    margin: 60px 0;
+}
+
+section.snd .chart.contain {
+    display: flex;
+    justify-content: space-around;
+}
+
+section.snd .chart.contain > div {
+    width: 360px;
+}
+
+
+section.snd table {
+    width: 100%;
+}
+
+section.snd table th, section.snd table td {
+    outline: 1px solid #333;
+    padding: 12px;
+}
+
+section.snd table td {
+    text-align: end;
+}
+
+section.snd table td:first-child {
+    text-align: center;
+}
+
+section.snd table td:nth-child(2) {
+    text-align: start;
+}
+
+section.snd table tr:nth-child(9) td:nth-child(2) {
+    text-align: end;
+}
+
+section.snd table tr:nth-child(10) td:nth-child(2) {
+    text-align: end;
+}
 
 /* ----------------footer------------------------------------------------------------- */
 

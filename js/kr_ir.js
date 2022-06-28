@@ -173,9 +173,9 @@ window.onload = function () {
         }
     })
 
-    // chart-----------------------------------------------------------------------------------------
+    // chart1-----------------------------------------------------------------------------------------
 
-    var context = document.getElementById('WChart').getContext('2d');
+    var context = document.getElementById('Chart_1').getContext('2d');
 
     var WChart = new Chart(context, {
         type: 'line',
@@ -194,10 +194,6 @@ window.onload = function () {
                 backgroundColor: [
                     '#0972CD44',
                 ],
-                borderColor: [
-                    '#0972CD44'
-                ],
-                borderWidth: 2
             }, {
                 label: '도급순위',
                 fill: false,
@@ -247,11 +243,137 @@ window.onload = function () {
                             return v + ' 위';
                         }
                     }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    }
                 }
             }
         }
     });
 
 
+    var context = document.getElementById('Chart_2').getContext('2d');
+
+    var WChart = new Chart(context, {
+        data: {
+            labels: [
+                '2019', '2020', '2021',
+            ],
+            datasets: [{
+                label: '매출액',
+                type: 'bar',
+                fill: false,
+                data: [
+                    1649389656049, 1571292959736, 1870762288982
+                ],
+                backgroundColor: [
+                    '#0972CD',
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    grid: {
+                        display: false,
+                    },
+                    min: 1400000000000
+                },
+                x: {
+                    grid: {
+                        display: false,
+                    }
+                }
+            }
+        }
+
+    });
+
+
+    var context = document.getElementById('Chart_3').getContext('2d');
+
+    var WChart = new Chart(context, {
+        data: {
+            labels: [
+                '2019', '2020', '2021',
+            ],
+            datasets: [{
+                label: '매출총이익',
+                type: 'bar',
+                fill: false,
+                data: [
+                    168933546009, 213547059759, 259067725788
+                ],
+                backgroundColor: [
+                    '#0972CD',
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    grid: {
+                        display: false,
+                    },
+                    min: 120000000000
+                },
+                x: {
+                    grid: {
+                        display: false,
+                    }
+                }
+            }
+        }
+    });
+
+
+    var context = document.getElementById('Chart_4').getContext('2d');
+
+    var WChart = new Chart(context, {
+        data: {
+            labels: [
+                '2019', '2020', '2021',
+            ],
+            datasets: [{
+                title: '억원',
+                label: '영업이익 (손실)',
+                type: 'bar',
+                fill: false,
+                data: [
+                    116922456688, 151990194050, 203621424439
+                ],
+                backgroundColor: [
+                    '#0972CD',
+                ],
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    grid: {
+                        display: false,
+                    },
+                    min: 80000000000
+                },
+                x: {
+                    grid: {
+                        display: false,
+                    }
+                }
+            }
+        }
+    });
+
+    var td = document.querySelectorAll('section.snd table td');
+    console.log(Number.isInteger(parseInt(td[2].innerHTML)))
+    console.log(Number.isFinite(td[2].innerHTML))
+
+    td.forEach(function(v,n) {
+        if (Number.isInteger(parseInt(v.innerHTML))) {
+            v.innerHTML = numberWithCommas(v.innerHTML);
+        }
+    })
 
 }
