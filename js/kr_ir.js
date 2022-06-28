@@ -15,24 +15,21 @@ window.onload = function () {
 
     function getToday() {
         var date = new Date();
-        if (date.getHours()<12) {
-            date = new Date(date.setDate(date.getDate()-1));
+        if (date.getHours() < 12) {
+            date = new Date(date.setDate(date.getDate() - 1));
         }
-        for (i=1; i>0; i++) {
-            date = new Date(date.setDate(date.getDate()-i));
-            if (date.getDay()%6!=0) {
+        for (i = 1; i > 0; i++) {
+            date = new Date(date.setDate(date.getDate() - i));
+            if (date.getDay() % 6 != 0) {
                 break;
             }
         };
         console.log(date.getDate())
         var year = date.getFullYear();
-        var month = ( '0' + (date.getMonth()+1)).slice(-2);
-        // var day = ("0" + date.getDate()).slice(-2);
-        // day = day -3
-        var day = ( '0' + date.getDate()).slice(-2);
+        var month = ('0' + (date.getMonth() + 1)).slice(-2);
+        var day = ('0' + date.getDate()).slice(-2);
         return year + month + day;
     }
-
 
     // 공공데이터포털 api 주말 x
 
@@ -82,18 +79,19 @@ window.onload = function () {
                     if (n !== 2) {
                         v.innerHTML = numberWithCommas(v.innerHTML);
                     };
-                    if ( n!== 0 ) {
-                        if ( n > 0 ) {
+                    if (n !== 0) {
+                        if (n > 0) {
                             v.classList.add(`rise`);
                         } else {
                             v.classList.add(`decline`);
                         }
                     }
-                    // 목표에 도달하면 정지
+
+                    // 목표에 도달하면 정지?? 작동 x
                     if (now < 0) {
-                        clearInterval(v);
+                        clearInterval(handle);
                     }
-                    // 적용될 수치, 점점 줄어듬
+
                     const step = now / 10;
                     now -= step;
                 }, 30);
@@ -174,4 +172,86 @@ window.onload = function () {
             }
         }
     })
+
+    // chart-----------------------------------------------------------------------------------------
+
+    var context = document.getElementById('WChart').getContext('2d');
+
+    var WChart = new Chart(context, {
+        type: 'line',
+        data: {
+            labels: [
+                '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021',
+            ],
+            datasets: [{
+                label: '연도별 토건 시평액 (억원)',
+                yAxisID: 'y1',
+                type: 'bar',
+                fill: false,
+                data: [
+                    5422, 6093, 7113, 9157, 10567, 11880, 12693, 15025, 16325, 17091, 18144, 17207, 16386, 15819, 15899, 15127, 16013, 16814, 18011, 20244
+                ],
+                backgroundColor: [
+                    '#0972CD44',
+                ],
+                borderColor: [
+                    '#0972CD44'
+                ],
+                borderWidth: 2
+            }, {
+                label: '도급순위',
+                fill: false,
+                yAxisID: 'y2',
+                data: [
+                    25, 25, 24, 23, 22, 19, 21, 21, 21, 20, 19, 23, 21, 23, 17, 17, 18, 18, 18, 18
+                ],
+                backgroundColor: [
+                    'rgba(255,5,10,1)',
+                ],
+                borderColor: [
+                    'rgba(255,5,10,1)'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            tooltips: {
+                mode: 'nearest'
+            },
+            scales: {
+                y1: {
+                    type: 'linear',
+                    position: 'left',
+                    min: 4000,
+                    max: 22000,
+                    grid: {
+                        display: false,
+                    },
+                    ticks: {
+                        callback: function (v, i, a) {
+                            return v + ' 억원';
+                        }
+                    }
+                },
+                y2: {
+                    type: 'linear',
+                    grid: {
+                        display: false,
+                    },
+                    position: 'right',
+                    min: 10,
+                    max: 30,
+                    reverse: true,
+                    ticks: {
+                        callback: function (v, i, a) {
+                            return v + ' 위';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+
+
 }

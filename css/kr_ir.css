@@ -320,28 +320,35 @@ section.fst .container .box .stock > span:first-child {
     justify-content: center;
 }
 
-section.fst .container .box .stock > span:first-child::after {
+section.fst .container .box .stock > span:first-child::before {
     content: "종가";
-    font-size: 1.5rem;
+    font-size: 2rem;
     position: absolute;
-    top: -30px;
+    top: -42px;
 }
 
-section.fst .container .box .stock > div span:first-child::after {
+section.fst .container .box .stock > div span:first-child::before {
     content: "대 비";
     color: #333;
-    font-size: 1rem;
+    font-size: 1.5rem;
     position: absolute;
-    top: -30px;
+    top: -42px;
 }
 
-section.fst .container .box .stock > div span:last-child::after {
+section.fst .container .box .stock > div span:last-child::before {
     content: "등락률";
     width: max-content;
     color: #333;
-    font-size: 1rem;
+    font-size: 1.5rem;
     position: absolute;
-    top: -30px;
+    top: -42px;
+}
+
+section.fst .container .box .stock > div span:last-child::after {
+    content: "%";
+    font-size: 1.5rem;
+    display: flex;
+    align-items: flex-end;
 }
 
 section.fst .container .report {
@@ -438,7 +445,23 @@ section.fst .container > table tr * {
     background: url(../images/krcon/SVG/rise.svg) 50% 50% / contain no-repeat;
 }
 
-/* ----------------footer----------------------- */
+/* sec2-------------------------------------------------------------------------------- */
+
+section.snd {
+    padding: 30px;
+}
+
+section.snd > h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    font-size: 3rem;
+}
+
+
+
+/* ----------------footer------------------------------------------------------------- */
 
 footer {
     padding: 30px;
