@@ -41,7 +41,7 @@ window.onload = function () {
     url += `serviceKey=${key}`;
     console.log(date)
 
-    let outPut = document.querySelectorAll(`section .container table tr:last-child td`);
+    let outPut = document.querySelectorAll(`section .container .stockContainer span`);
     let stock = document.querySelectorAll(`section .container .box .stock span`);
     let dateOut = document.querySelector(`section .container .box .date`);
     let company = document.querySelector(`section .container .box .company`);

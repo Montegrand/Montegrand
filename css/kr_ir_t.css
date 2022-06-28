@@ -184,6 +184,8 @@ section > .inner > div:last-child {
     align-items: center;
 }
 
+/* sec1------------------------------------------------------------------------------ */
+
 section.fst .container .box {
     width: 80%;
     padding: 24px;

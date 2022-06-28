@@ -399,41 +399,52 @@ section.fst .container .report > div > div a:hover {
     color: #eee;
 }
 
-section.fst .container > table {
+section.fst .stockContainer {
     width: 100%;
     margin: 24px 0;
-    border-spacing : 12px 0;
-}
-
-section.fst .container > table th {
-    height: 3rem;
-    border-radius: 8px 8px 0px 0px;
-}
-
-section.fst .container > table td {
-    text-align: center;
-    height: 4rem;
-    border-radius: 0px 0px 8px 8px;
-    position: relative;
-    /* outline: 1px solid #333; */
-}
-
-section.fst .container > table td i {
     display: flex;
+}
+
+section.fst .stockContainer div {
+    background-color: #b8d0e4;
+    flex: 1 1 10%;
+    border-radius: 4px;
+    margin: 12px;
+}
+
+section.fst .stockContainer h4 {
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; font-weight: 400;
+}
+
+section.fst .stockContainer span {
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    font-size: 1.2rem; font-weight: 200;
+}
+
+section.fst .stockContainer span::before {
+    content: "";
+    width: 12px; height: 12px;
+    margin-right: 6px;
+    /* display: flex;
     width: 12px; height: 12px;
     position: absolute;
-    top: 40%; left: 20%;
-}
-
-section.fst .container > table tr * {
-    background-color: #b8d0e4;
+    top: 40%; left: 20%; */
 }
 
 .decline {
     color: blue;
 }
 
-.decline i {
+section.fst .stockContainer .decline::before {
     background: url(../images/krcon/SVG/decline.svg) 50% 50% / contain no-repeat;
 }
 
@@ -441,7 +452,7 @@ section.fst .container > table tr * {
     color: red;
 }
 
-.rise i {
+section.fst .stockContainer .rise::before {
     background: url(../images/krcon/SVG/rise.svg) 50% 50% / contain no-repeat;
 }
 
@@ -482,7 +493,6 @@ section.snd .chart.contain {
 section.snd .chart.contain > div {
     width: 360px;
 }
-
 
 section.snd table {
     width: 100%;
