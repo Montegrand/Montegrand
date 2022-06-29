@@ -52,6 +52,7 @@ window.onload = function () {
     fetch(url)
         .then(res => res.json())
         .then(res => {
+            console.log(res)
             let item = res.response.body.items.item[0];
             console.log(item)
 
@@ -137,13 +138,6 @@ window.onload = function () {
     })
 
     let chartContain = document.querySelectorAll(`section.snd .chart.contain canvas`);
-    
-    chartContain.forEach(function(v,n) {
-        console.log(v.height)
-        if (wid <= 1240) {
-            v.height = 400;
-        }
-    })
 
     var allA = document.querySelectorAll(`a`);
 
@@ -181,8 +175,15 @@ window.onload = function () {
             }
         }
     })
+        
+    chartContain.forEach(function(v,n) {
+        console.log(v.height)
+        if (wid <= 1240) {
+            v.height = 400;
+        }
+    })
 
-    // chart1-----------------------------------------------------------------------------------------
+    // chart-----------------------------------------------------------------------------------------
 
     var context = document.getElementById('Chart_1').getContext('2d');
 

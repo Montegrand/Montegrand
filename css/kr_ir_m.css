@@ -53,6 +53,9 @@ section.fst .container .box .date {
     font-size: 1.8rem;
 }
 
+section.fst .container .box .stock {
+    margin-top: 42px;
+}
 
 section.fst .container .box .companySt span {
     font-size: 4rem;
