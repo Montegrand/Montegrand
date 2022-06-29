@@ -136,6 +136,15 @@ window.onload = function () {
         }
     })
 
+    let chartContain = document.querySelectorAll(`section.snd .chart.contain canvas`);
+    
+    chartContain.forEach(function(v,n) {
+        console.log(v.height)
+        if (wid <= 1240) {
+            v.height = 400;
+        }
+    })
+
     var allA = document.querySelectorAll(`a`);
 
     allA.forEach(function (v, n) {
@@ -211,6 +220,7 @@ window.onload = function () {
             }]
         },
         options: {
+            maintainAspectRatio: false,
             tooltips: {
                 mode: 'nearest'
             },
@@ -266,7 +276,7 @@ window.onload = function () {
                 type: 'bar',
                 fill: false,
                 data: [
-                    1649389656049, 1571292959736, 1870762288982
+                    1649389.656049, 1571292.959736, 1870762.288982
                 ],
                 backgroundColor: [
                     '#0972CD',
@@ -274,16 +284,42 @@ window.onload = function () {
             }]
         },
         options: {
+            maintainAspectRatio: false,
+            elements: {
+                bar: {
+                    inflateAmount: 2
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 18
+                        },
+                        // padding: 30
+                    }
+                }
+            },
             scales: {
                 y: {
                     grid: {
                         display: false,
                     },
-                    min: 1400000000000
+                    min: 1400000,
+                    ticks: {
+                        font: {
+                            size: 20
+                        }
+                    }
                 },
                 x: {
                     grid: {
                         display: false,
+                    },
+                    ticks: {
+                        font: {
+                            size: 20
+                        }
                     }
                 }
             }
@@ -304,24 +340,44 @@ window.onload = function () {
                 type: 'bar',
                 fill: false,
                 data: [
-                    168933546009, 213547059759, 259067725788
+                    168933.546009, 213547.059759, 259067.725788
                 ],
                 backgroundColor: [
-                    '#0972CD',
+                    '#CC581D',
                 ],
             }]
         },
         options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 18
+                        }
+                    }
+                }
+            },
             scales: {
                 y: {
                     grid: {
                         display: false,
                     },
-                    min: 120000000000
+                    min: 120000,
+                    ticks: {
+                        font: {
+                            size: 20
+                        }
+                    }
                 },
                 x: {
                     grid: {
                         display: false,
+                    },
+                    ticks: {
+                        font: {
+                            size: 20
+                        }
                     }
                 }
             }
@@ -342,24 +398,44 @@ window.onload = function () {
                 type: 'bar',
                 fill: false,
                 data: [
-                    116922456688, 151990194050, 203621424439
+                    116922.456688, 151990.194050, 203621.424439
                 ],
                 backgroundColor: [
-                    '#0972CD',
+                    '#1214CC',
                 ],
             }]
         },
         options: {
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 18
+                        }
+                    }
+                }
+            },
             scales: {
                 y: {
                     grid: {
                         display: false,
                     },
-                    min: 80000000000
+                    min: 80000,
+                    ticks: {
+                        font: {
+                            size: 20
+                        }
+                    }
                 },
                 x: {
                     grid: {
                         display: false,
+                    },
+                    ticks: {
+                        font: {
+                            size: 20
+                        }
                     }
                 }
             }

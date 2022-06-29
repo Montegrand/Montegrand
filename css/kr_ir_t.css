@@ -179,11 +179,6 @@ section.fst .page_depth li a {
     font-size: 2rem;
 }
 
-section > .inner > div:last-child {
-    flex-direction: column-reverse;
-    align-items: center;
-}
-
 /* sec1------------------------------------------------------------------------------ */
 
 section.fst .container .box {
@@ -223,4 +218,62 @@ section.fst .container .box .stock > div span:last-child::before {
     font-size: 2rem;
     width: max-content;
     top: -30px;
+}
+
+section.fst .stockContainer {
+    flex-wrap: wrap;
+}
+
+section.fst .stockContainer > div {
+    flex: 1 1 45%;
+}
+
+section.fst .stockContainer h4 {
+    font-size: 3rem;
+}
+
+section.fst .stockContainer span {
+    font-size: 2.5rem;
+}
+
+section.fst .stockContainer > div:nth-child(1) {
+    order: 2;
+}
+
+section.fst .stockContainer > div:nth-child(2) {
+    order: 3;
+}
+
+section.fst .stockContainer > div:nth-child(3) {
+    order: 4;
+}
+
+section.fst .stockContainer > div:nth-child(4) {
+    order: 1;
+}
+
+section.fst .stockContainer > div:nth-child(5) {
+    order: 5;
+}
+
+section.fst .stockContainer > div:nth-child(6) {
+    order: 6;
+}
+
+section.fst .stockContainer > div:nth-child(7) {
+    order: 7;
+}
+
+/* sec2------------------------------------------------------------------------------ */
+
+section.snd .chart.contain {
+    flex-direction: column;
+}
+
+section.snd .chart.contain > div {
+    width: 100%;
+}
+
+section.snd table * {
+    font-size: 1.2rem;
 }
