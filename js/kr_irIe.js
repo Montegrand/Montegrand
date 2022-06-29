@@ -171,7 +171,7 @@ window.onload = function () {
     var ctx = document.getElementById('Chart_1').getContext('2d');
 
     const chart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: [
                 '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021',
@@ -189,6 +189,7 @@ window.onload = function () {
                 {
                     label: '도급순위',
                     fill: false,
+                    type: 'line',
                     yAxisID: 'y2',
                     data: [
                         25, 25, 24, 23, 22, 19, 21, 21, 21, 20, 19, 23, 21, 23, 17, 17, 18, 18, 18, 18
@@ -212,6 +213,9 @@ window.onload = function () {
                     gridLines: {
                       display: false,
                       color: "black"
+                    },
+                    ticks: {
+                        beginAtZero: false,
                     }
                 }],
                 yAxes: [{
@@ -224,6 +228,7 @@ window.onload = function () {
                     ticks: {
                         min: 4000,
                         max: 22000,
+                        beginAtZero: false,
                         callback: function (v, i, a) {
                             return v + '억원'
                         }
@@ -239,6 +244,7 @@ window.onload = function () {
                         min: 10,
                         max: 30,
                         reverse: true,
+                        beginAtZero: false,
                         callback: function (v, i, a) {
                             return v + ' 위';
                         }
