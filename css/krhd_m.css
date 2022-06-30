@@ -1,0 +1,71 @@
+
+header .top_nav.wrap > li:nth-child(n) > a {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+header .top_nav.wrap > li:nth-child(4), header .top_nav.wrap > li:nth-child(5) {
+    width: 25vw; height: 5vh;
+    top: 41vh;
+}
+
+header .top_nav.wrap > li:nth-child(4) {
+    /* right: 0; */
+}
+
+header .top_nav.wrap > li:nth-child(5) {
+    right: 5vw;
+}
+
+header .top_nav.wrap > li:nth-child(2) > a > span {
+    bottom: -7rem;
+}
+
+header .top_nav.wrap > li:nth-child(9) {
+    height: 25vh;
+}
+
+header .top_nav.wrap .depth.snd > li > a * {
+    font-size: 1.5rem;
+}
+
+header .top_nav.wrap .depth.snd > li > a {
+    font-size: 1.5rem;
+}
+
+header .depth.trd > li > ul > li * {
+    font-size: 1.5rem;
+}
+
+/* 가로-------------------------------------------------------------------------------- */
+
+header .top_nav.wrap.width > li:nth-child(4), header .top_nav.wrap.width > li:nth-child(5) {
+    width: 15vw; height: 5vh;
+    right: 5vw;
+}
+
+header .top_nav.wrap.width > li:nth-child(4) {
+    /* position: fixed; */
+    top: 30vh; right: 0;
+}
+
+header .top_nav.wrap.width > li:nth-child(5) {
+    top: 40vh;
+}
+
+header .top_nav.wrap.width > li:nth-child(2) span {
+    bottom: -7rem;
+}
+
+header .top_nav.wrap.width > li:nth-child(9) {
+    left: 0;
+    width: 45vw; height: 28.7vh;
+}
+
+header .top_nav.wrap.width .depth.snd > li > a * {
+    font-size: 1.5rem;
+}
+
+header .top_nav.wrap.width .depth.snd > li > a {
+    font-size: 1.5rem;
+}

@@ -114,7 +114,7 @@ window.onload = function () {
             for (i = 1; i <= 2; i++) {
                 if (outPut[i].textContent < '0') {
                     outPut[i].classList.add(`decline`);
-                    outPut[i].innerHTML = `<i></i>${outPut[i].innerHTML.slice(1)}`;
+                    outPut[i].innerHTML = outPut[i].innerHTML.slice(1);
                 } else {
                     outPut[i].classList.add(`rise`);
                 }
@@ -236,7 +236,7 @@ window.onload = function () {
                     },
                     ticks: {
                         callback: function (v, i, a) {
-                            return v + ' 억원';
+                            return v + ' 억';
                         }
                     }
                 },
@@ -277,7 +277,7 @@ window.onload = function () {
                 type: 'bar',
                 fill: false,
                 data: [
-                    1649389.656049, 1571292.959736, 1870762.288982
+                    16493.89656049, 15712.92959736, 18707.62288982
                 ],
                 backgroundColor: [
                     '#0972CD',
@@ -286,11 +286,11 @@ window.onload = function () {
         },
         options: {
             maintainAspectRatio: false,
-            elements: {
-                bar: {
-                    inflateAmount: 2
-                }
-            },
+            // elements: {
+            //     bar: {
+            //         inflateAmount: 2
+            //     }
+            // },
             plugins: {
                 legend: {
                     labels: {
@@ -306,7 +306,7 @@ window.onload = function () {
                     grid: {
                         display: false,
                     },
-                    min: 1400000,
+                    min: 14000,
                     ticks: {
                         font: {
                             size: 20
@@ -341,7 +341,7 @@ window.onload = function () {
                 type: 'bar',
                 fill: false,
                 data: [
-                    168933.546009, 213547.059759, 259067.725788
+                    1689.33546009, 2135.47059759, 2590.67725788
                 ],
                 backgroundColor: [
                     '#CC581D',
@@ -364,7 +364,7 @@ window.onload = function () {
                     grid: {
                         display: false,
                     },
-                    min: 120000,
+                    min: 1200,
                     ticks: {
                         font: {
                             size: 20
@@ -394,12 +394,11 @@ window.onload = function () {
                 '2019', '2020', '2021',
             ],
             datasets: [{
-                title: '억원',
                 label: '영업이익 (손실)',
                 type: 'bar',
                 fill: false,
                 data: [
-                    116922.456688, 151990.194050, 203621.424439
+                    1169.22456688, 1519.90194050, 2036.21424439
                 ],
                 backgroundColor: [
                     '#1214CC',
@@ -422,7 +421,7 @@ window.onload = function () {
                     grid: {
                         display: false,
                     },
-                    min: 80000,
+                    min: 800,
                     ticks: {
                         font: {
                             size: 20

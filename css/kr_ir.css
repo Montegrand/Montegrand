@@ -481,7 +481,7 @@ section.snd .chart1 {
 }
 
 section.snd .inner > div:nth-child(2) > h3::after {
-    content: "단위 (백만원)";
+    content: "단위 (억원)";
     font-size: 1rem;
     font-weight: 300;
 }

@@ -152,25 +152,26 @@ window.onload = function () {
             outPut[4].innerHTML += item.hipr;
             outPut[5].innerHTML += item.lopr;
             outPut[6].innerHTML += item.trqu;
-            outPut.forEach(function (v, n) {
+            Array.prototype.forEach.call(outPut, function (v, n) {
                 if (n !== 2) {
                     v.innerHTML = numberWithCommas(v.innerHTML);
                 };
             });
             for (i = 1; i <= 2; i++) {
-                if (outPut[i].textContent < '0') {
+                if (outPut[i].innerHTML < '0') {
                     outPut[i].classList.add('decline');
-                    outPut[i].innerHTML = '<i></i>' + outPut[i].innerHTML.slice(1);
+                    outPut[i].innerHTML = outPut[i].innerHTML.slice(1);
                 } else {
                     outPut[i].classList.add('rise');
                 }
             }
+            
         })
     // chart---------------------------------------------------------------------------------
 
     var ctx = document.getElementById('Chart_1').getContext('2d');
 
-    const chart = new Chart(ctx, {
+    var chart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: [
@@ -202,6 +203,7 @@ window.onload = function () {
             ]
         },
         options: {
+            maintainAspectRatio: false,
             plugins: {
                 title: {
                     display: true,
@@ -211,8 +213,8 @@ window.onload = function () {
             scales: {
                 xAxes: [{
                     gridLines: {
-                      display: false,
-                      color: "black"
+                        display: false,
+                        color: "black"
                     },
                     ticks: {
                         beginAtZero: false,
@@ -230,7 +232,7 @@ window.onload = function () {
                         max: 22000,
                         beginAtZero: false,
                         callback: function (v, i, a) {
-                            return v + '억원'
+                            return v + '억'
                         }
                     }
                 }, {
@@ -252,5 +254,159 @@ window.onload = function () {
                 }],
             }
         }
-    })
+    });
+
+    var ctx = document.getElementById('Chart_2').getContext('2d');
+
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+                '2019', '2020', '2021',
+            ],
+            datasets: [{
+                    label: '매출액',
+                    type: 'bar',
+                    fill: false,
+                    data: [
+                        16493.89656049, 15712.92959736, 18707.62288982
+                    ],
+                    backgroundColor: '#0972CD',
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Chart Title'
+                }
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                        color: "black"
+                    },
+                }],
+                yAxes: [{
+                    type: 'linear',
+                    position: 'left',
+                    gridLines: {
+                        display: false,
+                    },
+                    ticks: {
+                        min: 14000,
+                        callback: function (v, i, a) {
+                            return v + ' 억'
+                        }
+                    }
+                }],
+            }
+        }
+    });
+
+    var ctx = document.getElementById('Chart_3').getContext('2d');
+
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+                '2019', '2020', '2021',
+            ],
+            datasets: [{
+                    label: '매출총이익',
+                    type: 'bar',
+                    fill: false,
+                    data: [
+                        1689.33546009, 2135.47059759, 2590.67725788
+                    ],
+                    backgroundColor: '#CC581D',
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Chart Title'
+                }
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                        color: "black"
+                    }
+                }],
+                yAxes: [{
+                    type: 'linear',
+                    position: 'left',
+                    gridLines: {
+                        display: false,
+                    },
+                    ticks: {
+                        min: 1200,
+                        callback: function (v, i, a) {
+                            return v + ' 억'
+                        }
+                    }
+                }],
+            }
+        }
+    });
+
+    var ctx = document.getElementById('Chart_4').getContext('2d');
+
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+                '2019', '2020', '2021',
+            ],
+            datasets: [{
+                    label: '영업이익 (손실)',
+                    type: 'bar',
+                    fill: false,
+                    data: [
+                        1169.22456688, 1519.90194050, 2036.21424439
+                    ],
+                    backgroundColor: '#1214CC',
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Chart Title'
+                }
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: false,
+                        color: "black"
+                    },
+                }],
+                yAxes: [{
+                    type: 'linear',
+                    position: 'left',
+                    gridLines: {
+                        display: false,
+                    },
+                    ticks: {
+                        min: 800,
+                        callback: function (v, i, a) {
+                            return v + ' 억'
+                        }
+                    }
+                }],
+            }
+        }
+    });
+
 }

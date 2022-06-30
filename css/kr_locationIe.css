@@ -5,6 +5,7 @@
 }
 
 @media all and (max-width: 1280px) {
+
     .is-ie header .overay {
         position: fixed;
     }
@@ -24,4 +25,5 @@
         left: 100%;
         padding: 0 24px;
     }
+
 }
