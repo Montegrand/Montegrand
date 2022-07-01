@@ -238,7 +238,6 @@ header .top_nav.wrap > li:first-child div:first-child {
 header .top_nav.wrap > li:first-child div > li {
     width: 11vh;
     border-radius: 3vw;
-    /* background: url(../images/krcon/Introduce.png)50% 50% / contain no-repeat; */
 }
 
 header .top_nav.wrap > li:first-child div:first-child > li {
