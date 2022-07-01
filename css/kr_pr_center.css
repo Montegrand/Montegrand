@@ -20,12 +20,10 @@
         opacity: 0;
     }
 }
-
 /* fade in out animation */
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     box-sizing: border-box;
     font-family: 'Noto Sans KR', 'sans-serif';
     text-decoration: none;
@@ -64,18 +62,6 @@ header * {
 
 header .top_nav.wrap > li {
     width: 150px; height: 100%;
-}
-
-header .top_nav.wrap > li:hover > a {
-    position: relative;
-}
-
-header .top_nav.wrap > li:hover > a::after {
-    content: "";
-    width: 100%; height: 3px;
-    background: #0972CD;
-    position: absolute;
-    top: 90%;
 }
 
 header .bt {
@@ -218,7 +204,6 @@ header .depth.trd > li > ul > li {
     margin: 10px 0;
     width: 100%; height: 30px;
 }
-
 
 /* sec======================================================================== */
 

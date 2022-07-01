@@ -24,7 +24,6 @@ window.onload = function () {
                 break;
             }
         };
-        console.log(date.getDate())
         var year = date.getFullYear();
         var month = ('0' + (date.getMonth() + 1)).slice(-2);
         var day = ('0' + date.getDate()).slice(-2);
@@ -39,7 +38,6 @@ window.onload = function () {
     url += `basDt=${date}&`;
     url += `isinCd=KR7013580006&`;
     url += `serviceKey=${key}`;
-    console.log(date)
 
     let outPut = document.querySelectorAll(`section .container .stockContainer span`);
     let stock = document.querySelectorAll(`section .container .box .stock span`);
@@ -52,9 +50,7 @@ window.onload = function () {
     fetch(url)
         .then(res => res.json())
         .then(res => {
-            console.log(res)
             let item = res.response.body.items.item[0];
-            console.log(item)
 
             company.innerHTML += item.itmsNm;
             stockC.innerHTML += item.mrktCtg;
@@ -69,6 +65,8 @@ window.onload = function () {
                     max = Number(item.fltRt);
                 }
 
+                console.log(max)
+
                 var now = max
                 const handle = setInterval(() => {
                     // v.innerHTML = Math.ceil(max - now);
@@ -81,17 +79,17 @@ window.onload = function () {
                         v.innerHTML = numberWithCommas(v.innerHTML);
                     };
                     if (n !== 0) {
-                        if (n > 0) {
+                        if (max > 0) {
                             v.classList.add(`rise`);
                         } else {
                             v.classList.add(`decline`);
                         }
                     }
 
-                    // 목표에 도달하면 정지?? 작동 x
-                    if (now < 0) {
-                        clearInterval(handle);
-                    }
+                    // -목표에 도달하면 정지- 마이너스일때 정지
+                    // if (now < 0) {
+                    //     clearInterval(handle);
+                    // }
 
                     const step = now / 10;
                     now -= step;
@@ -177,7 +175,6 @@ window.onload = function () {
     })
         
     chartContain.forEach(function(v,n) {
-        console.log(v.height)
         if (wid <= 1240) {
             v.height = 400;
         }
@@ -443,8 +440,6 @@ window.onload = function () {
     });
 
     var td = document.querySelectorAll('section.snd table td');
-    console.log(Number.isInteger(parseInt(td[2].innerHTML)))
-    console.log(Number.isFinite(td[2].innerHTML))
 
     td.forEach(function(v,n) {
         if (Number.isInteger(parseInt(v.innerHTML))) {
