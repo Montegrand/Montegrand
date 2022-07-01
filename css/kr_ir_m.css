@@ -9,21 +9,56 @@ html {
 
 /* header==================== */
 
-header .bt {
-    width: 30px; height: 30px;
-    top: 25px; right: 25px;
+header .top_nav.wrap > li:first-child div {
+    padding: 6px;
 }
 
-.top_nav.wrap > li > a {
-    font-size: 1rem;
+header .top_nav.wrap::before {
+    height: 61vh;
 }
 
-.top_nav.wrap > li > a {
-    font-size: 0.8rem;
+header .top_nav.wrap::after {
+    height: 61vh;;
 }
 
-header .depth.snd * {
-    font-size: 0.6rem;
+header .top_nav.wrap.width > li:first-child div:first-child > li > a > span {
+    bottom: -6vh;
+}
+
+header .depth.snd {
+    top: 39vh;
+    height: 61vh;
+}
+
+header .depth.snd > li:hover > a {
+    border: 6px solid #00000010;
+}
+
+header .depth.trd {
+    top: 39vh;
+    height: 61vh;
+}
+
+header .top_nav.wrap.width::before {
+    height: 50.5vh;
+}
+
+header .top_nav.wrap.width::after {
+    height: 50.5vh;
+}
+
+header .top_nav.wrap > li:first-child div > li {
+    border-radius: 1vw;
+}
+
+header .top_nav.wrap.width .depth.snd {
+    top: 49.5vh;
+    height: 50.5vh;
+}
+
+header .top_nav.wrap.width .depth.trd {
+    top: 49.5vh;
+    height: 50.5vh;
 }
 
 /* sec1===================================================================== */
