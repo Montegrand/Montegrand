@@ -84,16 +84,15 @@ window.onload = function() {
     let money = document.querySelectorAll(`.money`)
 
     money.forEach(function(v,n) {
-        // console.log(v.innerHTML);
         v.innerHTML = numberWithCommas(v.innerHTML);
     })
 
-    window.addEventListener('resize', function () {
-        if ( window.innerWidth > window.innerHeight ) {
-            return document.querySelector(`section`).classList.add(`width`);
-        } else {
-            return document.querySelector(`section`).classList.remove(`width`);
-        }
-    })
+    // window.addEventListener('resize', function () {
+    //     if ( window.innerWidth > window.innerHeight ) {
+    //         return document.querySelector(`section`).classList.add(`width`);
+    //     } else {
+    //         return document.querySelector(`section`).classList.remove(`width`);
+    //     }
+    // })
     
 }
