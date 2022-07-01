@@ -5,6 +5,16 @@ window.onload = function () {
 
     let navLi = document.querySelectorAll(`header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a`);
 
+    navLi.forEach(function (v, n) {
+        if (wid <= 1240) {
+            for ( i = 0; i < navLi.length; i++ ) {
+                if ( i !== 7 ) {
+                    navLi[i].href = `#`;
+                }
+            }
+        }
+    })
+    
     let wrap = document.querySelector(`header .top_nav.wrap`);
     if (window.innerWidth<1280) {
         let liCon = document.querySelectorAll(`header .top_nav.wrap > li`);
@@ -20,6 +30,30 @@ window.onload = function () {
             }
         })
     }
+
+    let navLiC = document.querySelectorAll(`header .top_nav.wrap li > a `);
+
+    document.querySelectorAll('*').forEach(function(v,n){
+        v.addEventListener('click', function(e){
+            
+        })
+    })
+
+    // navLiC.forEach(function(v,n) {
+    //     console.log(v)
+    //     v.parentElement.addEventListener('click', function(e) {
+    //         if (e.target!==v){
+    //             for (i=0;i<navLiC.length;i++) {
+    //                 navLiC[i].classList.remove('on');
+    //                 navLiC[i].blur();
+    //             }
+    //         } else {
+    //             this.classList.add('on');
+    //             this.focus();
+    //         }
+    //     })
+    // })
+    
     window.addEventListener('resize',function() {
 
         this.location.reload();
@@ -28,16 +62,6 @@ window.onload = function () {
             wrap.classList.add('width');
         } else {
             wrap.classList.remove('width')
-        }
-    })
-
-    navLi.forEach(function (v, n) {
-        if (wid <= 1240) {
-            for ( i = 0; i < navLi.length; i++ ) {
-                if ( i !== 7 ) {
-                    navLi[i].href = `#`;
-                }
-            }
         }
     })
 

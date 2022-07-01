@@ -293,7 +293,7 @@ header .top_nav.wrap > li:first-child div:last-child > li:hover > a > span {
     background: #eee;
 }
 
-header .top_nav.wrap > li:first-child div:first-child > li:hover .bot_nav.wrap {
+header .top_nav.wrap > li:first-child div:first-child > li.on .bot_nav.wrap {
     display: flex;
 }
 
