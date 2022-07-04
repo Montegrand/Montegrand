@@ -146,10 +146,10 @@ window.onload = function () {
     });
 
     var swiper = new Swiper(".sec4sld", {
-        slidesPerView: 1,
-        spaceBetween: 30,
+        slidesPerView: 2,
+        spaceBetween: 10,
         loop: true,
-        centeredSlides: true,
+        // centeredSlides: true,
         autoplay: {
             delay: 5000,
             disableOnInteraction: false,
@@ -157,10 +157,6 @@ window.onload = function () {
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
         },
     });
     // ======================================

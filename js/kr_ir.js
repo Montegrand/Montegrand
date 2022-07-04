@@ -229,12 +229,6 @@ window.onload = function () {
                 }
             }
         })
-        
-    chartContain.forEach(function(v,n) {
-        if (wid <= 1240) {
-            v.height = 400;
-        }
-    })
 
     // chart-----------------------------------------------------------------------------------------
 

@@ -29,7 +29,7 @@
     text-decoration: none;
     list-style-type: none;
     color: #333;
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
 }
 
 .inner {
@@ -513,19 +513,25 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.trd.img1::after {
-    background: url(../images/krcon/recruit_01.jpg) 50% 50% / cover no-repeat;
+    background: url(../images/krcon/recruit_01b.jpg) 50% 50% / cover no-repeat;
+    background-color: #aaa;
+    background-blend-mode:darken;
     animation: fadein 1s;
     opacity: 1;
 }
 
 .sec.trd.img2::after {
-    background: url(../images/krcon/recruit_02.jpg) 50% 50% / cover no-repeat;
+    background: url(../images/krcon/recruit_02b.jpg) 50% 50% / cover no-repeat;
+    background-color: #aaa;
+    background-blend-mode:darken;
     animation: fadein 1s;
     opacity: 1;
 }
 
 .sec.trd.img3::after {
     background: url(../images/krcon/recruit_03.jpg) 50% 50% / cover no-repeat;
+    background-color: #aaa;
+    background-blend-mode:darken;
     animation: fadein 1s;
     opacity: 1;
 }
@@ -640,9 +646,23 @@ header .depth.trd > li > ul > li {
     margin-bottom: 42px;
 }
 
+.sec.trd.on .wrap > div {
+    background: none;
+}
+
 .sec.trd.on .wrap > div i {
     width: 180px; height: 180px;
     transition: 500ms;
+}
+
+.sec.trd.on .wrap > div.on i {
+    width: 42px; height: 42px;
+    margin-bottom: 12px;
+    transition: 500ms;
+}
+
+.sec.trd.on .wrap > div.on h4 {
+    font-size: 1rem;
 }
 
 .sec.trd .wrap > div:nth-child(1) i {
@@ -672,29 +692,31 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.trd .wrap > div > p {
-    display: none;
-    padding: 24px;
-    width: 100%; height: 100%; 
+    display: flex;
+    overflow: hidden;
+    width: 100%; height: 0px; 
     font-size: 1.2rem; font-weight: 100;
     align-items: center;
     line-height: 3rem;
     color: #eee;
-    background: #0972CD;
     text-align: justify;
-    transition: 500ms;
+    transition: 0.5s;
 }
 
-.sec.trd .wrap > div.on > * {
-    display: none;
+.sec.trd .wrap > div.on {
+    transition: 0.5s;
+    background: #0972CD;
 }
 
 .sec.trd .wrap > div.on > p {
-    display: flex;
+    height: 80%;
+    transition: 0.5s;
+    padding: 24px;
 }
 
 .sec.trd.on .wrap > div > h4 {
     color: #eee;
-    transition: 500ms;
+    transition: 0.5s;
 }
 
 
@@ -712,47 +734,22 @@ header .depth.trd > li > ul > li {
     height: 100%;
 }
 
+.sec.fourth .bar {
+    background: #0972CD;
+    width: 1%;
+    display: flex;
+}
+
 .sec.fourth .box.fst {
     width: 40%;
     display: flex;
-    flex-direction: column;
 }
 
-.sec.fourth .box.fst .sec4sld {
-    width: 100%; height: 100%;
-}
-
-.sec.fourth .slider img {
-    width: 100%; height: 100%;
-}
-
-.sec.fourth .bar {
-    background: #0972CD;
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 12px;
-}
-
-.sec.fourth .bar h3 {
-    color: #eee;
-    font-size: 2.5rem; font-weight: 200;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    letter-spacing: 1rem;
-}
-
-.sec.fourth .box.snd {
-    width: 100%;
-    display: flex;
-}
-
-.sec.fourth .box.snd .tBox {
+.sec.fourth .box.fst .tBox {
     width: 100%;
 }
 
-.sec.fourth .box.snd ul {
+.sec.fourth .box.fst ul {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -760,14 +757,29 @@ header .depth.trd > li > ul > li {
     padding: 36px;
 }
 
-.sec.fourth .box.snd ul li {
+.sec.fourth .box.fst ul li {
     list-style-type: disc;
 }
 
-.sec.fourth .box.snd ul a {
+.sec.fourth .box.fst ul a {
     font-size: 1.3rem; font-weight: 100;
     display: flex;
 }
+
+.sec.fourth .box.snd {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sec.fourth .box.snd .sec4sld {
+    width: 100%; height: 40%;
+}
+
+.sec.fourth .slider img {
+    width: 100%; height: 100%;
+}
+
 
 /* section5 */
 
