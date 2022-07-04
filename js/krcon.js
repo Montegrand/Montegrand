@@ -16,10 +16,10 @@ window.onload = function () {
     })
 
     let wrap = document.querySelector(`header .top_nav.wrap`);
-    
+
     let call = function () {
         let liCon = document.querySelectorAll(`header .top_nav.wrap > li`);
-        if (liCon.length>4) {
+        if (liCon.length > 4) {
             if (window.innerWidth < 1240) {
                 wrap.prepend(document.createElement('li'));
                 wrap.children.item(0).prepend(document.createElement('div'));
@@ -34,7 +34,7 @@ window.onload = function () {
                 })
             }
         }
-        
+
         liCon[0].classList.add('on');
         if (window.innerWidth > window.innerHeight) {
             wrap.classList.add('width');
@@ -42,9 +42,9 @@ window.onload = function () {
             wrap.classList.remove('width')
         }
     }
-    
+
     call();
-    
+
     window.addEventListener('resize', function () {
         call();
         if (window.innerWidth >= 1240) {
@@ -70,25 +70,25 @@ window.onload = function () {
     let navT = document.querySelectorAll('header .top_nav.wrap > li:first-child > div:first-child > li');
     let navB = document.querySelectorAll('header .bot_nav.wrap .depth.snd > li');
 
-    navT.forEach(function(v,n) {
-        v.addEventListener('click', function(e) {
-            for (i=0;i<navT.length;i++) {
+    navT.forEach(function (v, n) {
+        v.addEventListener('click', function (e) {
+            for (i = 0; i < navT.length; i++) {
                 navT[i].classList.remove('on')
             }
             v.classList.add('on');
         })
     })
 
-    navB.forEach(function(v,n) {
-        v.addEventListener('click', function(e) {
-            for (i=0;i<navB.length;i++) {
+    navB.forEach(function (v, n) {
+        v.addEventListener('click', function (e) {
+            for (i = 0; i < navB.length; i++) {
                 navB[i].classList.remove('on')
             }
             v.classList.add('on');
             this.focus();
         })
     })
-    
+
     document.addEventListener('click', function (e) {
         if (e.target === menu) {
             if (trigger === false) {
@@ -119,13 +119,15 @@ window.onload = function () {
 
     var allA = document.querySelectorAll(`a`);
 
-    allA.forEach(function(v,n){
+    allA.forEach(function (v, n) {
         if (v.href.search(`#`) > 0) {
-            v.onclick = function() {return false;}
+            v.onclick = function () {
+                return false;
+            }
         }
     })
 
-    
+
     var swiper = new Swiper(".sldwrap", {
         slidesPerView: 1,
         spaceBetween: 30,
@@ -249,53 +251,53 @@ window.onload = function () {
     var tbox = document.querySelector('.sec.snd .depth.snd p');
     var d3 = document.querySelector('.sec.snd .depth.trd > div:first-child');
     var d3h = document.querySelector('.sec.snd .depth.trd > div:first-child > h4');
-    
+
     header.textContent = datat.datat[0].header; //depth2 h3
-    
+
     name.textContent = datat.datat[0].name; //depth2 span
-    
+
     tbox.textContent = datat.datat[0].tbox; //depth2 p
-    
+
     d3.style.background = `url(${datat.datat[0].imgUrl1}) 50% 0 / contain no-repeat`;
     d3h.textContent = datat.datat[0].imgAlt1;
     //depth3 
-    
+
     var bt = document.querySelectorAll('.bt > a')
     bt.forEach(function (v, n, Node) {
-        
+
         v.addEventListener('click', tap);
-        
+
         function tap() {
-            
-            
+
+
             var header = document.querySelector('.sec.snd .depth.snd h3');
             var name = document.querySelector('.sec.snd .depth.snd span');
             var tbox = document.querySelector('.sec.snd .depth.snd p');
             var d3 = document.querySelector('.sec.snd .depth.trd > div:first-child');
             var d3h = document.querySelector('.sec.snd .depth.trd > div:first-child > h4');
-            
+
             header.textContent = datat.datat[n].header; //depth2 h3
-            
+
             name.textContent = datat.datat[n].name; //depth2 span
-            
+
             tbox.textContent = datat.datat[n].tbox; //depth2 p
-            
+
             d3.style.background = `url(${datat.datat[n].imgUrl1}) 50% 0 / contain no-repeat`;
             d3h.textContent = datat.datat[n].imgAlt1;
             //depth3 
 
 
-            for ( i = 0; i < bt.length; i++ ) {
-                if ( i === n ) {
+            for (i = 0; i < bt.length; i++) {
+                if (i === n) {
                     bt[i].classList.add(`on`);
                 } else {
                     bt[i].classList.remove(`on`);
                 }
             }
             // v.className = `on`;
-            
+
             // bt[!n].className = ``;
-            
+
         };
 
     });
@@ -318,7 +320,7 @@ window.onload = function () {
         function hover() {
             this.classList.add(`on`)
             top.classList.add(`on`)
-            sec3.classList.add(`on`,`img${n+1}`);
+            sec3.classList.add(`on`, `img${n+1}`);
         }
 
         v.addEventListener('mouseleave', leave)
@@ -326,8 +328,102 @@ window.onload = function () {
         function leave() {
             this.classList.remove(`on`)
             top.classList.remove(`on`)
-            sec3.classList.remove(`on`,`img${n+1}`);
+            sec3.classList.remove(`on`, `img${n+1}`);
         }
 
     })
+
+    // 공공데이터 api 키 muIq64no7R2y0I1U%2FGhNc1RUj9YYKw5JamO3v%2BafJEOmgNxiPxHn32IVPEWtBqru7HJxuO0wB54iebeiATQ3kg%3D%3D
+    // 계룡건설 KR7013580006
+
+    let key = `muIq64no7R2y0I1U%2FGhNc1RUj9YYKw5JamO3v%2BafJEOmgNxiPxHn32IVPEWtBqru7HJxuO0wB54iebeiATQ3kg%3D%3D`;
+
+    function getToday() {
+        var date = new Date();
+        if (date.getHours() < 12) {
+            date = new Date(date.setDate(date.getDate() - 1));
+        }
+        for (i = 1; i > 0; i++) {
+            date = new Date(date.setDate(date.getDate() - i));
+            if (date.getDay() % 6 != 0) {
+                break;
+            }
+        };
+        var year = date.getFullYear();
+        var month = ('0' + (date.getMonth() + 1)).slice(-2);
+        var day = ('0' + date.getDate()).slice(-2);
+        return year + month + day;
+    }
+
+    // 공공데이터포털 api 주말 x
+
+    let date = getToday();
+
+    let url = `https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?resultType=json&`;
+    url += `basDt=${date}&`;
+    url += `isinCd=KR7013580006&`;
+    url += `serviceKey=${key}`;
+
+    let dateOut = document.querySelector('.sec.fourth .stock > div > div > span');
+    let stock = document.querySelectorAll('.sec.fourth .stock > div > div:last-child span');
+    dateOut.innerHTML = `${date.slice(0,4)} / ${date.slice(4,6)} / ${date.slice(-2)}`;
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    fetch(url)
+        .then(res => res.json())
+        .then(res => {
+            let item = res.response.body.items.item[0];
+            stock.forEach(function (v, n) {
+                let callStock = function () {
+                    var max;
+                    if (n === 0) {
+                        max = Number(item.clpr); //종가
+                    } else if (n === 1) {
+                        max = Number(item.vs); //대비
+                    } else if (n === 2) {
+                        max = Number(item.fltRt); //퍼센트
+                    }
+                    if (document.querySelector('.sec.snd').getBoundingClientRect().bottom < 0) {
+                        var now = max
+                        const handle = setInterval(() => {
+                            // v.innerHTML = Math.ceil(max - now);
+                            if (Number.isInteger(max)) {
+                                v.innerHTML = Math.ceil(max - now);
+                            } else {
+                                v.innerHTML = (max - now).toFixed(2);
+                            }
+                            if (n !== 2) {
+                                v.innerHTML = numberWithCommas(v.innerHTML);
+                            } else {
+                                v.innerHTML += '%';
+                            }
+                            if (n !== 0) {
+                                if (max > 0) {
+                                    v.classList.add(`rise`);
+                                } else {
+                                    v.classList.add(`decline`);
+                                }
+                            }
+
+                            // -목표에 도달하면 정지- 마이너스일때 정지
+                            // if (now < 0) {
+                            //     clearInterval(handle);
+                            // }
+
+                            const step = now / 10;
+                            now -= step;
+                        }, 30);
+                    }
+                };
+                callStock();
+                window.addEventListener('scroll', function () {
+                    if (v.innerHTML == 0) {
+                        callStock();
+                    }
+                })
+            })
+        })
 }

@@ -29,7 +29,7 @@
     text-decoration: none;
     list-style-type: none;
     color: #333;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 .inner {
@@ -296,7 +296,7 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.snd h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     margin-bottom: 18px;
     position: relative;
     display: inline-block;
@@ -719,7 +719,6 @@ header .depth.trd > li > ul > li {
     transition: 0.5s;
 }
 
-
 /* section4============== */
 
 .sec.fourth {
@@ -734,27 +733,27 @@ header .depth.trd > li > ul > li {
     height: 100%;
 }
 
-.sec.fourth .bar {
-    background: #0972CD;
-    width: 1%;
-    display: flex;
-}
-
 .sec.fourth .box.fst {
     width: 40%;
     display: flex;
 }
 
+.sec.fourth .bar {
+    background: #0972CD;
+    width: 2%;
+    display: flex;
+}
+
 .sec.fourth .box.fst .tBox {
-    width: 100%;
+    width: 98%;
 }
 
 .sec.fourth .box.fst ul {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding: 36px;
+    justify-content: space-between;
+    padding: 0 36px;
 }
 
 .sec.fourth .box.fst ul li {
@@ -763,7 +762,15 @@ header .depth.trd > li > ul > li {
 
 .sec.fourth .box.fst ul a {
     font-size: 1.3rem; font-weight: 100;
-    display: flex;
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sec.fourth .box.fst ul li:hover a {
+    text-decoration: underline;
 }
 
 .sec.fourth .box.snd {
@@ -773,15 +780,81 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.fourth .box.snd .sec4sld {
-    width: 100%; height: 40%;
+    width: 100%;
 }
 
 .sec.fourth .slider img {
     width: 100%; height: 100%;
 }
 
+.sec.fourth h3 {
+    font-size: 1.5rem;
+}
 
-/* section5 */
+.sec.fourth .stock {
+    display: flex;
+    align-items: center;
+    height: 25%;
+    outline: 1px solid #333;
+}
+
+.sec.fourth .stock .contain {
+    width: 90%; height: 100%;
+    display: flex;
+}
+
+.sec.fourth .stock .contain > div:first-child {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.sec.fourth .stock .contain > div:last-child {
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    width: 65%;
+    position: relative;
+    top: 20%;
+}
+
+.sec.fourth .stock .contain > div:last-child > span {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 1.5rem;
+}
+
+.sec.fourth .stock .contain > div:last-child > span::before {
+    display: inline-block;
+    position: absolute;
+    top: -2rem;
+    font-size: 1.2rem;
+}
+
+.sec.fourth .stock .contain > div:last-child > span:nth-child(1)::before {
+    content: "종가";
+}
+
+.sec.fourth .stock .contain > div:last-child > span:nth-child(2)::before {
+    content: "대비";
+}
+
+.sec.fourth .stock .contain > div:last-child > span:nth-child(3)::before {
+    content: "등락률";
+}
+
+.rise {
+    color: red;
+}
+
+.decline {
+    color: blue;
+}
+
+/* section5===================================================== */
 
 .sec.fifth {
     height: 400px;
