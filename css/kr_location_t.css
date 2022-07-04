@@ -23,15 +23,15 @@ header .top_nav.wrap  {
 
 .top_nav.wrap > li:hover .bot_nav.wrap {
     display: none;
-    height: auto;
 }
 
 header .top_nav.wrap::before {
     content: "";
     position: absolute;
     display: inline-block; 
-    width: 35%; height: 62.5vh;
+    width: 35%; height: 60vh;
     bottom: 0;
+    z-index: -1;
     background: #ddd;
 }
 
@@ -39,7 +39,7 @@ header .top_nav.wrap::after {
     content: "";
     position: absolute;
     display: inline-block; 
-    width: 65%; height: 62.5vh;
+    width: 65%; height: 60vh;
     bottom: 0; right: 0;
     z-index: -1;
     background: #ccc;
@@ -120,8 +120,8 @@ header .depth.fst > p {
 
 header .depth.snd {
     position: fixed;
-    top: 37.5vh; left: 0;
-    width: 35%; height: 62.5vh;
+    top: 40vh; left: 0;
+    width: 35%; height: 60vh;
     flex-direction: column;
 }
 
@@ -164,7 +164,7 @@ header .depth.snd > li > a {
     justify-content: center;
 }
 
-header .depth.snd > li:hover > a {
+header .depth.snd > li.on > a {
     background: #999;
     border: 12px solid #00000010;
     white-space: nowrap;
@@ -179,9 +179,17 @@ header .depth.snd > li > a span {
     display: none;
 }
 
+header .depth.snd > li:hover .depth.trd {
+    display: none;
+}
+
+header .depth.snd > li.on .depth.trd {
+    display: flex;
+}
+
 header .depth.trd {
     position: fixed;
-    top: 37.5vh; left: 35%;
+    top: 40vh; left: 35%;
     width: 65%; height: auto;
     overflow: auto;
 }
@@ -238,7 +246,6 @@ header .top_nav.wrap > li:first-child div:first-child {
 header .top_nav.wrap > li:first-child div > li {
     width: 11vh;
     border-radius: 3vw;
-    /* background: url(../images/krcon/Introduce.png)50% 50% / contain no-repeat; */
 }
 
 header .top_nav.wrap > li:first-child div:first-child > li {
@@ -262,7 +269,7 @@ header .top_nav.wrap > li:first-child div:last-child > li {
     outline: 1px solid #eee;
 }
 
-header .top_nav.wrap > li:first-child div > li:hover {
+header .top_nav.wrap > li:first-child div > li.on {
     outline: 2px solid #eee;
 }
 
@@ -293,7 +300,7 @@ header .top_nav.wrap > li:first-child div:last-child > li:hover > a > span {
     background: #eee;
 }
 
-header .top_nav.wrap > li:first-child div:first-child > li:hover .bot_nav.wrap {
+header .top_nav.wrap > li:first-child div:first-child > li.on .bot_nav.wrap {
     display: flex;
 }
 

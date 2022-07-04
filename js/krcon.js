@@ -5,47 +5,60 @@ window.onload = function () {
 
     let navLi = document.querySelectorAll(`header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a`);
 
-    let wrap = document.querySelector(`header .top_nav.wrap`);
-    if (window.innerWidth<1280) {
-        let liCon = document.querySelectorAll(`header .top_nav.wrap > li`);
-        wrap.prepend(document.createElement('li'));
-        wrap.children.item(0).prepend(document.createElement('div'));
-        wrap.children.item(0).prepend(document.createElement('div'));
-        liCon.forEach(function(v,n) {
-            var li = wrap.children.item(1);
-            if (n<=2) {
-                wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
-            } else if (n<5) {
-                wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
-            }
-        })
-    }
-    window.addEventListener('resize',function() {
-
-        this.location.reload();
-
-        if (window.innerWidth>window.innerHeight) {
-            wrap.classList.add('width');
-        } else {
-            wrap.classList.remove('width')
-        }
-    })
-
     navLi.forEach(function (v, n) {
         if (wid <= 1240) {
-            for ( i = 0; i < navLi.length; i++ ) {
-                if ( i !== 7 ) {
+            for (i = 0; i < navLi.length; i++) {
+                if (i !== 7) {
                     navLi[i].href = `#`;
                 }
             }
         }
     })
 
+    let wrap = document.querySelector(`header .top_nav.wrap`);
+    
+    let call = function () {
+        let liCon = document.querySelectorAll(`header .top_nav.wrap > li`);
+        if (liCon.length>4) {
+            if (window.innerWidth < 1240) {
+                wrap.prepend(document.createElement('li'));
+                wrap.children.item(0).prepend(document.createElement('div'));
+                wrap.children.item(0).prepend(document.createElement('div'));
+                liCon.forEach(function (v, n) {
+                    var li = wrap.children.item(1);
+                    if (n <= 2) {
+                        wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
+                    } else if (n < 5) {
+                        wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
+                    }
+                })
+            }
+        }
+        
+        liCon[0].classList.add('on');
+        if (window.innerWidth > window.innerHeight) {
+            wrap.classList.add('width');
+        } else {
+            wrap.classList.remove('width')
+        }
+    }
+    
+    call();
+    
+    window.addEventListener('resize', function () {
+        call();
+        if (window.innerWidth >= 1240) {
+            this.location.reload();
+        }
+    })
+
     var allA = document.querySelectorAll(`a`);
 
-    allA.forEach(function(v,n){
+    allA.forEach(function (v, n) {
         if (v.href.search(`#`) > 0) {
-            v.onclick = function() {return false;}
+            v.onclick = function () {
+                return false;
+            }
         }
     })
 
@@ -54,7 +67,28 @@ window.onload = function () {
     let overay = document.querySelector("header .overay")
     let trigger = false;
 
+    let navT = document.querySelectorAll('header .top_nav.wrap > li:first-child > div:first-child > li');
+    let navB = document.querySelectorAll('header .bot_nav.wrap .depth.snd > li');
 
+    navT.forEach(function(v,n) {
+        v.addEventListener('click', function(e) {
+            for (i=0;i<navT.length;i++) {
+                navT[i].classList.remove('on')
+            }
+            v.classList.add('on');
+        })
+    })
+
+    navB.forEach(function(v,n) {
+        v.addEventListener('click', function(e) {
+            for (i=0;i<navB.length;i++) {
+                navB[i].classList.remove('on')
+            }
+            v.classList.add('on');
+            this.focus();
+        })
+    })
+    
     document.addEventListener('click', function (e) {
         if (e.target === menu) {
             if (trigger === false) {
