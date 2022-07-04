@@ -134,7 +134,7 @@ window.onload = function () {
         loop: true,
         centeredSlides: true,
         autoplay: {
-            delay: 5000,
+            delay: 3000,
             disableOnInteraction: false,
         },
         pagination: {
@@ -153,7 +153,7 @@ window.onload = function () {
         loop: true,
         // centeredSlides: true,
         autoplay: {
-            delay: 5000,
+            delay: 3000,
             disableOnInteraction: false,
         },
         pagination: {
@@ -386,44 +386,52 @@ window.onload = function () {
                     } else if (n === 2) {
                         max = Number(item.fltRt); //퍼센트
                     }
-                    if (document.querySelector('.sec.snd').getBoundingClientRect().bottom < 0) {
-                        var now = max
-                        const handle = setInterval(() => {
-                            // v.innerHTML = Math.ceil(max - now);
-                            if (Number.isInteger(max)) {
-                                v.innerHTML = Math.ceil(max - now);
+                    var now = max
+                    const handle = setInterval(() => {
+                        // v.innerHTML = Math.ceil(max - now);
+                        if (Number.isInteger(max)) {
+                            v.innerHTML = Math.ceil(max - now);
+                        } else {
+                            v.innerHTML = (max - now).toFixed(2);
+                        }
+                        if (n !== 2) {
+                            v.innerHTML = numberWithCommas(v.innerHTML);
+                        } else {
+                            v.innerHTML += '%';
+                        }
+                        if (n !== 0) {
+                            if (max > 0) {
+                                v.classList.add(`rise`);
                             } else {
-                                v.innerHTML = (max - now).toFixed(2);
+                                v.classList.add(`decline`);
                             }
-                            if (n !== 2) {
-                                v.innerHTML = numberWithCommas(v.innerHTML);
-                            } else {
-                                v.innerHTML += '%';
-                            }
-                            if (n !== 0) {
-                                if (max > 0) {
-                                    v.classList.add(`rise`);
-                                } else {
-                                    v.classList.add(`decline`);
-                                }
-                            }
+                        }
 
-                            // -목표에 도달하면 정지- 마이너스일때 정지
-                            // if (now < 0) {
-                            //     clearInterval(handle);
-                            // }
+                        // -목표에 도달하면 정지- 마이너스일때 정지
+                        // if (now < 0) {
+                        //     clearInterval(handle);
+                        // }
 
-                            const step = now / 10;
-                            now -= step;
-                        }, 30);
-                    }
+                        const step = now / 10;
+                        now -= step;
+                    }, 50);
+
                 };
-                callStock();
-                window.addEventListener('scroll', function () {
-                    if (v.innerHTML == 0) {
+                if (v.innerHTML == 0) {
+                    if (document.querySelector('.sec.fourth').getBoundingClientRect().bottom < window.innerHeight) {
                         callStock();
                     }
+                }
+                window.addEventListener('scroll', function () {
+                    if (v.innerHTML == 0) {
+                        if (document.querySelector('.sec.fourth').getBoundingClientRect().bottom < window.innerHeight) {
+                            callStock();
+                        }
+                    }
+
                 })
             })
         })
+
+    console.log(document.querySelector('.sec.fourth').getBoundingClientRect())
 }

@@ -1,5 +1,5 @@
 .inner {
-    width: 80%;
+    width: 90%;
 }
 
 /* header============================ */
@@ -442,18 +442,30 @@ header .top_nav.wrap.width .depth.trd {
     width: 100%;
     height: 300px;
     margin: 12px auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
+
+/* .sec.trd .wrap > div.on {
+    flex-direction: row;
+} */
 
 .sec.trd .wrap > div h4 {
     font-size: 1.5rem;
 }
 
-.sec.trd .wrap > div p {
-    padding: 60px;
-}
-
 .sec.trd > .inner > .bt {
     width: 50%;
+}
+
+.sec.trd .wrap > div p {
+    width: 0; height: auto;
+}
+
+.sec.trd .wrap > div.on p {
+    width: auto;
+    padding: 0 80px;
 }
 
 /* ==================================== */
@@ -474,11 +486,12 @@ header .top_nav.wrap.width .depth.trd {
 
 .sec.fourth .box.fst {
     width: 100%;
+    flex-direction: column;
 }
 
 .sec.fourth .bar {
-    margin: 0;
-    padding: 24px 0;
+    width: 100%;
+    height: 2%;
 }
 
 .sec.fourth .bar h3 {

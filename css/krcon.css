@@ -634,6 +634,13 @@ header .depth.trd > li > ul > li {
     justify-content: center;
     align-items: center;
     background: #0972cd2d;
+    overflow: hidden;
+}
+
+.sec.trd .wrap > div > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .sec.trd .wrap > div h4 {
@@ -701,6 +708,7 @@ header .depth.trd > li > ul > li {
     color: #eee;
     text-align: justify;
     transition: 0.5s;
+    word-break: keep-all;
 }
 
 .sec.trd .wrap > div.on {
@@ -714,7 +722,7 @@ header .depth.trd > li > ul > li {
     padding: 24px;
 }
 
-.sec.trd.on .wrap > div > h4 {
+.sec.trd.on .wrap > div h4 {
     color: #eee;
     transition: 0.5s;
 }
@@ -736,16 +744,6 @@ header .depth.trd > li > ul > li {
 .sec.fourth .box.fst {
     width: 40%;
     display: flex;
-}
-
-.sec.fourth .bar {
-    background: #0972CD;
-    width: 2%;
-    display: flex;
-}
-
-.sec.fourth .box.fst .tBox {
-    width: 98%;
 }
 
 .sec.fourth .box.fst ul {
@@ -844,6 +842,27 @@ header .depth.trd > li > ul > li {
 
 .sec.fourth .stock .contain > div:last-child > span:nth-child(3)::before {
     content: "등락률";
+}
+
+.sec.fourth .stock > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.sec.fourth .stock > a:hover {
+    background: #0972CD33;
+}
+
+.sec.fourth .stock > a:hover span {
+    text-decoration: underline;
+}
+
+.sec.fourth .stock > a > i {
+    width: 42px; height: 42px;
+    display: flex;
+    background: url(../images/krcon/diagram.png) 50% 50% / contain no-repeat;
 }
 
 .rise {
