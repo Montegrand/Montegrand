@@ -161,7 +161,7 @@ window.onload = function () {
             document.querySelectorAll('nav.subNav .subBot a').forEach(function(v,n){
                 v.addEventListener('mouseenter',function() {
                     if (v.href.search('#')>0){
-                        result.innerHTML = `<span>링크가 없습니다</span>`
+                        result.innerHTML = '<span>링크가 없습니다</span>'
                     } 
                 })
                 v.addEventListener('mouseleave',function(){
