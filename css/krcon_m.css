@@ -91,12 +91,15 @@ header .top_nav.wrap.width .depth.trd {
     justify-content: space-around;
 }
 
+.sec.trd .wrap > div {
+    width: 80%;
+}
+
 .sec.trd .wrap > div h4 {
     font-size: 1.2rem;
 }
 
 .sec.trd .wrap > div p {
-    padding: 30px;
     font-size: 1.2rem;
     line-height: 2.5rem;
 }
@@ -106,25 +109,18 @@ header .top_nav.wrap.width .depth.trd {
     width: 100%;
 }
 
-/* section4============================== */
+/* sec4============================================================================= */
 
-.sec.fourth .box.snd {
-    flex-direction: column;
+.sec.fourth {
+    padding: 0;
 }
 
-.sec.fourth .bar {
-    width: 100%; height: 30px;
+.sec.fourth .inner {
+    padding: 0;
 }
 
-.sec.fourth .bar h3 {
-    font-size: 1.5rem; font-weight: 200;
-    writing-mode: horizontal-tb;
-    text-orientation: sideways;
-    letter-spacing: 1rem;
-}
-
-.sec.fourth .box.snd ul {
-    padding: 20px;
+.sec.fourth .inner::after {
+    left: -15px
 }
 
 /* section5============================== */

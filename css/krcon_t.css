@@ -23,6 +23,7 @@ header .top_nav.wrap  {
 
 .top_nav.wrap > li:hover .bot_nav.wrap {
     display: none;
+    height: 0;
 }
 
 header .top_nav.wrap::before {
@@ -436,20 +437,16 @@ header .top_nav.wrap.width .depth.trd {
 
 .sec.trd > .inner .wrap {
     flex-direction: column;
+    height: auto;
 }
 
 .sec.trd .wrap > div {
-    width: 100%;
-    height: 300px;
+    width: 60%;
+    height: 420px;
     margin: 12px auto;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
 }
-
-/* .sec.trd .wrap > div.on {
-    flex-direction: row;
-} */
 
 .sec.trd .wrap > div h4 {
     font-size: 1.5rem;
@@ -459,49 +456,22 @@ header .top_nav.wrap.width .depth.trd {
     width: 50%;
 }
 
-.sec.trd .wrap > div p {
-    width: 0; height: auto;
-}
-
-.sec.trd .wrap > div.on p {
-    width: auto;
-    padding: 0 80px;
-}
-
 /* ==================================== */
 /* section4======================= */
 
-.sec.fourth {
-    height: auto;
-    padding: 0;
-}
-
-.sec.fourth > .inner {
+.sec.fourth .inner {
     flex-direction: column;
-}
-
-.sec.fourth .box {
-    margin: 24px 0;
+    padding-left: 15px;
 }
 
 .sec.fourth .box.fst {
     width: 100%;
-    flex-direction: column;
 }
 
-.sec.fourth .bar {
+.sec.fourth .box.snd {
     width: 100%;
-    height: 2%;
+    height: auto;
 }
-
-.sec.fourth .bar h3 {
-    font-size: 1.2rem;
-}
-
-.sec.fourth .box.snd ul a {
-    font-size: 1rem;
-}
-
 
 /* section5============================ */
 

@@ -414,7 +414,7 @@ window.onload = function () {
 
                         const step = now / 10;
                         now -= step;
-                    }, 50);
+                    }, 30);
 
                 };
                 if (v.innerHTML == 0) {

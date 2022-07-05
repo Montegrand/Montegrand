@@ -243,19 +243,19 @@ header .depth.trd > li > ul > li {
 }
 
 .sec.fst .slider.fst {
-    background: rgba(0, 0, 0, 0.6) url(../images/krcon/main/slide_1.jpg) 50% 50% no-repeat;
+    background: rgba(0, 0, 0, 0.6) url(../images/krcon/slide_1.jpg) 50% 50% no-repeat;
     background-blend-mode: darken;
     background-size: cover;
 }
 
 .sec.fst .slider.snd {
-    background: rgba(0, 0, 0, 0.6) url(../images/krcon/main/slide_2.jpg) 50% 50% no-repeat;
+    background: rgba(0, 0, 0, 0.6) url(../images/krcon/slide_2.jpg) 50% 50% no-repeat;
     background-blend-mode: darken;
     background-size: cover;
 }
 
 .sec.fst .slider.trd {
-    background: rgba(0, 0, 0, 0.6) url(../images/krcon/main/slide_3.jpg) 50% 50% no-repeat;
+    background: rgba(0, 0, 0, 0.6) url(../images/krcon/slide_3.jpg) 50% 50% no-repeat;
     background-blend-mode: darken;
     background-size: cover;
 }
@@ -514,7 +514,7 @@ header .depth.trd > li > ul > li {
 
 .sec.trd.img1::after {
     background: url(../images/krcon/recruit_01b.jpg) 50% 50% / cover no-repeat;
-    background-color: #aaa;
+    background-color: rgba(0, 0, 0, 0.6);
     background-blend-mode:darken;
     animation: fadein 1s;
     opacity: 1;
@@ -522,7 +522,7 @@ header .depth.trd > li > ul > li {
 
 .sec.trd.img2::after {
     background: url(../images/krcon/recruit_02b.jpg) 50% 50% / cover no-repeat;
-    background-color: #aaa;
+    background-color: rgba(0, 0, 0, 0.6);
     background-blend-mode:darken;
     animation: fadein 1s;
     opacity: 1;
@@ -530,7 +530,7 @@ header .depth.trd > li > ul > li {
 
 .sec.trd.img3::after {
     background: url(../images/krcon/recruit_03.jpg) 50% 50% / cover no-repeat;
-    background-color: #aaa;
+    background-color: rgba(0, 0, 0, 0.6);
     background-blend-mode:darken;
     animation: fadein 1s;
     opacity: 1;
@@ -635,6 +635,7 @@ header .depth.trd > li > ul > li {
     align-items: center;
     background: #0972cd2d;
     overflow: hidden;
+    padding: 12px 0;
 }
 
 .sec.trd .wrap > div > div {
@@ -731,19 +732,35 @@ header .depth.trd > li > ul > li {
 
 .sec.fourth {
     padding: 30px;
-    height: 540px;
     display: flex;
     align-items: center;
 }
 
 .sec.fourth .inner {
     display: flex;
+    position: relative;
+    padding-left: 8px;
+}
+
+.sec.fourth .inner::after {
+    content: "";
+    width: 8px;
     height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0972CD;
 }
 
 .sec.fourth .box.fst {
-    width: 40%;
+    width: 39%;
     display: flex;
+}
+
+.sec.fourth .box.fst .tBox {
+    width: 100%;
+    padding: 12px 0;
 }
 
 .sec.fourth .box.fst ul {
@@ -794,6 +811,7 @@ header .depth.trd > li > ul > li {
     align-items: center;
     height: 25%;
     outline: 1px solid #333;
+    margin-top: 24px;
 }
 
 .sec.fourth .stock .contain {
@@ -815,7 +833,7 @@ header .depth.trd > li > ul > li {
     align-self: center;
     width: 65%;
     position: relative;
-    top: 20%;
+    margin-top: 24px;
 }
 
 .sec.fourth .stock .contain > div:last-child > span {
