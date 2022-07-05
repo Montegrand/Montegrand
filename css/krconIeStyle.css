@@ -116,18 +116,6 @@
     top:0;
 }
 
-.is-ie .sec.trd .wrap > div:hover i {
-    display: none;
-}
-
-.is-ie .sec.trd .wrap > div:hover h4 {
-    display: none;
-}
-
-.is-ie .sec.trd .wrap > div:hover p {
-    display: flex;
-}
-
 /* sec4================================================================================================ */
 
 .is-ie .sec.fourth .slide {

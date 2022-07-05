@@ -8,10 +8,133 @@ $(document).ready(function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 3000,
         prevArrow: $('.prev'),
         nextArrow: $('.next'),
     })
+});
+
+window.onload = function () {
+
+    let wid = window.innerWidth;
+    let hei = window.innerHeight;
+
+    let navLi = document.querySelectorAll('header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a');
+
+    Array.prototype.forEach.call(navLi, function (v, n) {
+        if (wid <= 1240) {
+            for (i = 0; i < navLi.length; i++) {
+                if (i !== 7) {
+                    navLi[i].href = '#';
+                }
+            }
+        }
+    })
+
+    let wrap = document.querySelector('header .top_nav.wrap');
+
+    let call = function () {
+        let liCon = document.querySelectorAll('header .top_nav.wrap > li');
+        if (liCon.length > 4) {
+            if (window.innerWidth < 1240) {
+                wrap.prepend(document.createElement('li'));
+                wrap.children.item(0).prepend(document.createElement('div'));
+                wrap.children.item(0).prepend(document.createElement('div'));
+                Array.prototype.forEach.call(liCon, function (v, n) {
+                    var li = wrap.children.item(1);
+                    if (n <= 2) {
+                        wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
+                    } else if (n < 5) {
+                        wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
+                    }
+                })
+            }
+        }
+
+        liCon[0].classList.add('on');
+        if (window.innerWidth > window.innerHeight) {
+            wrap.classList.add('width');
+        } else {
+            wrap.classList.remove('width')
+        }
+    }
+
+    call();
+
+    window.addEventListener('resize', function () {
+        call();
+        if (window.innerWidth >= 1240) {
+            this.location.reload();
+        }
+    })
+
+    var allA = document.querySelectorAll('a');
+
+    Array.prototype.forEach.call(allA, function (v, n) {
+        if (v.href.search('#') > 0) {
+            v.onclick = function () {
+                return false;
+            }
+        }
+    })
+
+    let menu = document.querySelector("header .bt");
+    let nav = document.querySelector("header .top_nav.wrap");
+    let overay = document.querySelector("header .overay")
+    let trigger = false;
+
+    let navT = document.querySelectorAll('header .top_nav.wrap > li:first-child > div:first-child > li');
+    let navB = document.querySelectorAll('header .bot_nav.wrap .depth.snd > li');
+
+    Array.prototype.forEach.call(navT, function (v, n) {
+        v.addEventListener('click', function (e) {
+            for (i = 0; i < navT.length; i++) {
+                navT[i].classList.remove('on')
+            }
+            v.classList.add('on');
+        })
+    })
+
+    Array.prototype.forEach.call(navB, function (v, n) {
+        v.addEventListener('click', function (e) {
+            for (i = 0; i < navB.length; i++) {
+                navB[i].classList.remove('on')
+            }
+            v.classList.add('on');
+            this.focus();
+        })
+    })
+
+    document.addEventListener('click', function (e) {
+        if (e.target === menu) {
+            if (trigger === false) {
+                nav.classList.add('on');
+                menu.classList.add('on');
+                overay.classList.add('on');
+                trigger = true;
+                overay.addEventListener('click', function () {
+                    nav.classList.remove('on');
+                    menu.classList.remove('on');
+                    overay.classList.remove('on');
+                    trigger = false;
+                })
+            } else {
+                nav.classList.remove('on');
+                menu.classList.remove('on');
+                overay.classList.remove('on');
+                trigger = false;
+            }
+        }
+    })
+
+    let line = document.querySelector('.sec.fst .slider:nth-child(3) > .inner > :nth-child(2)')
+
+    if (window.innerWidth <= 768) {
+        line.innerHTML = '최첨단 미래형<br> 수변도시의 시작'
+    }
+
+    var allA = document.querySelectorAll('a');
+
     let boxT = [
 
         {
@@ -70,169 +193,4 @@ $(document).ready(function () {
             "img0": "url(../images/krcon/leiL/01.png) 50% 50% / cover no-repeat;"
         }
     ];
-    var header = document.querySelector('.sec.snd .depth.snd h3');
-    var name = document.querySelector('.sec.snd .depth.snd span');
-    var tbox = document.querySelector('.sec.snd .depth.snd p');
-    var d3 = document.querySelector('.sec.snd .depth.trd > div:first-child');
-    var d3h = document.querySelector('.sec.snd .depth.trd > div:first-child > h4');
-
-    $('.sec.snd .depth.snd h3').text(boxT[0].header);
-    $('.sec.snd .depth.snd span').text(boxT[0].name);
-    $('.sec.snd .depth.snd p').text(boxT[0].tbox);
-    $('.sec.snd .depth.trd > div:first-child').css('background', boxT[0].img0);
-    $('.sec.snd .depth.trd > div:first-child > h4').text(boxT[0].box1H);
-    // $('.sec.snd .depth.trd > div:first-child').css('background-size','cover');
-
-
-    $('.bt > a:nth-child(1)').click(function (e) {
-        $(this).addClass('on')
-            .siblings().removeClass();
-        $('.sec.snd .depth.snd h3').text(boxT[0].header);
-        $('.sec.snd .depth.snd span').text(boxT[0].name);
-        $('.sec.snd .depth.snd p').text(boxT[0].tbox);
-        $('.sec.snd .depth.trd > div:first-child').css('background', boxT[0].img0);
-        $('.sec.snd .depth.trd > div:first-child > h4').text(boxT[0].box1H);
-    })
-    $('.bt > a:nth-child(2)').click(function (e) {
-        $(this).addClass('on')
-            .siblings().removeClass();
-        $('.sec.snd .depth.snd h3').text(boxT[1].header);
-        $('.sec.snd .depth.snd span').text(boxT[1].name);
-        $('.sec.snd .depth.snd p').text(boxT[1].tbox);
-        $('.sec.snd .depth.trd > div:first-child').css('background', boxT[1].img0);
-        $('.sec.snd .depth.trd > div:first-child > h4').text(boxT[1].box1H);
-    })
-    $('.bt > a:nth-child(3)').click(function (e) {
-        $(this).addClass('on')
-            .siblings().removeClass();
-        $('.sec.snd .depth.snd h3').text(boxT[2].header);
-        $('.sec.snd .depth.snd span').text(boxT[2].name);
-        $('.sec.snd .depth.snd p').text(boxT[2].tbox);
-        $('.sec.snd .depth.trd > div:first-child').css('background', boxT[2].img0);
-        $('.sec.snd .depth.trd > div:first-child > h4').text(boxT[2].box1H);
-    })
-    $('.bt > a:nth-child(4)').click(function (e) {
-        $(this).addClass('on')
-            .siblings().removeClass();
-        $('.sec.snd .depth.snd h3').text(boxT[3].header);
-        $('.sec.snd .depth.snd span').text(boxT[3].name);
-        $('.sec.snd .depth.snd p').text(boxT[3].tbox);
-        $('.sec.snd .depth.trd > div:first-child').css('background', boxT[3].img0);
-        $('.sec.snd .depth.trd > div:first-child > h4').text(boxT[3].box1H);
-    })
-    $('.bt > a:nth-child(5)').click(function (e) {
-        $(this).addClass('on')
-            .siblings().removeClass();
-        $('.sec.snd .depth.snd h3').text(boxT[4].header);
-        $('.sec.snd .depth.snd span').text(boxT[4].name);
-        $('.sec.snd .depth.snd p').text(boxT[4].tbox);
-        $('.sec.snd .depth.trd > div:first-child').css('background', boxT[4].img0);
-        $('.sec.snd .depth.trd > div:first-child > h4').text(boxT[4].box1H);
-    })
-    $('.bt > a:nth-child(6)').click(function (e) {
-        $(this).addClass('on')
-            .siblings().removeClass();
-        $('.sec.snd .depth.snd h3').text(boxT[5].header);
-        $('.sec.snd .depth.snd span').text(boxT[5].name);
-        $('.sec.snd .depth.snd p').text(boxT[5].tbox);
-        $('.sec.snd .depth.trd > div:first-child').css('background', boxT[5].img0);
-        $('.sec.snd .depth.trd > div:first-child > h4').text(boxT[5].box1H);
-    })
-    $('.bt > a:nth-child(7)').click(function (e) {
-        $(this).addClass('on')
-            .siblings().removeClass();
-        $('.sec.snd .depth.snd h3').text(boxT[6].header);
-        $('.sec.snd .depth.snd span').text(boxT[6].name);
-        $('.sec.snd .depth.snd p').text(boxT[6].tbox);
-        $('.sec.snd .depth.trd > div:first-child').css('background', boxT[6].img0);
-        $('.sec.snd .depth.trd > div:first-child > h4').text(boxT[6].box1H);
-    })
-
-    $('.is-ie .sec.fourth .box.snd .bar h3').html('공 지 사 항')
-
-});
-
-window.onload = function () {
-
-    var allA = document.querySelectorAll('a');
-
-    for (i = 0; i <= allA.length - 1; i++) {
-        if (allA[i].href.search('#') > 0) {
-            allA[i].onclick = function () {
-                return false;
-            }
-        }
-    }
-
-    let menu = document.querySelector("header .bt");
-    let nav = document.querySelector("header .top_nav.wrap");
-    let overay = document.querySelector("header .overay");
-    let trigger = false;
-
-    document.addEventListener('click', function (e) {
-        if (e.target === menu) {
-            if (trigger === false) {
-                nav.classList.add('on');
-                menu.classList.add('on');
-                overay.classList.add('on');
-
-                trigger = true;
-                overay.addEventListener('click', function () {
-                    nav.classList.remove('on');
-                    menu.classList.remove('on');
-                    overay.classList.remove('on');
-                    trigger = false;
-                });
-            } else {
-                nav.classList.remove('on');
-                menu.classList.remove('on');
-                overay.classList.remove('on');
-                trigger = false;
-            }
-        }
-    })
-
-    // allA.forEach(function(v,n){
-    //     if (v.href.search('#') > 0) {
-    //         v.onclick = function() {return false;}
-    //     }
-    // })
-
-    // class DataInfo {
-    //     constructor(name, header, tbox, category, imgName1) {
-    //         this.name = name;
-    //         this.header = header;
-    //         this.tbox = tbox;
-    //         this.category = category;
-    //         this.imgUrl1 = ['images/krcon/${category}/01.png'];
-    //         this.imgAlt1 = imgName1;
-    //     }
-    // }
-
-    // class DataT {
-    //     constructor() {
-    //         this.datat = [];
-    //     };
-    //     newData(name, header, tbox, category, imgName1) {
-    //         let arrChild = new DataInfo(name, header, tbox, category, imgName1);
-    //         this.datat.push(arrChild);
-    //         return arrChild;
-    //     };
-    //     get allDataT() {
-    //         return this.datat;
-    //     };
-    //     get lengthOfDatat() {
-    //         return this.datat.length;
-    //     };
-    // };
-
-    var kWord = document.querySelectorAll('.sec.trd > .inner .wrap > div')
-
-    Array.prototype.forEach.call(kWord, function (eachButton, index) {
-        eachButton.addEventListener('click', function (e) {
-        })
-    });
-
-
-    // ==========================================
 }

@@ -984,7 +984,7 @@ aside a {
     align-items: center;
 }
 
-aside a::after {
+aside a::before {
     content: "";
     width: 6px; height: 6px;
     background-color: #0972CD;

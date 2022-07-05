@@ -29,6 +29,7 @@
     text-decoration: none;
     list-style-type: none;
     color: #333;
+    word-break: keep-all;
     /* outline: 1px solid red; */
 }
 
@@ -205,6 +206,102 @@ header .depth.trd > li > ul > li {
     width: 100%; height: 30px;
 }
 
+/* subnav================================================================ */
+
+.subNav {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    padding: 12px;
+    width: 300px;
+    top: 50%; right: 0;
+    background: #33333333;
+    transition: 0.5s;
+    z-index: 100;
+    opacity: 0.3;
+}
+
+.subNav.on {
+    background: #333;
+    opacity: 1;
+}
+
+.subNav .inner {
+    width: 100%;
+}
+
+.subNav .subTop {
+    display: flex;
+    width: 100%;
+}
+
+.subNav .subTop li {
+    width: 50%; height: 3rem;
+    display: flex;
+}
+
+.subNav .subTop li.on {
+    background: #666;
+}
+
+.subNav .subTop li a {
+    font-size: 1.5rem;
+    width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subNav.on li a {
+    color: #fff;
+}
+
+.subNav .subBot {
+    transition: 0.5s;
+    translate: 1s;
+    /* padding: 6px; */
+    background: #666;
+}
+
+.subNav.on .subBot {
+    padding: 6px;
+    transition: 0.5s;
+}
+
+.subNav .subBot li {
+    margin: 6px;
+    padding: 6px 0;
+}
+
+.subNav .subBot li:hover {
+    background: #333;
+}
+
+.subNav .subBot li a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subNav .result {
+    display: none;
+    /* top:0; */
+}
+
+.subNav.on .result {
+    background-color: #aaa;
+    z-index: 50;
+    position: fixed;
+    display: flex;
+}
+
+.subNav.on .result span {
+    font-size: 1.2rem; font-weight: 200;
+    padding: 6px 12px;
+    color: red;
+}
+
 /* sec1=============================================================== */
 
 .sec.fst > .inner {
@@ -236,7 +333,7 @@ header .depth.trd > li > ul > li {
     font-size: 1.2rem; font-weight: 300;
 }
 
-.sec.fst .top {
+.top {
     width: 100%; height: 240px;
     display: flex;
     flex-direction: column;
@@ -244,34 +341,34 @@ header .depth.trd > li > ul > li {
     background: url(../images/krcon/top1.jpg) 50% 50% / cover no-repeat;
 }
 
-.sec.fst .top h2 {
+.top h2 {
     display: inline-block;
     font-size: 2.4rem; font-weight: 400;
     text-shadow: 4px 4px 4px #333;
     color: #eee;
 }
 
-.sec.fst .page_depth {
+.top .page_depth {
     display: flex;
     margin-top: 42px;
 }
 
-.sec.fst .page_depth li {
+.top .page_depth li {
     margin-right: 12px;
 }
 
-.sec.fst .page_depth li a {
+.top .page_depth li a {
     color: #eee;
     font-size: 1.2rem; font-weight: 100;
     
 }
 
-.sec.fst .page_depth li a::before {
+.top .page_depth li a::before {
     content: "-";
     margin-right: 12px;
 }
 
-.sec.fst .page_depth li:first-child a::before {
+.top .page_depth li:first-child a::before {
     content: "";
 }
 
@@ -281,27 +378,22 @@ header .depth.trd > li > ul > li {
 
 .sec.fst .box .inner {
     display: flex;
-    padding: 30px 0;
+    padding-left: 15px;
+    position: relative;
 }
 
-.sec.fst .bar {
+.sec.fst .box .inner::after {
+    content: "";
+    width: 8px;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
     background: #0972CD;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sec.fst .bar h4 {
-    color: #eee;
-    font-size: 2.5rem; font-weight: 200;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    letter-spacing: 1rem;
-    margin: 0 6px;
 }
 
 .sec.fst .box .img {
     display: flex;
+    width: 30%;
     margin: 0 24px; padding: 24px;
     flex-direction: column;
     justify-content: flex-end;

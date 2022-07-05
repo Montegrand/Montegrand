@@ -376,10 +376,17 @@
         var html = document.getElementsByTagName('html');
         var s = document.createElement('script');
         var slide = document.createElement('script');
-        s.type = "text/javascript";
+        var promisePf = document.createElement('script');
+        // https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js -- promise polyfill cdn
+        var fchPf = document.createElement('script');
+        // https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js -- fetch polyfill cdn
         if (html[0].className.search('is-ie') === 1) {
             s.src = 'js/krconIe.js';
+            promisePf.src = 'https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js';
+            fchPf.src = 'https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js';
             // slide.src = "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+            document.head.appendChild(promisePf);
+            document.head.appendChild(fchPf);
             document.getElementsByClassName('swiper-wrapper')[0].classList.add('slide');
         } else {
             s.src = 'js/krcon.js';

@@ -23,6 +23,7 @@ header .top_nav.wrap  {
 
 .top_nav.wrap > li:hover .bot_nav.wrap {
     display: none;
+    height: 0;
 }
 
 header .top_nav.wrap::before {
