@@ -210,11 +210,11 @@ header .depth.trd > li > ul > li {
 
 .subNav {
     display: flex;
-    position: fixed;
+    position: sticky;
     flex-direction: column;
     padding: 12px;
     width: 300px;
-    top: 30%; right: 0;
+    /* top: 30%; right: 0; */
     background: #33333333;
     transition: 0.5s;
     z-index: 100;
