@@ -309,7 +309,11 @@ header .top_nav.wrap > li:first-child div:first-child > li.on .bot_nav.wrap {
     color: #fff
 }
 
-/* width================================================= */
+nav.subNav {
+    display: none;
+}
+
+/* header width================================================= */
 
 
 header .top_nav.wrap.width::before {
@@ -335,52 +339,53 @@ header .top_nav.wrap.width .depth.trd {
 
 /* sec1================================================== */
 
-.sec.fst > .inner {
-    height: 15vh;
-}
-
-.sec.fst .top {
+.top {
     height: 240px;
 }
 
-.sec.fst .top h2 {
+.top h2 {
     font-size: 1.8rem;
 }
 
-.sec.fst .page_depth {
+.page_depth {
     margin-top: 24px;
+}
+
+.sec.fst .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sec.fst .box.fst::after {
+    width: 80%;
 }
 
 .sec.fst .box .inner {
     flex-direction: column;
-}
-
-.sec.fst .bar h4 {
-    font-size: 2rem; font-weight: 200;
-    writing-mode:horizontal-tb;
-    text-orientation: upright;
-    letter-spacing: 1rem;
-    margin: 6px 0;
-}
-
-.sec.fst .box .img {
-    height: 60vh;
-    background-size: 60% !important;
-    background-position: 50% 35% !important;
-}
-
-.sec.fst .box .img.width {
-    height: 50vh;
-    background-size: 30% !important;
-    background-position: 20% 35% !important;
-    justify-content: center;
     align-items: center;
 }
 
-.sec.fst .box .img.width p {
-    width: 40%;
-    margin-left: 50%;
-    text-align: justify;
+.sec.fst .box .inner::after {
+    display: none;
+}
+
+.sec.fst .box .img {
+    width: 50%;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.sec.fst .box .img img {
+    width: 80%;
+}
+
+.sec.fst .box .img p {
+    text-align: center;
+}
+
+.sec.fst .box .text.container {
+    width: 100%;
 }
 
 .sec.fst .box .text.container p {

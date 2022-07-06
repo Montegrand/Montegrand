@@ -29,6 +29,7 @@
     text-decoration: none;
     list-style-type: none;
     color: #333;
+    word-break: keep-all;
     /* outline: 1px solid red; */
 }
 
@@ -205,45 +206,173 @@ header .depth.trd > li > ul > li {
     width: 100%; height: 30px;
 }
 
-/* sec======================================================================== */
+/* subnav================================================================ */
 
-section {
-    margin-bottom: 30px;
+.subNav {
+    display: flex;
+    position: sticky;
+    flex-direction: column;
+    padding: 12px 30px;
+    width: max-content;
+    top: 0px;
+    background: #33333333;
+    transition: 0.5s;
+    z-index: 100;
+    opacity: 0.3;
 }
 
-section .top {
+.subNav h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.subNav.on h2 {
+    color: #0972CD;
+}
+
+.subNav.on {
+    background: #333;
+    opacity: 1;
+}
+
+.subNav .inner {
+    width: 100%;
+}
+
+.subNav .subTop {
+    display: flex;
+    width: 100%;
+}
+
+.subNav .subTop li {
+    width: 50%; height: 3rem;
+    padding: 0 12px;
+    display: flex;
+}
+
+.subNav .subTop li.on {
+    background: #666;
+}
+
+.subNav .subTop li a {
+    font-size: 1.5rem;
+    width: 100%; height: 100%;
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.subNav.on li a {
+    color: #fff;
+}
+
+.subNav .subBot {
+    transition: 0.5s;
+    translate: 1s;
+    /* padding: 6px; */
+    background: #666;
+}
+
+.subNav.on .subBot {
+    padding: 6px;
+    transition: 0.5s;
+}
+
+.subNav .subBot li {
+    margin: 6px;
+    padding: 6px 0;
+}
+
+.subNav .subBot li:hover {
+    background: #333;
+}
+
+.subNav .subBot li a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subNav .result {
+    display: none;
+
+}
+
+.subNav.on .result {
+    background-color: #aaa;
+    z-index: 50;
+    position: fixed;
+    display: flex;
+    border-radius: 5px;
+}
+
+.subNav.on .result span {
+    font-size: 1rem; font-weight: 300;
+    padding: 6px 24px;
+    color: red;
+}
+
+.subNav .toTop {
+    display: none;
+    width: 100%;
+    margin-top: 12px;
+    justify-content: flex-end;
+}
+
+.subNav .toTop a {
+    width: 40%; height: 3rem;
+    outline: 1px solid #eee;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.subNav.on .toTop {
+    display: flex;
+}
+
+/* sec1=============================================================== */
+
+.top {
     width: 100%; height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: url(../images/krcon/top6.jpg) 50% 50% / cover no-repeat;
+    background: url(../images/krcon/top1.jpg) 50% 50% / cover no-repeat;
 }
 
-section .top h2 {
+.top h2 {
     display: inline-block;
-    font-size: 2.4rem; font-weight: 400;
+    font-size: 3rem; font-weight: 400;
     text-shadow: 4px 4px 4px #333;
     color: #eee;
 }
 
-section .page_depth {
+.top .page_depth {
     display: flex;
     margin-top: 42px;
 }
 
-section .page_depth li {
+.top .page_depth li {
     margin-right: 12px;
 }
 
-section .page_depth li a {
+.top .page_depth li a {
     color: #eee;
     font-size: 1.2rem; font-weight: 100;
     
 }
 
-section .page_depth li a::before {
+.top .page_depth li a::before {
     content: "-";
     margin-right: 12px;
+}
+
+.top .page_depth li:first-child a::before {
+    content: "";
 }
 
 section > div.inner > div:first-child {
