@@ -128,8 +128,13 @@ if (document.querySelector('nav.subNav') !== null) {
                 for (i = 0; i < subTopA.length; i++) {
                     let li = document.createElement('li');
                     subTop.appendChild(li)
-                    subTop.children.item(i).innerHTML = `<a href="#" onclick="return false">${subTopA[i].children.item(0).textContent}</a>`;
-                    arr.push(subTopA[i].children.item(1).children.item(0).children.item(0))
+                    console.log(subTopA[i].children.length)
+                    if (subTopA[i].children.length<2){
+                        subTop.children.item(i).innerHTML = subTopA[i].innerHTML;
+                    }
+                    if (arr.length > 0) {
+                        arr.push(subTopA[i].children.item(1).children.item(0).children.item(0))
+                    }
                 }
 
                 if (subTopA.length > 1) {
