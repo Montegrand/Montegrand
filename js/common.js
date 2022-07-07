@@ -178,7 +178,7 @@ if (document.querySelector('nav.subNav') !== null) {
             result.style.left = positionL + 'px';
             result.style.top = positionY + 20 + 'px';
             document.querySelectorAll('nav.subNav a').forEach(function (v, n) {
-                // if ()
+                // if () // 여기까지 작업----------------------------------------------------
                 v.addEventListener('mouseenter', function () {
                     if (v.href.search('#') > 0) {
                         result.innerHTML = '<span>- 링크가 없습니다</span>'
