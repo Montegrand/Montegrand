@@ -175,8 +175,8 @@ if (document.querySelector('nav.subNav') !== null) {
         this.addEventListener('mousemove', function (e) {
             let positionL = e.clientX
             let positionY = e.clientY
-            result.style.left = positionL - 120 + 'px';
-            result.style.top = positionY - 60 + 'px';
+            result.style.left = positionL + 'px';
+            result.style.top = positionY + 20 + 'px';
             document.querySelectorAll('nav.subNav a').forEach(function (v, n) {
                 // if ()
                 v.addEventListener('mouseenter', function () {
