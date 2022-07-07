@@ -128,20 +128,23 @@ if (document.querySelector('nav.subNav') !== null) {
                 for (i = 0; i < subTopA.length; i++) {
                     let li = document.createElement('li');
                     subTop.appendChild(li)
-                    console.log(subTopA[i].children.length)
-                    if (subTopA[i].children.length<2){
+                    if (subTopA[i].children.length < 2) {
                         subTop.children.item(i).innerHTML = subTopA[i].innerHTML;
-                    }
-                    if (arr.length > 0) {
+                        if (subTop.children.item(i).children.item(0).href.search('#') > 0) {
+                            subTop.children.item(i).children.item(0).onclick = function () {
+                                return false;
+                            };
+                        }
+                    } else {
+                        subTop.children.item(i).innerHTML = '<a href="#" onclick="return false">' + subTopA[i].children.item(0).textContent + '</a>';
                         arr.push(subTopA[i].children.item(1).children.item(0).children.item(0))
                     }
                 }
 
-                if (subTopA.length > 1) {
+                if (subTopA.length > 0) {
                     let subTopL = document.querySelectorAll('nav.subNav .subTop li');
                     subTopL.forEach(function (v, n) {
                         v.addEventListener('click', function () {
-                            console.log(arr.length)
                             for (i = 0; i < subTopL.length; i++) {
                                 subTopL[i].classList.remove('on')
                                 if (arr.length > 0) {
@@ -174,10 +177,14 @@ if (document.querySelector('nav.subNav') !== null) {
             let positionY = e.clientY
             result.style.left = positionL - 120 + 'px';
             result.style.top = positionY - 60 + 'px';
-            document.querySelectorAll('nav.subNav .subBot a').forEach(function (v, n) {
+            document.querySelectorAll('nav.subNav a').forEach(function (v, n) {
+                // if ()
                 v.addEventListener('mouseenter', function () {
                     if (v.href.search('#') > 0) {
-                        result.innerHTML = '<span>링크가 없습니다</span>'
+                        result.innerHTML = '<span>- 링크가 없습니다</span>'
+                        if (arr[n]===undefined) {
+                            result.children.item(0).innerHTML += '<br>- 하위 목록이 없습니다'
+                        }
                     }
                 })
                 v.addEventListener('mouseleave', function () {
