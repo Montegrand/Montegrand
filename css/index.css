@@ -16,30 +16,35 @@
     text-decoration: none;
     list-style-type: none;
     color: #333;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 body {
     display: flex;
+    flex-direction: column-reverse;
     overflow: hidden;
 }
 
 body > div {
-    height: 100vh;
+    width: 100vw;
 }
 
 body > .line {
-    width: 3px; height: 100vh;
+    width: 100vw; height: 3px; 
     background: #aaa;
     display: flex;
-    cursor: col-resize;
+    cursor: row-resize;
 }
 
 /* console========================================================================== */
 
+.console * {
+    user-select: none;
+}
+
 .console {
     border: 1px solid #000;
-    width: calc(50% - 3px);
+    height: calc(50vh - 3px);
 }
 
 .console .top {
@@ -67,60 +72,69 @@ body > .line {
 
 .console .window {
     background: #000;
-    width: 100%; height: calc(100vh - 2rem);
+    width: 100%; height: calc(100% - 2rem);
     border: 2px solid #aaa;
     padding: 12px 30px;
-    overflow-y: scroll;
     position: relative;
+    overflow-y: scroll;
 }
 
 .console .window::-webkit-scrollbar {
     display: none;
 }
 
-.console .window p span {
+.console .window p:first-child span {
     color: #fff;
 }
 
-.console .window p i {
+.console .window p:first-child i {
     width: 0.8rem; height: 0.3rem;
     background: #fff;
     display: inline-block;
     animation: blink 0.5s step-end infinite;
 }
 
-.console .window p i.on {
+.console .window p:first-child i.on {
     animation: none;
 }
 
-.console .window p i.off {
+.console .window p:first-child i.off {
     display: none;
 }
 
+.console .window p:nth-child(2) {
+    position: relative;
+    height: 1.5rem;
+}
+
+.console .window p:nth-child(2) span {
+    color: #000;
+    font-size: 1rem;
+}
+
+.console .window p:nth-child(2) i {
+    width: 0.8rem; height: 0.3rem;
+    background: #fff;
+    display: none;
+    animation: blink 0.5s step-end infinite;
+}
+
+.console .window p:nth-child(2) i.on {
+    display: inline-block;
+}
+
+.console .window p:nth-child(2) i.keydown {
+    animation: none;
+}
+
 .console .window input {
+    position: absolute;
     background: none;
     border: none;
     caret-color: transparent;
     color: #fff;
     width: 100%; height: 1.5rem;
-    letter-spacing: 0.25rem;
-}
-
-.console .window .cursor {
-    width: 0.8rem; height: 0.3rem;
-    background: #fff;
-    display: inline-block;
-    position: absolute;
-    display: none;
-}
-
-.console .window .cursor.on {
-    display: flex;
-    animation: blink 0.5s step-end infinite;
-}
-
-.console .window .cursor.on.keydown {
-    animation: none;
+    font-size: 1rem;
 }
 
 .console .window input:focus {
@@ -130,5 +144,5 @@ body > .line {
 /* contents-------------------------------------------------------------------------- */
 
 .contents {
-    width: calc(50% - 3px);
+    height: calc(50vh - 3px);
 }
