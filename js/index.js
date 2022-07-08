@@ -62,7 +62,8 @@ window.onload = function () {
                     warning.classList.remove('load')
                     warning.classList.add('load')
                     running = true;
-                    error += 'error<br><br>'
+                    error += 'error'
+                    error += `<br><br>`
                     error += errorMessage;
                     error += pageIndex
                     textBox.innerHTML += '<br><br>'
@@ -108,7 +109,8 @@ window.onload = function () {
                         warning.classList.remove('load')
                         running = true;
                         pageMove += 'success<br><br>'
-                        pageMove += `Go to page no.${pageChk}<br><br>`
+                        pageMove += `Go to page no.${pageChk}`
+                        pageMove += `<br><br>`
                         pageMove += pageIndex
                         textBox.innerHTML += '<br><br>'
                         i = 0
