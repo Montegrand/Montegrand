@@ -2,7 +2,7 @@ window.onload = function () {
 
     let textC = '';
 
-    textC += 'Welcome my PORTFOLIO<br><br>Thank you sincerely for your kind visit.<br>It meant a lot to me that you took the time to come by.<br>I know how busy you are, and i truly value the time we spent together<br><br>Please konw that I am very grateful for your kindness<br><br>';
+    textC += 'Welcome to my PORTFOLIO<br><br>Thank you sincerely for your kind visit.<br>It meant a lot to me that you took the time to come by.<br>I know how busy you are, and i truly value the time we spent together<br><br>Please know that I am very grateful for your kindness<br><br>';
     let pageIndex = 'Page index<br><br> 1. MAIN <br> 2. ABOUT <br> 3. PROJECT <br> 4. CONTACT <br><br>Please enter the number of the page you want<br>';
     textC += pageIndex;
 
@@ -163,8 +163,6 @@ window.onload = function () {
     })
     let resize = function (e) {
         let cons = document.querySelector('.console')
-        console.log(window.innerHeight - line.offsetTop)
-        console.log(cons.style.height)
         line.style.top = `${e.clientY-3}px`
         contents.style.height = `${line.offsetTop}px`
         cons.style.height = `${window.innerHeight - line.offsetTop + line.offsetHeight}px`
