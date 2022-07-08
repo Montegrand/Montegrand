@@ -108,7 +108,7 @@ window.onload = function () {
                         warning.classList.remove('load')
                         running = true;
                         pageMove += 'success<br><br>'
-                        pageMove += `Go to page no.${pageChk}<br>`
+                        pageMove += `Go to page no.${pageChk}<br><br>`
                         pageMove += pageIndex
                         textBox.innerHTML += '<br><br>'
                         i = 0
