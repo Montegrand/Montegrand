@@ -1,37 +1,36 @@
 window.onload = function () {
 
-    let textC = ''
+    let textC = '';
 
-    textC += 'Welcome my PORTFOLIO<br><br>Thank you sincerely for your kind visit.<br>It meant a lot to me that you took the time to come by.<br>I know how busy you are, and i truly value the time we spent together<br><br>Please konw that I am very grateful for your kindness<br>'
-    let pageIndex = 'Page index<br><br> 1. MAIN <br> 2. ABOUT <br> 3. PROJECT <br> 4. CONTACT <br><br>Please enter the number of the page you want<br>'
-    textC += pageIndex
+    textC += 'Welcome my PORTFOLIO<br><br>Thank you sincerely for your kind visit.<br>It meant a lot to me that you took the time to come by.<br>I know how busy you are, and i truly value the time we spent together<br><br>Please konw that I am very grateful for your kindness<br><br>';
+    let pageIndex = 'Page index<br><br> 1. MAIN <br> 2. ABOUT <br> 3. PROJECT <br> 4. CONTACT <br><br>Please enter the number of the page you want<br>';
+    textC += pageIndex;
 
     let textBox = document.querySelector('.window > p:first-child > span');
     let i = 0;
-    let consW = document.querySelector('.window')
+    let consW = document.querySelector('.window');
     let input = document.querySelector('.window input');
-    let fakeBox = document.querySelector('.window .fake')
-    // let caretX = input.getBoundingClientRect().left;
-    let error = '' //입력 범위내의 숫자인지 확인해달라는 메세지
-    let errorMessage = 'Please enter a single digit number within the range'
-    let running = false
+    let fakeBox = document.querySelector('.window .fake');
+    let error = '';
+    let errorMessage = 'Please enter a single digit number within the range';
+    let running = false;
     let cBoxes = document.querySelectorAll('.contents > .box');
     let warning = document.querySelector('.contents > .error');
-    let contents = document.querySelector('.contents')
-
+    let contents = document.querySelector('.contents');
+    let line = document.querySelector('.line');
+    
     if (running === false) {
         running = true;
         setTimeout(function () {
-            contents.classList.add('loading')
-            textBox.nextSibling.classList.add('on')
+            contents.classList.add('loading');
+            textBox.nextSibling.classList.add('on');
             const typing = setInterval(() => {
                 if (textC.charAt(i) === '<') {
-                    textBox.innerHTML += '<br>'
+                    textBox.innerHTML += '<br>';
                     i = i + 4;
                 } else {
                     textBox.innerHTML += textC.charAt(i)
-                    i++
-                    i
+                    i++;
                 }
                 consW.scrollBy(0, consW.scrollHeight)
                 if (i === textC.length) {
@@ -92,7 +91,7 @@ window.onload = function () {
             }
             if (e.key == 'Enter') {
                 //pageMove------------------------------------------------------
-                cBoxes.forEach(function(v,n){
+                cBoxes.forEach(function (v, n) {
                     v.classList.remove('load')
                 })
                 let pageChk = input.value
@@ -126,18 +125,18 @@ window.onload = function () {
                                 textBox.innerHTML += pageMove.charAt(i)
                                 i++;
                             }
-    
+
                             if (i === pageMove.length) {
                                 clearInterval(typing)
                                 textBox.nextSibling.classList.add('off')
                                 fakeBox.nextSibling.classList.add('on')
-                                cBoxes.forEach(function(v,n){
-                                    if(n+1==pageChk){
+                                cBoxes.forEach(function (v, n) {
+                                    if (n + 1 == pageChk) {
                                         v.classList.add('load')
                                     }
                                 })
                                 input.focus();
-                                pageChk=''
+                                pageChk = ''
                                 pageMove = '';
                                 running = false;
                                 input.value = ''
@@ -149,7 +148,6 @@ window.onload = function () {
                 }
 
                 if (pageChk == 1) {
-                    // contentsbox(pageChk).getbound를 0으로
                     success();
                 } else if (pageChk == 2) {
                     success();
@@ -161,6 +159,20 @@ window.onload = function () {
                     errorF();
                 }
             }
+        })
+    })
+    let resize = function (e) {
+        let cons = document.querySelector('.console')
+        console.log(window.innerHeight - line.offsetTop)
+        console.log(cons.style.height)
+        line.style.top = `${e.clientY-3}px`
+        contents.style.height = `${line.offsetTop}px`
+        cons.style.height = `${window.innerHeight - line.offsetTop + line.offsetHeight}px`
+    }
+    line.addEventListener('mousedown', function () {
+        window.addEventListener('mousemove', resize)
+        window.addEventListener('mouseup',function(){
+            window.removeEventListener('mousemove', resize)
         })
     })
 }
