@@ -9,6 +9,15 @@
     }
 }
 
+@keyframes rotation {
+    from {
+        transform:translate(-50%, -50%) rotate(0);
+    }
+    to {
+        transform:translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 * {
     margin: 0; padding: 0;
     box-sizing: border-box;
@@ -50,24 +59,43 @@ body > .line {
 .console .top {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%; height: 2rem;
-    padding: 0 8px;
+    padding-left: 8px;
     background: #aaa;
     outline: 1px solid #000;
 }
 
-.console .top > i {
+.console .top > div {
+    display: flex;
+    align-items: center;
+}
+
+.console .top > div:first-child i {
     display: flex;
     width: 1.2rem; height: 1.2rem;
     margin-right: 12px;
     background: url(../images/index/cdm_i.png) 50% 50%/ contain no-repeat;
 }
 
-.console .top > p {
+.console .top > div:first-child p {
     cursor: default;
     user-select: none;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.console .top > div:last-child {
+    display: flex;
+}
+
+.console .top > div:last-child i {
+    width: 2rem; height: 2rem;
+    display: flex;
+}
+
+.console .top > div:last-child i:first-child {
+    /* background: ; */
 }
 
 .console .window {
@@ -145,4 +173,50 @@ body > .line {
 
 .contents {
     height: calc(50vh - 3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.contents::after {
+    content: "";
+    display: none;
+    width: 10vh; height: 10vh;
+    background: url(../images/index/loading.png) 50% 50% / contain no-repeat;
+    animation: rotation 2s infinite;
+    position: absolute;
+}
+
+.contents.loading::after {
+    display: flex;
+}
+
+.contents > div {
+    width: 100%; height: 100%;
+    flex: 0 0 100%;
+    display: none;
+}
+
+.contents > div.load {
+    display: flex;
+}
+
+/* error---------------------------------------------------------------------------------- */
+
+.contents .error {
+    background: red;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.contents .error.load {
+    display: flex;
+}
+
+.contents .error h2 {
+    color: #fff;
+    font-size: 4rem; font-weight: 700;
+    animation: blink 2s step-end infinite;
 }

@@ -16,10 +16,13 @@ window.onload = function () {
     let errorMessage = 'Please enter a single digit number within the range'
     let running = false
     let cBoxes = document.querySelectorAll('.contents > .box');
+    let warning = document.querySelector('.contents > .error');
+    let contents = document.querySelector('.contents')
 
     if (running === false) {
         running = true;
         setTimeout(function () {
+            contents.classList.add('loading')
             textBox.nextSibling.classList.add('on')
             const typing = setInterval(() => {
                 if (textC.charAt(i) === '<') {
@@ -39,6 +42,7 @@ window.onload = function () {
                     input.focus();
                     running = false;
                     cBoxes[0].classList.add('load');
+                    contents.classList.remove('loading')
                 }
             }, 30);
         }, 3000)
@@ -54,13 +58,9 @@ window.onload = function () {
             fakeBox.nextElementSibling.classList.remove('keydown')
             fakeBox.innerHTML = input.value
             let errorF = function () {
-                cBoxes.forEach(function(v,n){
-                    v.classList.remove('load')
-                    if (n===cBoxes.length) {
-                        v.classList.add('load')
-                    }
-                })
                 if (running === false) {
+                    warning.classList.remove('load')
+                    warning.classList.add('load')
                     running = true;
                     error += 'error<br><br>'
                     error += errorMessage;
@@ -81,7 +81,6 @@ window.onload = function () {
                         if (i === error.length) {
                             clearInterval(typing)
                             textBox.nextSibling.classList.add('off')
-                            fakeBox.innerHTML = ''
                             fakeBox.nextSibling.classList.add('on')
                             input.focus();
                             error = '';
@@ -100,10 +99,13 @@ window.onload = function () {
                 fakeBox.nextElementSibling.classList.remove('on')
                 textBox.innerHTML += input.value
                 input.value = ''
+                fakeBox.innerHTML = ''
                 let pageMove = ''
+                input.blur()
 
                 let success = function () {
                     if (running === false) {
+                        warning.classList.remove('load')
                         running = true;
                         pageMove += 'success<br><br>'
                         pageMove += `Go to page no.${pageChk}<br>`
@@ -113,6 +115,7 @@ window.onload = function () {
                         textBox.nextSibling.classList.remove('off')
                         fakeBox.nextSibling.classList.remove('on')
                         console.log(pageMove)
+                        contents.classList.add('loading')
                         const typing = setInterval(() => {
                             if (pageMove.charAt(i) === '<') {
                                 textBox.innerHTML += '<br>'
@@ -125,7 +128,6 @@ window.onload = function () {
                             if (i === pageMove.length) {
                                 clearInterval(typing)
                                 textBox.nextSibling.classList.add('off')
-                                fakeBox.innerHTML = ''
                                 fakeBox.nextSibling.classList.add('on')
                                 cBoxes.forEach(function(v,n){
                                     if(n+1==pageChk){
@@ -137,6 +139,7 @@ window.onload = function () {
                                 pageMove = '';
                                 running = false;
                                 input.value = ''
+                                contents.classList.remove('loading')
                             }
                             consW.scrollBy(0, consW.scrollHeight)
                         }, 30);
