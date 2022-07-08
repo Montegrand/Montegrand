@@ -30,6 +30,7 @@ window.onload = function () {
                     i++
                     i
                 }
+                consW.scrollBy(0, consW.scrollHeight)
                 if (i === textC.length) {
                     clearInterval(typing)
                     textBox.nextSibling.classList.add('off')
@@ -39,7 +40,7 @@ window.onload = function () {
                     running = false;
                     cBoxes[0].classList.add('load');
                 }
-            }, 1);
+            }, 30);
         }, 3000)
     }
 
@@ -76,7 +77,7 @@ window.onload = function () {
                             textBox.innerHTML += error.charAt(i)
                             i++;
                         }
-
+                        consW.scrollBy(0, consW.scrollHeight)
                         if (i === error.length) {
                             clearInterval(typing)
                             textBox.nextSibling.classList.add('off')
@@ -86,8 +87,7 @@ window.onload = function () {
                             error = '';
                             running = false;
                         }
-                        consW.scrollBy(0, consW.scrollHeight)
-                    }, 1);
+                    }, 30);
                 }
             }
             if (e.key == 'Enter') {
@@ -139,7 +139,7 @@ window.onload = function () {
                                 input.value = ''
                             }
                             consW.scrollBy(0, consW.scrollHeight)
-                        }, 1);
+                        }, 30);
                     }
                 }
 
