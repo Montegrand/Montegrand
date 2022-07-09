@@ -5,9 +5,9 @@ window.onload = function () {
     textC += 'Welcome to my PORTFOLIO<br><br>Thank you sincerely for your kind visit.<br>It meant a lot to me that you took the time to come by.<br>I know how busy you are, and i truly value the time we spent together<br><br>Please know that I am very grateful for your kindness<br><br>';
     let pageIndex = 'Page index, <br><br>1. MAIN, <br> 2. ABOUT, <br> 3. PROJECT, <br> 4. CONTACT, <br><br>Please enter the number of the page you want<br>';
     let indexArr = pageIndex.split(",");
-    indexArr.forEach(function(v,n){
+    indexArr.forEach(function (v, n) {
         textC += v;
-        if (n===1) {
+        if (n === 1) {
             textC += ' (now)'
         }
     })
@@ -24,6 +24,8 @@ window.onload = function () {
     let warning = document.querySelector('.contents > .error');
     let contents = document.querySelector('.contents');
     let line = document.querySelector('.line');
+    let myPhoto = document.querySelector('.contents > .fst img')
+    console.log(myPhoto)
 
     cBoxes.forEach(function (v, n) {
         v.addEventListener('mousemove', function (e) {
@@ -32,11 +34,11 @@ window.onload = function () {
             v.style.backgroundPosition = `${(X/v.offsetWidth)*100}% ${(Y/v.offsetHeight)*100}%`;
         })
 
-        if (n!==0) {
-            v.addEventListener('mouseenter',function(){
+        if (n !== 0) {
+            v.addEventListener('mouseenter', function () {
                 v.classList.add('hover');
             })
-            v.addEventListener('mouseleave',function(){
+            v.addEventListener('mouseleave', function () {
                 v.classList.remove('hover');
             })
         }
@@ -59,7 +61,6 @@ window.onload = function () {
                 if (i === textC.length) {
                     clearInterval(typing)
                     textBox.nextSibling.classList.add('off')
-                    textBox.nextSibling.classList.remove('on')
                     fakeBox.nextElementSibling.classList.add('on')
                     input.focus();
                     running = false;
@@ -87,12 +88,13 @@ window.onload = function () {
                     error += 'error'
                     error += `<br><br>`
                     error += errorMessage;
-                    indexArr.forEach(function(v,n){
+                    indexArr.forEach(function (v, n) {
                         error += v;
                     })
                     textBox.innerHTML += '<br><br>'
                     i = 0
                     textBox.nextSibling.classList.remove('off')
+                    textBox.nextSibling.classList.add('on')
                     fakeBox.nextSibling.classList.remove('on')
                     const typing = setInterval(() => {
                         if (error.charAt(i) === '<') {
@@ -135,9 +137,9 @@ window.onload = function () {
                         pageMove += 'success<br><br>'
                         pageMove += `Go to page no.${pageChk}`
                         pageMove += `<br><br>`
-                        indexArr.forEach(function(v,n){
+                        indexArr.forEach(function (v, n) {
                             pageMove += v;
-                            if (n==pageChk) {
+                            if (n == pageChk) {
                                 pageMove += ' (now)'
                             }
                         })
@@ -202,4 +204,5 @@ window.onload = function () {
             window.removeEventListener('mousemove', resize)
         })
     })
+
 }
