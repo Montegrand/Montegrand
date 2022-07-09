@@ -3,8 +3,14 @@ window.onload = function () {
     let textC = '';
 
     textC += 'Welcome to my PORTFOLIO<br><br>Thank you sincerely for your kind visit.<br>It meant a lot to me that you took the time to come by.<br>I know how busy you are, and i truly value the time we spent together<br><br>Please know that I am very grateful for your kindness<br><br>';
-    let pageIndex = 'Page index<br><br> 1. MAIN <br> 2. ABOUT <br> 3. PROJECT <br> 4. CONTACT <br><br>Please enter the number of the page you want<br>';
-    textC += pageIndex;
+    let pageIndex = 'Page index, <br><br>1. MAIN, <br> 2. ABOUT, <br> 3. PROJECT, <br> 4. CONTACT, <br><br>Please enter the number of the page you want<br>';
+    let indexArr = pageIndex.split(",");
+    indexArr.forEach(function(v,n){
+        textC += v;
+        if (n===1) {
+            textC += ' (now)'
+        }
+    })
 
     let textBox = document.querySelector('.window > p:first-child > span');
     let i = 0;
@@ -18,7 +24,24 @@ window.onload = function () {
     let warning = document.querySelector('.contents > .error');
     let contents = document.querySelector('.contents');
     let line = document.querySelector('.line');
-    
+
+    cBoxes.forEach(function (v, n) {
+        v.addEventListener('mousemove', function (e) {
+            let X = e.clientX;
+            let Y = e.clientY;
+            v.style.backgroundPosition = `${(X/v.offsetWidth)*100}% ${(Y/v.offsetHeight)*100}%`;
+        })
+
+        if (n!==0) {
+            v.addEventListener('mouseenter',function(){
+                v.classList.add('hover');
+            })
+            v.addEventListener('mouseleave',function(){
+                v.classList.remove('hover');
+            })
+        }
+    })
+
     if (running === false) {
         running = true;
         setTimeout(function () {
@@ -64,7 +87,9 @@ window.onload = function () {
                     error += 'error'
                     error += `<br><br>`
                     error += errorMessage;
-                    error += pageIndex
+                    indexArr.forEach(function(v,n){
+                        error += v;
+                    })
                     textBox.innerHTML += '<br><br>'
                     i = 0
                     textBox.nextSibling.classList.remove('off')
@@ -110,12 +135,16 @@ window.onload = function () {
                         pageMove += 'success<br><br>'
                         pageMove += `Go to page no.${pageChk}`
                         pageMove += `<br><br>`
-                        pageMove += pageIndex
+                        indexArr.forEach(function(v,n){
+                            pageMove += v;
+                            if (n==pageChk) {
+                                pageMove += ' (now)'
+                            }
+                        })
                         textBox.innerHTML += '<br><br>'
                         i = 0
                         textBox.nextSibling.classList.remove('off')
                         fakeBox.nextSibling.classList.remove('on')
-                        console.log(pageMove)
                         contents.classList.add('loading')
                         const typing = setInterval(() => {
                             if (pageMove.charAt(i) === '<') {
@@ -169,7 +198,7 @@ window.onload = function () {
     }
     line.addEventListener('mousedown', function () {
         window.addEventListener('mousemove', resize)
-        window.addEventListener('mouseup',function(){
+        window.addEventListener('mouseup', function () {
             window.removeEventListener('mousemove', resize)
         })
     })

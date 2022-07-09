@@ -128,12 +128,15 @@ window.onload = function () {
         var date = new Date();
         if (date.getHours() < 12) {
             date = new Date(date.setDate(date.getDate() - 1));
-        }
+        };
         for (i = 1; i > 0; i++) {
             date = new Date(date.setDate(date.getDate() - i));
             if (date.getDay() % 6 != 0) {
                 break;
             }
+        };
+        if (new Date().getDay()==6||new Date().getDay()==0) {
+            date.setDate(date.getDate() - 1)
         };
         var year = date.getFullYear();
         var month = ('0' + (date.getMonth() + 1)).slice(-2);
