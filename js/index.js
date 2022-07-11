@@ -21,7 +21,7 @@ window.onload = function () {
 \u00a0\u00a0\u00a0\u00a0BW@WMMX\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0SWBB@\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0MMW@MM\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0.S8W@MMMMM@Bai\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0WMWW@MX\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0XM@WMMX\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0MM@WMM,\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0M@@WWW@W@WWWWW@WWW@B<br><br>`
     let openingB = opening.split("+");
 
-    let openingT = `안녕하세요. 저의 포트폴리오에 방문해 주셔서 감사합니다.<br><br>저는 앞날을 건실하고 견고하게 나아가고 싶은,<br>웹 개발에 첫발을 내딘<br>홍기현입니다.<br><br>이 포트폴리오가<br>저의 웹 개발을 바라보는 시선이<br>방문하신분께 잘 전될되길 바랍니다.<br><br>`
+    let openingT = `안녕하세요. 저의 포트폴리오에 방문해 주셔서 감사합니다.<br><br>저는 앞날을 건실하고 견고하게 나아가고 싶은,<br>웹 개발에 첫발을 내딘<br>홍기현입니다.<br><br>이 포트폴리오가<br>제가 웹 개발을 바라보는 시선을<br>방문하신분께 잘 전될되길 바랍니다.<br><br>`
 
     let textC = '';
     let pageIndex = 'Page index, <br><br>1. MAIN, <br> 2. ABOUT, <br> 3. PROJECT, <br> 4. CONTACT, <br><br>Please enter the number of the page you want<br>';
@@ -42,7 +42,7 @@ window.onload = function () {
     let myPhoto = document.querySelector('.contents > .fst img')
     let cons = document.querySelector('.console')
 
-    consW.addEventListener('click',function(){
+    consW.addEventListener('click', function () {
         input.focus();
     })
 
@@ -69,13 +69,13 @@ window.onload = function () {
         running = true;
         textC += openingT;
         textC += 'Welcome to my PORTFOLIO<br><br>Thank you sincerely for your kind visit.<br>It meant a lot to me that you took the time to come by.<br>I know how busy you are, and i truly value the time we spent together<br><br>Please know that I am very grateful for your kindness<br><br>';
-        indexArr.forEach(function(v,n){
+        indexArr.forEach(function (v, n) {
             textC += v;
         });
-        const open = setInterval(()=> {
+        const open = setInterval(() => {
             textBox.innerHTML += openingB[i]
             i++
-            if (i===openingB.length){
+            if (i === openingB.length) {
                 clearInterval(open)
                 i = 0;
                 setTimeout(function () {
@@ -101,10 +101,10 @@ window.onload = function () {
                     }, 30);
                 }, 1000)
             }
-        },100)
+        }, 100)
     }
 
-    cons.addEventListener('transitionend',function(){
+    cons.addEventListener('transitionend', function () {
         input.focus();
         consW.scrollBy(0, consW.scrollHeight)
         cons.classList.remove('open');
@@ -161,7 +161,7 @@ window.onload = function () {
                 cBoxes.forEach(function (v, n) {
                     v.classList.remove('load')
                 })
-                let pageChk = input.value
+                let chk = input.value
                 textBox.nextSibling.classList.remove('off')
                 fakeBox.nextElementSibling.classList.remove('on')
                 textBox.innerHTML += input.value
@@ -171,60 +171,106 @@ window.onload = function () {
                 input.blur()
 
                 let success = function () {
-                    if (running === false) {
-                        warning.classList.remove('load')
-                        running = true;
-                        pageMove += 'success<br><br>'
-                        pageMove += `Go to page no.${pageChk}`
-                        pageMove += `<br><br>`
-                        indexArr.forEach(function (v, n) {
-                            pageMove += v;
-                            if (n == pageChk) {
-                                pageMove += ' (now)'
-                            }
-                        })
-                        textBox.innerHTML += '<br><br>'
-                        i = 0
-                        textBox.nextSibling.classList.remove('off')
-                        fakeBox.nextSibling.classList.remove('on')
-                        contents.classList.add('loading')
-                        const typing = setInterval(() => {
-                            if (pageMove.charAt(i) === '<') {
-                                textBox.innerHTML += '<br>'
-                                i = i + 4
-                            } else {
-                                textBox.innerHTML += pageMove.charAt(i)
-                                i++;
-                            }
+                    if (Number.isInteger(Number(chk)) !== 4) {
+                        if (running === false) {
+                            warning.classList.remove('load')
+                            running = true;
+                            pageMove += 'success<br><br>'
+                            pageMove += `Go to page no.${chk}`
+                            pageMove += `<br><br>`
+                            indexArr.forEach(function (v, n) {
+                                pageMove += v;
+                                if (n == chk) {
+                                    pageMove += ' (now)'
+                                }
+                            })
+                            textBox.innerHTML += '<br><br>'
+                            i = 0
+                            textBox.nextSibling.classList.remove('off')
+                            fakeBox.nextSibling.classList.remove('on')
+                            contents.classList.add('loading')
+                            const typing = setInterval(() => {
+                                if (pageMove.charAt(i) === '<') {
+                                    textBox.innerHTML += '<br>'
+                                    i = i + 4
+                                } else {
+                                    textBox.innerHTML += pageMove.charAt(i)
+                                    i++;
+                                }
 
-                            if (i === pageMove.length) {
-                                clearInterval(typing)
-                                textBox.nextSibling.classList.add('off')
-                                fakeBox.nextSibling.classList.add('on')
-                                cBoxes.forEach(function (v, n) {
-                                    if (n + 1 == pageChk) {
-                                        v.classList.add('load')
+                                if (i === pageMove.length) {
+                                    clearInterval(typing)
+                                    textBox.nextSibling.classList.add('off')
+                                    fakeBox.nextSibling.classList.add('on')
+                                    cBoxes.forEach(function (v, n) {
+                                        if (n + 1 == chk) {
+                                            v.classList.add('load')
+                                        }
+                                    })
+                                    input.focus();
+                                    chk = ''
+                                    pageMove = '';
+                                    running = false;
+                                    input.value = ''
+                                    contents.classList.remove('loading')
+                                }
+                                consW.scrollBy(0, consW.scrollHeight)
+                            }, 30);
+                        }
+                    } else {
+                        if (running = false) {
+                            console.log(chk)
+                            warning.classList.remove('load')
+                            running = true;
+                            pageMove += 'success<br><br>'
+                            pageMove += `Go to page no.${pageChk}`
+                            pageMove += `<br><br>`
+                            indexArr.forEach(function (v, n) {
+                                if (n !== indexArr.length) {
+                                    pageMove += v;
+                                    if (n == indexArr.length) {
+                                        pageMove += ' (now)'
                                     }
-                                })
-                                input.focus();
-                                pageChk = ''
-                                pageMove = '';
-                                running = false;
-                                input.value = ''
-                                contents.classList.remove('loading')
-                            }
-                            consW.scrollBy(0, consW.scrollHeight)
-                        }, 30);
+                                }
+                            })
+                            pageMove += ``
+                            textBox.innerHTML += '<br><br>'
+                            i = 0
+                            textBox.nextSibling.classList.remove('off')
+                            fakeBox.nextSibling.classList.remove('on')
+                            contents.classList.add('loading')
+                            const typing = setInterval(() => {
+                                if (pageMove.charAt(i) === '<') {
+                                    textBox.innerHTML += '<br>'
+                                    i = i + 4
+                                } else {
+                                    textBox.innerHTML += pageMove.charAt(i)
+                                    i++;
+                                }
+
+                                if (i === pageMove.length) {
+                                    clearInterval(typing)
+                                    textBox.nextSibling.classList.add('off')
+                                    fakeBox.nextSibling.classList.add('on')
+                                    cBoxes.forEach(function (v, n) {
+                                        if (n + 1 == pageChk) {
+                                            v.classList.add('load')
+                                        }
+                                    })
+                                    input.focus();
+                                    pageChk = ''
+                                    pageMove = '';
+                                    running = false;
+                                    input.value = ''
+                                    contents.classList.remove('loading')
+                                }
+                                consW.scrollBy(0, consW.scrollHeight)
+                            }, 30);
+                        }
                     }
                 }
 
-                if (pageChk == 1) {
-                    success();
-                } else if (pageChk == 2) {
-                    success();
-                } else if (pageChk == 3) {
-                    success();
-                } else if (pageChk == 4) {
+                if (Number.isInteger(Number(chk)) >= 1 && Number.isInteger(Number(chk)) <= 4) {
                     success();
                 } else {
                     errorF();
@@ -245,23 +291,19 @@ window.onload = function () {
         })
     })
 
-    window.addEventListener('resize',function(){
+    window.addEventListener('resize', function () {
         let cons = document.querySelector('.console')
-        console.log(window.innerHeight - (contents.offsetHeight+6))
         line.style.top = `${contents.offsetHeight-3}px`
-        // contents.style.height = `${line.offsetTop}px`
         cons.style.height = `${window.innerHeight - (contents.offsetHeight+6)}px`
     })
 
     let imgA = document.querySelectorAll('.box.snd > div > div:first-child a');
     let sndBt = document.querySelectorAll('.box.snd > div > div:last-child a');
-    console.log(imgA)
-    console.log(sndBt)
 
-    sndBt.forEach(function(v,n){
-        v.addEventListener('click',function(){
-            for(i=0;i<sndBt.length;i++){
-                if (i===n){
+    sndBt.forEach(function (v, n) {
+        v.addEventListener('click', function () {
+            for (i = 0; i < sndBt.length; i++) {
+                if (i === n) {
                     imgA[i].classList.add('on')
                 } else {
                     imgA[i].classList.remove('on')
