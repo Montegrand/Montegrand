@@ -49,6 +49,7 @@
     text-decoration: none;
     list-style-type: none;
     color: #333;
+    word-break: keep-all;
     /* outline: 1px solid red; */
 }
 
@@ -283,7 +284,7 @@ body > .line::after {
     line-height: 6rem;
     font-style: italic;
     position: absolute;
-    top: 40%; left: 20%;
+    top: 40%; left: 15%;
 }
 
 .contents > .box.load h2 {
@@ -294,7 +295,7 @@ body > .line::after {
 
 .contents > .box.load.hover h2 {
     position: absolute;
-    top: 40px; left: 40px;
+    top: 24px; left: 40px;
 }
 
 .contents > .box.load > div {
@@ -331,14 +332,16 @@ body > .line::after {
 
 
 .contents > .box.fst.load > div {
-    margin-left: 0;
+    margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .fst > div > div {
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 .fst img {
@@ -361,22 +364,9 @@ body > .line::after {
     margin-bottom: 12px;
 }
 
-.fst.hover h4 {
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.fst.hover p {
-    font-size: 1.5rem;
-}
-
 .fst span {
     font-size: 1.2rem;
     transition: 0.5s;
-}
-
-.fst.hover span {
-    font-size: 1.5rem;
 }
 
 .fst.hover img {
@@ -388,12 +378,157 @@ body > .line::after {
     flex-direction: column;
 }
 
-.fst .les > div:last-child {
-    margin-top: 12px;
-}
-
 .fst .les > div span i {
     margin-right: 12px;
+}
+
+/* box2----------------------------------------------------------------------------------- */
+
+.contents > .box.snd.load > div {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) {
+    width: 45%;
+    opacity: 0;
+    display: flex;
+    transition: 0.5s;
+}
+
+.contents > .box.snd.load.hover > div > div:nth-child(1) {
+    opacity: 1;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) > a {
+    display: none;
+    width: 100%; height: 100%;
+    text-indent: -2000px;
+    overflow: hidden;
+    position: relative;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) > a span {
+    text-indent: 0;
+    position: absolute;
+    bottom: 0; right: 0;
+    padding: 6px 12px;
+    background-color: #0972CD33;
+    transition: 0.5s;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) > a:hover span {
+    font-size: 1.5rem; font-weight: 500;
+    color: #fff;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) > a.on {
+    display: flex;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) > a:nth-child(1) {
+    background: url(../images/index/main.png) 50% 0 / cover no-repeat;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) > a:nth-child(2) {
+    background: url(../images/index/ir.png) 50% 0 / cover no-repeat;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) > a:nth-child(3) {
+    background: url(../images/index/PR.png) 50% 0 / cover no-repeat;
+}
+
+.contents > .box.snd.load > div > div:nth-child(2) {
+    width: 50%;
+}
+
+.contents > .box.snd.load > div > div:nth-child(2) h3 {
+    font-size: 2.4rem;
+    margin-bottom: 36px; font-weight: 400;
+}
+
+.contents > .box.snd.load > div > div:nth-child(2) p {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    text-align: justify;
+}
+
+.contents > .box.snd.load > div > div:nth-child(2) > div {
+    width: 50%;
+}
+
+.contents > .box.snd.load h4 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.contents > .box.snd.load .CB {
+    margin-bottom: 24px;
+}
+
+.contents > .box.snd.load .CB > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contents > .box.snd.load .CB i {
+    width: 60px; height: 60px;
+    display: flex;
+    text-indent: -1000px;
+    overflow: hidden;
+}
+
+.contents > .box.snd.load .CB i:nth-child(1) {
+    background: url(../images/index/chrome.png) 50% 50% / contain no-repeat;
+}
+
+.contents > .box.snd.load .CB i:nth-child(2) {
+    background: url(../images/index/microsoft.png) 50% 50% / contain no-repeat;
+}
+
+.contents > .box.snd.load .CB i:nth-child(3) {
+    background: url(../images/index/firefox.png) 50% 50% / contain no-repeat;
+}
+
+.contents > .box.snd.load .CB i:nth-child(4) {
+    background: url(../images/index/internet-explorer.png) 50% 50% / contain no-repeat;
+}
+
+.contents > .box.snd.load .PV > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contents > .box.snd.load .PV a {
+    font-size: 1.5rem;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.contents > .box.snd.load .PV a:hover {
+    color: #abd;
+}
+
+/* box3----------------------------------------------------------------------------------- */
+
+.contents > .trd.load {
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.contents > .trd.load h2 {
+    position: static;
+}
+
+.contents > .trd.load.hover h2 {
+    position: static;
+}
+
+.contents > .trd.load span {
+    font-size: 2rem;
 }
 
 /* error---------------------------------------------------------------------------------- */

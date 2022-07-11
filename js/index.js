@@ -78,44 +78,44 @@ window.onload = function () {
             if (i===openingB.length){
                 clearInterval(open)
                 i = 0;
+                setTimeout(function () {
+                    textBox.nextSibling.classList.add('on');
+                    const typing = setInterval(() => {
+                        if (textC.charAt(i) === '<') {
+                            textBox.innerHTML += '<br>';
+                            i = i + 4;
+                        } else {
+                            textBox.innerHTML += textC.charAt(i)
+                            i++;
+                        }
+                        consW.scrollBy(0, consW.scrollHeight)
+                        if (i === textC.length) {
+                            clearInterval(typing)
+                            line.style.top = `${window.innerHeight*0.67}px`
+                            contents.style.height = `${(window.innerHeight*0.67)-3}px`
+                            cons.style.height = `${(window.innerHeight*0.33)+3}px`
+                            textBox.nextSibling.classList.add('off')
+                            fakeBox.nextElementSibling.classList.add('on')
+                            running = false;
+                        }
+                    }, 30);
+                }, 1000)
             }
         },100)
-        setTimeout(function () {
-            textBox.nextSibling.classList.add('on');
-            const typing = setInterval(() => {
-                if (textC.charAt(i) === '<') {
-                    textBox.innerHTML += '<br>';
-                    i = i + 4;
-                } else {
-                    textBox.innerHTML += textC.charAt(i)
-                    i++;
-                }
-                consW.scrollBy(0, consW.scrollHeight)
-                if (i === textC.length) {
-                    clearInterval(typing)
-                    line.style.top = `${window.innerHeight*0.67}px`
-                    contents.style.height = `${(window.innerHeight*0.67)-3}px`
-                    cons.style.height = `${(window.innerHeight*0.33)+3}px`
-                    textBox.nextSibling.classList.add('off')
-                    fakeBox.nextElementSibling.classList.add('on')
-                    running = false;
-                }
-            }, 30);
-        }, 3000)
     }
 
     cons.addEventListener('transitionend',function(){
         input.focus();
         consW.scrollBy(0, consW.scrollHeight)
+        cons.classList.remove('open');
+        contents.classList.remove('open');
+        line.classList.remove('open');
     })
 
     input.addEventListener('focus', function () {
         input.addEventListener('keydown', function (e) {
             fakeBox.nextElementSibling.classList.add('keydown');
             fakeBox.innerHTML = input.value;
-            cons.classList.remove('open');
-            contents.classList.remove('open');
-            line.classList.remove('open');
         })
         input.addEventListener('keyup', function (e) {
             fakeBox.nextElementSibling.classList.remove('keydown')
@@ -251,6 +251,23 @@ window.onload = function () {
         line.style.top = `${contents.offsetHeight-3}px`
         // contents.style.height = `${line.offsetTop}px`
         cons.style.height = `${window.innerHeight - (contents.offsetHeight+6)}px`
+    })
+
+    let imgA = document.querySelectorAll('.box.snd > div > div:first-child a');
+    let sndBt = document.querySelectorAll('.box.snd > div > div:last-child a');
+    console.log(imgA)
+    console.log(sndBt)
+
+    sndBt.forEach(function(v,n){
+        v.addEventListener('click',function(){
+            for(i=0;i<sndBt.length;i++){
+                if (i===n){
+                    imgA[i].classList.add('on')
+                } else {
+                    imgA[i].classList.remove('on')
+                }
+            }
+        })
     })
 
 }
