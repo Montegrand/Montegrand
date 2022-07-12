@@ -32,16 +32,24 @@ window.onload = function () {
     let consW = document.querySelector('.window');
     let input = document.querySelector('.window input');
     let fakeBox = document.querySelector('.window .fake');
-    let error = '';
     let errorMessage = 'Please insert a single digit of the page you want, and press the enter.<br><br>';
     let running = false;
     let cBoxes = document.querySelectorAll('.contents > .box');
     let warning = document.querySelector('.contents > .error');
     let contents = document.querySelector('.contents');
     let line = document.querySelector('.line');
-    let myPhoto = document.querySelector('.contents > .fst img')
     let cons = document.querySelector('.console')
     let mail = false;
+    let depth = 0
+    class DataInfo {
+        constructor(name, uEmail, massage) {
+            this.name = name;
+            this.uEmail = uEmail;
+            this.massage = massage
+        }
+    }
+
+    let data = new DataInfo
 
     consW.addEventListener('click', function () {
         input.focus();
@@ -122,19 +130,17 @@ window.onload = function () {
         if (e.key === 'Enter') {
 
             let chk = input.value
-            textBox.nextSibling.classList.remove('off')
-            fakeBox.nextElementSibling.classList.remove('on')
-            textBox.innerHTML += '<br>' + input.value
-            input.value = ''
-            fakeBox.innerHTML = ''
             let inputText = ''
-            input.blur()
-            cBoxes.forEach(function (v, n) {
-                v.classList.remove('load')
-            })
-
+            textBox.innerHTML += '<br>' + input.value
+            let userName = ''
+            let userE  = ''
+            let massage = ''
+            if (!mail && depth===0) {
+                cBoxes.forEach(function (v, n) {
+                    v.classList.remove('load')
+                })
+            }
             const run = function () {
-
                 if (running === false) {
                     running = true;
                     textBox.innerHTML += '<br><br>'
@@ -153,13 +159,6 @@ window.onload = function () {
                         consW.scrollBy(0, consW.scrollHeight)
                         if (i === inputText.length) {
                             clearInterval(typing)
-                            if (!mail) {
-                                cBoxes.forEach(function (v, n) {
-                                    if (n + 1 == chk) {
-                                        v.classList.add('load')
-                                    }
-                                })
-                            }
                             textBox.nextSibling.classList.add('off')
                             fakeBox.nextSibling.classList.add('on')
                             input.focus();
@@ -177,7 +176,6 @@ window.onload = function () {
                         }
                     }, 1);
                 }
-
             }
 
             const error = function () {
@@ -192,6 +190,7 @@ window.onload = function () {
                 })
                 inputText += '<br><br>' + errorMessage
                 run();
+                chk='';
             }
 
             const pageMove = function () {
@@ -210,8 +209,7 @@ window.onload = function () {
                         }
                     })
                     
-                    inputText += `If you want to move another page, enter another number.<br><br> 1. To page index<br> 2. To leave me Massage.`;
-                    mail = true;
+                    inputText += `If you want to move another page, enter another number.<br><br> 1. To page index<br> 2. To leave me E-mail.`;
                 } else {
                     indexArr.forEach(function (v, n) {
                         inputText += v
@@ -223,12 +221,19 @@ window.onload = function () {
                 run();
             }
 
-            if (mail === false) {
+            if (input.value) {
+
+            }
+
+            if (depth===0) {
                 if (Number.isInteger(Number(chk))) {
                     if (Number(chk) >= 1 && Number(chk) <= 3) {
                         pageMove();
+                        console.log(depth)
                     } else if (Number(chk)===4) {
-                        pageMove();
+                        pageMove(mail);
+                        depth++
+                        console.log(depth)
                     } else {
                         error();
                     }
@@ -236,16 +241,52 @@ window.onload = function () {
                     error();
                 }
             } else {
-                if (chk==1) {
-                    inputText = '';
-                    indexArr.forEach(function (v, n) {
-                        inputText += v
-                    });
-                    run()
-                } else if (chk==2) {
-                    input
+                if (depth===1) {
+                    mail = true;
+                    if (chk==1) {
+                        inputText = '';
+                        indexArr.forEach(function (v, n) {
+                            inputText += v;
+                        });
+                        run(mail);
+                        mail=false;
+                        chk='';
+                        depth = 0;
+                    } else if (chk==2) {
+                        userName += input.value;
+                        inputText = 'Your name<br>';
+                        run();
+                        depth++
+                        console.log(depth)
+                    }
+                } else if (depth===2) {
+                    userName += input.value;
+                    inputText = 'Your E-mail<br>';
+                    run();
+                    depth++
+                    console.log(depth)
+                } else if (depth===3) {
+                    var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+                    if (regEmail.test(input.value) === true) {
+                        userE += input.value;
+                        inputText = 'Write the message you want to leave to me, enter {submit} if you want to complete it, or {index} if you want to go back to the beginning and press Enter.';
+                        depth++;
+                        run();
+                        console.log(depth)
+                        console.log(userE)
+                    }
+                } else if (depth===4) {
+                    massage += input.value;
+                    run();
+                    console.log(depth)
+                    console.log(massage)
                 }
             }
+            textBox.nextSibling.classList.remove('off')
+            fakeBox.nextElementSibling.classList.remove('on')
+            input.value = ''
+            fakeBox.innerHTML = ''
+            input.blur()
         }
     })
 
