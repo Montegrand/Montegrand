@@ -33,7 +33,7 @@ window.onload = function () {
     let input = document.querySelector('.window input');
     let fakeBox = document.querySelector('.window .fake');
     let error = '';
-    let errorMessage = 'Please insert a single digit of the page you want, and press the enter.<br>';
+    let errorMessage = 'Please insert a single digit of the page you want, and press the enter.<br><br>';
     let running = false;
     let cBoxes = document.querySelectorAll('.contents > .box');
     let warning = document.querySelector('.contents > .error');
@@ -97,10 +97,10 @@ window.onload = function () {
                             fakeBox.nextElementSibling.classList.add('on')
                             running = false;
                         }
-                    }, 30);
-                }, 1000)
+                    }, 1);
+                }, 1)
             }
-        }, 100)
+        }, 1)
     }
 
     cons.addEventListener('transitionend', function () {
@@ -117,217 +117,134 @@ window.onload = function () {
     })
     input.addEventListener('keyup', function (e) {
         fakeBox.nextElementSibling.classList.remove('keydown')
-        fakeBox.innerHTML = input.value
-        console.log(!cBoxes[3].classList.contains('load'))
-
+        fakeBox.innerHTML = input.value        
+        
         if (e.key === 'Enter') {
-            let errorF = function () {
-                if (running === false) {
-                    warning.classList.remove('load')
-                    warning.classList.add('load')
-                    running = true;
-                    error += 'error'
-                    error += `<br><br>`
-                    error += errorMessage;
-                    indexArr.forEach(function (v, n) {
-                        error += v;
-                    })
-                    textBox.innerHTML += '<br><br>'
-                    i = 0
-                    textBox.nextSibling.classList.remove('off')
-                    textBox.nextSibling.classList.add('on')
-                    fakeBox.nextSibling.classList.remove('on')
-                    const typing = setInterval(() => {
-                        if (error.charAt(i) === '<') {
-                            textBox.innerHTML += '<br>'
-                            i = i + 4
-                        } else {
-                            textBox.innerHTML += error.charAt(i)
-                            i++;
-                        }
-                        consW.scrollBy(0, consW.scrollHeight)
-                        if (i === error.length) {
-                            clearInterval(typing)
-                            textBox.nextSibling.classList.add('off')
-                            fakeBox.nextSibling.classList.add('on')
-                            input.focus();
-                            error = '';
-                            running = false;
-                        }
-                    }, 30);
-                }
-            }
-            cBoxes.forEach(function (v, n) {
-                v.classList.remove('load')
-            })
+
             let chk = input.value
             textBox.nextSibling.classList.remove('off')
             fakeBox.nextElementSibling.classList.remove('on')
             textBox.innerHTML += '<br>' + input.value
             input.value = ''
             fakeBox.innerHTML = ''
-            let pageMove = ''
+            let inputText = ''
             input.blur()
+            cBoxes.forEach(function (v, n) {
+                v.classList.remove('load')
+            })
 
-            let success = function () {
-                if (Number(chk) !== 4) {
-                    if (running === false) {
-                        warning.classList.remove('load')
-                        running = true;
-                        pageMove += 'success<br><br>'
-                        pageMove += `Go to page no.${chk}`
-                        pageMove += `<br><br>`
-                        indexArr.forEach(function (v, n) {
-                            pageMove += v;
-                            if (n == chk) {
-                                pageMove += ' (now)'
-                            }
-                        })
-                        textBox.innerHTML += '<br><br>'
-                        i = 0
-                        textBox.nextSibling.classList.remove('off')
-                        fakeBox.nextSibling.classList.remove('on')
-                        contents.classList.add('loading')
-                        const typing = setInterval(() => {
-                            if (pageMove.charAt(i) === '<') {
-                                textBox.innerHTML += '<br>'
-                                i = i + 4
-                            } else {
-                                textBox.innerHTML += pageMove.charAt(i)
-                                i++;
-                            }
+            const run = function () {
 
-                            if (i === pageMove.length) {
-                                clearInterval(typing)
-                                textBox.nextSibling.classList.add('off')
-                                fakeBox.nextSibling.classList.add('on')
-                                cBoxes.forEach(function (v, n) {
-                                    if (n + 1 == chk) {
-                                        v.classList.add('load')
-                                    }
-                                })
-                                input.focus();
-                                chk = ''
-                                pageMove = '';
-                                running = false;
-                                input.value = ''
-                                contents.classList.remove('loading')
-                            }
-                            consW.scrollBy(0, consW.scrollHeight)
-                        }, 30);
-                        return false;
-                    }
-                    return false;
-                } else {
-                    if (running === false) {
-                        warning.classList.remove('load')
-                        running = true;
-                        pageMove += 'success<br><br>'
-                        pageMove += `Go to page no.${chk}`
-                        pageMove += `<br><br>`
-                        console.log(indexArr)
-                        indexArr.forEach(function (v, n) {
-                            if (n < (indexArr.length-2)){
-                                pageMove += v
-                                if (n === Number(chk)) {
-                                    pageMove += ' (now)<br><br>'
-                                }
-                            }
-                        })
-                        textBox.innerHTML += '<br><br>'
-                        pageMove += `If you want to move another page, enter another number.<br><br> 1. To page index<br> 2. To leave me Massage.`
-                        i = 0
-                        textBox.nextSibling.classList.remove('off')
-                        fakeBox.nextSibling.classList.remove('on')
-                        contents.classList.add('loading')
-                        const typing = setInterval(() => {
-                            if (pageMove.charAt(i) === '<') {
-                                textBox.innerHTML += '<br>'
-                                i = i + 4
-                            } else {
-                                textBox.innerHTML += pageMove.charAt(i)
-                                i++;
-                            }
-
-                            if (i === pageMove.length) {
-                                clearInterval(typing)
-                                textBox.nextSibling.classList.add('off')
-                                fakeBox.nextSibling.classList.add('on')
-                                cBoxes.forEach(function (v, n) {
-                                    if (n + 1 == chk) {
-                                        v.classList.add('load')
-                                    }
-                                })
-                                input.focus();
-                                chk = ''
-                                pageMove = '';
-                                running = false;
-                                input.value = ''
-                                contents.classList.remove('loading')
-                                mail = true;
-                            }
-                            consW.scrollBy(0, consW.scrollHeight)
-                        }, 30);
-                        return false;
-                    }
-                }
-            }
-
-            let success2 = function () {
                 if (running === false) {
-                    if (chk==1) {
-                        running = true;
-                        pageMove += 'success<br><br>'
-                        pageMove += `Go to page index`
-                        pageMove += `<br><br>`
-                        textBox.innerHTML += '<br><br>'
-                        i = 0
-                        textBox.nextSibling.classList.remove('off')
-                        fakeBox.nextSibling.classList.remove('on')
-                        contents.classList.add('loading')
-                        const typing = setInterval(() => {
-                            if (pageMove.charAt(i) === '<') {
-                                textBox.innerHTML += '<br>'
-                                i = i + 4
-                            } else {
-                                textBox.innerHTML += pageMove.charAt(i)
-                                i++;
+                    running = true;
+                    textBox.innerHTML += '<br><br>'
+                    i = 0
+                    textBox.nextSibling.classList.remove('off')
+                    textBox.nextSibling.classList.add('on')
+                    fakeBox.nextSibling.classList.remove('on')
+                    const typing = setInterval(() => {
+                        if (inputText.charAt(i) === '<') {
+                            textBox.innerHTML += '<br>'
+                            i = i + 4
+                        } else {
+                            textBox.innerHTML += inputText.charAt(i)
+                            i++;
+                        }
+                        consW.scrollBy(0, consW.scrollHeight)
+                        if (i === inputText.length) {
+                            clearInterval(typing)
+                            if (!mail) {
+                                cBoxes.forEach(function (v, n) {
+                                    if (n + 1 == chk) {
+                                        v.classList.add('load')
+                                    }
+                                })
                             }
-
-                            if (i === pageMove.length) {
-                                clearInterval(typing)
-                                textBox.nextSibling.classList.add('off')
-                                fakeBox.nextSibling.classList.add('on')
-                                input.focus();
-                                chk = ''
-                                pageMove = '';
-                                running = false;
-                                input.value = ''
-                                contents.classList.remove('loading')
+                            textBox.nextSibling.classList.add('off')
+                            fakeBox.nextSibling.classList.add('on')
+                            input.focus();
+                            inputText = '';
+                            running = false;
+                            contents.classList.remove('loading')
+                            if (!mail) {
+                                cBoxes.forEach(function (v, n) {
+                                    if (n + 1 == chk) {
+                                        v.classList.add('load')
+                                    }
+                                })
                             }
-                            consW.scrollBy(0, consW.scrollHeight)
-                        }, 30);
-                        return false;
-                    } else if (chk==2) {
-                        
-                    }
+                            chk=''
+                        }
+                    }, 1);
                 }
+
             }
 
-            if (mail===false) {
-                console.log('엿이나 먹으라지')
+            const error = function () {
+                warning.classList.add('load')
+                inputText = ''
+                inputText += 'error'
+                inputText += `<br><br>`
+                indexArr.forEach(function (v, n) {
+                    if (n < (indexArr.length - 2)) {
+                        inputText += v
+                    }
+                })
+                inputText += '<br><br>' + errorMessage
+                run();
+            }
+
+            const pageMove = function () {
+                warning.classList.remove('load')
+                inputText = ''
+                inputText += `success<br><br>Go to page no.${chk}<br><br>`
+                contents.classList.add('loading')
+                if (chk==4) {
+
+                    indexArr.forEach(function (v, n) {
+                        if (n < (indexArr.length - 2)) {
+                            inputText += v
+                            if (n === Number(chk)) {
+                                inputText += ' (now)<br><br>'
+                            }
+                        }
+                    })
+                    
+                    inputText += `If you want to move another page, enter another number.<br><br> 1. To page index<br> 2. To leave me Massage.`;
+                    mail = true;
+                } else {
+                    indexArr.forEach(function (v, n) {
+                        inputText += v
+                        if (n === Number(chk)) {
+                            inputText += ' (now)'
+                        }    
+                    })
+                }
+                run();
+            }
+
+            if (mail === false) {
                 if (Number.isInteger(Number(chk))) {
-                    if (Number(chk) >= 1 && Number(chk) <= 4) {
-                        success();
+                    if (Number(chk) >= 1 && Number(chk) <= 3) {
+                        pageMove();
+                    } else if (Number(chk)===4) {
+                        pageMove();
                     } else {
-                        errorF();
+                        error();
                     }
                 } else {
-                    errorF();
+                    error();
                 }
             } else {
-                console.log('왜 일을 못해 멍청아')
-                success2();
+                if (chk==1) {
+                    inputText = '';
+                    indexArr.forEach(function (v, n) {
+                        inputText += v
+                    });
+                    run()
+                } else if (chk==2) {
+                    input
+                }
             }
         }
     })
