@@ -119,21 +119,22 @@ window.onload = function () {
     })
     input.addEventListener('keyup', function (e) {
         fakeBox.nextElementSibling.classList.remove('keydown')
-        fakeBox.innerHTML = input.value        
-        
+        fakeBox.innerHTML = input.value
+        inputText = '';
+
         if (e.key === 'Enter') {
 
             let chk = input.value
-            if (input.value!='submit'){
+            if (input.value != 'submit') {
                 textBox.innerHTML += '<br>' + input.value;
             } else {
                 textBox.innerHTML += '<br><br>' + input.value;
             }
-            if (!mail && depth===0) {
+            if (!mail && depth === 0) {
                 cBoxes.forEach(function (v, n) {
                     v.classList.remove('load')
                 })
-            } else if (depth===6){
+            } else if (depth === 6) {
                 cBoxes.forEach(function (v, n) {
                     v.classList.remove('load')
                 })
@@ -141,7 +142,7 @@ window.onload = function () {
             const run = function () {
                 if (running === false) {
                     running = true;
-                    if (depth!==4) {
+                    if (depth !== 4) {
                         textBox.innerHTML += '<br><br>'
                     }
                     textBox.nextSibling.classList.remove('off')
@@ -162,7 +163,6 @@ window.onload = function () {
                             textBox.nextSibling.classList.add('off')
                             fakeBox.nextSibling.classList.add('on')
                             input.focus();
-                            inputText = '';
                             running = false;
                             contents.classList.remove('loading')
                             if (!mail) {
@@ -172,7 +172,7 @@ window.onload = function () {
                                     }
                                 })
                             }
-                            chk=''
+                            chk = ''
                         }
                     }, 1);
                 }
@@ -181,7 +181,6 @@ window.onload = function () {
 
             const error = function () {
                 warning.classList.add('load')
-                inputText = ''
                 inputText += 'error'
                 inputText += `<br><br>`
                 indexArr.forEach(function (v, n) {
@@ -191,16 +190,14 @@ window.onload = function () {
                 })
                 inputText += '<br><br>' + errorMessage
                 run();
-                chk='';
+                chk = '';
             }
 
             const pageMove = function () {
                 warning.classList.remove('load')
-                inputText = ''
                 inputText += `success<br><br>Go to page no.${chk}<br><br>`
                 contents.classList.add('loading')
-                if (chk==4) {
-
+                if (chk == 4) {
                     indexArr.forEach(function (v, n) {
                         if (n < (indexArr.length - 2)) {
                             inputText += v
@@ -209,24 +206,23 @@ window.onload = function () {
                             }
                         }
                     })
-                    
-                    inputText += `If you want to move another page, enter another number.<br><br> 1. To page index<br> 2. To leave me E-mail.`;
+                    inputText += `Would you like to go to another page?<br>Or would you like to leave me an email?<br><br> 1. To page index<br> 2. To leave me E-mail.`;
                 } else {
                     indexArr.forEach(function (v, n) {
                         inputText += v
                         if (n === Number(chk)) {
                             inputText += ' (now)'
-                        }    
+                        }
                     })
                 }
                 run();
             }
 
-            if (depth===0) {
+            if (depth === 0) {
                 if (Number.isInteger(Number(chk))) {
                     if (Number(chk) >= 1 && Number(chk) <= 3) {
                         pageMove();
-                    } else if (Number(chk)===4) {
+                    } else if (Number(chk) === 4) {
                         pageMove();
                         depth++
                     } else {
@@ -236,19 +232,18 @@ window.onload = function () {
                     error();
                 }
             } else {
-                if (depth===1) {
+                if (depth === 1) {
                     mail = true;
-                    if (chk==1) {
-                        inputText = '';
+                    if (chk == 1) {
                         indexArr.forEach(function (v, n) {
                             inputText += v;
                         });
                         run();
-                        mail=false;
-                        chk='';
+                        mail = false;
+                        chk = '';
                         depth = 0;
-                    } else if (chk==2) {
-                        inputText = 'Your name<br>';
+                    } else if (chk == 2) {
+                        inputText = 'If you want to cancel, please type {cancel}.<br><br>Your name<br>';
                         run();
                         depth++;
                         contents.classList.add('transition')
@@ -257,109 +252,131 @@ window.onload = function () {
                         contents.style.height = '33.3vh'
                         line.style.top = '33.3vh'
                         cons.style.height = '66.7vh'
-                    }
-                } else if (depth===2) {
-                    userName += input.value;
-                    inputText = 'Your E-mail<br>';
-                    run();
-                    depth++
-                } else if (depth===3) {
-                    var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-                    if (regEmail.test(input.value) === true) {
-                        userE += input.value;
-                        inputText = '<br><br>Write the message you want to leave to me, enter {submit}<br>if you want to complete it, or {index}<br>if you want to go back to the beginning and press Enter.<br><br>';
-                        depth++;
-                        run();
                     } else {
-                        inputText = '';
-                        inputText += 'Please check that you have entered your email <br>correctly in the form and re-enter it.'
+                        inputText += `
+                        ERROR<br><br>Please enter a single digit<br><br>Would you like to go to another page?<br>Or would you like to leave me an email?<br><br> 1. To page index<br> 2. To leave me E-mail.`;
                         run();
                     }
-                } else if (depth===4) {
-                    if (input.value == 'submit') {
-                        let msgArr = message.split('\n')
-                        inputText = `<br><br>Your name: ${userName}<br>Your E-mail: ${userE}<br>message: <br>`
-                        msgArr.forEach(function(v,n){
-                            inputText += v + '<br>'
-                        })
-                        inputText += `Are you really going to leave me a message with the above? <br>If yes, write 1, <br>if you want to return to the beginning, <br>write 2 and press enter.`
+                } else if (depth > 1) {
+                    if (input.value == 'cancel' || input.value == '{cancel}') {
+                        pageMove();
+                        contents.classList.add('transition');
+                        line.classList.add('transition');
+                        cons.classList.add('transition');
+                        contents.style.height = '66.6vh'
+                        line.style.top = '66.6vh'
+                        cons.style.height = '33.4vh'
+                        mail = false;
+                        depth = 0;
+                    } else if (depth === 2) {
+                        userName += input.value;
+                        inputText = 'Your E-mail<br>';
                         run();
-                        input.value = '';
-                        fakeBox.innerHTML = '';
                         depth++
-                    } else if (input.value == '') {
-                        textBox.innerHTML += '<br>'
-                    } 
-                    message += input.value;
-                    message += '\n'
-                    input.focus();
-                    consW.scrollBy(0, consW.scrollHeight)
-                    console.log(message)
-                } else if (depth===5) {
-                    if (input.value==1) {
-                        let msgSend = document.querySelector('.msgSend');
-                        msgSend.innerHTML = message;
-                        const sendEmail = () => {
-                            emailjs.init('xnJqTSF8rbKnXYsyO');
-                            let templateParams  = {
-                                name : userName,
-                                email : userE,
-                                message : message,
-                            }
-                            console.log(templateParams);
-                            emailjs.send('service_97uazly', 'template_hhwttqm', templateParams).then(function(response){
-                                console.log('Success!', response.status, response.text);
-                            }, function(error){
-                                console.log('Failed...', error);
-                            })
+                    } else if (depth === 3) {
+                        var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+                        if (regEmail.test(input.value) === true) {
+                            userE += input.value;
+                            inputText = '<br><br>Write the message you want to leave to me, enter {submit}<br>if you want to complete it, or {index}<br>if you want to go back to the beginning and press Enter.<br><br>';
+                            depth++;
+                            run();
+                        } else {
+                            inputText += 'Please check that you have entered your email <br>correctly in the form and re-enter it.'
+                            run();
                         }
-                        sendEmail();
-                        inputText = '';
-                        inputText += 'Thank you for leaving your mail. <br>I will reply to you later.<br><br>';
-                        indexArr.forEach(function(v,n){
-                            inputText += v;
-                        });
-                        run(); 
-                        userName = '';
-                        userE = '';
-                        message = '';
-                        depth++;
-                    } else if (input.value==2) {
-                        inputText = '';
-                        indexArr.forEach(function(v,n){
-                            inputText += v;
-                        })
-                        run();
-                        depth++
+                    } else if (depth === 4) {
+                        if (input.value == 'submit' || input.value == '{submit}') {
+                            let msgArr = message.split('\n')
+                            inputText = `<br><br>Your name: ${userName}<br>Your E-mail: ${userE}<br>message: <br>`
+                            msgArr.forEach(function (v, n) {
+                                inputText += v + '<br>'
+                            })
+                            inputText += `Are you really going to leave me a message with the above? <br>If yes, write 1, <br>if you want to return to the beginning, <br>write 2 and press enter.`
+                            run();
+                            input.value = '';
+                            fakeBox.innerHTML = '';
+                            depth++
+                        } else if (input.value == '') {
+                            textBox.innerHTML += '<br>'
+                        }
+                        message += input.value;
+                        message += '\n'
+                        input.focus();
+                        consW.scrollBy(0, consW.scrollHeight)
+                        console.log(message)
+                    } else if (depth === 5) {
+                        if (input.value == 1) {
+                            const sendEmail = () => {
+                                emailjs.init('xnJqTSF8rbKnXYsyO');
+                                let templateParams = {
+                                    name: userName,
+                                    email: userE,
+                                    message: message,
+                                }
+                                console.log(templateParams);
+                                emailjs.send('service_97uazly', 'template_hhwttqm', templateParams).then(function (response) {
+                                    console.log('Success!', response.status, response.text);
+                                }, function (error) {
+                                    console.log('Failed...', error);
+                                })
+                            }
+                            sendEmail();
+                            inputText += 'Thank you for leaving your mail. <br>I will reply to you later.<br><br>';
+                            indexArr.forEach(function (v, n) {
+                                inputText += v;
+                            });
+                            run();
+                            userName = '';
+                            userE = '';
+                            message = '';
+                            depth++;
+                        } else if (input.value == 2) {
+                            indexArr.forEach(function (v, n) {
+                                inputText += v;
+                            })
+                            run();
+                            depth++
+                        } else {
+                            let msgArr = message.split('\n')
+                            inputText = `<br><br>ERROR<br><br>Please enter a single digit<br><br>Your name: ${userName}<br>Your E-mail: ${userE}<br>message: <br>`
+                            msgArr.forEach(function (v, n) {
+                                inputText += v + '<br>'
+                            })
+                            inputText += `Are you really going to leave me a message with the above? <br>If yes, write 1, <br>if you want to return to the beginning, <br>write 2 and press enter.`
+                            run();
+                            input.value = '';
+                            fakeBox.innerHTML = '';
+                        }
+                    } else if (depth === 6) {
+                        if (input.value != 4) {
+                            pageMove();
+                            contents.classList.add('transition');
+                            line.classList.add('transition');
+                            cons.classList.add('transition');
+                            contents.style.height = '66.6vh'
+                            line.style.top = '66.6vh'
+                            cons.style.height = '33.4vh'
+                            mail = false;
+                            depth = 0;
+                        } else if (input.value == 4) {
+                            contents.classList.add('transition');
+                            line.classList.add('transition');
+                            cons.classList.add('transition');
+                            contents.style.height = '66.6vh'
+                            line.style.top = '66.6vh'
+                            cons.style.height = '33.4vh'
+                            pageMove();
+                            depth=1;
+                        }
                     } else {
-                        let msgArr = message.split('\n')
-                        inputText = `<br><br>ERROR<br><br>Your name: ${userName}<br>Your E-mail: ${userE}<br>message: <br>`
-                        msgArr.forEach(function(v,n){
-                            inputText += v + '<br>'
-                        })
-                        inputText += `Are you really going to leave me a message with the above? <br>If yes, write 1, <br>if you want to return to the beginning, <br>write 2 and press enter.`
-                        run();
-                        input.value = '';
-                        fakeBox.innerHTML = '';
+                        error();
                     }
-                } else if (depth === 6) {
-                    pageMove();
-                    contents.classList.add('transition');
-                    line.classList.add('transition');
-                    cons.classList.add('transition');
-                    contents.style.height = '66.6vh'
-                    line.style.top = '66.6vh'
-                    cons.style.height = '33.4vh'
-                    mail = false;
-                    depth = 0;
-                } else {
-                    error();
                 }
             }
-            if (depth<4){
+            if (depth < 4) {
                 textBox.nextSibling.classList.remove('off')
                 fakeBox.nextElementSibling.classList.remove('on')
-            } 
+            }
             input.value = ''
             fakeBox.innerHTML = ''
         }
