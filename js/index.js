@@ -43,7 +43,7 @@ window.onload = function () {
     let depth = 0
     let userName = '';
     let userE = '';
-    let massage = '';
+    let message = '';
 
     consW.addEventListener('click', function () {
         input.focus();
@@ -124,12 +124,16 @@ window.onload = function () {
         if (e.key === 'Enter') {
 
             let chk = input.value
-            let inputText = ''
-            textBox.innerHTML += '<br>' + input.value
-            // let userName = ''
-            // let userE  = ''
-            // let massage = ''
+            if (input.value!='submit'){
+                textBox.innerHTML += '<br>' + input.value;
+            } else {
+                textBox.innerHTML += '<br><br>' + input.value;
+            }
             if (!mail && depth===0) {
+                cBoxes.forEach(function (v, n) {
+                    v.classList.remove('load')
+                })
+            } else if (depth===6){
                 cBoxes.forEach(function (v, n) {
                     v.classList.remove('load')
                 })
@@ -172,6 +176,7 @@ window.onload = function () {
                         }
                     }, 1);
                 }
+                return false;
             }
 
             const error = function () {
@@ -217,19 +222,13 @@ window.onload = function () {
                 run();
             }
 
-            if (input.value) {
-
-            }
-
             if (depth===0) {
                 if (Number.isInteger(Number(chk))) {
                     if (Number(chk) >= 1 && Number(chk) <= 3) {
                         pageMove();
-                        console.log(depth)
                     } else if (Number(chk)===4) {
-                        pageMove(mail);
+                        pageMove();
                         depth++
-                        console.log(depth)
                     } else {
                         error();
                     }
@@ -239,37 +238,32 @@ window.onload = function () {
             } else {
                 if (depth===1) {
                     mail = true;
-                    contents.classList.add('transition')
-                    line.classList.add('transition')
-                    cons.classList.add('transition')
-                    contents.style.height = '33.3vh'
-                    line.style.top = '33.3vh'
-                    cons.style.height = '66.7vh'
                     if (chk==1) {
-                        console.log(input.value)
                         inputText = '';
                         indexArr.forEach(function (v, n) {
                             inputText += v;
                         });
-                        run(mail);
+                        run();
                         mail=false;
                         chk='';
                         depth = 0;
                     } else if (chk==2) {
-                        console.log(input.value)
                         inputText = 'Your name<br>';
                         run();
                         depth++;
+                        contents.classList.add('transition')
+                        line.classList.add('transition')
+                        cons.classList.add('transition')
+                        contents.style.height = '33.3vh'
+                        line.style.top = '33.3vh'
+                        cons.style.height = '66.7vh'
                     }
                 } else if (depth===2) {
-                    console.log(input.value)
                     userName += input.value;
                     inputText = 'Your E-mail<br>';
                     run();
                     depth++
-                    console.log(userName)
                 } else if (depth===3) {
-                    console.log(input.value)
                     var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
                     if (regEmail.test(input.value) === true) {
                         userE += input.value;
@@ -279,38 +273,81 @@ window.onload = function () {
                     }
                 } else if (depth===4) {
                     if (input.value == 'submit') {
-                        console.log(input.value)
-                        inputText = `<br><br>name: ${userName}<br>your E-mail: ${userE}<br>massage: ${massage}<br><br> Are you really going to leave me a message with the above? <br>If yes, write 1, <br>if you want to return to the beginning, <br>write 2 and press enter.`
+                        let msgArr = message.split('\n')
+                        inputText = `<br><br>Your name: ${userName}<br>Your E-mail: ${userE}<br>message: <br>`
+                        msgArr.forEach(function(v,n){
+                            inputText += v + '<br>'
+                        })
+                        inputText += `Are you really going to leave me a message with the above? <br>If yes, write 1, <br>if you want to return to the beginning, <br>write 2 and press enter.`
                         run();
+                        input.value = '';
+                        fakeBox.innerHTML = '';
                         depth++
-                        return
                     } else if (input.value == '') {
                         textBox.innerHTML += '<br>'
                     }
-                    console.log(input.value)
-                    massage += input.value;
-                    massage += '\n'
+                    message += input.value;
+                    message += '\n'
                     input.focus();
-                    console.log(userName)
-                    console.log(userE)
-                    console.log(massage)
                     consW.scrollBy(0, consW.scrollHeight)
                 } else if (depth===5) {
-                    if (Number(input.value)===1) {
-
-                    } else if (Number(input.value)===2) {
+                    if (input.value==1) {
+                        const sendEmail = () => {
+                            emailjs.init('xnJqTSF8rbKnXYsyO');
+                            let templateParams  = {
+                                name : userName,
+                                email : userE,
+                                message : message,
+                            }
+                            console.log(templateParams);
+                            emailjs.send('service_97uazly', 'template_hhwttqm', templateParams).then(function(response){
+                                console.log('Success!', response.status, response.text);
+                            }, function(error){
+                                console.log('Failed...', error);
+                            })
+                        }
+                        sendEmail();
+                        inputText = '';
+                        inputText += 'Thank you for leaving your mail. <br>I will reply to you later.<br><br>';
+                        indexArr.forEach(function(v,n){
+                            inputText += v;
+                        });
+                        run(); 
+                        userName = '';
+                        userE = '';
+                        message = '';
+                        depth++
+                    } else if (input.value==2) {
+                        inputText = '';
                         indexArr.forEach(function (v, n) {
-                            textC += v;
+                            inputText += v;
                         });
                         run();
-                        mail = false;
+                        cBoxes.forEach(function(v,n){
+                            v.classList.remove('load');
+                        })
+                        contents.classList.add('transition');
+                        line.classList.add('transition');
+                        cons.classList.add('transition');
+                        contents.style.height = '66.6vh'
+                        line.style.top = '66.6vh'
+                        cons.style.height = '33.4vh'
+                        depth++
                     }
+                } else if (depth === 6) {
+                    inputText = '';
+                    indexArr.forEach(function (v, n) {
+                        inputText += v;
+                    });
+                    run();
+                    mail = false;
+                    depth = 0;
                 }
             }
-            if (depth!==4){
+            if (depth<4){
                 textBox.nextSibling.classList.remove('off')
                 fakeBox.nextElementSibling.classList.remove('on')
-            }
+            } 
             input.value = ''
             fakeBox.innerHTML = ''
         }
