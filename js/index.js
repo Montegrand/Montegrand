@@ -204,7 +204,7 @@ window.onload = function () {
                     indexArr.forEach(function (v, n) {
                         if (n < (indexArr.length - 2)) {
                             inputText += v
-                            if (n === Number(chk)) {
+                            if (n === Number(chk) && depth === 0) {
                                 inputText += ' (now)<br><br>'
                             }
                         }
@@ -290,6 +290,7 @@ window.onload = function () {
                     message += '\n'
                     input.focus();
                     consW.scrollBy(0, consW.scrollHeight)
+                    console.log(message)
                 } else if (depth===5) {
                     if (input.value==1) {
                         const sendEmail = () => {
@@ -316,30 +317,23 @@ window.onload = function () {
                         userName = '';
                         userE = '';
                         message = '';
-                        depth++
+                        depth++;
                     } else if (input.value==2) {
                         inputText = '';
-                        indexArr.forEach(function (v, n) {
+                        indexArr.forEach(function(v,n){
                             inputText += v;
-                        });
-                        run();
-                        cBoxes.forEach(function(v,n){
-                            v.classList.remove('load');
                         })
-                        contents.classList.add('transition');
-                        line.classList.add('transition');
-                        cons.classList.add('transition');
-                        contents.style.height = '66.6vh'
-                        line.style.top = '66.6vh'
-                        cons.style.height = '33.4vh'
+                        run();
                         depth++
                     }
                 } else if (depth === 6) {
-                    inputText = '';
-                    indexArr.forEach(function (v, n) {
-                        inputText += v;
-                    });
-                    run();
+                    pageMove();
+                    contents.classList.add('transition');
+                    line.classList.add('transition');
+                    cons.classList.add('transition');
+                    contents.style.height = '66.6vh'
+                    line.style.top = '66.6vh'
+                    cons.style.height = '33.4vh'
                     mail = false;
                     depth = 0;
                 }
