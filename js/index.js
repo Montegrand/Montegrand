@@ -99,10 +99,10 @@ window.onload = function () {
                             fakeBox.nextElementSibling.classList.add('on')
                             running = false;
                         }
-                    }, 1);
-                }, 1)
+                    }, 30);
+                }, 30)
             }
-        }, 1)
+        }, 100)
     }
 
     cons.addEventListener('transitionend', function () {
@@ -174,7 +174,7 @@ window.onload = function () {
                             }
                             chk = ''
                         }
-                    }, 1);
+                    }, 30);
                 }
                 return false;
             }
