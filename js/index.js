@@ -100,7 +100,7 @@ window.onload = function () {
                             running = false;
                         }
                     }, 30);
-                }, 30)
+                }, 3000)
             }
         }, 100)
     }
@@ -259,6 +259,9 @@ window.onload = function () {
                     }
                 } else if (depth > 1) {
                     if (input.value == 'cancel' || input.value == '{cancel}') {
+                        cBoxes.forEach(function (v, n) {
+                            v.classList.remove('load')
+                        })
                         pageMove();
                         contents.classList.add('transition');
                         line.classList.add('transition');

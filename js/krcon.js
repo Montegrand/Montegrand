@@ -264,7 +264,10 @@ window.onload = function () {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    fetch(url)
+    fetch(url, {
+        method: 'PUT',
+        credentials: 'include'
+    })
         .then(res => res.json())
         .then(res => {
             let item = res.response.body.items.item[0];
