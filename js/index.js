@@ -41,15 +41,9 @@ window.onload = function () {
     let cons = document.querySelector('.console')
     let mail = false;
     let depth = 0
-    class DataInfo {
-        constructor(name, uEmail, massage) {
-            this.name = name;
-            this.uEmail = uEmail;
-            this.massage = massage
-        }
-    }
-
-    let data = new DataInfo
+    let userName = '';
+    let userE = '';
+    let massage = '';
 
     consW.addEventListener('click', function () {
         input.focus();
@@ -114,9 +108,9 @@ window.onload = function () {
     cons.addEventListener('transitionend', function () {
         input.focus();
         consW.scrollBy(0, consW.scrollHeight)
-        cons.classList.remove('open');
-        contents.classList.remove('open');
-        line.classList.remove('open');
+        cons.classList.remove('transition');
+        contents.classList.remove('transition');
+        line.classList.remove('transition');
     })
 
     input.addEventListener('keydown', function (e) {
@@ -132,9 +126,9 @@ window.onload = function () {
             let chk = input.value
             let inputText = ''
             textBox.innerHTML += '<br>' + input.value
-            let userName = ''
-            let userE  = ''
-            let massage = ''
+            // let userName = ''
+            // let userE  = ''
+            // let massage = ''
             if (!mail && depth===0) {
                 cBoxes.forEach(function (v, n) {
                     v.classList.remove('load')
@@ -143,11 +137,13 @@ window.onload = function () {
             const run = function () {
                 if (running === false) {
                     running = true;
-                    textBox.innerHTML += '<br><br>'
-                    i = 0
+                    if (depth!==4) {
+                        textBox.innerHTML += '<br><br>'
+                    }
                     textBox.nextSibling.classList.remove('off')
                     textBox.nextSibling.classList.add('on')
                     fakeBox.nextSibling.classList.remove('on')
+                    i = 0
                     const typing = setInterval(() => {
                         if (inputText.charAt(i) === '<') {
                             textBox.innerHTML += '<br>'
@@ -243,7 +239,14 @@ window.onload = function () {
             } else {
                 if (depth===1) {
                     mail = true;
+                    contents.classList.add('transition')
+                    line.classList.add('transition')
+                    cons.classList.add('transition')
+                    contents.style.height = '33.3vh'
+                    line.style.top = '33.3vh'
+                    cons.style.height = '66.7vh'
                     if (chk==1) {
+                        console.log(input.value)
                         inputText = '';
                         indexArr.forEach(function (v, n) {
                             inputText += v;
@@ -253,40 +256,63 @@ window.onload = function () {
                         chk='';
                         depth = 0;
                     } else if (chk==2) {
-                        userName += input.value;
+                        console.log(input.value)
                         inputText = 'Your name<br>';
                         run();
-                        depth++
-                        console.log(depth)
+                        depth++;
                     }
                 } else if (depth===2) {
+                    console.log(input.value)
                     userName += input.value;
                     inputText = 'Your E-mail<br>';
                     run();
                     depth++
-                    console.log(depth)
+                    console.log(userName)
                 } else if (depth===3) {
+                    console.log(input.value)
                     var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
                     if (regEmail.test(input.value) === true) {
                         userE += input.value;
-                        inputText = 'Write the message you want to leave to me, enter {submit} if you want to complete it, or {index} if you want to go back to the beginning and press Enter.';
+                        inputText = '<br><br>Write the message you want to leave to me, enter {submit}<br>if you want to complete it, or {index}<br>if you want to go back to the beginning and press Enter.<br><br>';
                         depth++;
                         run();
-                        console.log(depth)
-                        console.log(userE)
                     }
                 } else if (depth===4) {
+                    if (input.value == 'submit') {
+                        console.log(input.value)
+                        inputText = `<br><br>name: ${userName}<br>your E-mail: ${userE}<br>massage: ${massage}<br><br> Are you really going to leave me a message with the above? <br>If yes, write 1, <br>if you want to return to the beginning, <br>write 2 and press enter.`
+                        run();
+                        depth++
+                        return
+                    } else if (input.value == '') {
+                        textBox.innerHTML += '<br>'
+                    }
+                    console.log(input.value)
                     massage += input.value;
-                    run();
-                    console.log(depth)
+                    massage += '\n'
+                    input.focus();
+                    console.log(userName)
+                    console.log(userE)
                     console.log(massage)
+                    consW.scrollBy(0, consW.scrollHeight)
+                } else if (depth===5) {
+                    if (Number(input.value)===1) {
+
+                    } else if (Number(input.value)===2) {
+                        indexArr.forEach(function (v, n) {
+                            textC += v;
+                        });
+                        run();
+                        mail = false;
+                    }
                 }
             }
-            textBox.nextSibling.classList.remove('off')
-            fakeBox.nextElementSibling.classList.remove('on')
+            if (depth!==4){
+                textBox.nextSibling.classList.remove('off')
+                fakeBox.nextElementSibling.classList.remove('on')
+            }
             input.value = ''
             fakeBox.innerHTML = ''
-            input.blur()
         }
     })
 
@@ -304,9 +330,10 @@ window.onload = function () {
     })
 
     window.addEventListener('resize', function () {
-        let cons = document.querySelector('.console')
+        let contents = document.querySelector('.contents')
+        let line = document.querySelector('.line')
         line.style.top = `${contents.offsetHeight-3}px`
-        cons.style.height = `${window.innerHeight - (contents.offsetHeight+6)}px`
+        cons.style.height = `${window.innerHeight - (contents.offsetHeight+line.offsetHeight)}px`
     })
 
     let imgA = document.querySelectorAll('.box.snd > div > div:first-child a');
