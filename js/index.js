@@ -270,6 +270,10 @@ window.onload = function () {
                         inputText = '<br><br>Write the message you want to leave to me, enter {submit}<br>if you want to complete it, or {index}<br>if you want to go back to the beginning and press Enter.<br><br>';
                         depth++;
                         run();
+                    } else {
+                        inputText = '';
+                        inputText += 'Please check that you have entered your email <br>correctly in the form and re-enter it.'
+                        run();
                     }
                 } else if (depth===4) {
                     if (input.value == 'submit') {
@@ -285,7 +289,7 @@ window.onload = function () {
                         depth++
                     } else if (input.value == '') {
                         textBox.innerHTML += '<br>'
-                    }
+                    } 
                     message += input.value;
                     message += '\n'
                     input.focus();
@@ -293,6 +297,8 @@ window.onload = function () {
                     console.log(message)
                 } else if (depth===5) {
                     if (input.value==1) {
+                        let msgSend = document.querySelector('.msgSend');
+                        msgSend.innerHTML = message;
                         const sendEmail = () => {
                             emailjs.init('xnJqTSF8rbKnXYsyO');
                             let templateParams  = {
@@ -325,6 +331,16 @@ window.onload = function () {
                         })
                         run();
                         depth++
+                    } else {
+                        let msgArr = message.split('\n')
+                        inputText = `<br><br>ERROR<br><br>Your name: ${userName}<br>Your E-mail: ${userE}<br>message: <br>`
+                        msgArr.forEach(function(v,n){
+                            inputText += v + '<br>'
+                        })
+                        inputText += `Are you really going to leave me a message with the above? <br>If yes, write 1, <br>if you want to return to the beginning, <br>write 2 and press enter.`
+                        run();
+                        input.value = '';
+                        fakeBox.innerHTML = '';
                     }
                 } else if (depth === 6) {
                     pageMove();
@@ -336,6 +352,8 @@ window.onload = function () {
                     cons.style.height = '33.4vh'
                     mail = false;
                     depth = 0;
+                } else {
+                    error();
                 }
             }
             if (depth<4){
