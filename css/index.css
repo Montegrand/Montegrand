@@ -289,7 +289,7 @@ body > .line::after {
     overflow: hidden;
     align-items: center;
     justify-content: space-around;
-    background: url(../images/index/background.jpg) 50% 50% / 130% no-repeat;
+    background: url(../images/index/bg.png) 50% 50% / 130% no-repeat;
     position: relative;
 }
 

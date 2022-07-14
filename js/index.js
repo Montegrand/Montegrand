@@ -27,7 +27,7 @@ window.onload = function () {
     let openingT = `안녕하세요. 제 포트폴리오에 방문해 주셔서 감사합니다.<br><br>저는 앞날을 건실하고 견고하게 나아가고 싶은,<br>웹 개발에 첫발을 내딘<br>홍기현입니다.<br><br>제가 웹 개발을 바라보는 시선이<br>이 포트폴리오로서<br>당신께 전달되길 바랍니다.<br><br>`
 
     let textC = '';
-    let pageIndex = 'Page index, <br><br>1. MAIN, <br> 2. ABOUT, <br> 3. PROJECT, <br> 4. CONTACT, <br><br>Please insert a single digit of the page you want, and press the Enter.<br><br>';
+    let pageIndex = 'Page index, <br><br>1. ABOUT, <br> 2. PROJECT, <br> 3. CONTACT, <br><br>Please insert a single digit of the page you want, and press the Enter.<br><br>';
     let indexArr = pageIndex.split(",");
 
     let textBox = document.querySelector('.window > p:first-child > span');
@@ -119,7 +119,6 @@ window.onload = function () {
 
     if (running === false) {
         running = true;
-        textC += openingT;
         textC += 'Welcome to my PORTFOLIO<br><br>I sincerely appreciate your visiting.<br>It meant a lot to me that you took the time to come by.<br>I know how busy you are, and I truly value the time we spent together<br><br>Please know that I am very grateful for your kindness<br><br>';
         indexArr.forEach(function (v, n) {
             textC += v;
@@ -274,9 +273,9 @@ window.onload = function () {
 
             if (depth === 0) {
                 if (Number.isInteger(Number(chk))) {
-                    if (Number(chk) >= 1 && Number(chk) <= 3) {
+                    if (Number(chk) >= 1 && Number(chk) <= 2) {
                         pageMove();
-                    } else if (Number(chk) === 4) {
+                    } else if (Number(chk) === 3) {
                         pageMove();
                         depth++
                     } else {
