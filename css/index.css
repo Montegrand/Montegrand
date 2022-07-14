@@ -192,6 +192,7 @@ body > .line::after {
     position: relative;
     overflow-y: scroll;
     transition: 0.5s;
+    overflow-x: hidden;
 }
 
 .console .window::-webkit-scrollbar {
