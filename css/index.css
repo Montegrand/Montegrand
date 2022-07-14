@@ -46,7 +46,7 @@
     from {
         background-color: #87cefa00;
     }
-    50% {
+    20% {
         background-color: #87cefaff;
     }
     100% {
@@ -168,7 +168,7 @@ body > .line::after {
 }
 
 .console .top > div:last-child a.transition {
-    animation: Flash 0.2s;
+    animation: Flash 0.5s;
 }
 
 .console .top > div:last-child a i {
