@@ -50,7 +50,7 @@
     list-style-type: none;
     color: #333;
     word-break: keep-all;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 body {
