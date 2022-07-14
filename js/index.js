@@ -52,6 +52,7 @@ window.onload = function () {
 
     gb.forEach(function(v,n){
         v.addEventListener('click',function(){
+            v.classList.add('transition');
             if(!running) {
                 if (window.innerWidth<1280) {
                     if (n===0){
@@ -85,6 +86,9 @@ window.onload = function () {
                     cons.style.height = 'calc(80vh)'
                 }
             }
+        })
+        v.addEventListener('animationend',function(){
+            v.classList.remove('transition');
         })
     })
 

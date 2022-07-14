@@ -42,6 +42,18 @@
     }
 }
 
+@keyframes Flash {
+    from {
+        background-color: #87cefa00;
+    }
+    50% {
+        background-color: #87cefaff;
+    }
+    100% {
+        background-color: #87cefa00;
+    }
+}
+
 * {
     margin: 0; padding: 0;
     box-sizing: border-box;
@@ -153,6 +165,10 @@ body > .line::after {
     display: flex;
     border: 1px solid #333;
     cursor: default;
+}
+
+.console .top > div:last-child a.transition {
+    animation: Flash 0.2s;
 }
 
 .console .top > div:last-child a i {
