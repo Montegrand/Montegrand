@@ -1,0 +1,39 @@
+html {
+    font-size: 10px;
+}
+
+.contents > .box.load h2 {
+    font-size: 4rem;
+    position: static;
+    top: auto;
+    left: auto;
+    margin: 30px;
+}
+
+.fst img {
+    height: 200px;
+}
+
+.fst > div > div {
+    width: 70%;
+}
+
+.contents > .box.snd.load > div > div:nth-child(2) {
+    width: 80%;
+}
+
+.contents > .box.snd.load > div > div:nth-child(2) > div {
+    width: 100%;
+}
+
+.contents > .box.snd.load .CB > div {
+    width: 100%;
+}
+
+.contents > .box.snd.load .CB i {
+    width: 20%;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) {
+    width: 100%;
+}

@@ -58,8 +58,8 @@ window.onload = function () {
                         contents.classList.add('transition');
                         line.classList.add('transition');
                         cons.classList.add('transition');
-                        contents.style.height = `calc(${window.innerHeight - 3}px - 2rem)`
-                        line.style.top = `calc(${window.innerHeight - 3}px - 2rem)`
+                        contents.style.height = `calc(${window.innerHeight - 6}px - 2rem)`
+                        line.style.top = `calc(${window.innerHeight - 6}px - 2rem)`
                         cons.style.height = '50px'
                     } else if (n===1){
                         contents.classList.add('transition');
@@ -73,8 +73,8 @@ window.onload = function () {
                     contents.classList.add('transition');
                     line.classList.add('transition');
                     cons.classList.add('transition');
-                    contents.style.height = `calc(${window.innerHeight - 3}px - 2rem)`
-                    line.style.top = `calc(${window.innerHeight - 3}px - 2rem)`
+                    contents.style.height = `calc(${window.innerHeight - 6}px - 2rem)`
+                    line.style.top = `calc(${window.innerHeight - 6}px - 2rem)`
                     cons.style.height = '50px'
                 } else if (n===1){
                     contents.classList.add('transition');
@@ -123,6 +123,7 @@ window.onload = function () {
         const open = setInterval(() => {
             textBox.innerHTML += openingB[i]
             i++
+            consW.scrollBy(0, consW.scrollHeight)
             if (i === openingB.length) {
                 clearInterval(open)
                 i = 0;
@@ -340,7 +341,7 @@ window.onload = function () {
                     } else if (depth === 4) {
                         if (input.value == 'submit' || input.value == '{submit}') {
                             let msgArr = message.split('\n')
-                            inputText = `<br><br>Your name: ${userName}<br>Your E-mail: ${userE}<br>message: <br>`
+                            inputText = `Your name: ${userName}<br>Your E-mail: ${userE}<br>message: <br><br>`
                             msgArr.forEach(function (v, n) {
                                 inputText += v + '<br>'
                             })

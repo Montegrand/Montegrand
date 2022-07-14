@@ -4,41 +4,78 @@ body > .line::after {
 
 .contents {
     overflow-y: scroll;
+    align-items: flex-start;
+}
+
+.contents.loading {
+    align-items: center !important;
 }
 
 .contents > div {
     flex-direction: column;
     background-size: cover;
     height: 100%;
-    justify-content: center;
+    justify-content: flex-start
 }
 
-.contents > .box.main h2 {
-    margin-bottom: 63px;
+.contents > div.box.main.load {
+    justify-content: space-evenly;
+    height: 100%;
 }
 
-/* ========================================================================================================= */
+.contents .main > div p {
+    text-align: center;
+}
 
-.contents > .box h2 {
+.contents > .box.load h2 {
     font-size: 4rem;
     position: static;
     top: auto;
     left: auto;
-    margin: 24px;
+    margin: 60px;
 }
 
-.contents > .box.fst {
-    height: 100%;
-    justify-content: flex-start;
+.contents > .box {
+    height: auto;
 }
 
-.contents > .box.fst.load > div {
+.contents > .box.load > div {
     flex-direction: column;
     width: 100%;
 }
 
+.contents > .box.fst.load > div {
+    align-content: center;
+}
+
 .fst img {
     height: 300px;
-    margin: 0;
+    margin-bottom: 60px;
+    margin-right: 0;
     animation: none;
+}
+
+.contents > .box.snd.load > div {
+    width: 100%;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 30px;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) {
+    height: 400px;
+    opacity: 1;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) > a {
+    opacity: 1;
+}
+
+.contents > .box.snd.load > div > div:nth-child(2) {
+    width: 60%;
+    margin-bottom: 60px;
+}
+
+.contents > .trd.load {
+    height: 100%;
 }
