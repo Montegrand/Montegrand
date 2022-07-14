@@ -19,6 +19,9 @@ window.onload = function () {
     /\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0/<br>+
     /\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0/<br>+
     ////////////////////////////////////////////////////////////////////////////////////////////////<br>+<br>`
+    if (window.innerWidth<1280){
+        opening += '+이 포트폴리오는 pc에 최적화 되어 있습니다.<br>+pc로 봐주신다면 감사드리겠습니다.<br>+<br>'
+    }
     let openingB = opening.split("+");
 
     let openingT = `안녕하세요. 제 포트폴리오에 방문해 주셔서 감사합니다.<br><br>저는 앞날을 건실하고 견고하게 나아가고 싶은,<br>웹 개발에 첫발을 내딘<br>홍기현입니다.<br><br>제가 웹 개발을 바라보는 시선이<br>이 포트폴리오로서<br>당신께 전달되길 바랍니다.<br><br>`
@@ -45,25 +48,41 @@ window.onload = function () {
     let userE = '';
     let message = '';
     let gb = document.querySelectorAll('.gb > a');
-    console.log(gb)
+    
 
     gb.forEach(function(v,n){
         v.addEventListener('click',function(){
             if(!running) {
-                if (n===0){
+                if (window.innerWidth<1280) {
+                    if (n===0){
+                        contents.classList.add('transition');
+                        line.classList.add('transition');
+                        cons.classList.add('transition');
+                        contents.style.height = `calc(${window.innerHeight - 3}px - 2rem)`
+                        line.style.top = `calc(${window.innerHeight - 3}px - 2rem)`
+                        cons.style.height = '50px'
+                    } else if (n===1){
+                        contents.classList.add('transition');
+                        line.classList.add('transition');
+                        cons.classList.add('transition');
+                        contents.style.height = `calc(70vh - 3px)`
+                        line.style.top = `calc(70vh - 3px)`
+                        cons.style.height = 'calc(30vh)'
+                    }
+                } else if (n===0){
                     contents.classList.add('transition');
                     line.classList.add('transition');
                     cons.classList.add('transition');
                     contents.style.height = `calc(${window.innerHeight - 3}px - 2rem)`
                     line.style.top = `calc(${window.innerHeight - 3}px - 2rem)`
-                    cons.style.height = '2rem'
+                    cons.style.height = '50px'
                 } else if (n===1){
                     contents.classList.add('transition');
                     line.classList.add('transition');
                     cons.classList.add('transition');
                     contents.style.height = `calc(20vh - 3px)`
                     line.style.top = `calc(20vh - 3px)`
-                    cons.style.height = 'calc(80vh - 3px - 2rem)'
+                    cons.style.height = 'calc(80vh)'
                 }
             }
         })
@@ -73,22 +92,26 @@ window.onload = function () {
         input.focus();
     })
 
-    cBoxes.forEach(function (v, n) {
-        v.addEventListener('mousemove', function (e) {
-            let X = e.clientX;
-            let Y = e.clientY;
-            v.style.backgroundPosition = `${(X/v.offsetWidth)*100}% ${(Y/v.offsetHeight)*100}%`;
+    if (window.innerWidth>1280){
+        
+        cBoxes.forEach(function (v, n) {
+            v.addEventListener('mousemove', function (e) {
+                let X = e.clientX;
+                let Y = e.clientY;
+                v.style.backgroundPosition = `${(X/v.offsetWidth)*100}% ${(Y/v.offsetHeight)*100}%`;
+            })
+    
+            if (n !== 0) {
+                v.addEventListener('mouseenter', function () {
+                    v.classList.add('hover');
+                })
+                v.addEventListener('mouseleave', function () {
+                    v.classList.remove('hover');
+                })
+            }
         })
 
-        if (n !== 0) {
-            v.addEventListener('mouseenter', function () {
-                v.classList.add('hover');
-            })
-            v.addEventListener('mouseleave', function () {
-                v.classList.remove('hover');
-            })
-        }
-    })
+    }
 
     if (running === false) {
         running = true;
@@ -129,12 +152,16 @@ window.onload = function () {
         }, 100)
     }
 
+
+
     cons.addEventListener('transitionend', function () {
-        input.focus();
         consW.scrollBy(0, consW.scrollHeight)
         cons.classList.remove('transition');
         contents.classList.remove('transition');
         line.classList.remove('transition');
+        if (cons.offsetHeight>50){
+            input.focus();
+        }
     })
 
     input.addEventListener('keydown', function (e) {
@@ -303,7 +330,7 @@ window.onload = function () {
                         var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
                         if (regEmail.test(input.value) === true) {
                             userE += input.value;
-                            inputText = 'Write the message you want to leave to me, enter {submit}<br>if you want to complete it, or {cancel}<br>if you want to go back to the beginning and press Enter.<br><br>';
+                            inputText = 'Please write a message for me. <br>If you want a line break, just press Enter. <br>If you have finished writing the message, write {submit}, <br>if you want to cancel, write {cancel} and press Enter.<br><br>';
                             depth++;
                             run();
                         } else {

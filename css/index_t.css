@@ -1,0 +1,44 @@
+body > .line::after {
+    display: none;
+}
+
+.contents {
+    overflow-y: scroll;
+}
+
+.contents > div {
+    flex-direction: column;
+    background-size: cover;
+    height: 100%;
+    justify-content: center;
+}
+
+.contents > .box.main h2 {
+    margin-bottom: 63px;
+}
+
+/* ========================================================================================================= */
+
+.contents > .box h2 {
+    font-size: 4rem;
+    position: static;
+    top: auto;
+    left: auto;
+    margin: 24px;
+}
+
+.contents > .box.fst {
+    height: 100%;
+    justify-content: flex-start;
+}
+
+.contents > .box.fst.load > div {
+    flex-direction: column;
+    width: 100%;
+}
+
+.fst img {
+    height: 300px;
+    margin: 0;
+    animation: none;
+}

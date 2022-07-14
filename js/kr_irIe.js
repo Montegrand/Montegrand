@@ -87,10 +87,12 @@ window.onload = function () {
 
     let date = getToday();
 
-    let url = 'https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?resultType=json&';
-    url += 'basDt=' + date + '&';
+    let url = '';
+    url += 'https://cors-mongtegrand.herokuapp.com/';
+    url += 'https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?resultType=json&';
+    url += 'basDt=${date}&';
     url += 'isinCd=KR7013580006&';
-    url += 'serviceKey=' + key;
+    url += 'serviceKey=${key}';
 
     let outPut = document.querySelectorAll('section .container .stockContainer span');
     let stock = document.querySelectorAll('section .container .box .stock span');

@@ -110,7 +110,7 @@ body > .line::after {
 
 .console {
     border: 1px solid #000;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .console .top {
@@ -127,6 +127,7 @@ body > .line::after {
 .console .top > div {
     display: flex;
     align-items: center;
+    flex: 0 1 40px;
 }
 
 .console .top > div:first-child i {
@@ -316,13 +317,12 @@ body > .line::after {
 /* main------------------------------------------------------------------------------------- */
 
 .contents .main > div p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 3rem;
 }
 
 .contents > .box.main h2 {
-    position: relative;
-    top: auto; left: auto;
+    position: static;
 }
 
 .contents > .main.load > div {
@@ -380,6 +380,7 @@ body > .line::after {
 .fst .les > div {
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
 .fst .les > div span i {
@@ -396,7 +397,7 @@ body > .line::after {
 }
 
 .contents > .box.snd.load > div > div:nth-child(1) {
-    width: 45%;
+    width: 50%;
     opacity: 0;
     display: flex;
     transition: 0.5s;
@@ -412,6 +413,8 @@ body > .line::after {
     text-indent: -2000px;
     overflow: hidden;
     position: relative;
+    opacity: 0.6;
+    transition: 0.5s;
 }
 
 .contents > .box.snd.load > div > div:nth-child(1) > a span {
@@ -421,6 +424,10 @@ body > .line::after {
     padding: 6px 12px;
     background-color: #0972CD33;
     transition: 0.5s;
+}
+
+.contents > .box.snd.load > div > div:nth-child(1) > a:hover {
+    opacity: 1;
 }
 
 .contents > .box.snd.load > div > div:nth-child(1) > a:hover span {
@@ -445,7 +452,7 @@ body > .line::after {
 }
 
 .contents > .box.snd.load > div > div:nth-child(2) {
-    width: 50%;
+    width: 40%;
 }
 
 .contents > .box.snd.load > div > div:nth-child(2) h3 {
@@ -454,7 +461,7 @@ body > .line::after {
 }
 
 .contents > .box.snd.load > div > div:nth-child(2) p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 24px;
     text-align: justify;
 }
@@ -475,6 +482,7 @@ body > .line::after {
 .contents > .box.snd.load .CB > div {
     display: flex;
     justify-content: space-between;
+    width: 300px;
 }
 
 .contents > .box.snd.load .CB i {
@@ -506,14 +514,16 @@ body > .line::after {
 }
 
 .contents > .box.snd.load .PV a {
-    font-size: 1.5rem;
+    font-size: 1rem;
     width: 30%;
     display: flex;
     justify-content: center;
+    padding: 6px 0;
 }
 
 .contents > .box.snd.load .PV a:hover {
     color: #abd;
+    background: #ddd;
 }
 
 /* box3----------------------------------------------------------------------------------- */

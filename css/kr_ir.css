@@ -329,6 +329,7 @@ section.fst .container .box .stock > div span:first-child::before {
     font-size: 1.5rem;
     position: absolute;
     top: -42px;
+    white-space: nowrap;
 }
 
 section.fst .container .box .stock > div span:last-child::before {
