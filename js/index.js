@@ -44,6 +44,30 @@ window.onload = function () {
     let userName = '';
     let userE = '';
     let message = '';
+    let gb = document.querySelectorAll('.gb > a');
+    console.log(gb)
+
+    gb.forEach(function(v,n){
+        v.addEventListener('click',function(){
+            if(!running) {
+                if (n===0){
+                    contents.classList.add('transition');
+                    line.classList.add('transition');
+                    cons.classList.add('transition');
+                    contents.style.height = `calc(${window.innerHeight - 3}px - 2rem)`
+                    line.style.top = `calc(${window.innerHeight - 3}px - 2rem)`
+                    cons.style.height = '2rem'
+                } else if (n===1){
+                    contents.classList.add('transition');
+                    line.classList.add('transition');
+                    cons.classList.add('transition');
+                    contents.style.height = `calc(20vh - 3px)`
+                    line.style.top = `calc(20vh - 3px)`
+                    cons.style.height = 'calc(80vh - 3px - 2rem)'
+                }
+            }
+        })
+    })
 
     consW.addEventListener('click', function () {
         input.focus();
@@ -142,9 +166,7 @@ window.onload = function () {
             const run = function () {
                 if (running === false) {
                     running = true;
-                    if (depth !== 4) {
-                        textBox.innerHTML += '<br><br>'
-                    }
+                    textBox.innerHTML += '<br><br>'
                     textBox.nextSibling.classList.remove('off')
                     textBox.nextSibling.classList.add('on')
                     fakeBox.nextSibling.classList.remove('on')
@@ -262,6 +284,7 @@ window.onload = function () {
                         cBoxes.forEach(function (v, n) {
                             v.classList.remove('load')
                         })
+                        
                         pageMove();
                         contents.classList.add('transition');
                         line.classList.add('transition');
@@ -280,7 +303,7 @@ window.onload = function () {
                         var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
                         if (regEmail.test(input.value) === true) {
                             userE += input.value;
-                            inputText = '<br><br>Write the message you want to leave to me, enter {submit}<br>if you want to complete it, or {cancel}<br>if you want to go back to the beginning and press Enter.<br><br>';
+                            inputText = 'Write the message you want to leave to me, enter {submit}<br>if you want to complete it, or {cancel}<br>if you want to go back to the beginning and press Enter.<br><br>';
                             depth++;
                             run();
                         } else {
@@ -399,9 +422,8 @@ window.onload = function () {
     })
 
     window.addEventListener('resize', function () {
-        let contents = document.querySelector('.contents')
-        let line = document.querySelector('.line')
-        line.style.top = `${contents.offsetHeight-3}px`
+        contents.style.height = `${window.innerHeight * 0.67}px`
+        line.style.top = `${contents.offsetHeight}px`
         cons.style.height = `${window.innerHeight - (contents.offsetHeight+line.offsetHeight)}px`
     })
 

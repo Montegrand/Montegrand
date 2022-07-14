@@ -148,7 +148,9 @@ window.onload = function () {
 
     let date = getToday();
 
-    let url = `https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?resultType=json&`;
+    let url = '';
+    url += 'https://cors-mongtegrand.herokuapp.com/';
+    url += `https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?resultType=json&`;
     url += `basDt=${date}&`;
     url += `isinCd=KR7013580006&`;
     url += `serviceKey=${key}`;
@@ -179,7 +181,6 @@ window.onload = function () {
                     max = Number(item.fltRt);
                 }
 
-                console.log(max)
 
                 var now = max
                 const handle = setInterval(() => {

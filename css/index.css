@@ -50,7 +50,7 @@
     list-style-type: none;
     color: #333;
     word-break: keep-all;
-    /* outline: 1px solid red; */
+    outline: 1px solid red;
 }
 
 body {
@@ -110,6 +110,7 @@ body > .line::after {
 
 .console {
     border: 1px solid #000;
+    /* overflow: hidden; */
 }
 
 .console .top {
@@ -120,6 +121,7 @@ body > .line::after {
     padding-left: 8px;
     background: #aaa;
     outline: 1px solid #000;
+    z-index: 10;
 }
 
 .console .top > div {
@@ -172,6 +174,7 @@ body > .line::after {
     padding: 12px 30px;
     position: relative;
     overflow-y: scroll;
+    transition: 0.5s;
 }
 
 .console .window::-webkit-scrollbar {

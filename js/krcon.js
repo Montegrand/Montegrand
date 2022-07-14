@@ -251,7 +251,9 @@ window.onload = function () {
 
     let date = getToday();
 
-    let url = `https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?resultType=json&`;
+    let url = '';
+    url += 'https://cors-mongtegrand.herokuapp.com/';
+    url += `https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?resultType=json&`;
     url += `basDt=${date}&`;
     url += `isinCd=KR7013580006&`;
     url += `serviceKey=${key}`;
@@ -264,10 +266,7 @@ window.onload = function () {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    fetch(url, {
-        method: 'PUT',
-        credentials: 'include'
-    })
+    fetch(url)
         .then(res => res.json())
         .then(res => {
             let item = res.response.body.items.item[0];
@@ -327,6 +326,4 @@ window.onload = function () {
                 })
             })
         })
-
-    console.log(document.querySelector('.sec.fourth').getBoundingClientRect())
 }
