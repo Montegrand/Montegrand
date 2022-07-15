@@ -20,12 +20,9 @@ window.onload = function () {
     /\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0/<br>+
     ////////////////////////////////////////////////////////////////////////////////////////////////<br>+<br>`
     if (window.innerWidth < 1280) {
-        opening += '+이 포트폴리오는 pc에 최적화 되어 있습니다.<br>+pc로 봐주신다면 감사드리겠습니다.<br>+<br>'
+        opening += '+이 포트폴리오는 pc에 최적화 되어 있습니다.<br>+<br>'
     }
     let openingB = opening.split("+");
-
-    let openingT = `안녕하세요. 제 포트폴리오에 방문해 주셔서 감사합니다.<br><br>저는 앞날을 건실하고 견고하게 나아가고 싶은,<br>웹 개발에 첫발을 내딘<br>홍기현입니다.<br><br>제가 웹 개발을 바라보는 시선이<br>이 포트폴리오로서<br>당신께 전달되길 바랍니다.<br><br>`
-
     let textC = '';
     let pageIndex = 'Page index, <br><br>1. ABOUT, <br> 2. PROJECT, <br> 3. CONTACT, <br><br>Please insert a single digit of the page you want, and press the Enter.<br><br>';
     let indexArr = pageIndex.split(",");
@@ -49,6 +46,11 @@ window.onload = function () {
     let message = '';
     let gb = document.querySelectorAll('.gb > a');
     let mPressed = false;
+    let transition = function () {
+        contents.classList.add('transition');
+        line.classList.add('transition');
+        cons.classList.add('transition');
+    }
 
     line.addEventListener('mousedown', function () {
         mPressed = true;
@@ -65,9 +67,7 @@ window.onload = function () {
     line.addEventListener('mouseup', function () {
         mPressed = false;
         if (running) {
-            contents.classList.add('transition');
-            line.classList.add('transition');
-            cons.classList.add('transition');
+            transition();
         }
     })
 
@@ -77,31 +77,23 @@ window.onload = function () {
             if (!running) {
                 if (window.innerWidth < 1280) {
                     if (n === 0) {
-                        contents.classList.add('transition');
-                        line.classList.add('transition');
-                        cons.classList.add('transition');
+                        transition();
                         contents.style.height = `calc(${window.innerHeight - 6}px - 2rem)`
                         line.style.top = `calc(${window.innerHeight - 6}px - 2rem)`
                         cons.style.height = '50px'
                     } else if (n === 1) {
-                        contents.classList.add('transition');
-                        line.classList.add('transition');
-                        cons.classList.add('transition');
+                        transition();
                         contents.style.height = `calc(70vh - 3px)`
                         line.style.top = `calc(70vh - 3px)`
                         cons.style.height = 'calc(30vh)'
                     }
                 } else if (n === 0) {
-                    contents.classList.add('transition');
-                    line.classList.add('transition');
-                    cons.classList.add('transition');
+                    transition();
                     contents.style.height = `calc(${window.innerHeight - 6}px - 2rem)`
                     line.style.top = `calc(${window.innerHeight - 6}px - 2rem)`
                     cons.style.height = '50px'
                 } else if (n === 1) {
-                    contents.classList.add('transition');
-                    line.classList.add('transition');
-                    cons.classList.add('transition');
+                    transition();
                     contents.style.height = `calc(20vh - 3px)`
                     line.style.top = `calc(20vh - 3px)`
                     cons.style.height = 'calc(80vh)'
@@ -141,7 +133,6 @@ window.onload = function () {
         //         })
         //     }
         // })
-
     }
 
     if (running === false) {
