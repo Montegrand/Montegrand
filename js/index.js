@@ -19,7 +19,7 @@ window.onload = function () {
     /\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0/<br>+
     /\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0/<br>+
     ////////////////////////////////////////////////////////////////////////////////////////////////<br>+<br>`
-    if (window.innerWidth<1280){
+    if (window.innerWidth < 1280) {
         opening += '+이 포트폴리오는 pc에 최적화 되어 있습니다.<br>+pc로 봐주신다면 감사드리겠습니다.<br>+<br>'
     }
     let openingB = opening.split("+");
@@ -41,28 +41,49 @@ window.onload = function () {
     let warning = document.querySelector('.contents > .error');
     let contents = document.querySelector('.contents');
     let line = document.querySelector('.line');
-    let cons = document.querySelector('.console')
+    let cons = document.querySelector('.console');
     let mail = false;
     let depth = 0
     let userName = '';
     let userE = '';
     let message = '';
     let gb = document.querySelectorAll('.gb > a');
-    
+    let mPressed = false;
 
-    gb.forEach(function(v,n){
-        v.addEventListener('click',function(){
+    line.addEventListener('mousedown', function () {
+        mPressed = true;
+        let contents = document.querySelector('.contents');
+        let line = document.querySelector('.line');
+        let cons = document.querySelector('.console');
+        if (running) {
+            cons.classList.remove('transition');
+            contents.classList.remove('transition');
+            line.classList.remove('transition');
+        }
+    })
+
+    line.addEventListener('mouseup', function () {
+        mPressed = false;
+        if (running) {
+            contents.classList.add('transition');
+            line.classList.add('transition');
+            cons.classList.add('transition');
+        }
+    })
+
+    gb.forEach(function (v, n) {
+        v.addEventListener('click', function () {
             v.classList.add('transition');
-            if(!running) {
-                if (window.innerWidth<1280) {
-                    if (n===0){
+            if (!running) {
+                if (window.innerWidth < 1280) {
+                    if (n === 0) {
                         contents.classList.add('transition');
                         line.classList.add('transition');
                         cons.classList.add('transition');
                         contents.style.height = `calc(${window.innerHeight - 6}px - 2rem)`
                         line.style.top = `calc(${window.innerHeight - 6}px - 2rem)`
                         cons.style.height = '50px'
-                    } else if (n===1){
+                    } else if (n === 1) {
                         contents.classList.add('transition');
                         line.classList.add('transition');
                         cons.classList.add('transition');
@@ -70,14 +91,14 @@ window.onload = function () {
                         line.style.top = `calc(70vh - 3px)`
                         cons.style.height = 'calc(30vh)'
                     }
-                } else if (n===0){
+                } else if (n === 0) {
                     contents.classList.add('transition');
                     line.classList.add('transition');
                     cons.classList.add('transition');
                     contents.style.height = `calc(${window.innerHeight - 6}px - 2rem)`
                     line.style.top = `calc(${window.innerHeight - 6}px - 2rem)`
                     cons.style.height = '50px'
-                } else if (n===1){
+                } else if (n === 1) {
                     contents.classList.add('transition');
                     line.classList.add('transition');
                     cons.classList.add('transition');
@@ -87,24 +108,30 @@ window.onload = function () {
                 }
             }
         })
-        v.addEventListener('animationend',function(){
-            v.classList.remove('transition');
-        })
     })
 
     consW.addEventListener('click', function () {
         input.focus();
     })
 
-    if (window.innerWidth>1280){
-        
+    if (window.innerWidth > 1280) {
+        // contents.addEventListener('mousemove',function(e){
+        //     let bg = document.querySelectorAll('pre.bg');
+        //     bg.forEach(function(v,n){
+        //         if(n==0){
+        //             v.style.top = `calc(-${((contents.offsetHeight - e.clientY)/contents.offsetHeight)*5}% - 1%)`;
+        //         } else {
+
+        //         }
+        //     })
+        // })
         cBoxes.forEach(function (v, n) {
             v.addEventListener('mousemove', function (e) {
                 let X = e.clientX;
                 let Y = e.clientY;
-                v.style.backgroundPosition = `${(X/v.offsetWidth)*100}% ${(Y/v.offsetHeight)*100}%`;
+                v.style.backgroundPosition = `${(X / v.offsetWidth) * 100}% ${(Y / v.offsetHeight) * 100}%`;
             })
-    
+
             if (n !== 0) {
                 v.addEventListener('mouseenter', function () {
                     v.classList.add('hover');
@@ -143,9 +170,9 @@ window.onload = function () {
                         consW.scrollBy(0, consW.scrollHeight)
                         if (i === textC.length) {
                             clearInterval(typing)
-                            line.style.top = `${window.innerHeight*0.67}px`
-                            contents.style.height = `${(window.innerHeight*0.67)-3}px`
-                            cons.style.height = `${(window.innerHeight*0.33)+3}px`
+                            line.style.top = `${window.innerHeight * 0.67}px`
+                            contents.style.height = `${(window.innerHeight * 0.67) - 3}px`
+                            cons.style.height = `${(window.innerHeight * 0.33) + 3}px`
                             textBox.nextSibling.classList.add('off')
                             fakeBox.nextElementSibling.classList.add('on')
                             running = false;
@@ -159,13 +186,18 @@ window.onload = function () {
 
 
     cons.addEventListener('transitionend', function () {
+        let consW = document.querySelector('.window');
         consW.scrollBy(0, consW.scrollHeight)
         cons.classList.remove('transition');
         contents.classList.remove('transition');
         line.classList.remove('transition');
-        if (cons.offsetHeight>50){
+        if (cons.offsetHeight > 50) {
             input.focus();
         }
+    })
+
+    cons.addEventListener('resize',function(){
+        consW.style.height = 'calc(100% - 2rem)';
     })
 
     input.addEventListener('keydown', function (e) {
@@ -250,7 +282,7 @@ window.onload = function () {
                 warning.classList.remove('load')
                 inputText += `success<br><br>Go to page no.${chk}<br><br>`
                 contents.classList.add('loading')
-                if (chk == 4) {
+                if (chk == 3) {
                     indexArr.forEach(function (v, n) {
                         if (n < (indexArr.length - 2)) {
                             inputText += v
@@ -273,7 +305,7 @@ window.onload = function () {
 
             if (depth === 0) {
                 if (Number.isInteger(Number(chk))) {
-                    if (Number(chk) >= 1 && Number(chk) <= 2) {
+                    if (chk == 1 || chk == 2) {
                         pageMove();
                     } else if (Number(chk) === 3) {
                         pageMove();
@@ -315,7 +347,9 @@ window.onload = function () {
                         cBoxes.forEach(function (v, n) {
                             v.classList.remove('load')
                         })
-                        
+                        userName = '';
+                        userE = '';
+                        message = '';
                         pageMove();
                         contents.classList.add('transition');
                         line.classList.add('transition');
@@ -392,6 +426,7 @@ window.onload = function () {
                                 inputText += v;
                             })
                             run();
+                            console.log(depth);
                             depth++
                         } else {
                             let msgArr = message.split('\n')
@@ -405,7 +440,7 @@ window.onload = function () {
                             fakeBox.innerHTML = '';
                         }
                     } else if (depth === 6) {
-                        if (input.value != 4) {
+                        if (input.value != 3) {
                             pageMove();
                             contents.classList.add('transition');
                             line.classList.add('transition');
@@ -415,7 +450,7 @@ window.onload = function () {
                             cons.style.height = '33.4vh'
                             mail = false;
                             depth = 0;
-                        } else if (input.value == 4) {
+                        } else if (input.value == 3) {
                             contents.classList.add('transition');
                             line.classList.add('transition');
                             cons.classList.add('transition');
@@ -423,7 +458,7 @@ window.onload = function () {
                             line.style.top = '66.6vh'
                             cons.style.height = '33.4vh'
                             pageMove();
-                            depth=1;
+                            depth = 1;
                         }
                     } else {
                         error();
@@ -439,23 +474,24 @@ window.onload = function () {
         }
     })
 
-    let resize = function (e) {
+    window.addEventListener('mousemove', function (e) {
+        let contents = document.querySelector('.contents');
+        let line = document.querySelector('.line');
         let cons = document.querySelector('.console')
-        line.style.top = `${e.clientY-3}px`
-        contents.style.height = `${line.offsetTop}px`
-        cons.style.height = `${window.innerHeight - line.offsetTop + line.offsetHeight}px`
-    }
-    line.addEventListener('mousedown', function () {
-        window.addEventListener('mousemove', resize)
-        window.addEventListener('mouseup', function () {
-            window.removeEventListener('mousemove', resize)
-        })
-    })
+        if (mPressed) {
+            let consW = document.querySelector('.window');
+            line.style.top = `${e.clientY - 3}px`
+            contents.style.height = `${e.clientY - 3}px`
+            cons.style.height = `${window.innerHeight - e.clientY - 6}px`
+        }
+    });
 
     window.addEventListener('resize', function () {
-        contents.style.height = `${window.innerHeight * 0.67}px`
-        line.style.top = `${contents.offsetHeight}px`
-        cons.style.height = `${window.innerHeight - (contents.offsetHeight+line.offsetHeight)}px`
+        if (!running) {
+            contents.style.height = `${window.innerHeight * 0.67}px`
+            line.style.top = `${contents.offsetHeight}px`
+            cons.style.height = `${window.innerHeight - (contents.offsetHeight + line.offsetHeight)}px`
+        }
     })
 
     let imgA = document.querySelectorAll('.box.snd > div > div:first-child a');
