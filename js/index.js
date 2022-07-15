@@ -125,22 +125,22 @@ window.onload = function () {
         //         }
         //     })
         // })
-        cBoxes.forEach(function (v, n) {
-            v.addEventListener('mousemove', function (e) {
-                let X = e.clientX;
-                let Y = e.clientY;
-                v.style.backgroundPosition = `${(X / v.offsetWidth) * 100}% ${(Y / v.offsetHeight) * 100}%`;
-            })
+        // cBoxes.forEach(function (v, n) {
+        //     v.addEventListener('mousemove', function (e) {
+        //         let X = e.clientX;
+        //         let Y = e.clientY;
+        //         v.style.backgroundPosition = `${(X / v.offsetWidth) * 100}% ${(Y / v.offsetHeight) * 100}%`;
+        //     })
 
-            if (n !== 0) {
-                v.addEventListener('mouseenter', function () {
-                    v.classList.add('hover');
-                })
-                v.addEventListener('mouseleave', function () {
-                    v.classList.remove('hover');
-                })
-            }
-        })
+        //     if (n !== 0) {
+        //         v.addEventListener('mouseenter', function () {
+        //             v.classList.add('hover');
+        //         })
+        //         v.addEventListener('mouseleave', function () {
+        //             v.classList.remove('hover');
+        //         })
+        //     }
+        // })
 
     }
 
@@ -177,7 +177,7 @@ window.onload = function () {
                             fakeBox.nextElementSibling.classList.add('on')
                             running = false;
                         }
-                    }, 30);
+                    }, 20);
                 }, 2500)
             }
         }, 100)

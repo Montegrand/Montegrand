@@ -329,7 +329,6 @@ body > .line::before {
     display: none;
     overflow-y: scroll;
     justify-content: space-around;
-    /* background: url(../images/index/bg.png) 50% 50% / 130% no-repeat; */
 }
 
 .contents > div::-webkit-scrollbar {
