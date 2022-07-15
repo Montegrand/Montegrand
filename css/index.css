@@ -62,7 +62,7 @@
     list-style-type: none;
     color: #333;
     word-break: keep-all;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 
 body {
@@ -107,7 +107,7 @@ body > .line {
 }
 
 body > .line:hover {
-    background-color: rgb(0, 17, 255);
+    background-color: #3390FF;
     transition-delay: 0.5s;
 }
 
@@ -136,7 +136,7 @@ body > .line::after {
     justify-content: space-between;
     width: 100%; height: 2rem;
     padding-left: 8px;
-    background: #75787b;
+    background: #b2b2b2;
     outline: 1px solid #000;
     z-index: 10;
 }
@@ -173,8 +173,8 @@ body > .line::after {
 }
 
 .console .top > div.gb a:hover {
-    border: 1px solid #333;
-    background: #aaa;
+    outline: 1px solid #333;
+    background: #989898;
 }
 
 .console .top > div.gb a.transition {
@@ -291,9 +291,23 @@ body > .line::after {
 .contents > div {
     width: 100%; height: 100%;
     display: none;
-    overflow: scroll;
+    overflow-y: scroll;
     justify-content: space-around;
     background: url(../images/index/bg.png) 50% 50% / 130% no-repeat;
+}
+
+.contents > div::-webkit-scrollbar {
+    width: 6px;
+}
+
+.contents > div::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey; 
+    border-radius: 0px;
+}
+
+.contents > div::-webkit-scrollbar-thumb {
+    background: #000; 
+    border-radius: 3px;
 }
 
 .contents > div > div {
@@ -327,38 +341,20 @@ body > .line::after {
     margin-left: 0;
 }
 
-/* main------------------------------------------------------------------------------------- */
-
-.contents .main > div p {
-    font-size: 1.2rem;
-    line-height: 3rem;
-}
-
-.contents > .box.main {
-
-}
-
-.contents > .main.load > div {
-    opacity: 0;
-    animation: fadein 1s 1s forwards;
-    margin-left: 0;
-    transition: none;
-}
-
 /* box1---------------------------------------------------------------------------------- */
 
 
-.contents > .box.fst.load > div {
+.contents > .box.load > div {
     width: 50%;
     display: flex;
 }
 
-.contents > .box.fst.load > div:first-child {
+.fst.load > div:first-child {
     align-items: center;
     justify-content: center;
 }
 
-.contents > .box.fst.load > div:last-child {
+.fst.load > div:last-child {
     align-items: flex-start;
     justify-content: center;
     padding: 42px 0;
@@ -369,7 +365,7 @@ body > .line::after {
     position: sticky;
     bottom: 0;
     flex-direction: column;
-    width: 80%;
+    width: 60%;
 }
 
 .fst p {
@@ -406,35 +402,35 @@ body > .line::after {
 /* box2----------------------------------------------------------------------------------- */
 
 .contents > .box.snd.load > div {
-    width: 50%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
 }
 
-.contents > .box.snd.load > div > div:nth-child(1) {
-    width: 50%;
-    opacity: 0;
-    display: flex;
-    transition: 0.5s;
-}
-
-.contents > .box.snd.load.hover > div > div:nth-child(1) {
-    opacity: 1;
-}
-
-.contents > .box.snd.load > div > div:nth-child(1) > a {
-    display: none;
-    width: 100%; height: 100%;
-    text-indent: -2000px;
-    overflow: hidden;
+.contents > .box.snd.load > div:first-child {
+    padding: 42px;
+    flex-direction: column;
+    align-items: center;
     position: relative;
-    opacity: 0.6;
-    transition: 0.5s;
 }
 
-.contents > .box.snd.load > div > div:nth-child(1) > a span {
-    text-indent: 0;
+.contents > .box.snd.load > div:last-child {
+    justify-content: center;
+}
+
+.contents > .box.snd.load > div:last-child > div {
+    width: 60%;
+    padding: 42px 0;
+}
+
+.contents > .box.snd.load h2 {
+    margin-bottom: 30px;
+}
+
+.contents > .box.snd.load .pagePhoto {
+    width: 100%;
+}
+
+.contents > .box.snd.load .pagePhoto span {
     position: absolute;
     bottom: 0; right: 0;
     padding: 6px 12px;
@@ -442,48 +438,13 @@ body > .line::after {
     transition: 0.5s;
 }
 
-.contents > .box.snd.load > div > div:nth-child(1) > a:hover {
-    opacity: 1;
+.contents > .box.snd.load h3 {
+    font-size: 2rem;
+    margin-bottom: 30px;
 }
 
-.contents > .box.snd.load > div > div:nth-child(1) > a:hover span {
-    font-size: 1.5rem; font-weight: 500;
-    color: #fff;
-}
-
-.contents > .box.snd.load > div > div:nth-child(1) > a.on {
-    display: flex;
-}
-
-.contents > .box.snd.load > div > div:nth-child(1) > a:nth-child(1) {
-    background: url(../images/index/main.png) 50% 0 / cover no-repeat;
-}
-
-.contents > .box.snd.load > div > div:nth-child(1) > a:nth-child(2) {
-    background: url(../images/index/ir.png) 50% 0 / cover no-repeat;
-}
-
-.contents > .box.snd.load > div > div:nth-child(1) > a:nth-child(3) {
-    background: url(../images/index/PR.png) 50% 0 / cover no-repeat;
-}
-
-.contents > .box.snd.load > div > div:nth-child(2) {
-    width: 40%;
-}
-
-.contents > .box.snd.load > div > div:nth-child(2) h3 {
-    font-size: 2.4rem;
-    margin-bottom: 36px; font-weight: 400;
-}
-
-.contents > .box.snd.load > div > div:nth-child(2) p {
-    font-size: 1.2rem;
-    margin-bottom: 24px;
-    text-align: justify;
-}
-
-.contents > .box.snd.load > div > div:nth-child(2) > div {
-    width: 50%;
+.contents > .box.snd.load p {
+    margin-bottom: 30px;
 }
 
 .contents > .box.snd.load h4 {
@@ -492,7 +453,7 @@ body > .line::after {
 }
 
 .contents > .box.snd.load .CB {
-    margin-bottom: 24px;
+    margin-bottom: 30px;
 }
 
 .contents > .box.snd.load .CB > div {
