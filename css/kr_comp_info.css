@@ -205,6 +205,134 @@ header .depth.trd > li > ul > li {
     width: 100%; height: 30px;
 }
 
+/* subnav================================================================ */
+
+.subNav {
+    display: flex;
+    position: sticky;
+    flex-direction: column;
+    padding: 12px 30px;
+    width: max-content;
+    top: 0px;
+    background: #33333333;
+    transition: 0.5s;
+    z-index: 100;
+    opacity: 0.3;
+}
+
+.subNav h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.subNav.on h2 {
+    color: #0972CD;
+}
+
+.subNav.on {
+    background: #333;
+    opacity: 1;
+}
+
+.subNav .inner {
+    width: 100%;
+}
+
+.subNav .subTop {
+    display: flex;
+    width: 100%;
+}
+
+.subNav .subTop li {
+    width: 50%; height: 3rem;
+    padding: 0 12px;
+    display: flex;
+}
+
+.subNav .subTop li.on {
+    background: #666;
+}
+
+.subNav .subTop li a {
+    font-size: 1.5rem;
+    width: 100%; height: 100%;
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.subNav.on li a {
+    color: #fff;
+}
+
+.subNav .subBot {
+    transition: 0.5s;
+    translate: 1s;
+    /* padding: 6px; */
+    background: #666;
+}
+
+.subNav.on .subBot {
+    padding: 6px;
+    transition: 0.5s;
+}
+
+.subNav .subBot li {
+    margin: 6px;
+    padding: 6px 0;
+}
+
+.subNav .subBot li:hover {
+    background: #333;
+}
+
+.subNav .subBot li a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subNav .result {
+    display: none;
+
+}
+
+.subNav.on .result {
+    background-color: #aaa;
+    z-index: 50;
+    position: fixed;
+    display: flex;
+    border-radius: 5px;
+}
+
+.subNav.on .result span {
+    font-size: 1rem; font-weight: 300;
+    padding: 6px 24px;
+    color: red;
+}
+
+.subNav .toTop {
+    display: none;
+    width: 100%;
+    margin-top: 12px;
+    justify-content: flex-end;
+}
+
+.subNav .toTop a {
+    width: 40%; height: 3rem;
+    outline: 1px solid #eee;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.subNav.on .toTop {
+    display: flex;
+}
+
 /* sec==============================================================*/
 
 section .top {

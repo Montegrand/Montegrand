@@ -4,38 +4,43 @@ navLi.forEach(function (v, n) {
     if (window.innerWidth <= 1240) {
         for (i = 0; i < navLi.length; i++) {
             if (i !== 7) {
-                navLi[i].href = `#`;
+                v.href = `#`;
             }
         }
     }
 })
 
-let wrap = document.querySelector(`header .top_nav.wrap`);
+let PD = document.querySelector(`header`).nextElementSibling.querySelector(`.page_depth`);
+console.log(PD)
 
 let call = function () {
-    let liCon = document.querySelectorAll(`header .top_nav.wrap > li`);
-    if (liCon.length > 4) {
-        if (window.innerWidth < 1240) {
-            wrap.prepend(document.createElement('li'));
-            wrap.children.item(0).prepend(document.createElement('div'));
-            wrap.children.item(0).prepend(document.createElement('div'));
-            liCon.forEach(function (v, n) {
-                var li = wrap.children.item(1);
-                if (n <= 2) {
-                    wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
-                } else if (n < 5) {
-                    wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
-                }
-            })
+    let liCon = document.querySelectorAll(`header .top_nav.wrap li`);
+    liCon.forEach(function(v,n){
+        if (v.children.item(0).href == window.location.href) {
+            PD.prepend(document.createElement('li'));
+            PD.children.item(length).prepend(v.children.item(0))
         }
-    }
+    })
+    // if (window.innerWidth < 1240) {
+    //     wrap.prepend(document.createElement('li'));
+    //     wrap.children.item(0).prepend(document.createElement('div'));
+    //     wrap.children.item(0).prepend(document.createElement('div'));
+    //     liCon.forEach(function (v, n) {
+    //         var li = wrap.children.item(1);
+    //         if (n <= 2) {
+    //             wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
+    //         } else if (n < 5) {
+    //             wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
+    //         }
+    //     })
+    // }
 
-    liCon[0].classList.add('on');
-    if (window.innerWidth > window.innerHeight) {
-        wrap.classList.add('width');
-    } else {
-        wrap.classList.remove('width')
-    }
+    // liCon[0].classList.add('on');
+    // if (window.innerWidth > window.innerHeight) {
+    //     wrap.classList.add('width');
+    // } else {
+    //     wrap.classList.remove('width')
+    // }
 }
 
 call();
