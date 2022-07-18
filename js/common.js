@@ -4,31 +4,45 @@ let wrap = document.querySelector(`header .top_nav.wrap`);
 
 let call = function () {
     let liCon = document.querySelectorAll(`header .top_nav.wrap > li`);
-    if (liCon.length > 4) {
-        if (window.innerWidth < 1240) {
-            wrap.prepend(document.createElement('li'));
-            wrap.children.item(0).prepend(document.createElement('div'));
-            wrap.children.item(0).prepend(document.createElement('div'));
-            liCon.forEach(function (v, n) {
-                var li = wrap.children.item(1);
-                if (n <= 2) {
-                    wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
-                } else if (n < 5) {
-                    wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
-                }
-            })
-        }
+    
+    if (window.innerWidth < 1240) {
+        wrap.prepend(document.createElement('li'));
+        wrap.children.item(0).prepend(document.createElement('div'));
+        wrap.children.item(0).prepend(document.createElement('div'));
+        liCon.forEach(function (v, n) {
+            var li = wrap.children.item(1);
+            if (n <= 2) {
+                wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
+            } else if (n < 5) {
+                wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
+            }
+        })
+        wrap.querySelectorAll('div:first-child > li > a').forEach(function(v,n){
+            v.href = '#';
+        })
     }
-
+    
     liCon[0].classList.add('on');
     if (window.innerWidth > window.innerHeight) {
         wrap.classList.add('width');
     } else {
         wrap.classList.remove('width')
     }
+    
 }
 
 call();
+let liCon2 = document.querySelectorAll(`header .depth.snd > li > a`);
+liCon2.forEach(function(v,n){
+    v.href = '#';
+})
+document.querySelectorAll('header a').forEach(function(v,n){
+    if(v.href.search('#')>0){
+        v.onclick = function () {
+            return false;
+        }
+    }
+})
 
 let header = document.querySelector('header');
 if (window.innerWidth < 1240) {
@@ -36,7 +50,6 @@ if (window.innerWidth < 1240) {
 }
 
 window.addEventListener('resize', function () {
-    call();
     if (window.innerWidth >= 1240) {
         this.location.reload();
     } else {
@@ -122,11 +135,12 @@ navLi.forEach(function(v,n){
 
 let subTA = document.querySelectorAll('nav.subNav .subTop a');
 let subB = document.querySelectorAll('nav.subNav .subBot > li');
-console.log(subB)
 
-if(subB){
+
+
+if(subB.length>0){
     subTA.forEach(function(v,n){
-        console.log(v)
+        v.href = '#';
         v.addEventListener('click',function(e){
             for(i=0;i<subTA.length;i++){
                 subTA[i].parentElement.classList.remove('on');
@@ -138,30 +152,21 @@ if(subB){
     })
 }
 
-subN.addEventListener('mouseenter',function(){
-    this.classList.add('on');
-})
-
-subN.addEventListener('mouseleave',function(){
-    document.querySelectorAll('nav, nav *').forEach(function(v,n){
-        v.classList.remove('on');
+if (subN) {
+    subN.addEventListener('mouseenter',function(){
+        this.classList.add('on');
     })
-})
+    
+    subN.addEventListener('mouseleave',function(){
+        document.querySelectorAll('nav, nav *').forEach(function(v,n){
+            v.classList.remove('on');
+        })
+    })
+}
 
+var subA = document.querySelectorAll(`nav a`);
 
-navLi.forEach(function (v, n) {
-    if (window.innerWidth <= 1240) {
-        for (i = 0; i < navLi.length; i++) {
-            if (i !== 7) {
-                navLi[i].href = `#`;
-            }
-        }
-    }
-})
-
-var allA = document.querySelectorAll(`a`);
-
-allA.forEach(function (v, n) {
+subA.forEach(function (v, n) {
     if (v.href.search(`#`) > 0) {
         v.onclick = function () {
             return false;

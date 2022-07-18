@@ -1,8 +1,3 @@
-@charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-/* Noto sans KR font */
-@import url('krconIeStyle.css');
-@import url('common.css');
 
 @keyframes fadein {
     from {
@@ -337,17 +332,18 @@ header .depth.trd > li > ul > li {
 }
 
 .subNav .toTop a {
-    width: 50%; height: 3rem;
+    height: 3rem;
+    padding: 6px 12px;
     outline: 1px solid #eee;
     color: #eee;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
 }
 
 .subNav .toTop a i {
     display: flex;
-    width: 30%; height: 100%;
+    width: 24px; height: 44px;
+    margin-left: 24px;
     background: url(../images/krcon/top-arrow.png)50% 50% / contain no-repeat;
 }
 
@@ -394,210 +390,4 @@ header .depth.trd > li > ul > li {
 
 .top .page_depth li:first-child a::before {
     content: "";
-}
-
-section > div.inner > div:first-child {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-}
-
-section > div.inner > div:first-child h3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    font-size: 2rem; font-weight: 500;
-}
-
-section > div.inner > div:first-child h3::after {
-    content: "";
-    display: flex;
-    width: 50%; height: 6px;
-    background-color: #0972CD;
-    margin: 12px 0 24px;
-}
-
-section > div.inner > div:first-child p {
-    display: flex;
-    justify-content: center;
-    font-size: 1.2rem; font-weight: 300;
-    text-align: center;
-}
-
-section .tap {
-    display: flex;
-}
-
-section .tap > a {
-    flex: 1 0 10%;
-    padding: 6px 12px;
-    font-size: 1.8rem; font-weight: 200;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.3);
-    border: 6px solid #eee;
-}
-
-section .tap > a:hover {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-section .tap > a.on {
-    font-weight: 400;
-    background: #0972CD;
-    color: #eee;
-    border-bottom: none;
-}
-
-section .contents > div {
-    display: none;
-    width: 100%; height: 800px;
-    background: #0972CD33
-}
-
-section .contents > div.on {
-    display: flex;
-}
-
-section .brochure {
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-section .brochure > a {
-    width: 28%; height: 60%;
-    display: flex;
-    align-items: flex-end;
-    padding: 30px;
-    transition: 0.5s;
-}
-
-section .brochure > a:hover {
-    font-size: 1.5rem;
-}
-
-section .ko {
-    position: relative;
-    z-index: 5;
-    overflow: hidden;
-}
-
-section .ko::before {
-    content: "";
-    width: 100%; height: 100%;
-    position: absolute;
-    top: 0; left: 0;
-    background: url(../images/krcon/brochure_ko.jpg) 50% 50% / cover no-repeat;
-    z-index: -1;
-    transition: 0.5s;
-}
-
-section .ko:hover::before {
-    transform: scale(120%);
-}
-
-section .en {
-    position: relative;
-    overflow: hidden;
-    z-index: 10;
-}
-
-section .en::before {
-    content: "";
-    width: 100%; height: 100%;
-    position: absolute;
-    top: 0; left: 0;
-    background: url(../images/krcon/brochure_en.jpg) 50% 50% / cover no-repeat;
-    z-index: -1;
-    transition: 0.5s;
-}
-
-section .en:hover::before {
-    transform: scale(120%);
-}
-
-section h4 {
-    font-size: 1.4rem;
-    text-align: center;
-    padding: 12px 0;
-}
-
-section h5 {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
-}
-
-section .contents .CI,
-section .contents .BI {
-    padding: 12px;
-    height: auto;
-}
-
-section .contents .CI > div, 
-section .contents .BI > div {
-    background-color: #fff;
-    padding: 12px;
-    width: 100%;
-}
-
-section .contents .CI > div > div > div,
-section .contents .BI > div > div > div {
-    display: flex;
-}
-
-section .contents .CI > div > div > div > div {
-    padding: 24px;
-}
-
-section .contents .CI > div > div:last-child > div > div:first-child > div:first-child {
-    margin-bottom: 12px;
-}
-
-section img {
-    object-fit: contain;
-}
-
-section .contents .BI > div > div:first-child {
-    margin-bottom: 12px;
-}
-
-section .contents .BI > div > div:first-child > div {
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-section .contents .BI > div > div:last-child {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-section .contents .BI > div > div:last-child > div {
-    flex-direction: column;
-}
-
-section .contents .BI > div > div:last-child img {
-    border: 1px solid #ddd;
-}
-
-/* ----------------footer----------------------- */
-
-footer {
-    padding: 30px;
-    background-color: #333;
-}
-
-footer * {
-    color: #eee;
-    font-weight: 200;
-}
-
-footer .ftlogo {
-    text-indent: -1000px;
-    overflow: hidden;
-    width: 120px; height: 40px;
-    padding: 10px;
-    background: url(../images/krcon/footer-logos.png) 50% 50% no-repeat;
-    background-size: contain;
 }

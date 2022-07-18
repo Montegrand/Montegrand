@@ -44,7 +44,7 @@ window.onload = function () {
     )
 
     window.addEventListener('resize', function () {
-        if (wid <= 680) {
+        if (window.innerWidth <= 680) {
             if ( window.innerWidth > window.innerHeight ) {
                 return document.querySelector(`section .map`).classList.add(`width`);
             } else {
@@ -156,5 +156,8 @@ window.onload = function () {
                 }
             });
         })
+        v.onclick = function () {
+            return false;
+        }
     })
 }

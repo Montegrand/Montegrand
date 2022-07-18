@@ -145,8 +145,10 @@
         </header>
         <div class="top">
             <div class="inner">
-                <h2></h2>
+                <h2>홍보센터</h2>
                 <ul class="page_depth">
+                    <li><a href="#">홍보센터</a></li>
+                    <li><a href="#">기업PR</a></li>
                 </ul>
             </div>
         </div>
@@ -291,9 +293,8 @@
         var html = document.getElementsByTagName('html');
         var each = document.createElement('script');
         var common = document.createElement('script');
-        var slide = document.createElement('script');
         if (html[0].className.search('is-ie') === 1) {
-            s.src = 'js/kr_pr_centerIe.js';
+            each.src = 'js/kr_pr_centerIe.js';
         } else {
             each.src = 'js/kr_pr_center.js';
             common.src = 'js/common.js';
