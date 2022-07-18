@@ -145,10 +145,11 @@
         </header>
         <div class="top">
             <div class="inner">
-                <h2>홍보센터</h2>
+                <h2>투자 가치경영</h2>
                 <ul class="page_depth">
-                    <li><a href="#">홍보센터</a></li>
-                    <li><a href="#">기업 PR</a></li>
+                    <li><a href="#">가치경영</a></li>
+                    <li><a href="#">투자정보</a></li>
+                    <li><a href="#">주요 경영 실적 요약</a></li>
                 </ul>
             </div>
         </div>
@@ -165,16 +166,6 @@
         <div class="result"></div>
     </nav>
     <section class="fst">
-        <div class="top">
-            <div class="inner">
-                <h2>투자 가치경영</h2>
-                <ul class="page_depth">
-                    <li><a href="#">가치경영</a></li>
-                    <li><a href="#">투자정보</a></li>
-                    <li><a href="#">주요 경영 실적 요약</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="container fst inner">
             <div>
                 <div class="box">
@@ -399,15 +390,16 @@
     <script src="lib/IE-Checker/ie-checker.js"></script>
     <script>
         var html = document.getElementsByTagName('html');
-        var s = document.createElement('script');
+        var each = document.createElement('script');
         var promisePf = document.createElement('script');
         // https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js -- promise polyfill cdn
         var fchPf = document.createElement('script');
         // https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js -- fetch polyfill cdn
         var chrt = document.createElement('script');
         //  -- chart.js cdn
+        var common = document.createElement('script');
         if (html[0].className.search('is-ie') === 1) {
-            s.src = 'js/kr_irIe.js';
+            each.src = 'js/kr_irIe.js';
             promisePf.src = 'https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js';
             fchPf.src = 'https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js';
             chrt.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js';
@@ -417,9 +409,11 @@
         } else {
             chrt.src = "https://cdn.jsdelivr.net/npm/chart.js";
             document.head.appendChild(chrt);
-            s.src = 'js/kr_ir.js';
+            each.src = 'js/kr_ir.js';
+            document.head.appendChild(common);
+            common.src = 'js/common.js';
         }
-        document.head.appendChild(s);
+        document.head.appendChild(each);
     </script>
 </body>
 

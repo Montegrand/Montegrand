@@ -1,49 +1,34 @@
-let navLi = document.querySelectorAll(`header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a`);
+let navLi = document.querySelectorAll(`header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a, header .depth.trd li > a`)
 
-navLi.forEach(function (v, n) {
-    if (window.innerWidth <= 1240) {
-        for (i = 0; i < navLi.length; i++) {
-            if (i !== 7) {
-                v.href = `#`;
-            }
-        }
-    }
-})
-
-let PD = document.querySelector(`header`).nextElementSibling.querySelector(`.page_depth`);
-console.log(PD)
+let wrap = document.querySelector(`header .top_nav.wrap`);
 
 let call = function () {
-    let liCon = document.querySelectorAll(`header .top_nav.wrap li`);
-    liCon.forEach(function(v,n){
-        if (v.children.item(0).href == window.location.href) {
-            PD.prepend(document.createElement('li'));
-            PD.children.item(length).prepend(v.children.item(0))
+    let liCon = document.querySelectorAll(`header .top_nav.wrap > li`);
+    if (liCon.length > 4) {
+        if (window.innerWidth < 1240) {
+            wrap.prepend(document.createElement('li'));
+            wrap.children.item(0).prepend(document.createElement('div'));
+            wrap.children.item(0).prepend(document.createElement('div'));
+            liCon.forEach(function (v, n) {
+                var li = wrap.children.item(1);
+                if (n <= 2) {
+                    wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
+                } else if (n < 5) {
+                    wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
+                }
+            })
         }
-    })
-    // if (window.innerWidth < 1240) {
-    //     wrap.prepend(document.createElement('li'));
-    //     wrap.children.item(0).prepend(document.createElement('div'));
-    //     wrap.children.item(0).prepend(document.createElement('div'));
-    //     liCon.forEach(function (v, n) {
-    //         var li = wrap.children.item(1);
-    //         if (n <= 2) {
-    //             wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
-    //         } else if (n < 5) {
-    //             wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
-    //         }
-    //     })
-    // }
+    }
 
-    // liCon[0].classList.add('on');
-    // if (window.innerWidth > window.innerHeight) {
-    //     wrap.classList.add('width');
-    // } else {
-    //     wrap.classList.remove('width')
-    // }
+    liCon[0].classList.add('on');
+    if (window.innerWidth > window.innerHeight) {
+        wrap.classList.add('width');
+    } else {
+        wrap.classList.remove('width')
+    }
 }
 
-call();
+// call();
 
 let header = document.querySelector('header');
 if (window.innerWidth < 1240) {
@@ -120,98 +105,62 @@ document.addEventListener('click', function (e) {
 
 // subNav--------------------------------------------------------------
 
-if (document.querySelector('nav.subNav') !== null) {
+let subBot = document.querySelector('nav.subNav .subBot');
+let subTop = document.querySelector('nav.subNav .subTop');
+let prul = document.querySelector('header .top_nav.wrap > li:nth-child(3) .depth.snd');
+let subN = document.querySelector('nav.subNav');
+// let subTA = document.querySelector('nav.subNav .subTop a');
+// let subBA = document.querySelector('nav.subNav .subBot a');
 
-    let subBot = document.querySelector('nav.subNav .subBot');
-    let subTop = document.querySelector('nav.subNav .subTop');
-    let arr = [];
+navLi.forEach(function(v,n){
+    if (v.href == window.location.href && v.closest('.depth.trd')){
+        console.log(v)
+        let subT = v.closest('.depth.snd')
+        let subB = v.closest('ul')
+        for(i=0;i<subT.children.length;i++){
+            subTop.append(document.createElement('li'))
+            subTop.children.item(i).append(subT.children.item(i).children.item(0).cloneNode(true))
+            subBot.append(document.createElement('li'));
+            subBot.children.item(i).append(subB.cloneNode(true))
+        }
+        return;
+    } else if (v.href == window.location.href&&v.closest('ul').classList.contains('snd')) {
+        let subT = v.closest('.depth.snd')
+        let subB = v.closest('ul')
+        for(i=0;i<subT.children.length;i++){
+            subTop.append(document.createElement('li'))
+            subTop.children.item(i).append(subT.children.item(i).children.item(0).cloneNode(true))
+            // subBot.append(document.createElement('li'));
+            // subBot.children.item(i).append(subB.cloneNode(true))
+        }
+    }
+})
 
-    navLi.forEach(function (v, n) {
-        if (v.href === location.href) {
-            if (v.parentNode.parentElement.className === 'depth snd') {
-                let subTopA = v.parentNode.parentElement.children;
-                for (i = 0; i < subTopA.length; i++) {
-                    let li = document.createElement('li');
-                    subTop.appendChild(li)
-                    if (subTopA[i].children.length < 2) {
-                        subTop.children.item(i).innerHTML = subTopA[i].innerHTML;
-                        if (subTop.children.item(i).children.item(0).href.search('#') > 0) {
-                            subTop.children.item(i).children.item(0).onclick = function () {
-                                return false;
-                            };
-                        }
-                    } else {
-                        subTop.children.item(i).innerHTML = '<a href="#" onclick="return false">' + subTopA[i].children.item(0).textContent + '</a>';
-                        arr.push(subTopA[i].children.item(1).children.item(0).children.item(0))
-                    }
-                }
+subN.addEventListener('mouseenter',function(){
+    this.classList.add('on');
+})
 
-                if (subTopA.length > 0) {
-                    let subTopL = document.querySelectorAll('nav.subNav .subTop li');
-                    subTopL.forEach(function (v, n) {
-                        v.addEventListener('click', function () {
-                            for (i = 0; i < subTopL.length; i++) {
-                                subTopL[i].classList.remove('on')
-                                if (arr.length > 0) {
-                                    subBot.innerHTML = arr[n].innerHTML;
-                                }
-                            }
-                            v.classList.add('on')
-                            let subBotA = document.querySelectorAll('nav.subNav .subBot a')
-                            subBotA.forEach(function (v, n) {
-                                if (v.href.search('#') > 0) {
-                                    v.onclick = function () {
-                                        return false;
-                                    }
-                                }
-                            })
-                        })
-                    });
-                }
+subN.addEventListener('mouseleave',function(){
+    this.classList.remove('on');
+})
+
+
+navLi.forEach(function (v, n) {
+    if (window.innerWidth <= 1240) {
+        for (i = 0; i < navLi.length; i++) {
+            if (i !== 7) {
+                navLi[i].href = `#`;
             }
         }
-    })
+    }
+})
 
-    let subTopL = document.querySelectorAll('nav.subNav .subTop li');
-    let result = document.querySelector('nav.subNav .result');
-    let subNav = document.querySelector('nav.subNav');
-    subNav.addEventListener('mouseenter', function () {
-        this.classList.add('on');
-        this.addEventListener('mousemove', function (e) {
-            let positionL = e.clientX
-            let positionY = e.clientY
-            result.style.left = positionL + 'px';
-            result.style.top = positionY + 20 + 'px';
-            document.querySelectorAll('nav.subNav a').forEach(function (v, n) {
-                // if () // 여기까지 작업----------------------------------------------------
-                v.addEventListener('mouseenter', function () {
-                    if (v.href.search('#') > 0) {
-                        result.innerHTML = '<span>- 링크가 없습니다</span>'
-                        if (arr[n]===undefined) {
-                            result.children.item(0).innerHTML += '<br>- 하위 목록이 없습니다'
-                        }
-                    }
-                })
-                v.addEventListener('mouseleave', function () {
-                    result.innerHTML = '';
-                })
-            })
-        });
-    })
-    subNav.addEventListener('mouseleave', function () {
-        this.classList.remove('on');
-        subBot.innerHTML = '';
-        for (i = 0; i < subTopL.length; i++) {
-            subTopL[i].classList.remove('on')
+document.querySelectorAll('header a,nav a').forEach(function (v, n) {
+    if (window.innerWidth <= 1240) {
+        for (i = 0; i < navLi.length; i++) {
+            if (i !== 7) {
+                navLi[i].href = `#`;
+            }
         }
-    })
-
-    let toTop = document.querySelector('nav.subNav .toTop > a');
-    toTop.addEventListener('click', function () {
-        window.scrollTo({
-            left: 0,
-            top: 0,
-            behavior: "smooth"
-        });
-    })
-}
+    }
+})

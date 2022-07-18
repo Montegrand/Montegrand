@@ -262,15 +262,14 @@ header .depth.trd > li > ul > li {
     justify-content: center;
     align-items: center;
 }
-
-.subNav.on li a {
+/* 
+.subNav.on li a span {
     color: #fff;
 }
 
 .subNav .subBot {
     transition: 0.5s;
     translate: 1s;
-    /* padding: 6px; */
     background: #666;
 }
 
@@ -332,7 +331,7 @@ header .depth.trd > li > ul > li {
 
 .subNav.on .toTop {
     display: flex;
-}
+} */
 
 /* sec1=============================================================== */
 
