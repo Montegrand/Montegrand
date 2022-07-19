@@ -359,7 +359,7 @@ window.onload = function () {
                         var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
                         if (regEmail.test(input.value) === true) {
                             userE += input.value;
-                            inputText = 'Please write a message for me. <br>If you want a line break, just press Enter. <br>If you have finished writing the message, write {submit}, <br>if you want to cancel, write {cancel} and press Enter.<br><br>';
+                            inputText = 'Write a message. <br>If you want a line break, just press Enter. <br>If you have finished writing the message, write {submit}, <br>if you want to cancel, write {cancel} and press Enter.<br><br>';
                             depth++;
                             run();
                         } else {

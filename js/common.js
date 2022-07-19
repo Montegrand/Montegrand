@@ -4,7 +4,7 @@ let wrap = document.querySelector(`header .top_nav.wrap`);
 
 let call = function () {
     let liCon = document.querySelectorAll(`header .top_nav.wrap > li`);
-    
+
     if (window.innerWidth < 1240) {
         wrap.prepend(document.createElement('li'));
         wrap.children.item(0).prepend(document.createElement('div'));
@@ -17,25 +17,25 @@ let call = function () {
                 wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
             }
         })
-        wrap.querySelectorAll('div:first-child > li > a').forEach(function(v,n){
+        wrap.querySelectorAll('div:first-child > li > a').forEach(function (v, n) {
             v.href = '#';
         })
     }
-    
+
     liCon[0].classList.add('on');
     if (window.innerWidth > window.innerHeight) {
         wrap.classList.add('width');
     } else {
         wrap.classList.remove('width')
     }
-    
+
 }
 
 call();
 let liCon2 = document.querySelectorAll(`header .depth.snd > li > a`);
 
-document.querySelectorAll('header a').forEach(function(v,n){
-    if(v.href.search('#')>0){
+document.querySelectorAll('header a').forEach(function (v, n) {
+    if (v.href.search('#') > 0) {
         v.onclick = function () {
             return false;
         }
@@ -112,21 +112,21 @@ let prul = document.querySelector('header .top_nav.wrap > li:nth-child(3) .depth
 let subN = document.querySelector('nav.subNav');
 let toTop = document.querySelector('nav.subNav .toTop > a')
 
-navLi.forEach(function(v,n){
+navLi.forEach(function (v, n) {
 
-    if (v.href == window.location.href && v.closest('.depth.trd')){
+    if (v.href == window.location.href && v.closest('.depth.trd')) {
         let subT = v.closest('.depth.snd')
-        for(i=0;i<subT.children.length;i++){
+        for (i = 0; i < subT.children.length; i++) {
             subTop.append(document.createElement('li'))
             subTop.children.item(i).append(subT.children.item(i).children.item(0).cloneNode(true))
             subBot.append(document.createElement('li'));
             subBot.children.item(i).append(subT.children.item(i).querySelector('ul.trd ul').cloneNode(true))
         }
         return;
-    } else if (v.href == window.location.href&&v.closest('ul').classList.contains('snd')&&v.nextElementSibling==null) {
+    } else if (v.href == window.location.href && v.closest('ul').classList.contains('snd') && v.nextElementSibling == null) {
         let subT = v.closest('.depth.snd')
         let subB = v.closest('ul')
-        for(i=0;i<subT.children.length;i++){
+        for (i = 0; i < subT.children.length; i++) {
             subTop.append(document.createElement('li'))
             subTop.children.item(i).append(subT.children.item(i).children.item(0).cloneNode(true))
         }
@@ -138,11 +138,11 @@ let subB = document.querySelectorAll('nav.subNav .subBot > li');
 
 
 
-if(subB.length>0){
-    subTA.forEach(function(v,n){
+if (subB.length > 0) {
+    subTA.forEach(function (v, n) {
         v.href = '#';
-        v.addEventListener('click',function(e){
-            for(i=0;i<subTA.length;i++){
+        v.addEventListener('click', function (e) {
+            for (i = 0; i < subTA.length; i++) {
                 subTA[i].parentElement.classList.remove('on');
                 subB[i].classList.remove('on');
             }
@@ -153,31 +153,30 @@ if(subB.length>0){
 }
 
 if (subN) {
-    subN.addEventListener('mouseenter',function(){
+    subN.addEventListener('mouseenter', function () {
         this.classList.add('on');
     })
-    
-    subN.addEventListener('mouseleave',function(){
-        document.querySelectorAll('nav, nav *').forEach(function(v,n){
+
+    subN.addEventListener('mouseleave', function () {
+        document.querySelectorAll('nav, nav *').forEach(function (v, n) {
             v.classList.remove('on');
         })
     })
+    toTop.addEventListener('click', function () {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    })
+    var subA = document.querySelectorAll(`nav a`);
+    
+    subA.forEach(function (v, n) {
+        if (v.href.search(`#`) > 0) {
+            v.onclick = function () {
+                return false;
+            }
+        }
+    })
 }
 
-var subA = document.querySelectorAll(`nav a`);
-
-subA.forEach(function (v, n) {
-    if (v.href.search(`#`) > 0) {
-        v.onclick = function () {
-            return false;
-        }
-    }
-})
-
-toTop.addEventListener('click', function () {
-    window.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-      });
-})
