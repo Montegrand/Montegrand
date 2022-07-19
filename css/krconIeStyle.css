@@ -118,12 +118,17 @@
 
 /* sec4================================================================================================ */
 
+.is-ie .sec.fourth .box.fst ul {
+    height: 100%;
+    padding: 42px 36px;
+}
+
 .is-ie .sec.fourth .slide {
     height: auto;
 }
 
 .is-ie .sec.fourth .box.fst {
-    width: 60%; height: 100%;
+    width: 60%;
 }
 
 .is-ie .sec.fourth .slick-track > div {
@@ -142,14 +147,48 @@
 
 .is-ie .sec.fourth .box.snd .bar h3 {
     writing-mode: tb-lr;
-    
 }
 
 .is-ie .sec.fourth .box.snd ul li {
     list-style-type: none;
 }
 
+.is-ie .sec.fourth .stock {
+    height: auto;
+}
+
 @media (max-width: 1240px) {
+
+    .is-ie header .top_nav.wrap > li:first-child div > li > a {
+        justify-content: flex-start;
+    }
+
+    .is-ie header .top_nav.wrap > li:first-child div:last-child > li {
+        outline: none;
+    }
+
+    .is-ie header .depth.snd > li::before {
+        display: none;
+    }
+
+    .is-ie header .depth.snd > li::after {
+        display: none;
+    }
+
+    .is-ie header .depth.trd > li > ul > li a::before {
+        display: none;
+    }
+
+    .is-ie header .depth.trd > li > ul > li a::after {
+        display: none;
+    }
+
+    .is-ie header .depth.trd {
+        position: absolute;
+        top: 0; left: auto; right: -189%;
+        width: 187%;
+        overflow: visible;
+    }
 
     .is-ie .sec.fst .slide {
         height: 600px;
@@ -168,15 +207,7 @@
     }
 
     .is-ie header .depth.snd {
-        top: 28%;
-        left: 50%;
-        width: 22%;
-        padding-left: 24px;
-    }
-
-    .is-ie header .depth.trd {
-        left: 100%;
-        padding-left: 24px;
+        top: 210px;
     }
 
     .is-ie .sec.fourth .box.fst {

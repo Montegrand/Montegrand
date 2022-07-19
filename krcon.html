@@ -376,16 +376,19 @@
         var common = document.createElement('script');
         var slide = document.createElement('script');
         var promisePf = document.createElement('script');
+        var polyfill = document.createElement('script');
         // https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js -- promise polyfill cdn
         var fchPf = document.createElement('script');
         // https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js -- fetch polyfill cdn
         if (html[0].className.search('is-ie') === 1) {
             each.src = 'js/krconIe.js';
-            promisePf.src = 'https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js';
-            fchPf.src = 'https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js';
+            // promisePf.src = 'https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js';
+            // fchPf.src = 'https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js';
             // slide.src = "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-            document.head.appendChild(promisePf);
-            document.head.appendChild(fchPf);
+            polyfill.src = 'https://polyfill.io/v3/polyfill.js?version=3.111.0&features=Promise%2CPromise.allSettled%2CPromise.any%2CPromise.prototype.finally%2CHTMLTemplateElement%2CArray.prototype.forEach%2CDocumentFragment.prototype.prepend%2CElement.prototype.prepend%2Cfetch%2Ces2022%2Ces2021%2Ces2020%2Ces2019%2Ces2018%2Ces2017%2Ces2016%2Ces2015%2Cdom4%2CDocumentFragment.prototype.append%2CElement.prototype.append%2Ces6%2Ces5%2Ces7';
+            // document.head.appendChild(promisePf);
+            // document.head.appendChild(fchPf);
+            document.head.appendChild(polyfill);
             document.getElementsByClassName('swiper-wrapper')[0].classList.add('slide');
         } else {
             each.src = 'js/krcon.js';

@@ -14,124 +14,166 @@ $(document).ready(function () {
     })
 });
 
-window.onload = function () {
+(function (arr) {
+    Array.prototype.forEach.call(arr, function (item) {
+        if (item.hasOwnProperty('prepend')) {
+            return;
+        }
+        Object.defineProperty(item, 'prepend', {
+            configurable: true,
+            enumerable: true,
+            writable: true,
+            value: function prepend() {
+                var argArr = Array.prototype.slice.call(arguments),
+                    docFrag = document.createDocumentFragment();
 
-    let wid = window.innerWidth;
-    let hei = window.innerHeight;
+                    Array.prototype.forEach.call(argArr, function (argItem) {
+                    var isNode = argItem instanceof Node;
+                    docFrag.appendChild(isNode ? argItem : document.createTextNode(String(argItem)));
+                });
 
-    let navLi = document.querySelectorAll('header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a');
-
-    Array.prototype.forEach.call(navLi, function (v, n) {
-        if (wid <= 1240) {
-            for (i = 0; i < navLi.length; i++) {
-                if (i !== 7) {
-                    navLi[i].href = '#';
-                }
+                this.insertBefore(docFrag, this.firstChild);
             }
-        }
-    })
+        });
+    });
+})([Element.prototype, Document.prototype, DocumentFragment.prototype]);
 
-    let wrap = document.querySelector('header .top_nav.wrap');
+if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.msMatchesSelector || 
+                                Element.prototype.webkitMatchesSelector;
+  }
+  
+  if (!Element.prototype.closest) {
+    Element.prototype.closest = function(s) {
+      var el = this;
+  
+      do {
+        if (Element.prototype.matches.call(el, s)) return el;
+        el = el.parentElement || el.parentNode;
+      } while (el !== null && el.nodeType === 1);
+      return null;
+    };
+  }
 
-    let call = function () {
-        let liCon = document.querySelectorAll('header .top_nav.wrap > li');
-        if (liCon.length > 4) {
-            if (window.innerWidth < 1240) {
-                wrap.prepend(document.createElement('li'));
-                wrap.children.item(0).prepend(document.createElement('div'));
-                wrap.children.item(0).prepend(document.createElement('div'));
-                Array.prototype.forEach.call(liCon, function (v, n) {
-                    var li = wrap.children.item(1);
-                    if (n <= 2) {
-                        wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
-                    } else if (n < 5) {
-                        wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
-                    }
-                })
+let navLi = document.querySelectorAll('header .top_nav.wrap > li > a, header .top_nav.wrap .depth.snd > li > a, header .depth.trd li > a')
+
+let wrap = document.querySelector('header .top_nav.wrap');
+
+let call = function () {
+    let liCon = document.querySelectorAll('header .top_nav.wrap > li');
+
+    if (window.innerWidth < 1240) {
+        wrap.prepend(document.createElement('li'));
+        wrap.children.item(0).prepend(document.createElement('div'));
+        wrap.children.item(0).prepend(document.createElement('div'));
+        Array.prototype.forEach.call(liCon, function (v, n) {
+            var li = wrap.children.item(1);
+            if (n <= 2) {
+                wrap.children.item(0).children.item(0).insertAdjacentElement('beforeend', li)
+            } else if (n < 5) {
+                wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
             }
-        }
-
-        liCon[0].classList.add('on');
-        if (window.innerWidth > window.innerHeight) {
-            wrap.classList.add('width');
-        } else {
-            wrap.classList.remove('width')
-        }
+        })
+        Array.prototype.forEach.call(wrap.querySelectorAll('div:first-child > li > a'), function (v, n) {
+            v.href = '#';
+        })
+        Array.prototype.forEach.call(document.querySelectorAll('header .top_nav.wrap .depth.snd > li > a'), function (v, n) {
+            if (v.closest('ul').classList.contains('snd') && v.nextElementSibling != null) {
+                v.href = '#';
+            }
+        })
     }
 
-    call();
+    liCon[0].classList.add('on');
+    if (window.innerWidth > window.innerHeight) {
+        wrap.classList.add('width');
+    } else {
+        wrap.classList.remove('width')
+    }
 
-    window.addEventListener('resize', function () {
+}
+
+call();
+let liCon2 = document.querySelectorAll('header .depth.snd > li > a');
+
+Array.prototype.forEach.call(document.querySelectorAll('header a'), function (v, n) {
+    if (v.href.search('#') > 0) {
+        v.onclick = function () {
+            return false;
+        }
+    }
+})
+
+let header = document.querySelector('header');
+if (window.innerWidth < 1240) {
+    document.body.prepend(header);
+}
+
+window.addEventListener('resize', function () {
+    if (window.innerWidth >= 1240) {
+        this.location.reload();
+    } else {
+        this.location.reload();
         call();
-        if (window.innerWidth >= 1240) {
-            this.location.reload();
+    }
+    if (window.innerWidth > window.innerHeight) {
+        wrap.classList.add('width');
+    } else {
+        wrap.classList.remove('width')
+    }
+})
+
+let menu = document.querySelector("header .bt");
+let nav = document.querySelector("header .top_nav.wrap");
+let overay = document.querySelector("header .overay")
+let trigger = false;
+
+let navT = document.querySelectorAll('header .top_nav.wrap > li:first-child > div:first-child > li');
+let navB = document.querySelectorAll('header .bot_nav.wrap .depth.snd > li');
+
+Array.prototype.forEach.call(navT, function (v, n) {
+    v.addEventListener('click', function (e) {
+        for (i = 0; i < navT.length; i++) {
+            navT[i].classList.remove('on')
         }
+        v.classList.add('on');
     })
+})
 
-    var allA = document.querySelectorAll('a');
-
-    Array.prototype.forEach.call(allA, function (v, n) {
-        if (v.href.search('#') > 0) {
-            v.onclick = function () {
-                return false;
-            }
+Array.prototype.forEach.call(navB, function (v, n) {
+    v.addEventListener('click', function (e) {
+        for (i = 0; i < navB.length; i++) {
+            navB[i].classList.remove('on')
         }
+        v.classList.add('on');
+        this.focus();
     })
+})
 
-    let menu = document.querySelector("header .bt");
-    let nav = document.querySelector("header .top_nav.wrap");
-    let overay = document.querySelector("header .overay")
-    let trigger = false;
-
-    let navT = document.querySelectorAll('header .top_nav.wrap > li:first-child > div:first-child > li');
-    let navB = document.querySelectorAll('header .bot_nav.wrap .depth.snd > li');
-
-    Array.prototype.forEach.call(navT, function (v, n) {
-        v.addEventListener('click', function (e) {
-            for (i = 0; i < navT.length; i++) {
-                navT[i].classList.remove('on')
-            }
-            v.classList.add('on');
-        })
-    })
-
-    Array.prototype.forEach.call(navB, function (v, n) {
-        v.addEventListener('click', function (e) {
-            for (i = 0; i < navB.length; i++) {
-                navB[i].classList.remove('on')
-            }
-            v.classList.add('on');
-            this.focus();
-        })
-    })
-
-    document.addEventListener('click', function (e) {
-        if (e.target === menu) {
-            if (trigger === false) {
-                nav.classList.add('on');
-                menu.classList.add('on');
-                overay.classList.add('on');
-                trigger = true;
-                overay.addEventListener('click', function () {
-                    nav.classList.remove('on');
-                    menu.classList.remove('on');
-                    overay.classList.remove('on');
-                    trigger = false;
-                })
-            } else {
+document.addEventListener('click', function (e) {
+    if (e.target === menu) {
+        if (trigger === false) {
+            nav.classList.add('on');
+            menu.classList.add('on');
+            overay.classList.add('on');
+            trigger = true;
+            overay.addEventListener('click', function () {
                 nav.classList.remove('on');
                 menu.classList.remove('on');
                 overay.classList.remove('on');
                 trigger = false;
-            }
+            })
+        } else {
+            nav.classList.remove('on');
+            menu.classList.remove('on');
+            overay.classList.remove('on');
+            trigger = false;
         }
-    })
-
-    let line = document.querySelector('.sec.fst .slider:nth-child(3) > .inner > :nth-child(2)')
-
-    if (window.innerWidth <= 768) {
-        line.innerHTML = '최첨단 미래형<br> 수변도시의 시작'
     }
+})
+
+
+window.onload = function () {
 
     var allA = document.querySelectorAll('a');
 
@@ -319,7 +361,7 @@ window.onload = function () {
 
     let dateOut = document.querySelector('.sec.fourth .stock > div > div > span');
     let stock = document.querySelectorAll('.sec.fourth .stock > div > div:last-child span');
-    dateOut.innerHTML = date.slice(0, 4) + '/' + date.slice(4, 6) + '/' + date.slice(-2); // `${date.slice(0,4)} / ${date.slice(4,6)} / ${date.slice(-2)}`;
+    dateOut.innerHTML = date.slice(0, 4) + '/' + date.slice(4, 6) + '/' + date.slice(-2); // '${date.slice(0,4)} / ${date.slice(4,6)} / ${date.slice(-2)}';
 
     function numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -362,9 +404,9 @@ window.onload = function () {
                     //     }
                     //     if (n !== 0) {
                     //         if (max > 0) {
-                    //             v.classList.add(`rise`);
+                    //             v.classList.add('rise');
                     //         } else {
-                    //             v.classList.add(`decline`);
+                    //             v.classList.add('decline');
                     //         }
                     //     }
 

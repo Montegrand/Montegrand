@@ -108,6 +108,7 @@ header .depth::after {
     display: none;
     z-index: 0;
     background: none;
+    overflow: visible;
 }
 
 header .depth.fst {
@@ -120,9 +121,9 @@ header .depth.fst > p {
 }
 
 header .depth.snd {
-    position: fixed;
-    top: 40vh; left: 0;
-    width: 35%; height: 60vh;
+    position: absolute;
+    top: calc(100vh - (60vh + 80px)); left: 0;
+    width: 35%; height: auto;
     flex-direction: column;
 }
 
@@ -174,6 +175,10 @@ header .depth.snd > li.on > a {
 header .depth.snd > li > a span {
     color: #fff;
     font-size: 1.2rem;
+}
+
+header .depth.snd > li > a:hover span {
+    color: #fff;
 }
 
 .bot_nav.wrap i {
@@ -303,6 +308,7 @@ header .top_nav.wrap > li:first-child div:last-child > li:hover > a > span {
 
 header .top_nav.wrap > li:first-child div:first-child > li.on .bot_nav.wrap {
     display: flex;
+    top: 0;
 }
 
 .top_nav.wrap a:hover {
@@ -325,10 +331,8 @@ header .top_nav.wrap.width > li:first-child div:last-child > li {
 }
 
 header .top_nav.wrap.width .depth.snd {
-    top: 41.6vh;
-    height: 58.4vh;
+    top: calc(100vh - (55vh + 80px));
 }
-
 header .top_nav.wrap.width .depth.trd {
     top: 41.6vh;
 }

@@ -17,18 +17,20 @@ let call = function () {
                 wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
             }
         })
+
+        console.log(document.querySelector('.bot_nav.wrap').getBoundingClientRect())
+
         wrap.querySelectorAll('div:first-child > li > a').forEach(function (v, n) {
             v.href = '#';
+        })
+        document.querySelectorAll('header .top_nav.wrap .depth.snd > li > a').forEach(function (v, n) {
+            if (v.closest('ul').classList.contains('snd') && v.nextElementSibling != null) {
+                v.href = '#';
+            }
         })
     }
 
     liCon[0].classList.add('on');
-    if (window.innerWidth > window.innerHeight) {
-        wrap.classList.add('width');
-    } else {
-        wrap.classList.remove('width')
-    }
-
 }
 
 call();
@@ -52,6 +54,11 @@ window.addEventListener('resize', function () {
         this.location.reload();
     } else {
         this.document.body.prepend(header);
+    }
+    if (window.innerWidth > window.innerHeight) {
+        wrap.classList.add('width');
+    } else {
+        wrap.classList.remove('width')
     }
 })
 
@@ -170,7 +177,7 @@ if (subN) {
         });
     })
     var subA = document.querySelectorAll(`nav a`);
-    
+
     subA.forEach(function (v, n) {
         if (v.href.search(`#`) > 0) {
             v.onclick = function () {
@@ -179,4 +186,3 @@ if (subN) {
         }
     })
 }
-
