@@ -18,6 +18,10 @@
 }
 /* fade in out animation */
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0; padding: 0;
     box-sizing: border-box;
@@ -122,6 +126,10 @@ header .depth > li:hover > a * {
 }
 
 .top_nav.wrap a:hover {
+    color: #0972CD;
+}
+
+.top_nav.wrap li:hover > a span {
     color: #0972CD;
 }
 

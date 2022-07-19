@@ -33,9 +33,7 @@ let call = function () {
 
 call();
 let liCon2 = document.querySelectorAll(`header .depth.snd > li > a`);
-liCon2.forEach(function(v,n){
-    v.href = '#';
-})
+
 document.querySelectorAll('header a').forEach(function(v,n){
     if(v.href.search('#')>0){
         v.onclick = function () {
@@ -112,8 +110,10 @@ let subBot = document.querySelector('nav.subNav .subBot');
 let subTop = document.querySelector('nav.subNav .subTop');
 let prul = document.querySelector('header .top_nav.wrap > li:nth-child(3) .depth.snd');
 let subN = document.querySelector('nav.subNav');
+let toTop = document.querySelector('nav.subNav .toTop > a')
 
 navLi.forEach(function(v,n){
+
     if (v.href == window.location.href && v.closest('.depth.trd')){
         let subT = v.closest('.depth.snd')
         for(i=0;i<subT.children.length;i++){
@@ -123,7 +123,7 @@ navLi.forEach(function(v,n){
             subBot.children.item(i).append(subT.children.item(i).querySelector('ul.trd ul').cloneNode(true))
         }
         return;
-    } else if (v.href == window.location.href&&v.closest('ul').classList.contains('snd')) {
+    } else if (v.href == window.location.href&&v.closest('ul').classList.contains('snd')&&v.nextElementSibling==null) {
         let subT = v.closest('.depth.snd')
         let subB = v.closest('ul')
         for(i=0;i<subT.children.length;i++){
@@ -172,4 +172,12 @@ subA.forEach(function (v, n) {
             return false;
         }
     }
+})
+
+toTop.addEventListener('click', function () {
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
 })

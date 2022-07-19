@@ -92,7 +92,7 @@ section.snd .chart.contain {
 }
 
 section.snd .chart.contain > div {
-    width: 100%;
+    width: 70%;
 }
 
 section.snd table * {

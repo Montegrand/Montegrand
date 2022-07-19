@@ -74,7 +74,7 @@ window.onload = function () {
                 break;
             }
         };
-        if (new Date().getDay()==6||new Date().getDay()==0) {
+        if (new Date().getDay() == 6 || new Date().getDay() == 0) {
             date.setDate(date.getDate() - 1)
         };
         var year = date.getFullYear();
@@ -90,9 +90,9 @@ window.onload = function () {
     let url = '';
     url += 'https://cors-mongtegrand.herokuapp.com/';
     url += 'https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?resultType=json&';
-    url += 'basDt=${date}&';
+    url += 'basDt=' + date+ '&';
     url += 'isinCd=KR7013580006&';
-    url += 'serviceKey=${key}';
+    url += 'serviceKey=' + key;
 
     let outPut = document.querySelectorAll('section .container .stockContainer span');
     let stock = document.querySelectorAll('section .container .box .stock span');
@@ -102,6 +102,11 @@ window.onload = function () {
 
     dateOut.innerHTML = date.slice(0, 4) + '/' + date.slice(4, 6) + '/' + date.slice(-2) + '일자 기준';
 
+    Number.isInteger = Number.isInteger || function (value) {
+        return typeof value === "number" &&
+            isFinite(value) &&
+            Math.floor(value) === value;
+    };
 
     var result = fetch(url);
     result.then(function (response) {
@@ -109,6 +114,7 @@ window.onload = function () {
         })
         .then(function (res) {
             let item = res.response.body.items.item[0];
+            console.log(item)
             company.innerHTML += item.itmsNm;
             stockC.innerHTML += item.mrktCtg;
 
@@ -125,24 +131,28 @@ window.onload = function () {
                 var now = max
                 const handle = setInterval(function () {
                     // v.innerHTML = Math.ceil(max - now);
-                    if (n !== 2) {
+                    if (Number.isInteger(max)) {
                         v.innerHTML = Math.ceil(max - now);
                     } else {
                         v.innerHTML = (max - now).toFixed(2);
                     }
-
+                    if (n !== 2) {
+                        v.innerHTML = numberWithCommas(v.innerHTML);
+                    } else {
+                        v.innerHTML += '%';
+                    }
                     if (n !== 0) {
-                        if (n > 0) {
+                        if (max > 0) {
                             v.classList.add('rise');
                         } else {
                             v.classList.add('decline');
                         }
                     }
 
-                    // 목표에 도달하면 정지?? 작동 x
-                    if (now < 0) {
-                        clearInterval(handle);
-                    }
+                    // -목표에 도달하면 정지- 마이너스일때 정지
+                    // if (now < 0) {
+                    //     clearInterval(handle);
+                    // }
 
                     const step = now / 10;
                     now -= step;
@@ -170,7 +180,7 @@ window.onload = function () {
                     outPut[i].classList.add('rise');
                 }
             }
-            
+
         })
     // chart---------------------------------------------------------------------------------
 
@@ -270,15 +280,14 @@ window.onload = function () {
                 '2019', '2020', '2021',
             ],
             datasets: [{
-                    label: '매출액',
-                    type: 'bar',
-                    fill: false,
-                    data: [
-                        16493.89656049, 15712.92959736, 18707.62288982
-                    ],
-                    backgroundColor: '#0972CD',
-                }
-            ]
+                label: '매출액',
+                type: 'bar',
+                fill: false,
+                data: [
+                    16493.89656049, 15712.92959736, 18707.62288982
+                ],
+                backgroundColor: '#0972CD',
+            }]
         },
         options: {
             maintainAspectRatio: false,
@@ -321,15 +330,14 @@ window.onload = function () {
                 '2019', '2020', '2021',
             ],
             datasets: [{
-                    label: '매출총이익',
-                    type: 'bar',
-                    fill: false,
-                    data: [
-                        1689.33546009, 2135.47059759, 2590.67725788
-                    ],
-                    backgroundColor: '#CC581D',
-                }
-            ]
+                label: '매출총이익',
+                type: 'bar',
+                fill: false,
+                data: [
+                    1689.33546009, 2135.47059759, 2590.67725788
+                ],
+                backgroundColor: '#CC581D',
+            }]
         },
         options: {
             maintainAspectRatio: false,
@@ -372,15 +380,14 @@ window.onload = function () {
                 '2019', '2020', '2021',
             ],
             datasets: [{
-                    label: '영업이익 (손실)',
-                    type: 'bar',
-                    fill: false,
-                    data: [
-                        1169.22456688, 1519.90194050, 2036.21424439
-                    ],
-                    backgroundColor: '#1214CC',
-                }
-            ]
+                label: '영업이익 (손실)',
+                type: 'bar',
+                fill: false,
+                data: [
+                    1169.22456688, 1519.90194050, 2036.21424439
+                ],
+                backgroundColor: '#1214CC',
+            }]
         },
         options: {
             maintainAspectRatio: false,

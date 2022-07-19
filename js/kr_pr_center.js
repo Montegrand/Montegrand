@@ -22,5 +22,8 @@ window.onload = function () {
                 }
             };
         })
+        v.onclick = function () {
+            return false;
+        }
     });
 }

@@ -256,7 +256,7 @@ section.snd .chart.contain {
 section.snd .chart.contain > div {
     position: relative;
     margin: auto;
-    width: 25vw; height: 50vh;
+    width: 20vw; height: 50vh;
 }
 
 section.snd table {

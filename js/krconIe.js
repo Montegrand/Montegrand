@@ -193,4 +193,232 @@ window.onload = function () {
             "img0": "url(../images/krcon/leiL/01.png) 50% 50% / cover no-repeat;"
         }
     ];
+
+    var header = document.querySelector('.sec.snd .depth.snd h3');
+    var name = document.querySelector('.sec.snd .depth.snd span');
+    var tbox = document.querySelector('.sec.snd .depth.snd p');
+    var d3 = document.querySelector('.sec.snd .depth.trd > div:first-child');
+    var d3h = document.querySelector('.sec.snd .depth.trd > div:first-child > h4');
+
+    header.textContent = boxT[0].header;
+
+    name.textContent = boxT[0].name;
+
+    tbox.textContent = boxT[0].tbox;
+
+    d3.style.background = boxT[0].img0;
+
+    d3h.textContent = boxT[0].box1H;
+
+    var bt = document.querySelectorAll('.bt > a')
+    Array.prototype.forEach.call(bt, function (v, n, Node) {
+
+        v.addEventListener('click', tap);
+
+        function tap() {
+
+
+            var header = document.querySelector('.sec.snd .depth.snd h3');
+            var name = document.querySelector('.sec.snd .depth.snd span');
+            var tbox = document.querySelector('.sec.snd .depth.snd p');
+            var d3 = document.querySelector('.sec.snd .depth.trd > div:first-child');
+            var d3h = document.querySelector('.sec.snd .depth.trd > div:first-child > h4');
+
+            header.textContent = boxT[n].header; //depth2 h3
+
+            name.textContent = boxT[n].name; //depth2 span
+
+            tbox.textContent = boxT[n].tbox; //depth2 p
+
+            d3.style.background = boxT[n].img0;
+
+            d3h.textContent = boxT[n].box1H;
+            //depth3 
+
+
+            for (i = 0; i < bt.length; i++) {
+                if (i === n) {
+                    bt[i].classList.add('on');
+                } else {
+                    bt[i].classList.remove('on');
+                }
+            }
+            // v.className = 'on';
+
+            // bt[!n].className = '';
+
+        };
+
+    });
+
+    var kWord = document.querySelectorAll('.sec.trd > .inner .wrap > div')
+    Array.prototype.forEach.call(kWord, function (v, n, Node) {
+
+        let sec3 = document.querySelector('.sec.trd');
+        let sec3C = document.querySelector('.sec.trd').className;
+        let top = document.querySelector('.sec.trd .top');
+        let topC = document.querySelector('.sec.trd .top').className;
+        let topH3 = document.querySelector('.sec.trd .top h3');
+        let topP = document.querySelector('.sec.trd .top p');
+        let icon = document.querySelectorAll('.sec.trd > .inner > .wrap i');
+        let h4 = document.querySelectorAll('.sec.trd > .inner > .wrap h4');
+        let bt = document.querySelector('.sec.trd .bt')
+        let thisC = this.classList
+        v.addEventListener('mouseover', hover);
+
+        function hover() {
+            this.classList.add('on')
+            top.classList.add('on')
+            sec3.classList.add('on');
+        }
+
+        v.addEventListener('mouseleave', leave)
+
+        function leave() {
+            this.classList.remove('on')
+            top.classList.remove('on')
+            sec3.classList.remove('on');
+        }
+    })
+
+    // 공공데이터 api 키 muIq64no7R2y0I1U%2FGhNc1RUj9YYKw5JamO3v%2BafJEOmgNxiPxHn32IVPEWtBqru7HJxuO0wB54iebeiATQ3kg%3D%3D
+    // 계룡건설 KR7013580006
+
+    let key = 'muIq64no7R2y0I1U%2FGhNc1RUj9YYKw5JamO3v%2BafJEOmgNxiPxHn32IVPEWtBqru7HJxuO0wB54iebeiATQ3kg%3D%3D';
+
+    function getToday() {
+        var date = new Date();
+        if (date.getHours() < 12) {
+            date = new Date(date.setDate(date.getDate() - 1));
+        }
+        for (i = 1; i > 0; i++) {
+            date = new Date(date.setDate(date.getDate() - i));
+            if (date.getDay() % 6 != 0) {
+                break;
+            }
+        };
+        if (new Date().getDay() == 6 || new Date().getDay() == 0) {
+            date.setDate(date.getDate() - 1)
+        }
+        var year = date.getFullYear();
+        var month = ('0' + (date.getMonth() + 1)).slice(-2);
+        var day = ('0' + date.getDate()).slice(-2);
+        return year + month + day;
+    }
+
+    // 공공데이터포털 api 주말 x
+
+    let date = getToday();
+
+    let url = '';
+    url += 'https://cors-mongtegrand.herokuapp.com/';
+    url += 'https://api.odcloud.kr/api/GetStockSecuritiesInfoService/v1/getStockPriceInfo?resultType=json&';
+    url += 'basDt=' + date + '&';
+    url += 'isinCd=KR7013580006&';
+    url += 'serviceKey=' + key;
+
+    let dateOut = document.querySelector('.sec.fourth .stock > div > div > span');
+    let stock = document.querySelectorAll('.sec.fourth .stock > div > div:last-child span');
+    dateOut.innerHTML = date.slice(0, 4) + '/' + date.slice(4, 6) + '/' + date.slice(-2); // `${date.slice(0,4)} / ${date.slice(4,6)} / ${date.slice(-2)}`;
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    Number.isInteger = Number.isInteger || function (value) {
+        return typeof value === "number" &&
+            isFinite(value) &&
+            Math.floor(value) === value;
+    };
+
+    var result = fetch(url);
+    result.then(function (response) {
+            return response.json();
+        })
+        .then(function (res) {
+            let item = res.response.body.items.item[0];
+            Array.prototype.forEach.call(stock, function (v, n) {
+                let callStock = function () {
+                    var max;
+                    if (n === 0) {
+                        max = Number(item.clpr); //종가
+                    } else if (n === 1) {
+                        max = Number(item.vs); //대비
+                    } else if (n === 2) {
+                        max = Number(item.fltRt); //퍼센트
+                    }
+                    var now = max
+                    // const handle = setInterval(functioni () {
+                    //     // v.innerHTML = Math.ceil(max - now);
+                    //     if (Number.isInteger(max)) {
+                    //         v.innerHTML = Math.ceil(max - now);
+                    //     } else {
+                    //         v.innerHTML = (max - now).toFixed(2);
+                    //     }
+                    //     if (n !== 2) {
+                    //         v.innerHTML = numberWithCommas(v.innerHTML);
+                    //     } else {
+                    //         v.innerHTML += '%';
+                    //     }
+                    //     if (n !== 0) {
+                    //         if (max > 0) {
+                    //             v.classList.add(`rise`);
+                    //         } else {
+                    //             v.classList.add(`decline`);
+                    //         }
+                    //     }
+
+                    //     // -목표에 도달하면 정지- 마이너스일때 정지
+                    //     // if (now < 0) {
+                    //     //     clearInterval(handle);
+                    //     // }
+
+                    //     const step = now / 10;
+                    //     now -= step;
+                    // }, 30);
+
+                    const handle = setInterval(function () {
+                        // v.innerHTML = Math.ceil(max - now);
+                        if (Number.isInteger(max)) {
+                            v.innerHTML = Math.ceil(max - now);
+                        } else {
+                            v.innerHTML = (max - now).toFixed(2);
+                        }
+                        if (n !== 2) {
+                            v.innerHTML = numberWithCommas(v.innerHTML);
+                        } else {
+                            v.innerHTML += '%';
+                        }
+                        if (n !== 0) {
+                            if (max > 0) {
+                                v.classList.add('rise');
+                            } else {
+                                v.classList.add('decline');
+                            }
+                        }
+
+                        // -목표에 도달하면 정지- 마이너스일때 정지
+                        // if (now < 0) {
+                        //     clearInterval(handle);
+                        // }
+
+                        const step = now / 10;
+                        now -= step;
+                    }, 30);
+                };
+                if (v.innerHTML == 0) {
+                    if (document.querySelector('.sec.fourth').getBoundingClientRect().bottom < window.innerHeight) {
+                        callStock();
+                    }
+                }
+                window.addEventListener('scroll', function () {
+                    if (v.innerHTML == 0) {
+                        if (document.querySelector('.sec.fourth').getBoundingClientRect().bottom < window.innerHeight) {
+                            callStock();
+                        }
+                    }
+
+                })
+            })
+        })
 }
