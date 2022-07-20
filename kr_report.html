@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <title>계룡건설산업</title>
-    <link rel="stylesheet" type="text/css" href="css/kr_comp_info.css">
-    <link rel="stylesheet" media="all and (max-width: 1240px)" href="css/kr_comp_info_t.css" />
-    <link rel="stylesheet" media="all and (max-width: 768px)" href="css/kr_comp_info_m.css">
+    <link rel="stylesheet" type="text/css" href="css/kr_report.css">
+    <link rel="stylesheet" media="all and (max-width: 1240px)" href="css/kr_report_t.css" />
+    <link rel="stylesheet" media="all and (max-width: 760px)" href="css/kr_report_m.css">
     <script src="js/jquery-3.6.0.min.js"></script>
-</head>
 
+</head>
 <body>
     <div>
         <header>
@@ -78,7 +78,7 @@
                                             <ul>
                                                 <li><a href="kr_comp_Info.html">회사개요</a></li>
                                                 <li><a href="kr_ir.html">주요 경영 실적 요약</a></li>
-                                                <li><a href="#">정기보고서</a></li>
+                                                <li><a href="kr_report.html">정기보고서</a></li>
                                                 <li><a href="#">공고</a></li>
                                             </ul>
                                         </li>
@@ -119,10 +119,12 @@
                                     <a href="#">사회공헌</a>
                                 </li>
                                 <li>
-                                    <a href="https://krfoundation.krcon.co.kr/sf/sfwabout/about/main.dev" target="_blank">계룡장학재단</a>
+                                    <a href="https://krfoundation.krcon.co.kr/sf/sfwabout/about/main.dev"
+                                        target="_blank">계룡장학재단</a>
                                 </li>
                                 <li>
-                                    <a href="http://www.krcon.co.kr/webzine/krcon2206/2206/index.html" target="_blank">계룡가족</a>
+                                    <a href="http://www.krcon.co.kr/webzine/krcon2206/2206/index.html"
+                                        target="_blank">계룡가족</a>
                                 </li>
                                 <li>
                                     <a href="#">고객센터</a>
@@ -132,7 +134,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="https://www.krcon.co.kr/hp/krcon/kor/ethics/index.dev" target="_blank"><span>협력업체</span></a>
+                    <a href="https://www.krcon.co.kr/hp/krcon/kor/ethics/index.dev"
+                        target="_blank"><span>협력업체</span></a>
                 </li>
                 <li>
                     <a href="https://recruit.krcon.co.kr/" target="_blank"><span>채용안내</span></a>
@@ -163,96 +166,22 @@
         <div class="result"></div>
     </nav>
     <section>
-        <div class="inner">
-            <h3>회사개요</h3>
-            <p>
-                50여 년을 이어온 성장의 역사! 새로운 내일을 열어가는 바탕입니다.
-            </p>
-        </div>
-        <div class="box fst">
-            <div class="inner">
-                <div class="bar">
-                    <h4>회사개요</h4>
-                </div>
-                <div class="img">
-                    <h6>계룡건설산업<br>본사</h6>
-                </div>
-                <div class="text container">
-                    <table>
-                        <tr>
-                            <td>회사명</td>
-                            <td>계룡건설산업(주)</td>
-                        </tr>
-                        <tr>
-                            <td>설립일</td>
-                            <td>1987.10.11</td>
-                        </tr>
-                        <tr>
-                            <td>상장일</td>
-                            <td>1996.1.30</td>
-                        </tr>
-                        <tr>
-                            <td>대표이사</td>
-                            <td>한승구, 이승찬</td>
-                        </tr>
-                        <tr>
-                            <td>대표업종</td>
-                            <td>건설업</td>
-                        </tr>
-                        <tr>
-                            <td>자본금</td>
-                            <td class="money">44654535000원</td>
-                        </tr>
-                        <tr>
-                            <td>결산기</td>
-                            <td>12월</td>
-                        </tr>
-                        <tr>
-                            <td>본점주소</td>
-                            <td>대전광역시 서구 문정로 48번길 48(탄방동)</td>
-                        </tr>
-                        <tr>
-                            <td>대표전화</td>
-                            <td>042-480-7114</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="inner">
-                <a href="kr_pr_center.html">기업 PR 바로가기 <i></i></a>
-            </div>
-        </div>
+
     </section>
-    <footer>
-        <div class="inner">
-            <h2 class="ftlogo">로고</h2>
-            <div>
-                <p>Tel: 042-480-7114</p>
-                <p>Fax: 042-486-1615</p>
-                <p>대전광역시 서구 문정로 48번길. 48</p>
-                <p>© COPYRIGHT 2016. KYERYONG CONSTRUCTION INDUSTRIAL CO., LTD. ALL RIGHTS RESERVED.</p>
-            </div>
-        </div>
-    </footer>
     <script src="lib/IE-Checker/ie-checker.js"></script>
     <script>
         var html = document.getElementsByTagName('html');
         var each = document.createElement('script');
         var common = document.createElement('script');
         if (html[0].className.search('is-ie') === 1) {
-            each.src = 'js/kr_comp_infoIe.js';
+            each.src = 'js/kr_reportIe.js';
             common.src = 'js/IE_common.js'
             document.head.appendChild(common);
         } else {
-            each.src = 'js/krcon_greeting.js';
+            each.src = 'js/kr_report.js';
             document.head.appendChild(common);
             common.src = 'js/common.js';
         }
         document.head.appendChild(each);
     </script>
-    <!-- <script src="js/kr_comp_info.js"></script> -->
 </body>
-
-</html>

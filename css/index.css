@@ -59,6 +59,11 @@
     }
 }
 
+:root {
+    --x: 0;
+    --i: 0;
+}
+
 * {
     margin: 0; padding: 0;
     box-sizing: border-box;
@@ -308,7 +313,7 @@ body > .line::before {
     position: absolute;
     opacity: 0.3;
     user-select: none;
-    transition: 0.01s;
+    transform: translateX(calc(var(--x) * var(--i)));
     z-index: -1;
 }
 
@@ -554,12 +559,12 @@ body > .line::before {
     width: 30%;
     display: flex;
     justify-content: center;
-    padding: 6px 0;
+    padding: 6px 24px;
+    outline: 1px solid #333;
 }
 
 .contents > .box.snd.load .PV a:hover {
-    color: #abd;
-    background: #ddd;
+    outline: 3px solid #666;
 }
 
 /* box3----------------------------------------------------------------------------------- */

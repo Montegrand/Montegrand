@@ -2,6 +2,7 @@ let navLi = document.querySelectorAll(`header .top_nav.wrap > li > a, header .to
 
 let wrap = document.querySelector(`header .top_nav.wrap`);
 
+
 let call = function () {
     let liCon = document.querySelectorAll(`header .top_nav.wrap > li`);
 
@@ -17,8 +18,6 @@ let call = function () {
                 wrap.children.item(0).children.item(1).insertAdjacentElement('beforeend', li)
             }
         })
-
-        console.log(document.querySelector('.bot_nav.wrap').getBoundingClientRect())
 
         wrap.querySelectorAll('div:first-child > li > a').forEach(function (v, n) {
             v.href = '#';
@@ -118,16 +117,37 @@ let subTop = document.querySelector('nav.subNav .subTop');
 let prul = document.querySelector('header .top_nav.wrap > li:nth-child(3) .depth.snd');
 let subN = document.querySelector('nav.subNav');
 let toTop = document.querySelector('nav.subNav .toTop > a')
+let topDepth = document.querySelector('.top');
+let pgH = topDepth.querySelector('h2');
+let pgDepth = topDepth.querySelector('ul');
 
 navLi.forEach(function (v, n) {
 
     if (v.href == window.location.href && v.closest('.depth.trd')) {
         let subT = v.closest('.depth.snd')
+        console.log(subT)
         for (i = 0; i < subT.children.length; i++) {
             subTop.append(document.createElement('li'))
             subTop.children.item(i).append(subT.children.item(i).children.item(0).cloneNode(true))
             subBot.append(document.createElement('li'));
             subBot.children.item(i).append(subT.children.item(i).querySelector('ul.trd ul').cloneNode(true))
+        }
+        if (header.nextElementSibling === topDepth) {
+            pgDepth.append(document.createElement('li'))
+            pgDepth.append(document.createElement('li'))
+            pgDepth.append(document.createElement('li'))
+            pgDepth = pgDepth.querySelectorAll('li')
+            pgH.innerHTML = v.closest('.depth.fst').querySelector('p').textContent
+            pgDepth.forEach(function (val, num) {
+                val.append(document.createElement('a'))
+                if (num === 0) {
+                    val.children.item(0).textContent = v.closest('.depth.fst').querySelector('p').textContent
+                } else if (num === 1) {
+                    val.children.item(0).textContent = v.closest('.depth.trd').previousElementSibling.textContent
+                } else {
+                    val.children.item(0).textContent = v.textContent
+                }
+            })
         }
         return;
     } else if (v.href == window.location.href && v.closest('ul').classList.contains('snd') && v.nextElementSibling == null) {
@@ -136,6 +156,20 @@ navLi.forEach(function (v, n) {
         for (i = 0; i < subT.children.length; i++) {
             subTop.append(document.createElement('li'))
             subTop.children.item(i).append(subT.children.item(i).children.item(0).cloneNode(true))
+        }
+        if (header.nextElementSibling === topDepth) {
+            pgDepth.append(document.createElement('li'))
+            pgDepth.append(document.createElement('li'))
+            pgDepth = pgDepth.querySelectorAll('li')
+            pgH.innerHTML = v.closest('.depth.fst').querySelector('p').textContent
+            pgDepth.forEach(function (val, num) {
+                val.append(document.createElement('a'))
+                if (num === 0) {
+                    val.children.item(0).textContent = v.closest('.depth.fst').querySelector('p').textContent
+                } else if (num === 1) {
+                    val.children.item(0).textContent = v.closest('.depth.snd').querySelector('a').textContent
+                }
+            })
         }
     }
 })

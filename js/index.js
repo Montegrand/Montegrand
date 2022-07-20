@@ -107,16 +107,16 @@ window.onload = function () {
     })
 
     if (window.innerWidth > 1280) {
-        // contents.addEventListener('mousemove',function(e){
-        //     let bg = document.querySelectorAll('pre.bg');
-        //     bg.forEach(function(v,n){
-        //         if(n==0){
-        //             v.style.top = `calc(-${((contents.offsetHeight - e.clientY)/contents.offsetHeight)*5}% - 1%)`;
-        //         } else {
+        contents.addEventListener('mousemove',function(e){
+            this.style.setProperty('--x', (e.clientX/this.offsetWidth)*10 + '%');
+            // bg.forEach(function(v,n){
+            //     if(n==0){
+            //         v.style.top = `calc(-${((contents.offsetHeight - e.clientY)/contents.offsetHeight)*5}% - 1%)`;
+            //     } else {
 
-        //         }
-        //     })
-        // })
+            //     }
+            // })
+        })
         // cBoxes.forEach(function (v, n) {
         //     v.addEventListener('mousemove', function (e) {
         //         let X = e.clientX;
