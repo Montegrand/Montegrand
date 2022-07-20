@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url(IE_common.css);
 
 .is-ie section .contents > div {
     height: 800px;
@@ -23,35 +24,6 @@ header .top_nav.wrap > li:hover > a::after {
 }
 
 @media (max-width: 1240px) {
-
-    .is-ie header {
-        z-index: 100;
-    }
-
-    .is-ie header .overay {
-        position: fixed;
-        z-index: 10;
-    }
-
-    .is-ie header .top_nav.wrap {
-        z-index: 100;
-    }
-
-    .is-ie header .top_nav.wrap.on {
-        position: fixed;
-    }
-
-    .is-ie header .depth.snd {
-        top: 28%;
-        left: 49%;
-        width: 22%;
-        padding-left: 24px;
-    }
-
-    .is-ie header .depth.trd {
-        left: 100%;
-        padding-left: 24px;
-    }
 
     .is-ie section .contents {
         height: 80vh;

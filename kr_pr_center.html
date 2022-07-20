@@ -295,6 +295,8 @@
         var common = document.createElement('script');
         if (html[0].className.search('is-ie') === 1) {
             each.src = 'js/kr_pr_centerIe.js';
+            common.src = 'js/IE_common.js'
+            document.head.appendChild(common);
         } else {
             each.src = 'js/kr_pr_center.js';
             common.src = 'js/common.js';

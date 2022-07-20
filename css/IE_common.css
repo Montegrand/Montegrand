@@ -1,0 +1,73 @@
+/* header */
+
+.is-ie header {
+    position: relative;
+    z-index: 50;
+}
+
+.is-ie header .bt.on {
+    position: fixed;
+}
+
+@media (max-width: 1240px) {
+
+    .is-ie header .top_nav.wrap > li:first-child div > li > a {
+        justify-content: flex-start;
+    }
+
+    .is-ie header .top_nav.wrap > li:first-child div > li:nth-child(2) > a span {
+        margin-left: -20px;
+    }
+
+    .is-ie header .top_nav.wrap > li:first-child div:last-child > li {
+        outline: none;
+    }
+
+    .is-ie header .depth.snd > li::before {
+        display: none;
+    }
+
+    .is-ie header .depth.snd > li::after {
+        display: none;
+    }
+
+    .is-ie header .depth.trd > li > ul > li a::before {
+        display: none;
+    }
+
+    .is-ie header .depth.trd > li > ul > li a::after {
+        display: none;
+    }
+
+    .is-ie header .top_nav.wrap.width .depth.trd {
+        position: absolute;
+        top: 0; left: 100%;
+        width: 187%;
+        overflow: visible;
+    }
+
+    .is-ie header .overay {
+        position: fixed;
+    }
+
+    .is-ie header .top_nav.wrap.on {
+        position: fixed;
+    }
+
+}
+
+@media all and ( max-width: 680px ) {
+    
+    html {
+        font-size: 10px;
+    }
+
+    .is-ie header .depth.snd {
+        left: 48.5%;
+    }
+
+    .is-ie header .depth.trd {
+        left: 99%;
+    }
+
+}

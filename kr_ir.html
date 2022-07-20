@@ -400,12 +400,14 @@
         var common = document.createElement('script');
         if (html[0].className.search('is-ie') === 1) {
             each.src = 'js/kr_irIe.js';
+            common.src = 'js/IE_common.js'
             promisePf.src = 'https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js';
             fchPf.src = 'https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js';
             chrt.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js';
             document.head.appendChild(promisePf);
             document.head.appendChild(fchPf);
             document.head.appendChild(chrt);
+            document.head.appendChild(common);
         } else {
             chrt.src = "https://cdn.jsdelivr.net/npm/chart.js";
             document.head.appendChild(chrt);

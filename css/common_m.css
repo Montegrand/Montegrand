@@ -1,5 +1,5 @@
 html {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 /* header==================== */
@@ -21,8 +21,7 @@ header .top_nav.wrap.width > li:first-child div:first-child > li > a > span {
 }
 
 header .depth.snd {
-    top: 39vh;
-    height: 61vh;
+    top: calc(100vh - (61vh + 80px))
 }
 
 header .depth.snd > li:hover > a {
@@ -47,20 +46,10 @@ header .top_nav.wrap > li:first-child div > li {
 }
 
 header .top_nav.wrap.width .depth.snd {
-    top: 49.5vh;
-    height: 50.5vh;
+    top: calc(100vh - (50.5vh + 80px));
 }
 
 header .top_nav.wrap.width .depth.trd {
     top: 49.5vh;
     height: 50.5vh;
-}
-
-.top {
-    height: 120px;
-    padding: 0 30px;
-}
-
-.top .page_depth {
-    margin-top: 2rem;
 }

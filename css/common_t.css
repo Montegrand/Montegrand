@@ -1,5 +1,6 @@
+
 .inner {
-    width: 80%;
+    width: 90%;
 }
 
 /* header============================ */
@@ -108,6 +109,7 @@ header .depth::after {
     display: none;
     z-index: 0;
     background: none;
+    overflow: visible;
 }
 
 header .depth.fst {
@@ -120,9 +122,9 @@ header .depth.fst > p {
 }
 
 header .depth.snd {
-    position: fixed;
-    top: 40vh; left: 0;
-    width: 35%; height: 60vh;
+    position: absolute;
+    top: calc(100vh - (60vh + 80px)); left: 0;
+    width: 35%; height: auto;
     flex-direction: column;
 }
 
@@ -174,6 +176,10 @@ header .depth.snd > li.on > a {
 header .depth.snd > li > a span {
     color: #fff;
     font-size: 1.2rem;
+}
+
+header .depth.snd > li > a:hover span {
+    color: #fff;
 }
 
 .bot_nav.wrap i {
@@ -303,25 +309,22 @@ header .top_nav.wrap > li:first-child div:last-child > li:hover > a > span {
 
 header .top_nav.wrap > li:first-child div:first-child > li.on .bot_nav.wrap {
     display: flex;
+    top: 0;
 }
 
 .top_nav.wrap a:hover {
     color: #fff
 }
 
-nav.subNav {
-    display: none;
-}
-
-/* header width================================================= */
+/* width================================================= */
 
 
 header .top_nav.wrap.width::before {
-    height: 58.4vh;
+    height: 56vh;
 }
 
 header .top_nav.wrap.width::after {
-    height: 58.4vh;
+    height: 56vh;
 }
 
 header .top_nav.wrap.width > li:first-child div:last-child > li {
@@ -329,22 +332,8 @@ header .top_nav.wrap.width > li:first-child div:last-child > li {
 }
 
 header .top_nav.wrap.width .depth.snd {
-    top: 41.6vh;
-    height: 58.4vh;
+    top: calc(100vh - (56vh + 80px));
 }
-
 header .top_nav.wrap.width .depth.trd {
-    top: 41.6vh;
-}
-
-.top {
-    height: 240px;
-}
-
-.top h2 {
-    font-size: 1.8rem;
-}
-
-.page_depth {
-    margin-top: 24px;
+    top: calc(100vh - (56vh));
 }

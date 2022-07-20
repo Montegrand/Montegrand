@@ -395,6 +395,7 @@
         // https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js -- fetch polyfill cdn
         if (html[0].className.search('is-ie') === 1) {
             each.src = 'js/krconIe.js';
+            common.src = 'js/IE_common.js'
             // promisePf.src = 'https://cdn.jsdelivr.net/npm/promise-polyfill@8.2.3/dist/polyfill.min.js';
             // fchPf.src = 'https://cdn.jsdelivr.net/npm/fetch-polyfill@0.8.2/fetch.min.js';
             // slide.src = "https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
@@ -403,6 +404,7 @@
             // document.head.appendChild(fchPf);
             document.head.appendChild(polyfill);
             document.getElementsByClassName('swiper-wrapper')[0].classList.add('slide');
+            document.head.appendChild(common);
         } else {
             each.src = 'js/krcon.js';
             common.src = 'js/common.js';
