@@ -319,11 +319,11 @@ header .top_nav.wrap > li:first-child div:first-child > li.on .bot_nav.wrap {
 
 
 header .top_nav.wrap.width::before {
-    height: 58.4vh;
+    height: 56vh;
 }
 
 header .top_nav.wrap.width::after {
-    height: 58.4vh;
+    height: 56vh;
 }
 
 header .top_nav.wrap.width > li:first-child div:last-child > li {
@@ -331,10 +331,10 @@ header .top_nav.wrap.width > li:first-child div:last-child > li {
 }
 
 header .top_nav.wrap.width .depth.snd {
-    top: calc(100vh - (55vh + 80px));
+    top: calc(100vh - (56vh + 80px));
 }
 header .top_nav.wrap.width .depth.trd {
-    top: 41.6vh;
+    top: calc(100vh - (56vh));
 }
 
 /* section1=========================================== */
@@ -486,5 +486,9 @@ header .top_nav.wrap.width .depth.trd {
 /* aside====================================== */
 
 aside {
+    display: none;
+}
+
+.modalBG {
     display: none;
 }

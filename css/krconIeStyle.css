@@ -163,6 +163,10 @@
         justify-content: flex-start;
     }
 
+    .is-ie header .top_nav.wrap > li:first-child div > li:nth-child(2) > a span {
+        margin-left: -20px;
+    }
+
     .is-ie header .top_nav.wrap > li:first-child div:last-child > li {
         outline: none;
     }
@@ -183,9 +187,9 @@
         display: none;
     }
 
-    .is-ie header .depth.trd {
+    .is-ie header .top_nav.wrap.width .depth.trd {
         position: absolute;
-        top: 0; left: auto; right: -189%;
+        top: 0; left: 100%;
         width: 187%;
         overflow: visible;
     }

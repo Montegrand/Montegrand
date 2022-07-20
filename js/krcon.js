@@ -1,5 +1,11 @@
 window.onload = function () {
 
+    let modal = document.querySelector('.modal a');
+    let modalBG = document.querySelector('.modalBG');
+    modal.addEventListener('click',function(e){
+        modalBG.classList.add('off');
+    })
+
     let line = document.querySelector(`.sec.fst .slider:nth-child(3) > .inner > :nth-child(2)`)
 
     if (window.innerWidth <= 680) {
