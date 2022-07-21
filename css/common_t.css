@@ -3,6 +3,10 @@
     width: 90%;
 }
 
+nav.subNav {
+    display: none;
+}
+
 /* header============================ */
 
 body {
