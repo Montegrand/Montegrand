@@ -4,6 +4,10 @@
 @import url('krconIeStyle.css');
 @import url('common.css');
 
+section {
+    padding: 30px;
+}
+
 section > div.inner > div:first-child {
     display: flex;
     flex-direction: column;
