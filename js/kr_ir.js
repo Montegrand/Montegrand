@@ -103,7 +103,6 @@ window.onload = function () {
             stock[2].innerHTML = `(${stock[2].innerHTML})`
             outPut[0].innerHTML += item.clpr;
             outPut[1].innerHTML += item.vs;
-            console.log(item.fltRt)
             outPut[2].innerHTML += Number(item.fltRt) + '%';
             outPut[3].innerHTML += item.mkp;
             outPut[4].innerHTML += item.hipr;

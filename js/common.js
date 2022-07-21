@@ -220,11 +220,7 @@ if (subN) {
         })
     })
     toTop.addEventListener('click', function () {
-        window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo(0, 'smooth');
     })
     var subA = document.querySelectorAll(`nav a`);
 
