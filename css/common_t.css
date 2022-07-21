@@ -13,6 +13,8 @@ body {
     overflow-x: hidden;
 }
 
+
+
 header .top_nav.wrap  {
     width: 70vw; height: 100vh;
     background: #0972CD;
@@ -20,7 +22,7 @@ header .top_nav.wrap  {
     flex-direction: column;
     align-items: flex-start;
     right: 0;
-    transform: translateX(100%);
+    transform: translateX(105%);
     transition: 500ms;
     overflow: hidden;
     justify-content: flex-end;

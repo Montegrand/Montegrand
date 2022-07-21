@@ -385,7 +385,6 @@ window.onload = function () {
                         message += '\n'
                         input.focus();
                         consW.scrollBy(0, consW.scrollHeight)
-                        console.log(message)
                     } else if (depth === 5) {
                         if (input.value == 1) {
                             const sendEmail = () => {
@@ -395,11 +394,8 @@ window.onload = function () {
                                     email: userE,
                                     message: message,
                                 }
-                                console.log(templateParams);
                                 emailjs.send('service_97uazly', 'template_hhwttqm', templateParams).then(function (response) {
-                                    console.log('Success!', response.status, response.text);
                                 }, function (error) {
-                                    console.log('Failed...', error);
                                 })
                             }
                             sendEmail();
@@ -417,7 +413,6 @@ window.onload = function () {
                                 inputText += v;
                             })
                             run();
-                            console.log(depth);
                             depth++
                         } else {
                             let msgArr = message.split('\n')

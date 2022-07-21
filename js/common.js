@@ -148,6 +148,20 @@ document.addEventListener('click', function (e) {
     }
 })
 
+if (window.innerWidth<1280) {
+    window.addEventListener('scroll',function(e){
+        console.log(this.window.scrollY)
+        console.log(document.querySelector('body > div').offsetHeight)
+        if(this.window.scrollY+80>document.querySelector('body > div').offsetHeight){
+            header.style.position = 'fixed';
+            header.style.width = '100%';
+        } else {
+            header.style.position = 'sticky';
+            header.style.width = '100%';
+        }
+    })
+}
+
 // subNav--------------------------------------------------------------
 
 let subBot = document.querySelector('nav.subNav .subBot');
