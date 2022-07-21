@@ -66,6 +66,10 @@
     left: -15px
 }
 
+.sec.fourth .stock > a span {
+    white-space: nowrap;
+}
+
 /* section5============================== */
 
 .sec.fifth {

@@ -86,6 +86,10 @@ window.onload = function () {
         };
     };
 
+    if(window.innerWidth<768){
+        document.querySelector('.stock a span').innerHTML = '실적<br>요약<br>바로가기';
+    }
+
     var datat = new DataT()
     datat.newData(
         "건축",
