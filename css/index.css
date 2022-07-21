@@ -494,14 +494,6 @@ body > .line::before {
     margin-bottom: 0;
 }
 
-.contents > .box.snd.load .pagePhoto span {
-    position: absolute;
-    bottom: 0; right: 0;
-    padding: 6px 12px;
-    background-color: #0972CD33;
-    transition: 0.5s;
-}
-
 .contents > .box.snd.load h3 {
     font-size: 2rem;
     margin-bottom: 30px;
